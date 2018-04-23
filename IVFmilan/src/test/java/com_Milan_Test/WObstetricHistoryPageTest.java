@@ -56,15 +56,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		boolean flag1=OHP.BirthWeightEnabled();
 		Assert.assertTrue(flag1);
 	}
-	@Test(priority=10)
-	public void ObstetricHistoryPageTest() throws InterruptedException 
-	{
-		 OHP.SaveOutcometypes();
-		int Actual= OHP.SaveOutcometypes();
-		int Expectted = 5;
-		
-		Assert.assertEquals(Actual, Expectted, "doesn't match with actual value.");
-	}
+	
 	@Test(priority=4)
 	public void ValueInAbortiontionTest() 
 	{
@@ -147,6 +139,30 @@ public class WObstetricHistoryPageTest extends TestBase
 	{
 	boolean flag=OHP.CongenitalAnamolyEnableCondition();
 			Assert.assertTrue(flag);
+	}
+	@Test(priority=15)	
+	public void LiveBirthPretermconditionTest()
+	{
+	String Actual=OHP.LiveBirthPretermcondition();
+	String Expected = "Preterm";
+			Assert.assertEquals(Actual, Expected);
+	}
+	@Test(priority=16)
+	public void LiveBirthFullTermconditionTest()
+	{
+		
+	String Actual =OHP.LiveBirthFullTermcondition();
+	String Expected ="Full Term";
+	Assert.assertEquals(Actual, Expected);
+		
+	}
+	@Test(priority=17)
+	public void LiveBirthAbovePostTermconditionTest()
+	{
+	String Actual =OHP.LiveBirthAbovePostTermcondition();
+	String Expected ="Post Term";
+	Assert.assertEquals(Actual, Expected);
+		
 	}
 	
 	

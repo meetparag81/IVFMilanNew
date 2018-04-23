@@ -320,10 +320,44 @@ public class ObstetricHistoryPage extends TestBase
 	}
 	public String LiveBirthPretermcondition() 
 	{
+		Select Deliveryvalue1 = new Select(Delivery);
+		TestUtil.VisibleOn(driver, outcome, 30);
+		Select Outcomelist = new Select(outcome);
+		Outcomelist.selectByVisibleText("Livebirth");
+		Select GestationPre = new Select(Gestation);
+		GestationPre.selectByVisibleText("35");
+		WebElement deliveryoption= Deliveryvalue1.getFirstSelectedOption();
+		String Deliveryvalue= deliveryoption.getText();
 		
+		return Deliveryvalue;
 		
+	}
+	public String LiveBirthFullTermcondition() 
+	{
+		Select Deliveryvalue1 = new Select(Delivery);
+		TestUtil.VisibleOn(driver, outcome, 30);
+		Select Outcomelist = new Select(outcome);
+		Outcomelist.selectByVisibleText("Livebirth");
+		Select Gestationfull = new Select(Gestation);
+		Gestationfull.selectByVisibleText("42");
+		WebElement deliveryoption= Deliveryvalue1.getFirstSelectedOption();
+		String Deliveryvalue= deliveryoption.getText();
 		
-		return null;
+		return Deliveryvalue;
+		
+	}
+	public String LiveBirthAbovePostTermcondition() 
+	{
+		Select Deliveryvalue1 = new Select(Delivery);
+		TestUtil.VisibleOn(driver, outcome, 30);
+		Select Outcomelist = new Select(outcome);
+		Outcomelist.selectByVisibleText("Livebirth");
+		Select Gestationpost = new Select(Gestation);
+		Gestationpost.selectByVisibleText(">42");
+		WebElement deliveryoption= Deliveryvalue1.getFirstSelectedOption();
+		String Deliveryvalue= deliveryoption.getText();
+		
+		return Deliveryvalue;
 		
 	}
 	
