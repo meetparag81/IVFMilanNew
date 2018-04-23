@@ -37,27 +37,29 @@ public class WObstetricHistoryPageTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		//EMRPage=HomePage.SearchusingCalender();
-		EMRPage= HomePage.ClickonEMR();
+		EMRPage=HomePage.SearchusingCalender();
+		//EMRPage= HomePage.ClickonEMR();
 		WHP= EMRPage.clickOnWomenField();
 		OHP= WHP.ClickonObstetricHistory(); 
+		//EMRPage= HomePage.searchPaient();
+		
 	}
 		
-	@Test(priority=1)
+	@Test(priority=1,enabled= false)
 	public void BirthWeightValueTextTest()
 	{
 		double Actual=OHP.BirthWeightText();
 		double Expected = 1.234;
 		Assert.assertEquals(Actual, Expected, Actual);
 	}
-	@Test(priority=2)
+	@Test(priority=2,enabled= false)
 	public void BirthWeightEnableConditionTest()
 	{
 		boolean flag1=OHP.BirthWeightEnabled();
 		Assert.assertTrue(flag1);
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4,enabled= false)
 	public void ValueInAbortiontionTest() 
 	{
 	
@@ -73,7 +75,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		String Expected = "1";
 		Assert.assertEquals(Actual, Expected);
 	}
-	
+	@Test(priority=6,enabled= false)
 	public void ValueInEctopicTest() 
 	{
 	
@@ -82,72 +84,72 @@ public class WObstetricHistoryPageTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 	}
 	
-	@Test(priority=6,enabled=false)
+	@Test(priority=7,enabled=false)
 	public void DeliveryTypeEnableconditionTest() 
 	{
 		boolean flag= OHP.DileveryTypeEnabledcondition();
 		Assert.assertTrue(flag);
 		
 	}
-	@Test(priority=7)	
+	@Test(priority=8,enabled= false)	
 	public void LiveBirthEnableTest()
 	{
 	boolean flag=OHP.LivebirthEnableConditition();
 	Assert.assertFalse(flag);
 	}
-	@Test(priority=8)	
+	@Test(priority=9,enabled= false)	
 	public void RowGridEnableTest()
 	{
 	boolean flag=OHP.RowGridEnableConditition();
 	Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=9)	
+	@Test(priority=10,enabled= false)	
 	public void StillBornEnableTest()
 	{
 	boolean flag=OHP.StillbornGridEnableConditition();
 			Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=10)	
+	@Test(priority=10,enabled= false)	
 	public void EctopiccEnableCondititionTest()
 	{
 	boolean flag=OHP.EctopiccEnableConditition();
 			Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=11)	
+	@Test(priority=11,enabled= false)	
 	public void AbortionEnableCondititionTest()
 	{
 	boolean flag=OHP.AbortionEnableConditition();
 			Assert.assertFalse(flag);
 	}
-	@Test(priority=12)	
+	@Test(priority=12,enabled= false)	
 	public void DeliveryEnableCondititionTest()
 	{
 	boolean flag=OHP.DeliveroptionEnableConditition();
 			Assert.assertTrue(flag);
 	}
-	@Test(priority=13)	
+	@Test(priority=13,enabled= false)	
 	public void ComplicationsEnableCondititionTest()
 	{
 	boolean flag=OHP.ComplicationsEnableConditition();
 			Assert.assertTrue(flag);
 	}
-	@Test(priority=14)	
+	@Test(priority=14,enabled= false)	
 	public void CongenitalAnamolyEnableCondititionTest()
 	{
 	boolean flag=OHP.CongenitalAnamolyEnableCondition();
 			Assert.assertTrue(flag);
 	}
-	@Test(priority=15)	
+	@Test(priority=15,enabled= false)	
 	public void LiveBirthPretermconditionTest()
 	{
 	String Actual=OHP.LiveBirthPretermcondition();
 	String Expected = "Preterm";
 			Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=16)
+	@Test(priority=16,enabled= false)
 	public void LiveBirthFullTermconditionTest()
 	{
 		
@@ -156,13 +158,19 @@ public class WObstetricHistoryPageTest extends TestBase
 	Assert.assertEquals(Actual, Expected);
 		
 	}
-	@Test(priority=17)
+	@Test(priority=17,enabled= false)
 	public void LiveBirthAbovePostTermconditionTest()
 	{
 	String Actual =OHP.LiveBirthAbovePostTermcondition();
 	String Expected ="Post Term";
 	Assert.assertEquals(Actual, Expected);
 		
+	}
+	@Test(priority=18,enabled= false)
+	public void SaveOutcometypesTest() throws InterruptedException
+	{
+	int numberofRows=OHP.SaveOutcometypes();
+	int ExpectedRows= 5;
 	}
 	
 	
