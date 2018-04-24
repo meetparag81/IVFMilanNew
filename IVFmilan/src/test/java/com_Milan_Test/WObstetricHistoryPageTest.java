@@ -37,29 +37,29 @@ public class WObstetricHistoryPageTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		EMRPage=HomePage.SearchusingCalender();
+		//EMRPage=HomePage.SearchusingCalender();
 		EMRPage= HomePage.ClickonEMR();
 		WHP= EMRPage.clickOnWomenField();
 		OHP= WHP.ClickonObstetricHistory(); 
-		EMRPage= HomePage.searchPaient();
+		//EMRPage= HomePage.searchPaient();
 		
 	}
 		
-	@Test(priority=1,enabled= false)
+	@Test(priority=1)
 	public void BirthWeightValueTextTest()
 	{
 		double Actual=OHP.BirthWeightText();
 		double Expected = 1.234;
 		Assert.assertEquals(Actual, Expected, Actual);
 	}
-	@Test(priority=2,enabled= false)
+	@Test(priority=2)
 	public void BirthWeightEnableConditionTest()
 	{
 		boolean flag1=OHP.BirthWeightEnabled();
 		Assert.assertTrue(flag1);
 	}
 	
-	@Test(priority=4,enabled= false)
+	@Test(priority=4)
 	public void ValueInAbortiontionTest() 
 	{
 	
@@ -75,7 +75,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		String Expected = "1";
 		Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=6,enabled= false)
+	@Test(priority=6)
 	public void ValueInEctopicTest() 
 	{
 	
@@ -84,72 +84,72 @@ public class WObstetricHistoryPageTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 	}
 	
-	@Test(priority=7,enabled=false)
+	@Test(priority=7)
 	public void DeliveryTypeEnableconditionTest() 
 	{
 		boolean flag= OHP.DileveryTypeEnabledcondition();
 		Assert.assertTrue(flag);
 		
 	}
-	@Test(priority=8,enabled= false)	
+	@Test(priority=8)	
 	public void LiveBirthEnableTest()
 	{
 	boolean flag=OHP.LivebirthEnableConditition();
 	Assert.assertFalse(flag);
 	}
-	@Test(priority=9,enabled= false)	
+	@Test(priority=9)	
 	public void RowGridEnableTest()
 	{
 	boolean flag=OHP.RowGridEnableConditition();
 	Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=10,enabled= false)	
+	@Test(priority=10)	
 	public void StillBornEnableTest()
 	{
 	boolean flag=OHP.StillbornGridEnableConditition();
 			Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=10,enabled= false)	
+	@Test(priority=11)	
 	public void EctopiccEnableCondititionTest()
 	{
 	boolean flag=OHP.EctopiccEnableConditition();
 			Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=11,enabled= false)	
+	@Test(priority=12)	
 	public void AbortionEnableCondititionTest()
 	{
 	boolean flag=OHP.AbortionEnableConditition();
 			Assert.assertFalse(flag);
 	}
-	@Test(priority=12,enabled= false)	
+	@Test(priority=13)	
 	public void DeliveryEnableCondititionTest()
 	{
 	boolean flag=OHP.DeliveroptionEnableConditition();
 			Assert.assertTrue(flag);
 	}
-	@Test(priority=13,enabled= false)	
+	@Test(priority=13)	
 	public void ComplicationsEnableCondititionTest()
 	{
 	boolean flag=OHP.ComplicationsEnableConditition();
 			Assert.assertTrue(flag);
 	}
-	@Test(priority=14,enabled= false)	
+	@Test(priority=14)	
 	public void CongenitalAnamolyEnableCondititionTest()
 	{
 	boolean flag=OHP.CongenitalAnamolyEnableCondition();
 			Assert.assertTrue(flag);
 	}
-	@Test(priority=15,enabled= false)	
+	@Test(priority=15)	
 	public void LiveBirthPretermconditionTest()
 	{
 	String Actual=OHP.LiveBirthPretermcondition();
 	String Expected = "Preterm";
 			Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=16,enabled= false)
+	@Test(priority=16)
 	public void LiveBirthFullTermconditionTest()
 	{
 		
@@ -158,7 +158,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	Assert.assertEquals(Actual, Expected);
 		
 	}
-	@Test(priority=17,enabled= false)
+	@Test(priority=17)
 	public void LiveBirthAbovePostTermconditionTest()
 	{
 	String Actual =OHP.LiveBirthAbovePostTermcondition();
@@ -166,7 +166,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	Assert.assertEquals(Actual, Expected);
 		
 	}
-	@Test(priority=18,enabled= false)
+	@Test(priority=18)
 	public void SaveOutcometypesTest() throws InterruptedException
 	{
 	int numberofRows=OHP.SaveOutcometypes();

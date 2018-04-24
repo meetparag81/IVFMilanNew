@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WObstetricHistoryPageTest">
+      <class name="com_Milan_Test.PastMedicationHistoryTest">
         <methods>
-          <include name="ObstetricHistoryPageTest"/>
-          <include name="Setup"/>
           <include name="Teardown"/>
+          <include name="DrugNameTest"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
+      </class> <!-- com_Milan_Test.PastMedicationHistoryTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

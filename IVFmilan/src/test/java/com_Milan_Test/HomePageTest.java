@@ -39,8 +39,26 @@ public class HomePageTest extends TestBase
 		String Actual= HomePage.EMRPageTitle();
 		String Expected = "EMR Dashboard";
 		Assert.assertEquals(Actual, Expected);
-			
+		
 	}
+@ Test(priority=2)
+
+public void SearchPatientUsingCalenderTest() throws Exception 
+{
+	HomePage.SearchusingCalender();
+	String Actual=	HomePage.Dahboardtitle();
+	String Expectted = "EMR Dashboard";
+	Assert.assertEquals(Actual, Expectted);	
+}
+@Test(priority=3)
+private void SearchPatientUsingPatientTabTest() throws Exception 
+{
+	HomePage.searchPaient();
+	String Actual=	HomePage.Dahboardtitle();
+	String Expectted = "EMR Dashboard";
+	
+}
+
 @AfterMethod
 public void teardown()
 {

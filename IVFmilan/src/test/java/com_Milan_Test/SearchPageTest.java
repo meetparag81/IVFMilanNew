@@ -54,7 +54,7 @@ public class SearchPageTest extends TestBase
 			Assert.assertEquals(Actual, Expectted);
 		}
 		
-		@Test(priority=3)
+		@Test(priority=3,enabled= false)
 		private void SearchPatientUsingPatientTabTest() throws Exception 
 		{
 			HomePage.searchPaient();

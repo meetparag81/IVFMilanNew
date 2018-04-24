@@ -17,9 +17,9 @@ import com_milan_POM.EMRDashBoardPage;
 public class HomePage extends TestBase
 {
 	@FindBy(id= "patientBtn")
-	private static WebElement Patient;
+	private  WebElement Patient;
 	@FindBy(xpath="//*[@id='txtfullName']")
-	private static WebElement Searchbox1;
+	private  WebElement Searchbox1;
 	@FindBy (xpath="//ul[@class='dropdown-menu ng-isolate-scope crx_mouse_visited']")WebElement Searchbox;
 	@FindBy(xpath="//h5[text()='Prescription']")WebElement title;
 	@FindBy(xpath="//span[text()='EMR Dashboard']")WebElement EMRTitle;
@@ -96,11 +96,11 @@ public class HomePage extends TestBase
 					//System.out.println(name1+ i+ j);
 					
 											
-						Thread.sleep(4000);						
-						if(name1.contains("Mr.Dinesh Kumar"))
+						Thread.sleep(3000);						
+						if(name1.contains("Ms.Suchetha B S"))
 							
 						{
-							Thread.sleep(4000);
+							Thread.sleep(3000);
 							driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ j +"]/td[1]/a[2]")).click();
 							//System.out.println("click on EMR ");
 							i=122;
@@ -194,6 +194,7 @@ public class HomePage extends TestBase
 public EMRDashBoardPage SearchusingCalender() throws Exception
 	{
 	WebElement Calender = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
+	TestUtil.VisibleOn(driver, Calender, 30);
 			Calender.click();
 		List<WebElement>dates=wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
 		

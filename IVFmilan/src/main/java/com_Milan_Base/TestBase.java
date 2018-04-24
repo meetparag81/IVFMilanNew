@@ -51,7 +51,7 @@ public class TestBase
 			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Paragdata30032018\\Parag\\Selenium\\Selenium Setup\\chrome exe for 65\\chromedriver.exe");
 			driver = new ChromeDriver();
 		 }
-		//driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(prop.getProperty("url"));
 		

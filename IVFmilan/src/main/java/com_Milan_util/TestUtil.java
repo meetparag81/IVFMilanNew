@@ -1,5 +1,7 @@
 package com_Milan_util;
 
+import java.util.List;
+
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +24,11 @@ public class TestUtil extends TestBase
 	public static void  VisibleOn(WebDriver driver,WebElement element,int timeout)
 	{
 		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	public static void  VisibleElementsOn(WebDriver driver,List<WebElement> element,int timeout)
+	{
+		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOfAllElements(element));
 	}
 	
 }
