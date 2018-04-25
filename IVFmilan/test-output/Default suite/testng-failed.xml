@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.PastMedicationHistoryTest">
+      <class name="com_Milan_Test.WPastMedicationHistoryTest">
         <methods>
+          <include name="DrugNameFieldEnablecondition"/>
           <include name="Teardown"/>
           <include name="DrugNameTest"/>
           <include name="Setup"/>
         </methods>
-      </class> <!-- com_Milan_Test.PastMedicationHistoryTest -->
+      </class> <!-- com_Milan_Test.WPastMedicationHistoryTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -15,7 +17,7 @@ import com_milan_POM.pastMedicationHistoryPage;
 import com_milan_POM.EMRDashBoardPage;
 import com_milan_POM.HomePage;
 
-public class PastMedicationHistoryTest extends TestBase
+public class WPastMedicationHistoryTest extends TestBase
 {
 	Loginpage Loginpage;
 	HomePage HomePage;
@@ -24,10 +26,9 @@ public class PastMedicationHistoryTest extends TestBase
 	pastMedicationHistoryPage PMHP;
 	
 	
-	PastMedicationHistoryTest()
+	WPastMedicationHistoryTest()
 	{
-		super();
-	}
+		super();	}
 	@BeforeMethod
 	public void Setup() throws Exception
 	{
@@ -42,19 +43,21 @@ public class PastMedicationHistoryTest extends TestBase
 	}
 	
 	@Test(priority=1)
-	public void DrugNameTest()
+	public void DrugNameTest() throws InterruptedException
 	{
 		//PMHP.DrugName();
 		String Actual = PMHP.DrugName();
 		String Expected = "ADAPALENE";
 		Assert.assertEquals(Actual, Expected, "Stringdoen't matched");
+		System.out.println("testcase DrugNameTest is completed");
 		}
 	@Test(priority=2)
-	public void DrugNameFieldEnablecondition()
+	public void DrugNameFieldEnableconditionTest() throws InterruptedException
 	{
 		PMHP.DrugName();
 		boolean flag = PMHP.DrugNameFieldEnablecondition();
 		Assert.assertFalse(flag);
+		System.out.println("DrugNameFieldEnableconditionTest is completed");
 	}
 	@AfterMethod
 	public void Teardown()

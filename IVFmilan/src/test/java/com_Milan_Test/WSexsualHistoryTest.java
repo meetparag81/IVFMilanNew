@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -59,21 +61,21 @@ public class WSexsualHistoryTest extends TestBase
 		{
 			int Actual= SHP.relationshipyears();
 			int Expected = 26;
-			Assert.assertEquals(Actual, Expected, "years are not matching");
+			AssertJUnit.assertEquals(Expected, Actual);
 			System.out.println("InrelationshipsinceYearsTest is passed");			
 		}
 		@Test(priority=2,enabled = false)
 		public void testRelationtlists() throws Exception
 		{
 			boolean flag1 = SHP.validateRelstionship();
-			Assert.assertTrue(flag1);
+			AssertJUnit.assertTrue(flag1);
 		}
 		@Test(priority=3, enabled=false)
 		public void textboxSexualDysfunctionTest() throws Exception
 		{
 			boolean flag= SHP.textboxSexualDysfunction();
 		
-			Assert.assertTrue(flag);
+			AssertJUnit.assertTrue(flag);
 		}
 		@Test(priority=4,enabled = false)
 		public void FillSexsuslHistorytest() throws Exception 
@@ -82,7 +84,7 @@ public class WSexsualHistoryTest extends TestBase
 		SHP.formfilling();
 		String Actual = SHP.SexsualHistoryTitle();
 		String Expected = "History";
-		Assert.assertEquals(Actual, Expected);
+		AssertJUnit.assertEquals(Actual, Expected);
 		
 		}
 		@Test(priority=5,enabled = false)
@@ -98,21 +100,21 @@ public class WSexsualHistoryTest extends TestBase
 		{
 		 String Actual = SHP.SexualDysfunctioncharacters();	
 		 String Expected = "246";
-		 Assert.assertEquals(Actual, Expected);
+		 AssertJUnit.assertEquals(Actual, Expected);
 		}
 		
 		@Test(priority=7,enabled = false)
 		public void DyspareuniatextTest() throws Exception 
 		{
 		 boolean Actual = SHP.DyspareuniaText();	
-		 Assert.assertTrue(Actual);
+		 AssertJUnit.assertTrue(Actual);
 		}
 		
 		@Test(priority=8,enabled = false)
 		public void Lubricationusedtext() throws Exception 
 		{
 		 boolean Actual = SHP.Lubricationusedtext();	
-		 Assert.assertTrue(Actual);
+		 AssertJUnit.assertTrue(Actual);
 		}
 		
 		@Test(priority=9)

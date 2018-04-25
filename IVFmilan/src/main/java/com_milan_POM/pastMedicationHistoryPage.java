@@ -61,28 +61,31 @@ public class pastMedicationHistoryPage extends TestBase
 		return false;
 		
 	}
-	public String DrugName()
+	public String DrugName() throws InterruptedException
 	{	
 		TestUtil.VisibleOn(driver, GenericName,30);
 		GenericName.click();
 		TestUtil.VisibleOn(driver, InputsearchboxGeneric, 60);
 		System.out.println("searchbox is displayed"+ InputsearchboxGeneric.isDisplayed());
 		InputsearchboxGeneric.sendKeys("ADA");
+		Thread.sleep(1000);
 		InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);
 		InputsearchboxGeneric.sendKeys("A");
 		//TestUtil.VisibleOn(driver, Searchbox, 50);
 				
-				List<WebElement>searchbox1= driver.findElements(By.xpath("//ul[@role='listbox'][@class='dropdown-menu ng-isolate-scope']//a"));
-				TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("(//ul[@role='listbox'])[3][@id='typeahead-709-2925']//a")),20);
+				List<WebElement>searchbox1= driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a"));
+				TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a")),20);
 		for(int i=0;i<=searchbox1.size();i++)
 		{
 			if(searchbox1.get(i).getText().contains("ADAPALENE"))
 			{
-			TestUtil.VisibleElementsOn(driver, searchbox1, 50);
+			TestUtil.VisibleElementsOn(driver, searchbox1, 20);
 			searchbox1.get(i).click();
 			break;
 			}		
 		}
+		Thread.sleep(2000);
+		String Name= DrugName.getAttribute("value");
 		Select TimePeriod1= new Select(TimePeriod);
 		TimePeriod1.selectByVisibleText("Days");
 		
@@ -93,7 +96,7 @@ public class pastMedicationHistoryPage extends TestBase
 		/*String value =  (String)((JavascriptExecutor) driver).executeAsyncScript("return document.getElementById('pastMedicationHistory').value");
 		System.out.println(value);*/
 		
-		String Name= DrugName.getAttribute("value");		
+				
 		
 		
 		return Name;

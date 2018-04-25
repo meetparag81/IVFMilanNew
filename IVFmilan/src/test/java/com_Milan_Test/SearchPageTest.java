@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -43,7 +45,7 @@ public class SearchPageTest extends TestBase
 			HomePage.SearchusingCalender();
 			String Actual=	SearchPage.Dahboardtitle();
 			String Expectted = "EMR Dashboard";
-			Assert.assertEquals(Actual, Expectted);
+			AssertJUnit.assertEquals(Actual, Expectted);
 		}
 		@Test(priority=2)
 		public void PatientDashboardTitle() throws Exception
@@ -51,7 +53,7 @@ public class SearchPageTest extends TestBase
 			EMRPage=SearchPage.searchPaient();
 			String Actual=	SearchPage.Dahboardtitle();
 			String Expectted = "EMR Dashboard";
-			Assert.assertEquals(Actual, Expectted);
+			AssertJUnit.assertEquals(Actual, Expectted);
 		}
 		
 		@Test(priority=3,enabled= false)

@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -47,7 +49,7 @@ public class LoginPageTest extends TestBase
 		{
 			String Title = "Palash IVF - Login";		
 			String Actual = Loginpage.Homepagetitle();
-			Assert.assertEquals(Title, Actual);					
+			AssertJUnit.assertEquals(Title, Actual);					
 		}		
 
 			

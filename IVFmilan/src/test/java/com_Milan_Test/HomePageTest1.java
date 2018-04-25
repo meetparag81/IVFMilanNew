@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -42,7 +44,7 @@ public class HomePageTest1 extends TestBase
 		 
 		String Actual = HomePage.EMRPageTitle();
 		String Expected = "EMR Dashboard";
-		Assert.assertEquals(Actual, Expected);
+		AssertJUnit.assertEquals(Actual, Expected);
 		return EMRPage;
 		
 		

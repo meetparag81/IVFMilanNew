@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
@@ -47,7 +49,7 @@ public class WMenstrualHistoryTest extends TestBase
 	{
 		String Actual= MHP.AgeOfMenarcheFirst();
 		String Expected= "8";
-		Assert.assertEquals(Actual, Expected, "First range value is incorrect");
+		AssertJUnit.assertEquals(Actual, Expected, "First range value is incorrect");
 		System.out.println("AgeOfMenarcheFirst completed");
 				
 	}
@@ -58,7 +60,7 @@ public class WMenstrualHistoryTest extends TestBase
 		
 		String Actual= MHP.AgeOfMenarcheLast();
 		String Expected= "18";
-		Assert.assertEquals(Actual, Expected, "Last range value is incorrect");
+		AssertJUnit.assertEquals(Actual, Expected, "Last range value is incorrect");
 		System.out.println("MenarcheRangeEndTest completed");
 	}
 	@Test(priority=3,enabled=false)
@@ -66,7 +68,7 @@ public class WMenstrualHistoryTest extends TestBase
 	{
 		boolean flag1=MHP.DatePicker();
 		
-		Assert.assertEquals(false, flag1);
+		AssertJUnit.assertEquals(false, flag1);
 		System.out.println("LMPcalenderdateSelectionTest completed");
 	}
 	
@@ -76,7 +78,7 @@ public class WMenstrualHistoryTest extends TestBase
 	{
 		boolean flag2=MHP.AmenorrheaType();
 		
-		Assert.assertEquals(false, flag2);
+		AssertJUnit.assertEquals(false, flag2);
 		System.out.println("AmenorrheaTypeTest completed");
 	}
 	@Test(priority=6)
@@ -90,7 +92,7 @@ public class WMenstrualHistoryTest extends TestBase
 	{
 		String Actual = MHP.GetCycleDurationvalue();
 		String Expected= "20";
-		Assert.assertEquals(Actual, Expected);
+		AssertJUnit.assertEquals(Actual, Expected);
 		System.out.println("CycleDurationTest completed");
 	}
 	@Test(priority=7)
@@ -98,7 +100,7 @@ public class WMenstrualHistoryTest extends TestBase
 	{
 		String Actual = MHP.GetMenstruationvalue();
 		String  Expected= "10";
-		Assert.assertEquals(Actual, Expected);
+		AssertJUnit.assertEquals(Actual, Expected);
 		System.out.println("CycleDurationTest completed");
 	}
 	

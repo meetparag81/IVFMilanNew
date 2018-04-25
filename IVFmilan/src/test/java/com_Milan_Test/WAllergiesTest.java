@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -51,7 +53,7 @@ public class WAllergiesTest extends TestBase
 	{
 		
 		boolean flag= Allergies.foodvalidation();
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 		System.out.println("Alergy textbox is enabled");
 	}
 	@Test(priority=2,enabled=false)
@@ -76,7 +78,7 @@ public void OptionSelectedOnAllergyCurrentStstusTest() throws Exception
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();
 	String Expected = "Present";
-	Assert.assertEquals(Actual, Expected);
+	AssertJUnit.assertEquals(Actual, Expected);
 }
 @Test(priority=5)
 public void DrugAllergyType()

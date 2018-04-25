@@ -97,7 +97,7 @@ public class HomePage extends TestBase
 					
 											
 						Thread.sleep(3000);						
-						if(name1.contains("Ms.Suchetha B S"))
+						if(name1.contains("Ms.Sudha"))
 							
 						{
 							Thread.sleep(3000);

@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -38,7 +40,7 @@ public class HomePageTest extends TestBase
 		System.out.println("clicked on EMR");
 		String Actual= HomePage.EMRPageTitle();
 		String Expected = "EMR Dashboard";
-		Assert.assertEquals(Actual, Expected);
+		AssertJUnit.assertEquals(Actual, Expected);
 		
 	}
 @ Test(priority=2)
@@ -48,7 +50,7 @@ public void SearchPatientUsingCalenderTest() throws Exception
 	HomePage.SearchusingCalender();
 	String Actual=	HomePage.Dahboardtitle();
 	String Expectted = "EMR Dashboard";
-	Assert.assertEquals(Actual, Expectted);	
+	AssertJUnit.assertEquals(Actual, Expectted);	
 }
 @Test(priority=3)
 private void SearchPatientUsingPatientTabTest() throws Exception 
