@@ -72,7 +72,7 @@ public class EMRDashBoardPageTest extends TestBase
 	public void OptionSelectedOnAllergyformTest() throws Exception
 	{
 		EMRPage= HomePage.ClickonEMR();		
-		Allergies.NumberofAllergies();
+		Allergies.AllergiesNameonDashboard();
 	}
 	
 	

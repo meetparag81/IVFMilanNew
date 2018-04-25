@@ -48,7 +48,7 @@ public class WAllergiesTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		Allergies= WHP.ClickOnAllergies();	
 	}
-	@Test(priority=1)
+	@Test(priority=2,enabled= false)
 	public void FoodAllergyvalidationTest()
 	{
 		
@@ -56,35 +56,28 @@ public class WAllergiesTest extends TestBase
 		AssertJUnit.assertTrue(flag);
 		System.out.println("Alergy textbox is enabled");
 	}
-	@Test(priority=2,enabled=false)
-	public void AddNewAllergiesTest() throws Exception
+	@Test(priority=1)
+	public void AddNewAllergiesTest() throws InterruptedException
 	{
-		Allergies.AddnewAllergies();
-	}
-	@Test(priority=3,enabled=false)
-	public void FormFillCheck() throws Exception
-	{
-		EMRPage= HomePage.ClickonEMR();		
-		Allergies.NumberofAllergies();
-		String Actial= Allergies.NumberofAllergies();
+		String Actial= Allergies.AllergiesNameonDashboard();
 		String Expected= ",17 BETAESTRADIOL,foodAllergy,SkinAllergy,smokeAllergy";
 	}
+		
 
-
-	
-
-@Test(priority=4)
+@Test(priority=3,enabled= false)
 public void OptionSelectedOnAllergyCurrentStstusTest() throws Exception
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();
 	String Expected = "Present";
 	AssertJUnit.assertEquals(Actual, Expected);
 }
-@Test(priority=5)
-public void DrugAllergyType()
+@Test(priority=4)
+public void ExistingPatientDrugAllergyTypeTest() throws Exception
 {
-	String Actual = Allergies.DrugAllergyType();
+	EMRPage= HomePage.SearchusingCalender();	
+	String Actual = Allergies.AllergiesNameonDashboard();
 			String Expected="17 BETAESTRADIOL";
+			System.out.println();
 }
 	
 	

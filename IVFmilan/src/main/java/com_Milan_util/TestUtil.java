@@ -53,7 +53,7 @@ public class TestUtil extends TestBase implements ITestListener
 		TakesScreenshot ts=(TakesScreenshot)driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 		try {
-			FileUtils.copyFile(source, new File("./Screenshorts"+ screenshotname +".png"));
+			FileUtils.copyFile(source, new File("./Screenshorts"+ System.currentTimeMillis() +".png"));
 		} catch (IOException e) 
 		{
 			System.out.println("Exception are" + e.getMessage());
@@ -62,6 +62,8 @@ public class TestUtil extends TestBase implements ITestListener
 				
 			
 		}
+	
+	
 			
 	
 	
@@ -108,6 +110,11 @@ public class TestUtil extends TestBase implements ITestListener
 	@Override
 	public void onFinish(ITestContext context) {
 		// TODO Auto-generated method stub
+		
+	}
+	public static void VisibleElementsOn(WebDriver driver, WebElement noofAllergies, int timeout) 
+	{
+
 		
 	}
 	

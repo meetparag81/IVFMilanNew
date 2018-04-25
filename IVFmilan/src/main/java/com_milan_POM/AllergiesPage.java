@@ -20,6 +20,7 @@ public class AllergiesPage extends TestBase
 	@FindBy(xpath="(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[2]")WebElement DrugAllergyType;
 	@FindBy(xpath="//div[@id='allergies']/div/div[2]/div/table/tbody/tr[2]/td[3]/div[2]/input")WebElement FoodAllergy;
 	@FindBy(xpath="(//th[text()='Current Status']//following::select)[3]")WebElement Currentstatus;
+	@FindBy(xpath="//span[text()='History']//following::span[@class='ng-binding']")WebElement NoofAllergies;
 	@FindBy(xpath="//button[@id='btnSaveUpdateHistory']")WebElement Save;
 	
 	
@@ -40,10 +41,11 @@ public class AllergiesPage extends TestBase
 		return true;
 	}
 
-	public String NumberofAllergies() 
+	public String AllergiesNameonDashboard() 
 	{
-		return null;
-		// TODO Auto-generated method stub
+		TestUtil.VisibleElementsOn(driver, NoofAllergies, 20);
+		String Allergies= NoofAllergies.getAttribute("value");
+		return Allergies;
 		
 	}
 
@@ -92,7 +94,7 @@ public class AllergiesPage extends TestBase
 					WebElement Allergy = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[2]"));
 					Select Allergy1= new Select(Allergy);
 					Allergy1.selectByIndex(1);
-					WebElement currentstatus = driver.findElement(By.xpath("(//th[text()='Current Status']//following::select[3]"));
+					WebElement currentstatus = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
 					Select status = new Select(currentstatus);
 					status.selectByVisibleText("Present");
 					WebElement SinceM = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
