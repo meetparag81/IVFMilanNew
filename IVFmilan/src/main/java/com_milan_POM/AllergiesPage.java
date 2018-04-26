@@ -43,7 +43,8 @@ public class AllergiesPage extends TestBase
 
 	public String AllergiesNameonDashboard() 
 	{
-		TestUtil.VisibleElementsOn(driver, NoofAllergies, 20);
+		TestUtil.VisibleOn(driver, NoofAllergies, 20);
+		
 		String Allergies= NoofAllergies.getAttribute("value");
 		return Allergies;
 		

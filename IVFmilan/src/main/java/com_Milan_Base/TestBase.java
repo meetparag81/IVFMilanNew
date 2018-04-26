@@ -5,14 +5,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.events.WebDriverEventListener;
+import org.testng.annotations.Listeners;
 
+import com_Milan_util.TestNGListners;
+import com_Milan_util.WebEventListener;
+ 
+@Listeners(com_Milan_util.TestNGListners.class)
 public class TestBase 
 {
 	public static WebDriver driver;
 	public static Properties prop;
+	public static WebDriverEventListener e_driver;
 	
 	public TestBase()
 	{
@@ -21,7 +31,7 @@ public class TestBase
 		try
 		{
 			prop = new Properties();
-			 ip = new FileInputStream("C:\\Parag\\Paragdata30032018\\Parag\\JavaProgramme\\IVFmilan\\src\\main\\java\\com_Milan_config\\config.proerties");
+			 ip = new FileInputStream("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_config\\config.proerties");
 			try {
 				prop.load(ip);
 			} catch (IOException e) {
@@ -51,6 +61,13 @@ public class TestBase
 			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Paragdata30032018\\Parag\\Selenium\\Selenium Setup\\chrome exe for 65\\chromedriver.exe");
 			driver = new ChromeDriver();
 		 }
+		EventFiringWebDriver e_driver = new EventFiringWebDriver(driver);
+		// Now create object of EventListerHandler to register it with EventFiringWebDriver
+			WebDriverEventListener eventListener =  new TestNGListners();
+			e_driver.register(eventListener);
+			driver = e_driver;			
+		e_driver.register(eventListener);
+		driver = e_driver;
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(prop.getProperty("url"));
@@ -61,3 +78,4 @@ public class TestBase
 	
 
 }
+

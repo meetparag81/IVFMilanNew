@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.io.TemporaryFilesystem;
 import org.testng.Assert;

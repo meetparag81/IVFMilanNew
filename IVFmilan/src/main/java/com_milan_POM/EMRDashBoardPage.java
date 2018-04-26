@@ -35,7 +35,7 @@ public class EMRDashBoardPage extends TestBase
 	
 	public  WomenHistoryPage clickOnWomenField() throws InterruptedException
 	{
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//a[@id='menuField_women']")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='menuField_women']")));
 		if(womenfield.isDisplayed())
 		{
 			//System.out.println("womentfield"+ womenfield.isDisplayed());

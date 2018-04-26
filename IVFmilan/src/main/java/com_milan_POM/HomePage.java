@@ -10,9 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
-import com_milan_POM.EMRDashBoardPage;
 
 public class HomePage extends TestBase
 {
@@ -91,13 +91,13 @@ public class HomePage extends TestBase
 				if(j <= 10)
 					{
 					Thread.sleep(4000);
-					WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ j +"]/td[4]"));
+					WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ j +"]/td[4]"));					
 					String name1=rowcount.getText();
 					//System.out.println(name1+ i+ j);
 					
 											
 						Thread.sleep(3000);						
-						if(name1.contains("Ms.Sudha"))
+						if(name1.contains("Mr.Hemanth"))
 							
 						{
 							Thread.sleep(3000);
@@ -115,6 +115,7 @@ public class HomePage extends TestBase
 					else
 						{
 							j=1;
+							
 							JavascriptExecutor jse = (JavascriptExecutor)driver;
 							//jse.executeScript("scroll(0, 250)");
 							WebElement element = driver.findElement(By.xpath("//a[contains (text(), 'Next')]"));
@@ -133,13 +134,14 @@ public class HomePage extends TestBase
 	Paitent = wait.until(ExpectedConditions.visibilityOf(Patient));	
 	Patient1.click();
 	Searchbox1.sendKeys("Parag");
-	Searchbox1.submit();
+	//Searchbox1.submit();
 	Thread.sleep(1000);
-	checkbox.click();
+	//checkbox.click();
 	System.out.println("SearchtestStarted");
-	Searchbox1.sendKeys("parag");
+	Thread.sleep(1000);
 	driver.findElement(By.xpath(("//input[@name = 'txtUsrName']"))).sendKeys(Keys.BACK_SPACE);
-	
+	Thread.sleep(1000);
+	Searchbox1.sendKeys("g");
 	List<WebElement>search= driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 		 
 		 
@@ -162,7 +164,7 @@ public class HomePage extends TestBase
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
 			executor.executeScript("arguments[0].click();", checkbox);
 		 				 	
-		 List<WebElement>visits =driver.findElements(By.xpath("//tbody//input[@type='checkbox']"));
+		 /*List<WebElement>visits =driver.findElements(By.xpath("//tbody//input[@type='checkbox']"));
 		
 			System.out.println("visits Rows are" + visits.size());
 			//input[@id='0']
@@ -176,9 +178,8 @@ public class HomePage extends TestBase
 			}
 				else
 				{
-					System.out.println("no visits found");
-				}
-			System.out.println("Searchtestcompleted");
+					System.out.println("no visits found");*/
+				System.out.println("Searchtestcompleted");
 			return new EMRDashBoardPage();
 		  				
 			
@@ -212,6 +213,7 @@ public EMRDashBoardPage SearchusingCalender() throws Exception
 		}
 		
 		searchpaient.sendKeys("Vidya");
+		TestUtil.ClickOn(driver, Searchbutton, 20);
 		Searchbutton.click();
 		int k=1;
 			while( k <= 10)

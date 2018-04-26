@@ -2,6 +2,8 @@ package com_Milan_util;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
@@ -12,23 +14,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.internal.annotations.IListeners;
-
-import com.google.common.reflect.ImmutableTypeToInstanceMap;
 
 import com_Milan_Base.TestBase;
 
-public class TestUtil extends TestBase implements ITestListener
+public class TestUtil extends TestBase
 {
-	public static long IMPLICIT_WAIT = 30;
+	
+public static long IMPLICIT_WAIT = 30;
 	
 	
 	public static void ClickOn(WebDriver driver,WebElement locator,int timeout)
 	{
-		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(locator));
+		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeSelected(locator));
 		locator.click();
 		
 	}
@@ -42,82 +39,50 @@ public class TestUtil extends TestBase implements ITestListener
 		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOfAllElements(element));
 	}
 	
-	
-	
-	
-	
-	
+	public static void takeScreenshotAtEndOfTest1()
+	{
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		String currentDir = System.getProperty("user.dir");
+		try 
+		{
+		FileUtils.copyFile(scrFile, new File(currentDir + "/screenshots1/" + System.currentTimeMillis() + ".png"));
+		}
+		catch (IOException e) 
+		{
+			System.out.println("Exception are" + e.getMessage());
+			e.printStackTrace();
+		}
+	}
 	
 	public static void takescreenshot(WebDriver driver, String screenshotname)  
 	{
 		TakesScreenshot ts=(TakesScreenshot)driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
-		try {
-			FileUtils.copyFile(source, new File("./Screenshorts"+ System.currentTimeMillis() +".png"));
-		} catch (IOException e) 
+		String currentDir = System.getProperty("user.dir");
+		try 
+		{
+			FileUtils.copyFile(source, new File(currentDir + "/screenshots"+ screenshotname +".png"));
+		} 
+		catch (IOException e) 
 		{
 			System.out.println("Exception are" + e.getMessage());
 			e.printStackTrace();
-		}
-				
-			
-		}
-	
-	
-			
-	
-	
-	
-	
-	@Override
-	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onTestSuccess(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onTestFailure(ITestResult result) 
-	{
-		if(ITestResult.FAILURE==result.getStatus())
-		{
-			TestUtil.takescreenshot(driver, result.getName());
-		}
-		
-	}
-	@Override
-	public void onTestSkipped(ITestResult result) 
-	{
-		if(ITestResult.SKIP== result.getStatus())
-		{
-			TestUtil.takescreenshot(driver, result.getName());
-		}
-		
-	}
-	@Override
-	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-	public static void VisibleElementsOn(WebDriver driver, WebElement noofAllergies, int timeout) 
-	{
+		}	
 
-		
 	}
+	public static String getScreenshot(WebDriver driver, String screenshotName) throws Exception 
+		{
+	        //below line is just to append the date format with the screenshot name to avoid duplicate names 
+	        String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+	TakesScreenshot ts = (TakesScreenshot) driver;
+	File source = ts.getScreenshotAs(OutputType.FILE);
+	        //after execution, you could see a folder "FailedTestsScreenshots" under src folder
+	String destination = System.getProperty("user.dir") + "/FailedTestsScreenshots/"+screenshotName+dateName+".png";
+	File finalDestination = new File(destination);
+	FileUtils.copyFile(source, finalDestination);
+	        //Returns the captured file path
+	return destination;
+		}
 	
 }
-
-
+	

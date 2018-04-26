@@ -40,7 +40,7 @@ public class HomePageTest extends TestBase
 		System.out.println("clicked on EMR");
 		String Actual= HomePage.EMRPageTitle();
 		String Expected = "EMR Dashboard";
-		AssertJUnit.assertEquals(Actual, Expected);
+		Assert.assertEquals(Actual, Expected);
 		
 	}
 @ Test(priority=2)

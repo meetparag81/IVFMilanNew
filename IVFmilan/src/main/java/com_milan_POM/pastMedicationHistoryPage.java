@@ -3,7 +3,6 @@ package com_milan_POM;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -51,10 +50,7 @@ public class pastMedicationHistoryPage extends TestBase
 			
 			TestUtil.VisibleElementsOn(driver, searchbox1, 40);
 			searchbox1.get(i).click();
-			break;
-			
-			
-			
+			break;		
 		}*/
 		DrugName.isDisplayed();	
 		
@@ -70,6 +66,7 @@ public class pastMedicationHistoryPage extends TestBase
 		InputsearchboxGeneric.sendKeys("ADA");
 		Thread.sleep(1000);
 		InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);
+		Thread.sleep(1000);
 		InputsearchboxGeneric.sendKeys("A");
 		//TestUtil.VisibleOn(driver, Searchbox, 50);
 				

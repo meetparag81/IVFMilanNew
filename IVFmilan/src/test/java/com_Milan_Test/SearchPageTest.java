@@ -42,24 +42,18 @@ public class SearchPageTest extends TestBase
 		@Test(priority=1)
 		private void SearchPatientUsingCalenderTest() throws Exception 
 		{
-			HomePage.SearchusingCalender();
-			String Actual=	SearchPage.Dahboardtitle();
-			String Expectted = "EMR Dashboard";
-			AssertJUnit.assertEquals(Actual, Expectted);
+			SearchPage.SearchusingCalender();
+			
+			String Actual=	SearchPage.QueueManagementpage();
+			
+			String Expectted = "Queue Management";
+			Assert.assertEquals(Actual, Expectted);
+			
 		}
 		@Test(priority=2)
-		public void PatientDashboardTitle() throws Exception
-		{
-			EMRPage=SearchPage.searchPaient();
-			String Actual=	SearchPage.Dahboardtitle();
-			String Expectted = "EMR Dashboard";
-			AssertJUnit.assertEquals(Actual, Expectted);
-		}
-		
-		@Test(priority=3,enabled= false)
 		private void SearchPatientUsingPatientTabTest() throws Exception 
 		{
-			HomePage.searchPaient();
+			SearchPage.searchPaient();
 			String Actual=	SearchPage.Dahboardtitle();
 			String Expectted = "EMR Dashboard";
 			
