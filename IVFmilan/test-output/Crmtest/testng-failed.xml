@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [Crmtest]" parallel="tests">
+  <listeners>
+    <listener class-name="com_Milan_ExtendReport.ExtentReport"/>
+  </listeners>
+  <test thread-count="2" name="IVFTEST(failed)" parallel="tests">
+    <classes>
+      <class name="com_Milan_Test.HomePageTest">
+        <methods>
+          <include name="SearchPatientUsingPatientTabTest"/>
+          <include name="SearchPatientUsingCalenderTest"/>
+          <include name="ClickOnCmrTest"/>
+          <include name="Setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.HomePageTest -->
+      <class name="com_Milan_Test.LoginPageTest">
+        <methods>
+          <include name="pageTitleTest"/>
+          <include name="Seup"/>
+          <include name="Teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.LoginPageTest -->
+    </classes>
+  </test> <!-- IVFTEST(failed) -->
+</suite> <!-- Failed suite [Crmtest] -->
