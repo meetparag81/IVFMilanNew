@@ -30,14 +30,17 @@ public class FemaleDiagnosisPage extends TestBase
 		Otherdiagnosis.click();
 		Thread.sleep(3000);
 		String val= CodeValue.getText();
-		int codeval = Integer.parseInt(val);
+		double codeval = Double.parseDouble(val);
 		if(val.contains("003"));
+		{
+		String input= String.valueOf(codeval+001);
 		TestUtil.VisibleOn(driver, Plus, 30);
 		Plus.click();
 		TestUtil.VisibleOn(driver, Codeinput, 30);
-		Codeinput.sendKeys(("+codeval+"+1));
+		Codeinput.sendKeys(00+input);
 		TestUtil.VisibleOn(driver, description, 30);
 		description.sendKeys("test");
+		}
 		TestUtil.VisibleOn(driver, Save, 30);
 		Save.click();
 	}
