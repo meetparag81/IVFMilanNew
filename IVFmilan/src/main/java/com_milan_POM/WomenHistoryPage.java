@@ -39,7 +39,7 @@ public class WomenHistoryPage extends TestBase
 	public SexualHistoryPage ClickonSexsuslHistory() throws InterruptedException
 	{
 		System.out.println("========sexsuslHistory click testcase started======");
-		Thread.sleep(2000);
+		TestUtil.VisibleOn(driver, SexualHistory, 20);
 		SexualHistory.click();
 		System.out.println("clicked on Sexual history");
 		/*List<WebElement> history = driver.findElements(By.xpath("//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li"));
@@ -63,7 +63,7 @@ public class WomenHistoryPage extends TestBase
 		 public ObstetricHistoryPage ClickonObstetricHistory() throws Exception
 			{
 			 System.out.println("========ObstetricHistory click testcase started======");
-			 Thread.sleep(2000);
+			 TestUtil.VisibleOn(driver, ObstetricHistory, 20);
 			 ObstetricHistory.click();
 			 System.out.println("clicked on Obstetric History");
 				/*List<WebElement> history = driver.findElements(By.xpath("//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li"));
@@ -89,7 +89,7 @@ public class WomenHistoryPage extends TestBase
 		 public  MedicalHistoryPage ClickonMedicalHistory() throws Throwable
 			{
 			 System.out.println("========MedicalHistory click testcase started======");
-			 Thread.sleep(2000);
+			 TestUtil.VisibleOn(driver, medicalHistory, 20);
 			 medicalHistory.click();
 			 System.out.println("clicked on MedicalHistory");
 			 
@@ -118,7 +118,7 @@ public class WomenHistoryPage extends TestBase
 		 public FamilyHistoryPage ClicOnFamilyHistory() throws InterruptedException
 			{
 			 System.out.println("========FamilyHistory click testcase started======");
-			 Thread.sleep(2000);
+			 TestUtil.VisibleOn(driver, familyHistory, 20);
 			 familyHistory.click();
 			 System.out.println("clicked on FamilyHistory");
 			 return  new FamilyHistoryPage();
@@ -129,7 +129,7 @@ public class WomenHistoryPage extends TestBase
 		public  SurgicalHistoryPage ClickOnSurgicalHistory() throws InterruptedException 
 		{
 			System.out.println("========SurgicalHistory click testcase started======");
-			Thread.sleep(2000);
+			TestUtil.VisibleOn(driver, SurgicalHistory, 20);
 			SurgicalHistory.click();
 			System.out.println("clicked on SurgicalHistory");
 			return new SurgicalHistoryPage();
@@ -137,7 +137,7 @@ public class WomenHistoryPage extends TestBase
 		public  previousTreatmentHistoryPage ClickOnpreviousTreatmentHistory() throws Exception
 		{
 			System.out.println("========previousTreatmentHistory click testcase started======");
-			Thread.sleep(2000);
+			TestUtil.VisibleOn(driver, previousTreatmentHistory, 20);
 			previousTreatmentHistory.click();
 			System.out.println("clicked on previousTreatmentHistory");
 			return new previousTreatmentHistoryPage();
@@ -146,7 +146,7 @@ public class WomenHistoryPage extends TestBase
 		public  pastMedicationHistoryPage ClickOnpastMedicationHistory() throws Exception
 		{
 			System.out.println("========pastMedicationHistory click testcase started======");
-			Thread.sleep(2000);
+			TestUtil.VisibleOn(driver, pastMedicationHistory, 20);
 			pastMedicationHistory.click();
 			System.out.println("clicked on pastMedicationHistory");
 			return new pastMedicationHistoryPage();
@@ -155,7 +155,7 @@ public class WomenHistoryPage extends TestBase
 		public  AllergiesPage ClickOnAllergies() throws Throwable
 		{
 			System.out.println("========Alleregies click testcase started======");
-			Thread.sleep(2000);
+			TestUtil.VisibleOn(driver, allergies, 20);
 			allergies.click();
 			System.out.println("clicked on Allergies");
 			return new AllergiesPage();
@@ -183,8 +183,8 @@ public class WomenHistoryPage extends TestBase
 		public  VaccinationPage ClickOnVaccination() throws Exception
 		{
 			System.out.println("========Vaccination click testcase started======");
-			wait.until(ExpectedConditions.visibilityOf(Vaccination));
-			addictions.click();
+			TestUtil.VisibleOn(driver, Vaccination, 20);
+			Vaccination.click();
 			System.out.println("clicked on Vaccination");
 			return new VaccinationPage();
 			
@@ -192,8 +192,8 @@ public class WomenHistoryPage extends TestBase
 		public  socialHistoryPage ClickOnsocialHistory() throws Exception
 		{
 			System.out.println("========Vaccination click testcase started======");
-			wait.until(ExpectedConditions.visibilityOf(socialHistory));
-			addictions.click();
+			TestUtil.VisibleOn(driver, Vaccination, 20);
+			socialHistory.click();
 			System.out.println("clicked on socialHistoryPage");
 			return new socialHistoryPage();
 		}
@@ -201,7 +201,7 @@ public class WomenHistoryPage extends TestBase
 		public  MenstrualHistoryPage ClickOnMenstrualHistory() throws Exception
 		{
 			System.out.println("========MenstrualHistory click testcase started======");
-			wait.until(ExpectedConditions.visibilityOf(MenstrualHistory));
+			TestUtil.VisibleOn(driver, MenstrualHistory, 20);
 			MenstrualHistory.click();
 			System.out.println("clicked on MenstrualHistoryPage");
 			return new MenstrualHistoryPage();

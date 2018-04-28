@@ -27,11 +27,11 @@ public class HomePage extends TestBase
 	@FindBy(xpath="//*[@id='patientDashboard']") WebElement Dashboard;
 	@FindBy(xpath="//span[contains (text(), 'EMR Dashboard')]")WebElement Title;
 	@FindBy (xpath= "//span[text() = 'Total Count :']//following::span") WebElement SizeOfPaitent;
-	@FindBy (xpath="//input[@id='0']")WebElement checkbox;
+	@FindBy (xpath="(//input[@type='checkbox'])[1]")WebElement checkbox;
 	@FindBy (xpath= "//span[text()='EMR Dashboard']")WebElement Dashboardtitle;
 	@FindBy (xpath="//span[text()='Queue Management']//following::i[3]")WebElement calender;
 	@FindBy (xpath="//span[text()='Queue Management']//following::input[2]")WebElement searchpaient;
-	@FindBy(xpath="//button[text()='Search']")WebElement Searchbutton;
+	@FindBy(xpath="//button[text()='Search'][@ class='btn btn-primary']")WebElement Searchbutton;
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	
 	 
@@ -40,14 +40,6 @@ public class HomePage extends TestBase
 		
 		PageFactory.initElements(driver, this);
 	}
-	public void SearchOnPage()
-	{
-		
-	}
-		
-		
-		
-	
 	
 	
 	public String EMRPageTitle()
@@ -97,7 +89,7 @@ public class HomePage extends TestBase
 					
 											
 						Thread.sleep(3000);						
-						if(name1.contains("Mr.Hemanth"))
+						if(name1.contains("Ms.Kavitha N"))
 							
 						{
 							Thread.sleep(3000);
@@ -137,11 +129,10 @@ public class HomePage extends TestBase
 	//Searchbox1.submit();
 	Thread.sleep(1000);
 	//checkbox.click();
-	System.out.println("SearchtestStarted");
+	TestUtil.VisibleOn(driver, Searchbox1, 10);
+	Searchbox1.sendKeys(Keys.BACK_SPACE);
 	Thread.sleep(1000);
-	driver.findElement(By.xpath(("//input[@name = 'txtUsrName']"))).sendKeys(Keys.BACK_SPACE);
-	Thread.sleep(1000);
-	Searchbox1.sendKeys("g");
+	Searchbox1.sendKeys("h");
 	List<WebElement>search= driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 		 
 		 
@@ -152,8 +143,7 @@ public class HomePage extends TestBase
 				 Thread.sleep(2000);
 				 if(search.get(i).getText().contains("Parag Agrawal"))
 							System.out.println("Paitent found");
-					{
-						
+					{						
 						wait.until(ExpectedConditions.visibilityOfAllElements(search));
 						search.get(i).click();
 						System.out.println("clicked on Paitent");
@@ -195,7 +185,7 @@ public class HomePage extends TestBase
 public EMRDashBoardPage SearchusingCalender() throws Exception
 	{
 	WebElement Calender = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
-	TestUtil.VisibleOn(driver, Calender, 30);
+	TestUtil.VisibleOn(driver, Calender, 40);
 			Calender.click();
 		List<WebElement>dates=wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
 		
@@ -212,16 +202,17 @@ public EMRDashBoardPage SearchusingCalender() throws Exception
 				
 		}
 		
+		Thread.sleep(3000);
 		searchpaient.sendKeys("Vidya");
-		TestUtil.ClickOn(driver, Searchbutton, 20);
+		TestUtil.VisibleOn(driver, Searchbutton, 20);
 		Searchbutton.click();
 		int k=1;
 			while( k <= 10)
 			{
-				WebElement Nameofpatient= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+k+"]/td[4]")));
+				Thread.sleep(3000);
+				WebElement Nameofpatient= driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tr["+k+"]/td[4]"));
+				TestUtil.VisibleOn(driver, Nameofpatient, 30);
 				String name1=Nameofpatient.getText();
-			//System.out.println(name1);
-			   
 				Thread.sleep(4000);				
 				if(name1.contains("Ms.Vidya B E"))
 				{

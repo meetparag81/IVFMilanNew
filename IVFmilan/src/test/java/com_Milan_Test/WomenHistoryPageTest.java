@@ -52,7 +52,7 @@ public class WomenHistoryPageTest extends TestBase
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage= HomePage.ClickonEMR();
 		//EMRPage= HomePage.SearchusingCalender();
-		//EMRPage= SearchPage.searchPaient();
+		//EMRPage= HomePage.searchPaient();
 		WHP= EMRPage.clickOnWomenField();	
 	}
 	

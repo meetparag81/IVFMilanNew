@@ -50,7 +50,7 @@ public class WPastMedicationHistoryTest extends TestBase
 		String Expected = "ADAPALENE";
 		Assert.assertEquals(Actual, Expected, "Stringdoen't matched");
 		System.out.println("testcase DrugNameTest is completed");
-		}
+	}
 	@Test(priority=2)
 	public void DrugNameFieldEnableconditionTest() throws InterruptedException
 	{

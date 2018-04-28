@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -19,6 +20,7 @@ import com_milan_POM.Loginpage;
 import com_milan_POM.MenHistoryPage;
 import com_milan_POM.SearchPage;
 import com_milan_POM.WomenHistoryPage;
+import com_milan_POM.FemaleDiagnosisPage;
 
 public class EMRDashBoardPageTest extends TestBase
 {
@@ -29,6 +31,7 @@ public class EMRDashBoardPageTest extends TestBase
 	MenHistoryPage MHP;
 	SearchPage SearchPage;
 	AllergiesPage Allergies;
+	FemaleDiagnosisPage FemaleDiagnosis;
 	
 	
 	EMRDashBoardPageTest()
@@ -43,9 +46,10 @@ public class EMRDashBoardPageTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		//EMRPage= HomePage.ClickonEMR();
-		SearchPage = new SearchPage();
-		EMRPage=HomePage.SearchusingCalender();
+		EMRPage= HomePage.ClickonEMR();
+		//EMRPage = HomePage.searchPaient();
+		//SearchPage = new SearchPage();
+		//EMRPage=HomePage.SearchusingCalender();
 		
 		
 		
@@ -58,17 +62,31 @@ public class EMRDashBoardPageTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		
 		String Actual= EMRPage.TitleHistoryPage();
-		String Expected = "History";
+		String Expected = "Female History";
+		Assert.assertEquals(Actual, Expected);
+		System.out.println("ClickonWoomenPaientFieldTest is completed");
 		
 	}
 	@Test(priority=2)
-	public void ClickOnMenPaientHistory() throws InterruptedException
+	public void ClickOnMenPaientHistory() throws Exception
 	{
 		MHP= EMRPage.clickOnMenField();
+		String Actual= EMRPage.TitleHistoryPage();
+		String Expected = "Male History";
+		Assert.assertEquals(Actual, Expected);
+		
+		System.out.println("ClickonMenPaientFieldTest is completed");
 		
 	}
 	
-	@Test(priority=4,enabled=false)
+	@Test(priority=3)
+	public void ClickOnDiagnosisTest() throws Exception
+	{
+		FemaleDiagnosis= EMRPage.ClickOnDiagnosis();
+		System.out.println("ClickonMenPaientFieldTest is completed");		
+	}
+	
+	@Test(priority=4)
 	public void OptionSelectedOnAllergyformTest() throws Exception
 	{
 		EMRPage= HomePage.ClickonEMR();		

@@ -38,7 +38,7 @@ public class LoginPageTest extends TestBase
 	public void loginTest() throws Exception
 	{
 		HomePage= Loginpage.Verifylogin( prop.getProperty("username"),prop.getProperty("password"));
-		HomePage.SearchOnPage();
+		//HomePage.searchPaient();
 	}
 		
 		

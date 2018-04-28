@@ -51,11 +51,11 @@ public class SearchPage extends TestBase
 		
 		System.out.println("SearchtestStarted");
 		//Thread.sleep(3000);
-		Searchbox1.sendKeys("parag");
+		Searchbox1.sendKeys("Judith");
 		Thread.sleep(1000);
 		driver.findElement(By.xpath(("//input[@name = 'txtUsrName']"))).sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
-		Searchbox1.sendKeys("g");
+		Searchbox1.sendKeys("h");
 		
 		
 		List<WebElement>search= driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
