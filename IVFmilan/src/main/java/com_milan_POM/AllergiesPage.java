@@ -25,7 +25,7 @@ public class AllergiesPage extends TestBase
 	
 	
 	
-	
+	int rows;
 	WebDriverWait wait = new WebDriverWait(driver, 30);
 	
 	
@@ -73,6 +73,8 @@ public class AllergiesPage extends TestBase
 		
 		List<WebElement>Allergyrows= driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
 				int rows = Allergyrows.size();
+				System.out.println("No of rows"+rows);
+				
 		rows=rows+1;
 		for( int row1=rows ;row1<= 6;row1++)
 		{
@@ -237,6 +239,185 @@ public class AllergiesPage extends TestBase
 		System.out.println("Clicked on Save button");
 		
 		
+		
+	}
+	
+	public void PaitentAdd()
+	{
+		List<WebElement>Allergyrows= driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
+		int rows = Allergyrows.size();
+		System.out.println("No of rows"+rows);
+	
+		if(rows<=0)
+		{	
+			
+		}
+		else
+		{			
+			
+		}
+		
+	}
+	public void NewPaitent()
+	{
+		rows=rows+1;
+		for( int row1=rows ;row1<= 6;row1++)
+		{
+				TestUtil.VisibleOn(driver, Addrows, 30);
+				Addrows.click();
+				 WebElement allergy= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]")));
+				Select Allergytypes = new Select(allergy);
+			List<WebElement>Allergies1=Allergytypes.getOptions();
+		
+			for(int i=1;i<Allergies1.size();i++)
+			{
+				String Names = Allergies1.get(i).getText();		
+					switch(Names)
+					{
+					case"Drug Allergy":
+					Allergytypes.selectByVisibleText("Drug Allergy");
+					WebElement TypeAllergy = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]"));
+					Select Allergytype = new Select(TypeAllergy);
+					Allergytype.selectByVisibleText("Drug Allergy");
+					WebElement Allergy = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[2]"));
+					Select Allergy1= new Select(Allergy);
+					Allergy1.selectByIndex(1);
+					WebElement currentstatus = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
+					Select status = new Select(currentstatus);
+					status.selectByVisibleText("Present");
+					WebElement SinceM = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
+					Select month = new Select(SinceM);
+					month.selectByVisibleText("10");
+					WebElement SinceY = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
+					Select Year = new Select(SinceY);
+					Year.selectByVisibleText("12");
+					WebElement Severity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
+					Select Seeveritytype= new Select(Severity);
+					Seeveritytype.selectByVisibleText("Severe");
+					row1++;
+					break;
+					
+					case"Food Allergy":
+						TestUtil.VisibleOn(driver, Addrows, 10);
+						Addrows.click();
+						WebElement Allergyfood = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]")));
+						Select foodAllergy=new Select(Allergyfood);
+						foodAllergy.selectByVisibleText("Food Allergy");
+					WebElement Allergyfoodinput = driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]/td[3]//input"));
+					TestUtil.VisibleOn(driver, Allergyfoodinput, 10);
+					Allergyfoodinput.sendKeys("foodAllergy");
+					WebElement currentstatusfood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
+					
+					Select foodstatus= new Select(currentstatusfood);
+					foodstatus.selectByVisibleText("Absent");
+					WebElement SinceMFood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
+					Select FromMonthFood = new Select(SinceMFood);
+					FromMonthFood.selectByVisibleText("1");
+					WebElement SinceYFood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
+					Select FromYearFood = new Select(SinceYFood);
+					FromYearFood.selectByVisibleText("1");
+					WebElement FoodSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
+					Select SeverityFood = new Select(FoodSeverity);
+					SeverityFood.selectByVisibleText("Mild");
+					row1++;
+					break;
+					case"Skin Allergy":
+						Addrows.click();
+						WebElement AllergySkin = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]"));
+						Select skinAllergy = new Select(AllergySkin);
+						skinAllergy.selectByVisibleText("Skin Allergy");
+						WebElement skinAllergyinput = driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]/td[3]//input"));
+						skinAllergyinput.sendKeys("SkinAllergy");
+						WebElement currentstatusskin = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
+						Select skinstatusM = new Select(currentstatusskin);
+						skinstatusM.selectByVisibleText("Present");
+						WebElement SinceMskin = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
+						Select FromMonthSkin = new Select(SinceMskin);
+						FromMonthSkin.selectByVisibleText("6");
+						WebElement SinceYSkin = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
+						Select FromYearSkin = new Select(SinceYSkin);
+						FromYearSkin.selectByVisibleText("4");
+						WebElement SkinSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
+						Select SeveritySkin = new Select(SkinSeverity);
+						SeveritySkin.selectByVisibleText("Moderate");
+						row1++;
+						break;
+					case"Smoke Allergy":
+						Addrows.click();
+						WebElement AllergySmoke = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]"));
+						Select SmokeAllergy = new Select(AllergySmoke);
+						SmokeAllergy.selectByVisibleText("Smoke Allergy");
+						WebElement smokeAllergyinput = driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]/td[3]//input"));
+						smokeAllergyinput.sendKeys("smokeAllergy");
+						WebElement currentstatussmoke = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
+						Select smokestatusM = new Select(currentstatussmoke);
+						smokestatusM.selectByVisibleText("Present");
+						WebElement SinceMSmoke = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
+						Select FromMonthSmoke = new Select(SinceMSmoke);
+						FromMonthSmoke.selectByVisibleText("6");
+						WebElement SinceYSmoke = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
+						Select FromYearSmoke = new Select(SinceYSmoke);
+						FromYearSmoke.selectByVisibleText("4");	
+						WebElement SmokeSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
+						Select SeveritySmoke = new Select(SmokeSeverity);
+						SeveritySmoke.selectByVisibleText("Mild");
+						row1++;
+						break;
+					case"Latex Allergy":
+						Addrows.click();
+						WebElement AllergyLatex = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]"));
+						Select LatexAllergy = new Select(AllergyLatex);
+						LatexAllergy.selectByVisibleText("Latex Allergy");
+						WebElement currentstatusLatex = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
+						Select LatexstatusM = new Select(currentstatusLatex);
+						LatexstatusM.selectByVisibleText("Present");
+						WebElement SinceMLatex = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
+						Select FromMonthLatex = new Select(SinceMLatex);
+						FromMonthLatex.selectByVisibleText("3");
+						WebElement SinceYLatex = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
+						Select FromYearLatex = new Select(SinceYLatex);
+						FromYearLatex.selectByVisibleText("4");	
+						WebElement LatexSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
+						Select SeverityLatex = new Select(LatexSeverity);
+						SeverityLatex.selectByVisibleText("Mild");
+						row1++;
+						break;
+					case"Dust Allergy":
+						Addrows.click();
+						WebElement AllergyDust = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]"));
+						Select DustAllergy = new Select(AllergyDust);
+						DustAllergy.selectByVisibleText("Dust Allergy");
+						WebElement currentstatusDust = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
+						Select DuststatusM = new Select(currentstatusDust);
+						DuststatusM.selectByVisibleText("Present");
+						WebElement SinceMDust = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
+						Select FromMonthDust = new Select(SinceMDust);
+						FromMonthDust.selectByVisibleText("3");
+						WebElement SinceYDust = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
+						Select FromYearDust = new Select(SinceYDust);
+						FromYearDust.selectByVisibleText("4");	
+						WebElement DustSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
+						Select SeverityDust = new Select(DustSeverity);
+						SeverityDust.selectByVisibleText("Mild");
+						break;
+					/*case"Default":
+						Save.click();*/
+						
+					}//switch
+					
+					
+					
+					
+					
+					
+					
+				
+				}//forallergy
+		}
+		
+	}
+	public void existingPaitent()
+	{
 		
 	}
 	
