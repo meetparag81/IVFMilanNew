@@ -14,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
 
-public class pastMedicationHistoryPage extends TestBase
+public class WPastMedicationHistoryPage extends TestBase
 {
 	@FindBy(css="#txtItemName")WebElement IB;
 	@FindBy(xpath="//input[@id='txtItemName1']")WebElement InputsearchboxGeneric;
@@ -28,7 +28,7 @@ public class pastMedicationHistoryPage extends TestBase
 	WebDriverWait wait = new WebDriverWait(driver, 30);
 	
 	
-	pastMedicationHistoryPage()
+	WPastMedicationHistoryPage()
 	{
 		PageFactory.initElements(driver, this);
 	}
