@@ -19,7 +19,7 @@ public class EMRDashBoardPage extends TestBase
 	@FindBy(xpath="//a[@id='menuField_women']") WebElement womenfield;
 	@FindBy(xpath="//a[@id='menuField_men']") WebElement menfield;
 	@FindBy(xpath="//*[@id='0']")WebElement visitwomen;
-	@FindBy(xpath = "//a[@class='icoLink femaleHistory'][@title='History']")WebElement Historylinkwomen; 
+	@FindBy(xpath ="(//a[@title='History'])[1]")WebElement Historylinkwomen; 
 	@FindBy(xpath="(//a[@title='History'])[2]")WebElement Historylinkmen;
 	@FindBy(xpath="//a[@class='icoLink femaleDiagnosis'][@title='Diagnosis']")WebElement FemaleDiagnosis;
 	@FindBy(xpath="(//a[@title='Diagnosis'])[2]")WebElement MaleDiagnosis;
@@ -48,7 +48,7 @@ public class EMRDashBoardPage extends TestBase
 			//System.out.println("womentfield"+ womenfield.isDisplayed());
 			TestUtil.VisibleOn(driver, womenfield, 20);
 			womenfield.click();
-			TestUtil.VisibleOn(driver, Historylinkwomen, 20);
+			TestUtil.VisibleOn(driver, Historylinkwomen, 30);
 			Historylinkwomen.click();
 			//System.out.println("Womenfieldis displayed");
 			List<WebElement> visitw=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
