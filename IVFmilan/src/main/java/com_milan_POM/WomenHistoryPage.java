@@ -143,13 +143,13 @@ public class WomenHistoryPage extends TestBase
 			return new previousTreatmentHistoryPage();
 			
 		}
-		public  pastMedicationHistoryPage ClickOnpastMedicationHistory() throws Exception
+		public  WPastMedicationHistoryPage ClickOnpastMedicationHistory() throws Exception
 		{
 			System.out.println("========pastMedicationHistory click testcase started======");
 			TestUtil.VisibleOn(driver, pastMedicationHistory, 20);
 			pastMedicationHistory.click();
 			System.out.println("clicked on pastMedicationHistory");
-			return new pastMedicationHistoryPage();
+			return new WPastMedicationHistoryPage();
 			
 		}
 		public  AllergiesPage ClickOnAllergies() throws Throwable
