@@ -52,13 +52,13 @@ public class WObstetricHistoryPageTest extends TestBase
 	{
 		double Actual=OHP.BirthWeightText();
 		double Expected = 1.234;
-		AssertJUnit.assertEquals(Actual, Expected, Actual);
+		Assert.assertEquals(Actual, Expected, Actual);
 	}
 	@Test(priority=2)
 	public void BirthWeightEnableConditionTest()
 	{
 		boolean flag1=OHP.BirthWeightEnabled();
-		AssertJUnit.assertTrue(flag1);
+		Assert.assertTrue(flag1);
 	}
 	
 	@Test(priority=4)
@@ -67,7 +67,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	
 		String Actual= OHP.AbortionOptionValue();
 		String Expected = "1";
-		AssertJUnit.assertEquals(Actual, Expected);
+		Assert.assertEquals(Actual, Expected);
 	}
 	@Test(priority=5,enabled=false)
 	public void ValueInLivebirthoptionTest() 
@@ -75,7 +75,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	
 		String Actual= OHP.OutcomeIsLiveBirth();
 		String Expected = "1";
-		AssertJUnit.assertEquals(Actual, Expected);
+		Assert.assertEquals(Actual, Expected);
 	}
 	@Test(priority=6)
 	public void ValueInEctopicTest() 
@@ -83,73 +83,73 @@ public class WObstetricHistoryPageTest extends TestBase
 	
 		String Actual= OHP.EctopicOptionValue();
 		String Expected = "1";
-		AssertJUnit.assertEquals(Actual, Expected);
+		Assert.assertEquals(Actual, Expected);
 	}
 	
 	@Test(priority=7)
 	public void DeliveryTypeEnableconditionTest() 
 	{
 		boolean flag= OHP.DileveryTypeEnabledcondition();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 		
 	}
 	@Test(priority=8)	
 	public void LiveBirthEnableTest()
 	{
 	boolean flag=OHP.LivebirthEnableConditition();
-	AssertJUnit.assertFalse(flag);
+	Assert.assertFalse(flag);
 	}
 	@Test(priority=9)	
 	public void RowGridEnableTest()
 	{
 	boolean flag=OHP.RowGridEnableConditition();
-	AssertJUnit.assertFalse(flag);
+	Assert.assertFalse(flag);
 	}
 	
 	@Test(priority=10)	
 	public void StillBornEnableTest()
 	{
 	boolean flag=OHP.StillbornGridEnableConditition();
-			AssertJUnit.assertFalse(flag);
+	Assert.assertFalse(flag);
 	}
 	
 	@Test(priority=11)	
 	public void EctopiccEnableCondititionTest()
 	{
 	boolean flag=OHP.EctopiccEnableConditition();
-			AssertJUnit.assertFalse(flag);
+	Assert.assertFalse(flag);
 	}
 	
 	@Test(priority=12)	
 	public void AbortionEnableCondititionTest()
 	{
 	boolean flag=OHP.AbortionEnableConditition();
-			AssertJUnit.assertFalse(flag);
+	Assert.assertFalse(flag);
 	}
 	@Test(priority=13)	
 	public void DeliveryEnableCondititionTest()
 	{
 	boolean flag=OHP.DeliveroptionEnableConditition();
-			AssertJUnit.assertTrue(flag);
+	Assert.assertTrue(flag);
 	}
 	@Test(priority=13)	
 	public void ComplicationsEnableCondititionTest()
 	{
 	boolean flag=OHP.ComplicationsEnableConditition();
-			AssertJUnit.assertTrue(flag);
+	Assert.assertTrue(flag);
 	}
 	@Test(priority=14)	
 	public void CongenitalAnamolyEnableCondititionTest()
 	{
 	boolean flag=OHP.CongenitalAnamolyEnableCondition();
-			AssertJUnit.assertTrue(flag);
+			Assert.assertTrue(flag);
 	}
 	@Test(priority=15)	
 	public void LiveBirthPretermconditionTest()
 	{
 	String Actual=OHP.LiveBirthPretermcondition();
 	String Expected = "Preterm";
-			AssertJUnit.assertEquals(Actual, Expected);
+	Assert.assertEquals(Actual, Expected);
 	}
 	@Test(priority=16)
 	public void LiveBirthFullTermconditionTest()
@@ -157,7 +157,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		
 	String Actual =OHP.LiveBirthFullTermcondition();
 	String Expected ="Full Term";
-	AssertJUnit.assertEquals(Actual, Expected);
+	Assert.assertEquals(Actual, Expected);
 		
 	}
 	@Test(priority=17)
@@ -165,7 +165,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	{
 	String Actual =OHP.LiveBirthAbovePostTermcondition();
 	String Expected ="Post Term";
-	AssertJUnit.assertEquals(Actual, Expected);
+	Assert.assertEquals(Actual, Expected);
 		
 	}
 	@Test(priority=18)

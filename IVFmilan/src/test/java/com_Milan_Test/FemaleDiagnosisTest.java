@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -40,6 +41,7 @@ public class FemaleDiagnosisTest extends TestBase
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage= HomePage.ClickonEMR();
 		//EMRPage=HomePage.SearchusingCalender();
+		//EMRPage=HomePage.searchPaient();
 		FDP=EMRPage.ClickOnDiagnosis();
 				
 	}
@@ -51,34 +53,52 @@ public class FemaleDiagnosisTest extends TestBase
 		String Actual = FDP.CodeUpdatedMessage();
 		System.out.println(Actual);
 		String Expected = "Palash IVF"
-				+"Record saved successfully!";
+		+ "Record saved successfully!";
 		Assert.assertEquals(Actual, Expected, "Message doesn't matched");
+		
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
 	public void CodevalueTest()
 	{
 		String Actual= FDP.Codevalue();
-		String Expeted = "02570";
+		String Expeted = "02574";
 		Assert.assertEquals(Actual, Expeted,"Codevalue doesn't matched");
 	}
-	@Test(priority=3)
-	public void FavoriteEnabledConditionDislikeTest()
+	@Test(priority=3,enabled=false)
+	public void UnFavoriteTheFavioriteTest() throws Exception
 	{
 		
-		boolean flag= FDP.FavoriteEnabledConditionWhenDislike();
-		Assert.assertTrue(flag);
+		String Actual= FDP.UnFavoriteTheFaviorite();
+		String Expected= "Diagnosis is removed from the Favourite List";
+		Assert.assertEquals(Actual, Expected);
+		
 	}
 	
-	@Test(priority=4)
-	public void FavoriteEnabledConditionLikeTest()
+	@Test(priority=4,enabled=false)
+	public void FavoriteTheFavoriteIconTest() throws Exception
 	{
 		
-		boolean flag= FDP.FavoriteEnabledConditionWhenLike();
-		Assert.assertFalse(flag);
+		String Actual= FDP.FavoriteTheFavoriteIcon();
+		String Expected = "Diagnosis is added in the Favourite List";
+		Assert.assertEquals(Actual, Expected);
+		
+	}
+	
+	@Test(priority=5)
+	public void TypeSelectionboxEnableconditionTest()
+	{
+		boolean flag= FDP.TypeSelectionboxEnablecondition();
+		assertTrue(flag);
 	}
 	
 	
+	
+	@AfterMethod
+	public void TearDown()
+	{
+		driver.quit();
+	}
 	
 	
 	
