@@ -5,10 +5,10 @@
     <classes>
       <class name="com_Milan_Test.FemaleDiagnosisTest">
         <methods>
-          <include name="CodevalueTest"/>
-          <include name="FavoriteEnabledConditionDislikeTest"/>
           <include name="Setup"/>
-          <include name="FavoriteEnabledConditionLikeTest"/>
+          <include name="UnFavoriteTheFavioriteTest"/>
+          <include name="TearDown"/>
+          <include name="TypeSelectionboxEnableconditionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
     </classes>

@@ -54,7 +54,7 @@ public class EMRDashBoardPage extends TestBase
 			List<WebElement> visitw=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if(visitw.size()!=0)
 			{
-			System.out.println("Visitcount" + visitw.size());
+			//System.out.println("Visitcount" + visitw.size());
 			//Thread.sleep(3000);
 			TestUtil.VisibleElementsOn(driver, visitw, 30);
 			visitw.get(0).click();

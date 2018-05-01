@@ -72,10 +72,10 @@ public class HomePage extends TestBase
         	}
         catch(NumberFormatException e)
         {
-        	System.out.println("Youve entered non-integer number");
+        	//System.out.println("Youve entered non-integer number");
         }
         finally {
-            System. out. println( "finally block executed") ;
+           // System. out. println( "finally block executed") ;
          }
          
 		for(i=1;i<=125;i++)
@@ -89,7 +89,7 @@ public class HomePage extends TestBase
 					
 											
 						Thread.sleep(3000);						
-						if(name1.contains("Mr.Murali R"))
+						if(name1.contains("Mr.Ravi Kumar"))
 							
 						{
 							Thread.sleep(3000);
@@ -132,7 +132,7 @@ public class HomePage extends TestBase
 	TestUtil.VisibleOn(driver, Searchbox1, 10);
 	Searchbox1.sendKeys(Keys.BACK_SPACE);
 	Thread.sleep(1000);
-	Searchbox1.sendKeys("h");
+	Searchbox1.sendKeys("g");
 	List<WebElement>search= driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 		 
 		 
