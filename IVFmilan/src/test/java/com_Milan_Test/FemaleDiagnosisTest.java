@@ -1,7 +1,10 @@
 package com_Milan_Test;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -41,18 +44,38 @@ public class FemaleDiagnosisTest extends TestBase
 				
 	}
 	
-	@Test(priority=1)
+	@Test(priority=1,enabled=false)
 	public void ClickOnOtherDiagnosisTest() throws Exception
 	{
-		FDP.ClickOnOtherDiagnosis();	
+		FDP.ClickOnOtherForNewPaitent();
+		String Actual = FDP.CodeUpdatedMessage();
+		System.out.println(Actual);
+		String Expected = "Palash IVF"
+				+"Record saved successfully!";
+		Assert.assertEquals(Actual, Expected, "Message doesn't matched");
 	}
 	
 	@Test(priority=2)
 	public void CodevalueTest()
 	{
 		String Actual= FDP.Codevalue();
-		String Expeted = "004";
-		Assert.assertEquals(Actual, Expeted);
+		String Expeted = "02570";
+		Assert.assertEquals(Actual, Expeted,"Codevalue doesn't matched");
+	}
+	@Test(priority=3)
+	public void FavoriteEnabledConditionDislikeTest()
+	{
+		
+		boolean flag= FDP.FavoriteEnabledConditionWhenDislike();
+		Assert.assertTrue(flag);
+	}
+	
+	@Test(priority=4)
+	public void FavoriteEnabledConditionLikeTest()
+	{
+		
+		boolean flag= FDP.FavoriteEnabledConditionWhenLike();
+		Assert.assertFalse(flag);
 	}
 	
 	

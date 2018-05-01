@@ -59,6 +59,7 @@ public class WAllergiesTest extends TestBase
 	@Test(priority=1)
 	public void AddNewAllergiesTest() throws InterruptedException
 	{
+		Allergies.AddnewAllergies();
 		String Actial= Allergies.AllergiesNameonDashboard();
 		String Expected= ",17 BETAESTRADIOL,foodAllergy,SkinAllergy,smokeAllergy";
 	}

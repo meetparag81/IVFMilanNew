@@ -17,7 +17,6 @@
         <methods>
           <include name="SearchPatientUsingPatientTabTest"/>
           <include name="SearchPatientUsingCalenderTest"/>
-          <include name="ClickOnCmrTest"/>
           <include name="Setup"/>
           <include name="teardown"/>
         </methods>

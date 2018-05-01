@@ -17,7 +17,7 @@ import com_milan_POM.SexualHistoryPage;
 import com_milan_POM.SurgicalHistoryPage;
 import com_milan_POM.VaccinationPage;
 import com_milan_POM.WomenHistoryPage;
-import com_milan_POM.pastMedicationHistoryPage;
+import com_milan_POM.WPastMedicationHistoryPage;
 import com_milan_POM.previousTreatmentHistoryPage;
 import com_milan_POM.socialHistoryPage;
 import com_milan_POM.SearchPage;
@@ -32,7 +32,7 @@ public class WomenHistoryPageTest extends TestBase
 	SexualHistoryPage SHP;
 	SurgicalHistoryPage SurgicalPage;
 	previousTreatmentHistoryPage PTHP;
-	pastMedicationHistoryPage PMH;
+	WPastMedicationHistoryPage PMH;
 	AllergiesPage Allergies;
 	AddictionsPage Addictions;
 	VaccinationPage Vaccination;

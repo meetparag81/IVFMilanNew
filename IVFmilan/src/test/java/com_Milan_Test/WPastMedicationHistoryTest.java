@@ -13,7 +13,7 @@ import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
 import com_milan_POM.Loginpage;
 import com_milan_POM.WomenHistoryPage;
-import com_milan_POM.pastMedicationHistoryPage;
+import com_milan_POM.WPastMedicationHistoryPage;
 import com_milan_POM.EMRDashBoardPage;
 import com_milan_POM.HomePage;
 
@@ -23,7 +23,7 @@ public class WPastMedicationHistoryTest extends TestBase
 	HomePage HomePage;
 	EMRDashBoardPage EMRPage;
 	WomenHistoryPage WHP;
-	pastMedicationHistoryPage PMHP;
+	WPastMedicationHistoryPage PMHP;
 	
 	
 	WPastMedicationHistoryTest()
