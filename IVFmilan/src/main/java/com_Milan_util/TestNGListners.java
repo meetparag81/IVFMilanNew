@@ -39,7 +39,7 @@ public class TestNGListners extends TestBase  implements ITestListener, WebDrive
 		if(TestResult.FAILURE==result.getStatus())
 		{
 			try {
-				TestUtil.getScreenshot(driver, result.getTestName());
+				TestUtil.getScreenshot(driver, result.getName());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

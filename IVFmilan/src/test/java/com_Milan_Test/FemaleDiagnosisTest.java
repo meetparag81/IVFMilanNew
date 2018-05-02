@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
@@ -49,12 +50,14 @@ public class FemaleDiagnosisTest extends TestBase
 	@Test(priority=1,enabled=false)
 	public void ClickOnOtherDiagnosisTest() throws Exception
 	{
-		FDP.ClickOnOtherForNewPaitent();
+		FDP.ClickOnOtherDiagbosisForNewPaitent();
 		String Actual = FDP.CodeUpdatedMessage();
+		SoftAssert softAssertion= new SoftAssert();
 		System.out.println(Actual);
 		String Expected = "Palash IVF"
 		+ "Record saved successfully!";
-		Assert.assertEquals(Actual, Expected, "Message doesn't matched");
+		softAssertion.assertEquals(Actual, Expected, "Message doesn't matched");
+		softAssertion.assertAll();
 		
 	}
 	
@@ -62,37 +65,56 @@ public class FemaleDiagnosisTest extends TestBase
 	public void CodevalueTest()
 	{
 		String Actual= FDP.Codevalue();
-		String Expeted = "02574";
+		String Expeted = "delete1289";
 		Assert.assertEquals(Actual, Expeted,"Codevalue doesn't matched");
 	}
-	@Test(priority=3,enabled=false)
-	public void UnFavoriteTheFavioriteTest() throws Exception
+	@Test(priority=3,enabled=true)
+	public void AddFavoriteFromListTest() throws Exception
 	{
 		
+		String Actual= FDP.ClickonFavoriteIcon();
+		String Expected = "Diagnosis is added in the Favourite List";
+		Assert.assertEquals(Actual, Expected);
+		System.out.println("Favorite is added in List");
+		
+	}	
+	@Test(priority=4,enabled=true)
+	public void UnFavoriteTheFavioriteTest() throws Exception
+	{
 		String Actual= FDP.UnFavoriteTheFaviorite();
 		String Expected= "Diagnosis is removed from the Favourite List";
 		Assert.assertEquals(Actual, Expected);
+		System.out.println("Favorite is removed from List");
 		
 	}
 	
-	@Test(priority=4,enabled=false)
-	public void FavoriteTheFavoriteIconTest() throws Exception
-	{
-		
-		String Actual= FDP.FavoriteTheFavoriteIcon();
-		String Expected = "Diagnosis is added in the Favourite List";
-		Assert.assertEquals(Actual, Expected);
-		
-	}
 	
-	@Test(priority=5)
-	public void TypeSelectionboxEnableconditionTest()
+	
+	@Test(priority=5,enabled=false)
+	public void TypeSelectionboxEnableconditionForOtherfavorireTest()
 	{
 		boolean flag= FDP.TypeSelectionboxEnablecondition();
 		assertTrue(flag);
 	}
+	@Test(priority=6,enabled=false)
+	public void DeleteFromFavoriteTest() throws Exception
+	{
+	String Actual=	FDP.DeleteFromFavorite();
+	System.out.println(Actual);
+	String Expected = "Favourite Diagnosis Deleted Successfuly";
+	System.out.println("Favorite is deleted from favorite section");
+	}
+	@Test(priority=7,enabled=false)
+	public void checkboxclickTest() throws Exception
+	{
+	boolean flag=	FDP.checkboxclick();
+	
+	Assert.assertTrue(flag);
+	System.out.println("All options under Type are enabled");
 	
 	
+	}
+				
 	
 	@AfterMethod
 	public void TearDown()

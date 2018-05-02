@@ -8,7 +8,7 @@
           <include name="Setup"/>
           <include name="UnFavoriteTheFavioriteTest"/>
           <include name="TearDown"/>
-          <include name="TypeSelectionboxEnableconditionTest"/>
+          <include name="AddFavoriteFromListTest"/>
         </methods>
       </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
     </classes>
