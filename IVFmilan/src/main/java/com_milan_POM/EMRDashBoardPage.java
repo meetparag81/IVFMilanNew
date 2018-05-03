@@ -22,6 +22,7 @@ public class EMRDashBoardPage extends TestBase
 	@FindBy(xpath ="(//a[@title='History'])[1]")WebElement Historylinkwomen; 
 	@FindBy(xpath="(//a[@title='History'])[2]")WebElement Historylinkmen;
 	@FindBy(xpath="//a[@class='icoLink femaleDiagnosis'][@title='Diagnosis']")WebElement FemaleDiagnosis;
+	@FindBy(xpath="//a[@class='icoLink femaleComplaints']")WebElement Femalecomplaints;
 	@FindBy(xpath="(//a[@title='Diagnosis'])[2]")WebElement MaleDiagnosis;
 	@FindBy(xpath="//input[@id='0']")WebElement visitmen;
 	@FindBy(xpath= "//span[contains (text(), 'EMR Dashboard')]")WebElement TitleEMR;
@@ -39,51 +40,51 @@ public class EMRDashBoardPage extends TestBase
 	}
 	
 	
-	public  WomenHistoryPage clickOnWomenField() throws InterruptedException
-	{
-		TestUtil.VisibleOn(driver, womenfield, 30);
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='menuField_women']")));
-		if(womenfield.isDisplayed())
+		public  WomenHistoryPage clickOnWomenField() throws InterruptedException
 		{
-			//System.out.println("womentfield"+ womenfield.isDisplayed());
-			TestUtil.VisibleOn(driver, womenfield, 20);
-			womenfield.click();
-			TestUtil.VisibleOn(driver, Historylinkwomen, 30);
-			Historylinkwomen.click();
-			//System.out.println("Womenfieldis displayed");
-			List<WebElement> visitw=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
-			if(visitw.size()!=0)
+			TestUtil.VisibleOn(driver, womenfield, 30);
+			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='menuField_women']")));
+			if(womenfield.isDisplayed())
 			{
-			//System.out.println("Visitcount" + visitw.size());
-			//Thread.sleep(3000);
-			TestUtil.VisibleElementsOn(driver, visitw, 30);
-			visitw.get(0).click();
-			System.out.println("Women visit cliked");	
+				//System.out.println("womentfield"+ womenfield.isDisplayed());
+				TestUtil.VisibleOn(driver, womenfield, 20);
+				womenfield.click();
+				TestUtil.VisibleOn(driver, Historylinkwomen, 30);
+				Historylinkwomen.click();
+				//System.out.println("Womenfieldis displayed");
+				List<WebElement> visitw=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+				if(visitw.size()!=0)
+				{
+				//System.out.println("Visitcount" + visitw.size());
+				//Thread.sleep(3000);
+				TestUtil.VisibleElementsOn(driver, visitw, 30);
+				visitw.get(0).click();
+				System.out.println("Women visit cliked");	
+				}
+				else
+				{
+					
+				System.out.println("History  not availsble");
+				
+											
+				}
+				/*TestUtil.VisibleOn(driver, visitw,30);
+				Historylinkwomen.click();
+				TestUtil.VisibleOn(driver, womenfield, 30);
+			 visitw.click();*/
+				//visitwomen.click();
+				System.out.println("Women visit cliked");
 			}
 			else
 			{
-				
-			System.out.println("History  not availsble");
-			
-										
+				System.out.println("WomenHistory not foung");
 			}
-			/*TestUtil.VisibleOn(driver, visitw,30);
-			Historylinkwomen.click();
-			TestUtil.VisibleOn(driver, womenfield, 30);
-		 visitw.click();*/
-			//visitwomen.click();
-			System.out.println("Women visit cliked");
+			return new WomenHistoryPage();
+			
+			
+	
+	
 		}
-		else
-		{
-			System.out.println("WomenHistory not foung");
-		}
-		return new WomenHistoryPage();
-		
-		
-
-
-	}
 		
 	public String TitleHistoryPage() 
 	{
@@ -94,80 +95,100 @@ public class EMRDashBoardPage extends TestBase
 	}
 
 
-	public MenHistoryPage clickOnMenField() throws InterruptedException
-	{
-				Thread.sleep(3000);
-			if(menfield.isDisplayed())
-			{
-				TestUtil.VisibleOn(driver, menfield, 30);
-				menfield.click();
-				//System.out.println("menfield"+ menfield.isDisplayed());
-				
-			/*List<WebElement>checkbox= driver.findElements(By.xpath("html/body/div[1]/div/div/div/table/tbody/tr//td[1]"));
-			System.out.println ("checkbox size is"+checkbox.size());
-			checkbox.get(0).click();*/
-				Thread.sleep(3000);				
-				Historylinkmen.click();
-				//System.out.println(" Clicked onMen History");
-				List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
-						if(visitm.size()!=0)
-						{
-						System.out.println("Visitcount" + visitm.size());
-						TestUtil.VisibleElementsOn(driver, visitm, 30);
-						visitm.get(0).click();
-						System.out.println("Men visit cliked");	
-						}
-						else
-						{
+		public MenHistoryPage clickOnMenField() throws InterruptedException
+		{
+					Thread.sleep(3000);
+				if(menfield.isDisplayed())
+				{
+					TestUtil.VisibleOn(driver, menfield, 30);
+					menfield.click();
+					//System.out.println("menfield"+ menfield.isDisplayed());
+					
+				/*List<WebElement>checkbox= driver.findElements(By.xpath("html/body/div[1]/div/div/div/table/tbody/tr//td[1]"));
+				System.out.println ("checkbox size is"+checkbox.size());
+				checkbox.get(0).click();*/
+					Thread.sleep(3000);				
+					Historylinkmen.click();
+					//System.out.println(" Clicked onMen History");
+					List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+							if(visitm.size()!=0)
+							{
+							System.out.println("Visitcount" + visitm.size());
+							TestUtil.VisibleElementsOn(driver, visitm, 30);
+							visitm.get(0).click();
+							System.out.println("Men visit cliked");	
+							}
+							else
+							{
+								
+							System.out.println("History  not availsble");
 							
-						System.out.println("History  not availsble");
-						
-													
-						}
-						
+														
+							}
+							
+				}
+				else
+				{
+					System.out.println("MenHistory not found");
+					
+					
+				}
+				return  new MenHistoryPage();
+		
+		
+		}
+	
+		public FemaleDiagnosisPage ClickOnDiagnosis() throws Exception
+		{
+			TestUtil.VisibleOn(driver, womenfield, 20);
+			womenfield.click();	
+			//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
+			Thread.sleep(3000);
+			FemaleDiagnosis.click();
+			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+			if(visitm.size()!=0)
+			{
+			//System.out.println("Visitcount" + visitm.size());
+			TestUtil.VisibleElementsOn(driver, visitm, 30);
+			visitm.get(0).click();
+			System.out.println("Dignosis visit cliked");
+			
 			}
 			else
-			{
-				System.out.println("MenHistory not found");
+			{	
 				
-				
+			System.out.println("diagnosis is not available");
+			
+										
 			}
-			return  new MenHistoryPage();
-	
-	
-	}
-	
-	public FemaleDiagnosisPage ClickOnDiagnosis() throws Exception
-	{
-		TestUtil.VisibleOn(driver, womenfield, 20);
-		womenfield.click();	
-		//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
-		Thread.sleep(3000);
-		FemaleDiagnosis.click();
-		List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
-		if(visitm.size()!=0)
+			return new FemaleDiagnosisPage();
+			
+		}
+		public WComplaintsPage ClickOnComplaints() throws Exception
 		{
-		System.out.println("Visitcount" + visitm.size());
-		TestUtil.VisibleElementsOn(driver, visitm, 30);
-		visitm.get(0).click();
-		System.out.println("Dignosis visit cliked");
-		
-		}
-		else
-		{	
+			TestUtil.VisibleOn(driver, womenfield, 20);
+			womenfield.click();	
+			//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
+			Thread.sleep(3000);
+			Femalecomplaints.click();
+			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+			if(visitm.size()!=0)
+			{
+			System.out.println("Visitcount" + visitm.size());
+			TestUtil.VisibleElementsOn(driver, visitm, 30);
+			visitm.get(1).click();
+			System.out.println("Complaints visit cliked");
 			
-		System.out.println("History  not availsble");
-		
-									
-		}
-		return new FemaleDiagnosisPage();
-		
-	}
-	
-			
+			}
+			else
+			{	
 				
+			System.out.println("Complaints is not available");
 			
-			
-		
+										
+			}
+			return new WComplaintsPage();		
+		}
+	
 }
 
