@@ -68,7 +68,7 @@ public class FemaleDiagnosisTest extends TestBase
 		String Expeted = "delete1289";
 		Assert.assertEquals(Actual, Expeted,"Codevalue doesn't matched");
 	}
-	@Test(priority=3,enabled=true)
+	@Test(priority=3)
 	public void AddFavoriteFromListTest() throws Exception
 	{
 		
@@ -78,7 +78,7 @@ public class FemaleDiagnosisTest extends TestBase
 		System.out.println("Favorite is added in List");
 		
 	}	
-	@Test(priority=4,enabled=true)
+	@Test(priority=4)
 	public void UnFavoriteTheFavioriteTest() throws Exception
 	{
 		String Actual= FDP.UnFavoriteTheFaviorite();
@@ -104,7 +104,7 @@ public class FemaleDiagnosisTest extends TestBase
 	String Expected = "Favourite Diagnosis Deleted Successfuly";
 	System.out.println("Favorite is deleted from favorite section");
 	}
-	@Test(priority=7,enabled=false)
+	@Test(priority=7,enabled=true)
 	public void checkboxclickTest() throws Exception
 	{
 	boolean flag=	FDP.checkboxclick();

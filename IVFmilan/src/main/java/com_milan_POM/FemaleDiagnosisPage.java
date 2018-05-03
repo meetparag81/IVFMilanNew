@@ -119,24 +119,30 @@ public class FemaleDiagnosisPage extends TestBase
 				
 		//System.out.println("Favorite is displayed"+ FavoriteDisLike.isDisplayed()+ "Favorite enable"+ FavoriteDisLike.isEnabled());
 		Otherdiagnosis.click();
-		
+		Thread.sleep(3000);
 		List<WebElement>Favorite= driver.findElements(By.xpath("(//table[@class='table table-hover table-striped'])[2]/tbody/tr/td[2]//span[@class='like']"));
 		int Size= Favorite.size();
 		for(int j=1;j<=25;j++)
 		{
 				if(Size!=0)
 				{
-				
+					
 					for( int i=1;i<=Size;i++)
 					{
 						Thread.sleep(3000);
+					//WebElement favorite=driver.findElement(By.xpath("(//table[@class='table table-hover table-striped'])[2]/tbody/tr["+i+"]/td[2]//span[@class='like']"));
+					//favorite.click();
+					//break;
 						//boolean enabled = Favorite.get(i).isEnabled();
-						boolean displayed=Favorite.get(i).isDisplayed();
-						if(displayed==true)
-						{
+						//boolean displayed=Favorite.get(i).isDisplayed();
+						//System.out.println("Add FavoriteEnabled condition"+enabled+ "and displaycondition"+ displayed);
+						//if(displayed==true&&enabled==true)
+						Favorite.get(i).click();
+						break;
+						/*{
 							Favorite.get(i).click();
 							break;
-						}
+						}*/
 					}
 					String FavMessage= favoritemessage.getText();
 					
@@ -168,6 +174,7 @@ public class FemaleDiagnosisPage extends TestBase
 	public String UnFavoriteTheFaviorite() throws Exception
 	{
 		Otherdiagnosis.click();
+		Thread.sleep(3000);
 		List<WebElement>favorite1=driver.findElements(By.xpath("(//table[@class='table table-hover table-striped'])[2]/tbody/tr/td[2]//span[@class='dislike']"));
 		int Size= favorite1.size();
 		for(int j=1;j<=25;j++)
@@ -177,16 +184,17 @@ public class FemaleDiagnosisPage extends TestBase
 				
 					for( int i=1;i<Size;i++)
 					{
-						Thread.sleep(3000);
-						boolean enabled = favorite1.get(i).isEnabled();
+						Thread.sleep(2000);
+						/*boolean enabled = favorite1.get(i).isEnabled();
 						boolean displayed=favorite1.get(i).isDisplayed();
-						if(enabled== true&&displayed==true)
+						System.out.println("Remove favoriteEnabled condition"+ enabled+ "and displaycondition"+ displayed);
+						if(enabled== true&&displayed==true)*/
 						{
 							favorite1.get(i).click();
 							break;
 						}
 					}
-					TestUtil.VisibleOn(driver, unfavoritemessage, 30);
+					Thread.sleep(2000);
 					String UnFavMessage= favoritemessage.getText();
 					System.out.println(UnFavMessage);
 					return UnFavMessage;
@@ -256,6 +264,7 @@ public class FemaleDiagnosisPage extends TestBase
 	public boolean checkboxclick() throws Exception
 	{
 		FavouriteDiagnosis.click();
+		Thread.sleep(3000);
 		List<WebElement>checkboxes= driver.findElements(By.xpath("(//table[@class='table table-hover table-striped'])[3]//td[2]/input[@type='checkbox']"));
 		int sizechecboxes= checkboxes.size();
 		for(WebElement  checkbox:checkboxes)
