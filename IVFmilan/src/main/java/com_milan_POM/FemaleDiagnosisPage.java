@@ -83,9 +83,9 @@ public class FemaleDiagnosisPage extends TestBase
 		TestUtil.VisibleOn(driver, Plus, 30);
 		Plus.click();
 		TestUtil.VisibleOn(driver, Codeinput, 30);
-		Codeinput.sendKeys("delete1389");
+		Codeinput.sendKeys("delete1489");
 		TestUtil.VisibleOn(driver, description, 30);
-		description.sendKeys("delete1389");
+		description.sendKeys("delete1489");
 		TestUtil.VisibleOn(driver, Save, 30);
 		Save.click();
 		
@@ -194,7 +194,7 @@ public class FemaleDiagnosisPage extends TestBase
 							break;
 						}
 					}
-					Thread.sleep(2000);
+					Thread.sleep(3000);
 					String UnFavMessage= favoritemessage.getText();
 					System.out.println(UnFavMessage);
 					return UnFavMessage;

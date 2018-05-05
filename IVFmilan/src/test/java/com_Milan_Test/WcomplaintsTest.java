@@ -2,6 +2,7 @@ package com_Milan_Test;
 
 import java.util.concurrent.TimeUnit;
 
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -9,7 +10,6 @@ import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
 import com_milan_POM.WComplaintsPage;
 import com_milan_POM.EMRDashBoardPage;
-import com_milan_POM.FemaleDiagnosisPage;
 import com_milan_POM.HomePage;
 import com_milan_POM.Loginpage;
 import com_milan_POM.WComplaintsPage;
@@ -30,9 +30,9 @@ public class WcomplaintsTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		EMRPage= HomePage.ClickonEMR();
+		//EMRPage= HomePage.ClickonEMR();
 		//EMRPage=HomePage.SearchusingCalender();
-		//EMRPage=HomePage.searchPaient();
+		EMRPage=HomePage.searchPaient();
 		WCP=EMRPage.ClickOnComplaints();
 	
 	
@@ -49,9 +49,14 @@ public class WcomplaintsTest extends TestBase
 
 }
 	@Test(priority=1)
-	public  void PresentingComplaints() throws Exception 
+	public  void NewPatientPresentingComplaintsTest() throws Exception 
 	{
-		WCP.PresentingComplaints();
 		
+		int Actual = WCP.NewPatientPresentingComplaints();
+		int Expected = 4;
+		Assert.assertEquals(Actual, Expected);
+		System.out.println("NewPatientPresentingComplaintsTest is passed");
+		
+				
 	}
 }

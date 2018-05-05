@@ -89,7 +89,7 @@ public class HomePage extends TestBase
 					
 											
 						Thread.sleep(3000);						
-						if(name1.contains("Ms.Asha V"))
+						if(name1.contains("Ms.Geetha"))
 							
 						{
 							Thread.sleep(3000);
@@ -127,7 +127,7 @@ public class HomePage extends TestBase
 	Patient1.click();
 	Searchbox1.sendKeys("Parag");
 	//Searchbox1.submit();
-	Thread.sleep(1000);
+	//Thread.sleep(1000);
 	//checkbox.click();
 	TestUtil.VisibleOn(driver, Searchbox1, 10);
 	Searchbox1.sendKeys(Keys.BACK_SPACE);
@@ -141,7 +141,8 @@ public class HomePage extends TestBase
 		 for(int i=0;i<search.size();i++)
 				{
 				 Thread.sleep(2000);
-				 if(search.get(i).getText().contains("Parag Agrawal"))
+				 String name = search.get(i).getText();
+				 if(name.contains("Parag Agrawal"))
 							System.out.println("Paitent found");
 					{						
 						wait.until(ExpectedConditions.visibilityOfAllElements(search));
@@ -152,6 +153,7 @@ public class HomePage extends TestBase
 							
 				}
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;
+		 TestUtil.VisibleOn(driver, checkbox, 20);
 			executor.executeScript("arguments[0].click();", checkbox);
 		 				 	
 		 /*List<WebElement>visits =driver.findElements(By.xpath("//tbody//input[@type='checkbox']"));

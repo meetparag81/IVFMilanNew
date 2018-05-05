@@ -37,9 +37,9 @@ public void Setup() throws Exception
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		//EMRPage=HomePage.SearchusingCalender();
-		EMRPage= HomePage.ClickonEMR();
+		//EMRPage= HomePage.ClickonEMR();
 		//SearchPage= new SearchPage();
-		//EMRPage = SearchPage.searchPaient();
+		EMRPage = HomePage.searchPaient();
 		WHP= EMRPage.clickOnWomenField();
 		Addictions= WHP.ClickOnAddictions();
 }
@@ -50,65 +50,65 @@ public void Setup() throws Exception
 		driver.quit();
 	}
 	
-	@Test(priority=1,enabled= false)
+	@Test(priority=1)
 	public void CurrentStatusEnableConditionSmokeTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableForSmoke();
 		AssertJUnit.assertTrue(flag);
 	}
-	@Test(priority=2,enabled= false)
+	@Test(priority=2)
 	public void CurrentStatusEnableConditionAlkoholTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForAlcohol();
 		AssertJUnit.assertTrue(flag);
 	}
-	@Test(priority=3,enabled= false)
+	@Test(priority=3)
 	public void CurrentStatusEnableConditionTobacoTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForTobaco();
 		AssertJUnit.assertTrue(flag);
 	}
 	
-	@Test(priority=4,enabled= false)
+	@Test(priority=4)
 	public void CurrentStatusEnableConditionAdictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForDrugAdiction();
 		AssertJUnit.assertTrue(flag);
 	}
 	
-	@Test(priority=5,enabled= false)
+	@Test(priority=5)
 	public void CurrentStatusEnableConditionCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();
 		AssertJUnit.assertTrue(flag);
 	}
-	@Test(priority=6,enabled= false)
+	@Test(priority=6)
 	public void SenceWhenEnableconditionSinceWhenYearSmokeTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForSmoke();
 		AssertJUnit.assertTrue(flag);
 	}
-	@Test(priority=7,enabled= false)
+	@Test(priority=7)
 	public void SenceWhenEnableconditionSinceWhenYearAlkoholTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForAlkohol();
 		AssertJUnit.assertTrue(flag);
 	}
-	@Test(priority=8,enabled= false)
+	@Test(priority=8)
 	public void SenceWhenEnableconditionSinceWhenYearTobacoTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForTobaco();
 		AssertJUnit.assertTrue(flag);
 	}
 	
-	@Test(priority=9,enabled= false)
+	@Test(priority=9)
 	public void SenceWhenEnableconditionSinceWhenDrugAddictionYearTest()
 	{
 		boolean flag= Addictions.EnableConditionForSinceWhenDrugAdiction();
 		AssertJUnit.assertTrue(flag);
 	}
 	
-	@Test(priority=10,enabled= false)
+	@Test(priority=10)
 	public void SinceWhenEnableconditionSinceWhenCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();

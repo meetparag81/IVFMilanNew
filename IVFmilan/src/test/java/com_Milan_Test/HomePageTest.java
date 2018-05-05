@@ -37,7 +37,7 @@ public class HomePageTest extends TestBase
 	
 	
 		
-@ Test(priority=1)
+@ Test(priority=1,enabled=false)
 			
 	public void ClickOnCmrTest() throws Exception 
 	{
@@ -49,7 +49,7 @@ public class HomePageTest extends TestBase
 		System.out.println( "patient click on dashboard is completed");
 		
 	}
-@ Test(priority=2)
+@ Test(priority=2,enabled=false)
 
 public void SearchPatientUsingCalenderTest() throws Exception 
 {

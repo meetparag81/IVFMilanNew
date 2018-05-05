@@ -47,7 +47,7 @@ public class FemaleDiagnosisTest extends TestBase
 				
 	}
 	
-	@Test(priority=1,enabled=false)
+	@Test(priority=1)
 	public void ClickOnOtherDiagnosisTest() throws Exception
 	{
 		FDP.ClickOnOtherDiagbosisForNewPaitent();
@@ -61,7 +61,7 @@ public class FemaleDiagnosisTest extends TestBase
 		
 	}
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2)
 	public void CodevalueTest()
 	{
 		String Actual= FDP.Codevalue();
