@@ -66,28 +66,31 @@ public class WComplaintsPage extends TestBase
 			List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 			int NoofRows= Rows.size();
 			if(NoofRows!=0)
-			
-			for(int i=1;i<=NoofRows;j++)
 			{
-			String complaintname=	Rows.get(i).getText();
-			Buttoncomplaints.click();
-			Thread.sleep(3000);
-				List<WebElement> complaints = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
-				int complaintsnamessize= complaints.size();
-				for(int j = 1;i<=complaintsnamessize;j++)
+				for(int i=1;i<=NoofRows;j++)
 				{
-					String Names= complaints.get(j).getText();
-					if(Names.contentEquals(complaintname))					
+				String complaintname=	Rows.get(i).getText();
+				Buttoncomplaints.click();
+				Thread.sleep(3000);
+					List<WebElement> complaints = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
+					int complaintsnamessize= complaints.size();
+					for(int j = 1;i<=complaintsnamessize;j++)
 					{
-						complaints.get(j).click();
-						count++;
-						break;
+						String Names= complaints.get(j).getText();
+						if(Names.contentEquals(complaintname))					
+						{
+							complaints.get(j).click();
+							count++;
+							break;
+						}
+						
+						
 					}
-					
 					
 				}
 				
 			}
+			
 		
 	}
 
