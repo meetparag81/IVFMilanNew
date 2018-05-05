@@ -3,6 +3,7 @@ package com_Milan_Test;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -30,9 +31,9 @@ public class WcomplaintsTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		//EMRPage= HomePage.ClickonEMR();
+		EMRPage= HomePage.ClickonEMR();
 		//EMRPage=HomePage.SearchusingCalender();
-		EMRPage=HomePage.searchPaient();
+		//EMRPage=HomePage.searchPaient();
 		WCP=EMRPage.ClickOnComplaints();
 	
 	
@@ -59,4 +60,19 @@ public class WcomplaintsTest extends TestBase
 		
 				
 	}
+	@Test(priority=2)
+	public void SaveTheComplaintsTest() throws Exception
+	{
+		WCP.NewPatientPresentingComplaints();
+		String Actual= WCP.SaveTheComplaints();
+		String expected = "Modality is mandatory field";
+		Assert.assertEquals(Actual, expected);
+	}
+	
+	@AfterMethod
+	public void Teardown()
+	{
+		driver.quit();
+	}
+	
 }
