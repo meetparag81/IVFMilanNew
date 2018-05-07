@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 
 public class WComplaintsPage extends TestBase
@@ -19,6 +20,7 @@ public class WComplaintsPage extends TestBase
 	@FindBy(xpath="//textarea[@name='FollowUpNotes']")WebElement FollowupNotes;
 	@FindBy(xpath="//textarea[@name='Reason']")WebElement FollowUpReason;
 	@FindBy(xpath="//button[@class='btn btn-primary ng-binding']")WebElement Save;
+	@FindBy(xpath="(//i[@class='fa fa-calendar'])[2]")WebElement calender;
 	List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 	
 	
@@ -176,9 +178,34 @@ public class WComplaintsPage extends TestBase
 			Save.click();
 			System.out.println(FlashMessage.getText());
 			return FlashMessage.getText();
-			
 		}
 		
+		public boolean NextFollowUp()
+		{
+			TestUtil.VisibleOn(driver, calender, 20);
+			calender.click();
+			List<WebElement>Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']/tbody//td/button"));
+			int datesize= Dates.size();
+			boolean enabledcondition = false;
+			for(int i=1;i<=datesize;i++)
+			{
+				if(Dates.get(i).getText().contains("03"))
+				{
+				boolean dateenabled= Dates.get(i).isEnabled();
+				//System.out.println("Previous date is enabled"+dateenabled);
+					 enabledcondition=dateenabled;
+						 break;
+					
+					
+				}
+				
+						
+			}
+			return enabledcondition;
+					
+			
+			
+		}
 		
 		
 		

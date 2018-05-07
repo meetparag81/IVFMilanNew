@@ -49,7 +49,7 @@ public class WcomplaintsTest extends TestBase
 	
 
 }
-	@Test(priority=1)
+	@Test(priority=1,enabled= false)
 	public  void NewPatientPresentingComplaintsTest() throws Exception 
 	{
 		
@@ -60,7 +60,7 @@ public class WcomplaintsTest extends TestBase
 		
 				
 	}
-	@Test(priority=2)
+	@Test(priority=2,enabled= false)
 	public void SaveTheComplaintsTest() throws Exception
 	{
 		WCP.NewPatientPresentingComplaints();
@@ -68,6 +68,16 @@ public class WcomplaintsTest extends TestBase
 		String expected = "Modality is mandatory field";
 		Assert.assertEquals(Actual, expected);
 	}
+	@Test(priority=3)
+	public void NextFollowUpTest() throws Exception
+	{
+	boolean flag=WCP.NextFollowUp();
+	
+	Assert.assertFalse(flag);
+	System.out.println("Can't select past date");
+		
+	}
+	
 	
 	@AfterMethod
 	public void Teardown()

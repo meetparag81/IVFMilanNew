@@ -6,7 +6,8 @@
       <class name="com_Milan_Test.WcomplaintsTest">
         <methods>
           <include name="Setup"/>
-          <include name="SaveTheComplaintsTest"/>
+          <include name="NextFollowUpTest"/>
+          <include name="Teardown"/>
         </methods>
       </class> <!-- com_Milan_Test.WcomplaintsTest -->
     </classes>

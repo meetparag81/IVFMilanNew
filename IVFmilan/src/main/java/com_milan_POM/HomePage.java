@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 
 public class HomePage extends TestBase
@@ -33,6 +34,7 @@ public class HomePage extends TestBase
 	@FindBy (xpath="//span[text()='Queue Management']//following::input[2]")WebElement searchpaient;
 	@FindBy(xpath="//button[text()='Search'][@ class='btn btn-primary']")WebElement Searchbutton;
 	WebDriverWait wait = new WebDriverWait(driver, 50);
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	 
 	public HomePage()  
@@ -87,9 +89,10 @@ public class HomePage extends TestBase
 					String name1=rowcount.getText();
 					//System.out.println(name1+ i+ j);
 					
-											
+					
+						String PatientName=	reader.getCellData("HomePage", "PatientName", 2);
 						Thread.sleep(3000);						
-						if(name1.contains("Ms.Lakshmi"))
+						if(name1.contains(PatientName))
 							
 						{
 							Thread.sleep(3000);
@@ -125,7 +128,10 @@ public class HomePage extends TestBase
 		  WebElement Patient1= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
 	Paitent = wait.until(ExpectedConditions.visibilityOf(Patient));	
 	Patient1.click();
-	Searchbox1.sendKeys("Parag");
+	int Rowcount=reader.getRowCount("HomePage");
+	
+	String PatientName=	reader.getCellData("HomePage", "PatientName", 3);
+	Searchbox1.sendKeys(PatientName);
 	//Searchbox1.submit();
 	//Thread.sleep(1000);
 	//checkbox.click();
