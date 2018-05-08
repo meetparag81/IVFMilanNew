@@ -49,12 +49,15 @@ public class HomePage extends TestBase
 		int rows=2;
 		while(k<=10)
 		{
-		Thread.sleep(2000);
+		
 		////div[@id='tableToExport']/table/tbody/tr["+ k +"]/td[4]/text()-Invalid x path is shown.
-		WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ k +"]/td[4]"));
-		//System.out.println(rowcount);
-		String name2= rowcount.getText();
-		//reader.removeColumn("PatientName", 1);
+		//WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ k +"]/td[4]/text()"));
+			System.out.println("test patient Name");
+			Thread.sleep(5000);
+			List<WebElement> rows2= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']/tbody/tr/td[4]/text()"));
+		WebElement rows1= driver.findElement(By.xpath("//table[@class='table table-hover table-striped']/tbody/tr["+k+"]/td[4]/text()"));
+		TestUtil.VisibleOn(driver, rows1, 30);
+		String name2= rows1.getText();
 		reader.setCellData("HomePage", "PatientName", rows, name2);
 		k++;
 		rows++;
@@ -172,7 +175,7 @@ public class HomePage extends TestBase
 	TestUtil.VisibleOn(driver, Searchbox1, 10);
 	Searchbox1.sendKeys(Keys.BACK_SPACE);
 	Thread.sleep(1000);
-	Searchbox1.sendKeys("g");
+	Searchbox1.sendKeys("");
 	List<WebElement>search= driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 		 
 		 
@@ -182,14 +185,15 @@ public class HomePage extends TestBase
 				{
 				 Thread.sleep(2000);
 				 String name = search.get(i).getText();
-				 if(name.contains("Parag Agrawal"))
+				 search.get(i).click();
+				 /*if(name.contains("Parag Agrawal"))
 							System.out.println("Paitent found");
 					{						
 						wait.until(ExpectedConditions.visibilityOfAllElements(search));
 						search.get(i).click();
 						System.out.println("clicked on Paitent");
 						break;
-					}
+					}*/
 							
 				}
 		 JavascriptExecutor executor = (JavascriptExecutor)driver;

@@ -37,7 +37,7 @@ public class HomePageTest extends TestBase
 	
 	
 		
-@ Test(priority=2)
+@ Test(priority=2,enabled=false)
 			
 	public void ClickOnCmrTest() throws Exception 
 	{
