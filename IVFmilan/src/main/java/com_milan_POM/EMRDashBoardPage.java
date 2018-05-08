@@ -16,20 +16,21 @@ import com_Milan_util.TestUtil;
 
 public class EMRDashBoardPage extends TestBase
 {
-	@FindBy(xpath="//a[@id='menuField_women']") WebElement womenfield;
-	@FindBy(xpath="//a[@id='menuField_men']") WebElement menfield;
-	@FindBy(xpath="//*[@id='0']")WebElement visitwomen;
-	@FindBy(xpath ="(//a[@title='History'])[1]")WebElement Historylinkwomen; 
-	@FindBy(xpath="(//a[@title='History'])[2]")WebElement Historylinkmen;
-	@FindBy(xpath="//a[@class='icoLink femaleDiagnosis'][@title='Diagnosis']")WebElement FemaleDiagnosis;
-	@FindBy(xpath="//a[@class='icoLink femaleComplaints']")WebElement Femalecomplaints;
-	@FindBy(xpath="(//a[@title='Diagnosis'])[2]")WebElement MaleDiagnosis;
-	@FindBy(xpath="//input[@id='0']")WebElement visitmen;
-	@FindBy(xpath= "//span[contains (text(), 'EMR Dashboard')]")WebElement TitleEMR;
-	@FindBy(xpath = "//span[contains (text(), 'History')]")WebElement TitleHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]")WebElement Sexualhistory; 
-	@FindBy(xpath="(//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input[@type='checkbox'])[1]")WebElement visitw;
-	@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@id='0']") WebElement checkboxvisitm;
+private @FindBy(xpath="//a[@id='menuField_women']") WebElement womenfield;
+private @FindBy(xpath="//a[@id='menuField_men']") WebElement menfield;
+private @FindBy(xpath="//*[@id='0']")WebElement visitwomen;
+private @FindBy(xpath ="(//a[@title='History'])[1]")WebElement Historylinkwomen; 
+private @FindBy(xpath="(//a[@title='History'])[2]")WebElement Historylinkmen;
+private @FindBy(xpath="//a[@class='icoLink femaleDiagnosis'][@title='Diagnosis']")WebElement FemaleDiagnosis;
+private @FindBy(xpath="//a[@class='icoLink femaleComplaints']")WebElement Femalecomplaints;
+private @FindBy(xpath="//a[@class='icoLink femaleVitals']")WebElement WVitals;
+private @FindBy(xpath="(//a[@title='Diagnosis'])[2]")WebElement MaleDiagnosis;
+private @FindBy(xpath="//input[@id='0']")WebElement visitmen;
+private @FindBy(xpath= "//span[contains (text(), 'EMR Dashboard')]")WebElement TitleEMR;
+private @FindBy(xpath = "//span[contains (text(), 'History')]")WebElement TitleHistory;
+private @FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]")WebElement Sexualhistory; 
+private @FindBy(xpath="(//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input[@type='checkbox'])[1]")WebElement visitw;
+private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@id='0']") WebElement checkboxvisitm;
 	
 	
 	WebDriverWait wait = new WebDriverWait(driver, 50);
@@ -183,12 +184,38 @@ public class EMRDashBoardPage extends TestBase
 			else
 			{	
 				
-			System.out.println("Complaints is not available");
+			System.out.println("Complaints visits are not available");
 			
 										
 			}
 			return new WComplaintsPage();		
 		}
+		public WVitalsPage ClickOnVitals() throws Exception 
+		{
+			TestUtil.VisibleOn(driver, womenfield, 20);
+			womenfield.click();	
+			//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
+			Thread.sleep(3000);
+			WVitals.click();
+			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+			if(visitm.size()!=0)
+			{
+			System.out.println("Visitcount" + visitm.size());
+			TestUtil.VisibleElementsOn(driver, visitm, 30);
+			visitm.get(0).click();
+			System.out.println("Vitals visit cliked");
+			
+			}
+			else
+			{	
+				
+			System.out.println("Vitals visits are not available");
+			
+										
+			}
+			return new WVitalsPage();		
+		}
+	
 	
 }
 

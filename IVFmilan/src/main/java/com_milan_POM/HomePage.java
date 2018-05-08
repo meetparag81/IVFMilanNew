@@ -43,6 +43,33 @@ public class HomePage extends TestBase
 		PageFactory.initElements(driver, this);
 	}
 	
+	public int PatientDataCreation() throws Exception
+	{
+		int k=1;
+		int rows=2;
+		while(k<=10)
+		{
+		Thread.sleep(2000);
+		////div[@id='tableToExport']/table/tbody/tr["+ k +"]/td[4]/text()-Invalid x path is shown.
+		WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ k +"]/td[4]"));
+		//System.out.println(rowcount);
+		String name2= rowcount.getText();
+		//reader.removeColumn("PatientName", 1);
+		reader.setCellData("HomePage", "PatientName", rows, name2);
+		k++;
+		rows++;
+		
+				
+				
+				
+			
+		}
+		return rows;
+		
+		 
+	}
+	
+	
 	
 	public String EMRPageTitle()
 	
@@ -87,9 +114,15 @@ public class HomePage extends TestBase
 					Thread.sleep(4000);
 					WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ j +"]/td[4]"));					
 					String name1=rowcount.getText();
+					
+					 
+					
+					
+					
 					//System.out.println(name1+ i+ j);
 					
 					
+					 
 						String PatientName=	reader.getCellData("HomePage", "PatientName", 2);
 						Thread.sleep(3000);						
 						if(name1.contains(PatientName))
@@ -121,6 +154,7 @@ public class HomePage extends TestBase
 				
 						}
 				}
+		
 		return  new EMRDashBoardPage();
 	}
 	public EMRDashBoardPage searchPaient() throws Exception 

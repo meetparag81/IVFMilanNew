@@ -37,7 +37,7 @@ public class HomePageTest extends TestBase
 	
 	
 		
-@ Test(priority=1,enabled=false)
+@ Test(priority=2)
 			
 	public void ClickOnCmrTest() throws Exception 
 	{
@@ -49,7 +49,7 @@ public class HomePageTest extends TestBase
 		System.out.println( "patient click on dashboard is completed");
 		
 	}
-@ Test(priority=2,enabled=false)
+@ Test(priority=3,enabled=false)
 
 public void SearchPatientUsingCalenderTest() throws Exception 
 {
@@ -59,7 +59,7 @@ public void SearchPatientUsingCalenderTest() throws Exception
 	AssertJUnit.assertEquals(Actual, Expectted);
 	System.out.println("search patient through Searchbox is completed");
 }
-@Test(priority=3)
+@Test(priority=3,enabled=false)
 private void SearchPatientUsingPatientTabTest() throws Exception 
 {
 	HomePage.searchPaient();
@@ -68,6 +68,14 @@ private void SearchPatientUsingPatientTabTest() throws Exception
 	System.out.println("search patient test completed");
 	
 }
+@Test(priority=1)
+public void DatacreationTest() throws Exception
+{
+	int Actualrows= HomePage.PatientDataCreation();
+	int Expected = 12;
+	Assert.assertEquals(Actualrows, Expected);
+}
+
 
 @AfterMethod
 public void teardown()
