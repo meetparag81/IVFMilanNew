@@ -42,7 +42,8 @@ public class Loginpage extends TestBase
 		//clinic = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//*[@id='InputSourceOfReference']"))));
 		Select drop = new Select(clinic);
 		Thread.sleep(2000);
-		drop.selectByVisibleText("Lavida Fertility Bangkok");
+		
+		drop.selectByVisibleText("Milann - Kumarapark");
 		Loginbutton.click();
 		return  new HomePage();
 		

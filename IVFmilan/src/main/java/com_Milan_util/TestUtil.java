@@ -3,6 +3,7 @@ package com_Milan_util;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 
 public class TestUtil extends TestBase
 {
@@ -83,6 +85,35 @@ public static long IMPLICIT_WAIT = 30;
 	        //Returns the captured file path
 	return destination;
 		}
+	public static ArrayList<Object[]>  getdatafromExcel()
+	{
+		Exls_Reader reader = null;
+		
+		ArrayList<Object[]> mydata = new ArrayList<Object[]>();
+		try
+		{
+		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		int rowcount= reader.getRowCount("Vitals");
+		int count= rowcount;
+		for(int rows=2;rows<=count;rows++ )
+		{
+			String BPSystolicval =reader.getCellData("Vitals", 0, rows);
+			Object[] obj= {BPSystolicval};
+			mydata.add(obj);
+		}
+		
+		return mydata;
+		
+	}
+	
+	
+	
+	
 	
 }
 	

@@ -168,6 +168,7 @@ public class HomePage extends TestBase
 	int Rowcount=reader.getRowCount("HomePage");
 	
 	String PatientName=	reader.getCellData("HomePage", "PatientName", 3);
+	Thread.sleep(3000);
 	Searchbox1.sendKeys(PatientName);
 	//Searchbox1.submit();
 	//Thread.sleep(1000);

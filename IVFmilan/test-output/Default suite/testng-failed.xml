@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.HomePageTest">
+      <class name="com_Milan_Test.WVitalsTest">
         <methods>
-          <include name="DatacreationTest"/>
-          <include name="Setup"/>
-          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="BPSystolicBundryValueTest"/>
+          <include name="TearDown"/>
         </methods>
-      </class> <!-- com_Milan_Test.HomePageTest -->
+      </class> <!-- com_Milan_Test.WVitalsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
