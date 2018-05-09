@@ -19,7 +19,7 @@ private @FindBy(xpath="(//input[@type='text'])[5]")WebElement BPSystolic;
 private @FindBy(xpath="(//input[@type='text'])[6]")WebElement BPDiastolic;
 private @FindBy(xpath="(//input[@type='text'])[7]")WebElement HR;
 private @FindBy(xpath="(//input[@type='text'])[8]")WebElement Temprature;
-Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsm");
 double rowdata2,rowdata1;
 	 WVitalsPage()
 	{
@@ -85,7 +85,7 @@ double rowdata2,rowdata1;
 		int noofrows= reader.getRowCount("Vitals");
 		for(int rows=2;rows<=noofrows;rows++)
 		{
-			String rowdata= reader.getCellData("Vitals", "BPSystolicval", rows);
+			String rowdata= reader.getCellData("Vitals", 2, rows);
 			BPSystolic.sendKeys(rowdata);
 			try{
 				 rowdata1=Double.parseDouble(rowdata);
@@ -129,9 +129,23 @@ double rowdata2,rowdata1;
 		return BPvalues;
 			
 	}
+	public String SaveAllvalues(String weightval,String Heightval,String BPval, String)
+	{
+		Weight.clear();
+		Weight.sendKeys(weightval);
+		Height.clear();
+		Height.sendKeys(Heightval);
+		BPSystolic.clear();
+		BPSystolic.sendKeys(BPval);
+		
+		return Heightval;
+		
+		
+		
+	}
 	
 	
-	public static ArrayList<Object[]>  getdatafromExcelforBPSystolic()
+	public static ArrayList<Object[]>  getdatafromExcel()
 	{
 		Exls_Reader reader = null;
 		
@@ -148,8 +162,36 @@ double rowdata2,rowdata1;
 		int count= rowcount;
 		for(int rows=2;rows<=count;rows++ )
 		{
-			String BPSystolicval =reader.getCellData("Vitals", 0, rows);
-			Object[] obj= {BPSystolicval};
+			String BPSystolicval =reader.getCellData("Vitals",2, rows);
+			String Weight =reader.getCellData("Vitals", 1, rows);
+			String Height =reader.getCellData("Vitals", 2, rows);
+			Object[] obj= {BPSystolicval,Weight,Height};
+			mydata.add(obj);
+		}
+		
+		return mydata;
+	}
+	
+	public static ArrayList<Object[]>  getdatafromExcelforBMI()
+	{
+		Exls_Reader reader = null;
+		
+		ArrayList<Object[]> mydata = new ArrayList<Object[]>();
+		try
+		{
+		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsm");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		int rowcount= reader.getRowCount("Vitals");
+		int count= rowcount;
+		for(int rows=2;rows<=count;rows++ )
+		{
+			String Weight =reader.getCellData("Vitals", 1, rows);
+			String Height =reader.getCellData("Vitals", 2, rows);
+			Object[] obj= {Weight,Height};
 			mydata.add(obj);
 		}
 		

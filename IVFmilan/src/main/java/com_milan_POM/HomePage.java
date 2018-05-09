@@ -114,7 +114,7 @@ public class HomePage extends TestBase
 				{
 				if(j <= 10)
 					{
-					Thread.sleep(4000);
+					Thread.sleep(3000);
 					WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+ j +"]/td[4]"));					
 					String name1=rowcount.getText();
 					
@@ -126,7 +126,7 @@ public class HomePage extends TestBase
 					
 					
 					 
-						String PatientName=	reader.getCellData("HomePage", "PatientName", 2);
+						String PatientName=	reader.getCellData("HomePage", "PatientName", 5);
 						Thread.sleep(3000);						
 						if(name1.contains(PatientName))
 							
@@ -167,13 +167,13 @@ public class HomePage extends TestBase
 	Patient1.click();
 	int Rowcount=reader.getRowCount("HomePage");
 	
-	String PatientName=	reader.getCellData("HomePage", "PatientName", 3);
+	String PatientName=	reader.getCellData("HomePage", "PatientName", 5);
 	Thread.sleep(3000);
 	Searchbox1.sendKeys(PatientName);
 	//Searchbox1.submit();
 	//Thread.sleep(1000);
 	//checkbox.click();
-	TestUtil.VisibleOn(driver, Searchbox1, 10);
+	TestUtil.VisibleOn(driver, Searchbox1, 05);
 	Searchbox1.sendKeys(Keys.BACK_SPACE);
 	Thread.sleep(1000);
 	Searchbox1.sendKeys("");
@@ -184,9 +184,10 @@ public class HomePage extends TestBase
 		// search.get(0).click();			
 		 for(int i=0;i<search.size();i++)
 				{
-				 Thread.sleep(2000);
-				 String name = search.get(i).getText();
+				 Thread.sleep(1000);
+				 //String name = search.get(i).getText();
 				 search.get(i).click();
+				 break;
 				 /*if(name.contains("Parag Agrawal"))
 							System.out.println("Paitent found");
 					{						
