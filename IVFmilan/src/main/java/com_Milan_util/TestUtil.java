@@ -85,29 +85,7 @@ public static long IMPLICIT_WAIT = 30;
 	        //Returns the captured file path
 	return destination;
 		}
-	public static ArrayList<Object[]>  getdatafromExcel()
-	{
-		Exls_Reader reader = null;
-		
-		ArrayList<Object[]> mydata = new ArrayList<Object[]>();
-		try
-		{
-		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		int rowcount= reader.getRowCount("Vitals");
-		int count= rowcount;
-		for(int rows=2;rows<=count;rows++ )
-		{
-			String BPSystolicval =reader.getCellData("Vitals", 0, rows);
-			Object[] obj= {BPSystolicval};
-			mydata.add(obj);
-		}
-		
-		return mydata;
+	
 		
 	}
 	
@@ -115,5 +93,5 @@ public static long IMPLICIT_WAIT = 30;
 	
 	
 	
-}
+
 	

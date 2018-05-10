@@ -3,12 +3,14 @@ package com_milan_POM;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
+import com_Milan_util.TestUtil;
 
 public class WVitalsPage extends TestBase
 {
@@ -19,7 +21,10 @@ private @FindBy(xpath="(//input[@type='text'])[5]")WebElement BPSystolic;
 private @FindBy(xpath="(//input[@type='text'])[6]")WebElement BPDiastolic;
 private @FindBy(xpath="(//input[@type='text'])[7]")WebElement HR;
 private @FindBy(xpath="(//input[@type='text'])[8]")WebElement Temprature;
-Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsm");
+private @FindBy(xpath="//button[@class='btn btn-primary ng-binding']")WebElement Save;
+private @FindBy(xpath="//div[@id='toasty']/comment()") WebElement FlashMessage;
+private@FindBy(xpath="//label[text()='BMI']")WebElement BMITitle;
+Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 double rowdata2,rowdata1;
 	 WVitalsPage()
 	{
@@ -47,7 +52,7 @@ double rowdata2,rowdata1;
 		return Heightstd;		
 	}
 	
-	public boolean BMI()
+	/*public boolean BMI()
 	{
 		int count= reader.getColumnCount("Vitals");
 		for(int rows=2;rows<=count;rows++)
@@ -57,14 +62,8 @@ double rowdata2,rowdata1;
 		}
 		Boolean BMIcondition= BMI.isEnabled();
 		return BMIcondition;		
-	}
-	public  int BMIvalue()
-	{
-		String BMIvalue= BMI.getAttribute("value");
-			int BMIval= Integer.getInteger(BMIvalue);
-		
-		return BMIval;		
-	}
+	}*/
+	
 	public String HRValue()
 	{
 		HR.sendKeys("59");
@@ -72,20 +71,14 @@ double rowdata2,rowdata1;
 		return colour;
 	}
 	
-	public int ValueInHRField()
-	{
-		String colour= HR.getAttribute("value");
-		int valueinHRfield=Integer.parseInt(colour);
-		return valueinHRfield;
-		
-	}
+	
 	public boolean BPSystolic()
 	{
 		boolean Message = true;
 		int noofrows= reader.getRowCount("Vitals");
 		for(int rows=2;rows<=noofrows;rows++)
 		{
-			String rowdata= reader.getCellData("Vitals", 2, rows);
+			String rowdata= reader.getCellData("Vitals", 3, rows);
 			BPSystolic.sendKeys(rowdata);
 			try{
 				 rowdata1=Double.parseDouble(rowdata);
@@ -114,10 +107,10 @@ double rowdata2,rowdata1;
 		
 	}
 	
-	public String BPSystolic(String value1)
+	public String BPSystolic(String value)
 	{
 		BPSystolic.clear();
-		BPSystolic.sendKeys(value1);
+		BPSystolic.sendKeys(value);
 		String BPvalues= BPSystolic.getAttribute("value");
 		/*float BPvalues1= Float.parseFloat(BPvalues);
 		if(BPvalues1<=90.0 || BPvalues1>=120.0)
@@ -129,22 +122,51 @@ double rowdata2,rowdata1;
 		return BPvalues;
 			
 	}
-	public String SaveAllvalues(String weightval,String Heightval,String BPval, String)
+	public String SaveAllvalues(String weightval,String Heightval,String BPSystolicval, String BPDiastolicval,String HRRangeval,String Tempval )
 	{
 		Weight.clear();
 		Weight.sendKeys(weightval);
 		Height.clear();
 		Height.sendKeys(Heightval);
 		BPSystolic.clear();
-		BPSystolic.sendKeys(BPval);
+		BPSystolic.sendKeys(BPSystolicval);
+		BPDiastolic.clear();
+		BPDiastolic.sendKeys(BPDiastolicval);
+		BPSystolic.clear();
+		HR.clear();
+		HR.sendKeys(HRRangeval);
+		Temprature.clear();
+		Temprature.sendKeys(Tempval);
+		Save.click();
+		TestUtil.VisibleOn(driver, FlashMessage, 20);
+	String message=	FlashMessage.getText();
 		
-		return Heightval;
+		
+		return message;
+	}
 		
 		
+		
+	
+	
+	
+	public float BMIvalue(String weightval, String Heightval) throws Exception 
+	{
+		Weight.clear();
+		Weight.sendKeys(weightval);
+		Height.clear();
+		Height.sendKeys(Heightval);
+		BMITitle.click();
+		Thread.sleep(2000);
+		String BMIvalue= BMI.getAttribute("value");
+		float BMI = Float.parseFloat(BMIvalue);
+		return BMI;
+		
+	
+	
 		
 	}
-	
-	
+
 	public static ArrayList<Object[]>  getdatafromExcel()
 	{
 		Exls_Reader reader = null;
@@ -162,24 +184,27 @@ double rowdata2,rowdata1;
 		int count= rowcount;
 		for(int rows=2;rows<=count;rows++ )
 		{
-			String BPSystolicval =reader.getCellData("Vitals",2, rows);
-			String Weight =reader.getCellData("Vitals", 1, rows);
-			String Height =reader.getCellData("Vitals", 2, rows);
-			Object[] obj= {BPSystolicval,Weight,Height};
+			String Weight =reader.getCellData("Vitals", 0, rows);
+			String Height =reader.getCellData("Vitals", 1, rows);
+			String BPSystolic  = reader.getCellData("Vitals", 2, rows);
+			String BPDiastolic  = reader.getCellData("Vitals", 3, rows);
+			String HRRange = reader.getCellData("Vitals", 4, rows);
+			String Temp = reader.getCellData("Vitals", 5, rows);
+			Object[] obj= {Weight,Height,BPSystolic,BPDiastolic,HRRange,Temp};
 			mydata.add(obj);
 		}
 		
 		return mydata;
 	}
 	
-	public static ArrayList<Object[]>  getdatafromExcelforBMI()
+	/*public static ArrayList<Object[]>  getdatafromExcelforBMI()
 	{
 		Exls_Reader reader = null;
 		
 		ArrayList<Object[]> mydata = new ArrayList<Object[]>();
 		try
 		{
-		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsm");
+		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 		}
 		catch(Exception e)
 		{
@@ -191,37 +216,32 @@ double rowdata2,rowdata1;
 		{
 			String Weight =reader.getCellData("Vitals", 1, rows);
 			String Height =reader.getCellData("Vitals", 2, rows);
-			Object[] obj= {Weight,Height};
+			String BPSystolic  = reader.getCellData("Vitals", 3, rows);
+			String BPDiastolic  = reader.getCellData("Vitals", 4, rows);
+			String HRRange = reader.getCellData("Vitals", 5, rows);
+			Object[] obj= {Weight,Height,BPSystolic,BPDiastolic,HRRange};
 			mydata.add(obj);
 		}
 		
-		return mydata;
-	}
+		return mydata;*/
 	
 	
 	
-	public String  FillVitalsform()
+	
+	public Double  ExpectedResult()
 	{
-		Weight.sendKeys("100.0");
-		Height.sendKeys("170");
-		BPDiastolic.sendKeys("120.5");
-		BPDiastolic.sendKeys("100.10");
-		HR.sendKeys("110.0");
-		Temprature.sendKeys("100.0");
+		Double Expected1 = null;
+		int count= reader.getRowCount("Vitals");
+		for(int rows=2;rows<=count;rows++)
+		{
+		 String Expected = reader.getCellData("Vitals", "BMI", rows);
+		 Double Exp= Double.parseDouble(Expected);
+		 Expected1= Exp;
+		 break;
+		}
+		return Expected1;
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		return null;
-		
-	}
-	
-	
+		}
 }
 	
 	

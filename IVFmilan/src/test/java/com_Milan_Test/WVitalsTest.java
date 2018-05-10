@@ -49,20 +49,20 @@ public class WVitalsTest extends TestBase
 		
 	}
 	
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled= false)
 	public void HRValueTest()
 	{
 		WVP.HRValue();	
 	}
 	
-	@Test(priority=2,dataProvider= "getTestData")
-	public void BPSystolicBundryValueTest(String value)
+	@Test(priority=2,dataProvider= "getTestData",enabled=false)
+	public void BPSystolicBundryValueTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
 	{
 		boolean message = true;
 	/*driver.findElement(By.xpath("(//input[@type='text'])[5]")).clear();
 	driver.findElement(By.xpath("(//input[@type='text'])[5]")).sendKeys(value);
 	String BPvalues= driver.findElement(By.xpath("(//input[@type='text'])[5]")).getAttribute("value");*/
-	 String BPvalues=WVP.BPSystolic(value);
+	 String BPvalues=WVP.BPSystolic(BPSystolicval);
 	float BPvalues1= Float.parseFloat(BPvalues);
 	System.out.println("Values are"+BPvalues1);
 	if(BPvalues1==90.0 || BPvalues1==120.0||BPvalues1==100)
@@ -80,17 +80,43 @@ public class WVitalsTest extends TestBase
 	}
 	Assert.assertTrue(message);
 	System.out.println("value is in range");
-	
-	
-	
 	}
+	
+	@Test(priority=4,dataProvider= "getTestData",enabled= false)
+	public void AllvaluesSaveTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
+	{
+		String Actual = WVP.SaveAllvalues(Weight, Height, BPSystolicval, BPDiastolic, HR, Temperature);
+		
+	}
+	@Test(priority=3,dataProvider= "getTestData", enabled = true)
+	public void BMITest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) throws Exception
+	{
+		System.out.println("started");
+		Float Actual =WVP.BMIvalue(Weight, Height);
+		Double Expected = WVP.ExpectedResult();
+		Assert.assertEquals(Actual, Expected, Expected);
+		
+		
+		
+			
+			
+		
+		
+		}
+		
+		
+		
+		
+	
+	
+	
 	
 	
 	
 	@DataProvider
 	public  Iterator<Object[]> getTestData()
 	{
-		ArrayList<Object[]>	TestDatagetdatafromExcelforBPSystolic= WVitalsPage.getdatafromExcelforBPSystolic();	
+		ArrayList<Object[]>	TestDatagetdatafromExcelforBPSystolic= WVitalsPage.getdatafromExcel();	
 	return TestDatagetdatafromExcelforBPSystolic.iterator();
 	}
 	

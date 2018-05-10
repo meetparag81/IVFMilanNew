@@ -6,7 +6,7 @@
       <class name="com_Milan_Test.WVitalsTest">
         <methods>
           <include name="setup"/>
-          <include name="BPSystolicBundryValueTest"/>
+          <include name="BMITest" invocation-numbers="2"/>
           <include name="TearDown"/>
         </methods>
       </class> <!-- com_Milan_Test.WVitalsTest -->

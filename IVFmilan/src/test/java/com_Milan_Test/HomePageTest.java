@@ -35,7 +35,13 @@ public class HomePageTest extends TestBase
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 	}
 	
-	
+	@Test(priority=1,enabled=false)
+	public void DatacreationTest() throws Exception
+	{
+		int Actualrows= HomePage.PatientDataCreation();
+		int Expected = 12;
+		Assert.assertEquals(Actualrows, Expected);
+	}
 		
 @ Test(priority=2,enabled=false)
 			
@@ -59,7 +65,7 @@ public void SearchPatientUsingCalenderTest() throws Exception
 	AssertJUnit.assertEquals(Actual, Expectted);
 	System.out.println("search patient through Searchbox is completed");
 }
-@Test(priority=3,enabled=false)
+@Test(priority=4)
 private void SearchPatientUsingPatientTabTest() throws Exception 
 {
 	HomePage.searchPaient();
@@ -68,13 +74,7 @@ private void SearchPatientUsingPatientTabTest() throws Exception
 	System.out.println("search patient test completed");
 	
 }
-@Test(priority=1)
-public void DatacreationTest() throws Exception
-{
-	int Actualrows= HomePage.PatientDataCreation();
-	int Expected = 12;
-	Assert.assertEquals(Actualrows, Expected);
-}
+
 
 
 @AfterMethod
