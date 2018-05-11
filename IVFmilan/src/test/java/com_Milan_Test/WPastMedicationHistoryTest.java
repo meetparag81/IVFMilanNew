@@ -37,12 +37,13 @@ public class WPastMedicationHistoryTest extends TestBase
 	Loginpage= new Loginpage();
 	HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 	//EMRPage=HomePage.SearchusingCalender();
-	EMRPage= HomePage.ClickonEMR();
+	//EMRPage= HomePage.ClickonEMR();
+	EMRPage = HomePage.searchPaient();
 	WHP= EMRPage.clickOnWomenField();
 	PMHP=WHP.ClickOnpastMedicationHistory();
 	}
 	
-	@Test(priority=1)
+	@Test(priority=1,enabled=false)
 	public void DrugNameTest() throws InterruptedException
 	{
 		//PMHP.DrugName();
@@ -51,13 +52,20 @@ public class WPastMedicationHistoryTest extends TestBase
 		Assert.assertEquals(Actual, Expected, "Stringdoen't matched");
 		System.out.println("testcase DrugNameTest is completed");
 	}
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
 	public void DrugNameFieldEnableconditionTest() throws InterruptedException
 	{
 		PMHP.DrugName();
 		boolean flag = PMHP.DrugNameFieldEnablecondition();
 		Assert.assertFalse(flag);
 		System.out.println("DrugNameFieldEnableconditionTest is completed");
+		
+	}
+	@Test(priority=3)
+	public void pastMedicationHistorysetdataTest() throws Exception
+	{
+		PMHP.pastMedicationHistorysetdata();
+		
 	}
 	@AfterMethod
 	public void Teardown()

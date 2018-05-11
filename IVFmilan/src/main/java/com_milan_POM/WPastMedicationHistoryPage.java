@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 
 public class WPastMedicationHistoryPage extends TestBase
@@ -26,7 +27,7 @@ public class WPastMedicationHistoryPage extends TestBase
 	@FindBy(xpath="//th[text()='Status']//following::select[2]")WebElement DrugStatus;
 	@FindBy(xpath="//button[text()=' Save'][@class='btn btn-primary ng-binding']")WebElement Save;
 	WebDriverWait wait = new WebDriverWait(driver, 30);
-	
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	WPastMedicationHistoryPage()
 	{
@@ -97,6 +98,46 @@ public class WPastMedicationHistoryPage extends TestBase
 		
 		
 		return Name;
+		
+	}
+	
+	public String pastMedicationHistorysetdata() throws Exception
+	{
+		String Search1 = null,Search = null;
+		int rows=2;
+		TestUtil.VisibleOn(driver, GenericName,30);
+		GenericName.click();
+		TestUtil.VisibleOn(driver, InputsearchboxGeneric, 60);
+		InputsearchboxGeneric.sendKeys("ADA");
+			Thread.sleep(1000);
+			InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);
+			Thread.sleep(1000);
+			InputsearchboxGeneric.sendKeys("A");
+			//TestUtil.VisibleOn(driver, Searchbox, 50);
+					
+					List<WebElement>searchbox1= driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a"));
+					TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a")),20);
+					int count=0;
+			for(int i=0;i<=searchbox1.size();i++)
+			{
+				 Search1 = searchbox1.get(i).getText();
+				 count++;
+				 
+				if(count!=0);
+				{
+					Search= Search1;
+				}
+			}
+			String Search2=Search;
+					
+			
+		reader.setCellData("pastMedicationHistory", "Search",rows , Search2);
+		rows++;
+		
+	
+		
+		
+		return null;
 		
 	}
 	

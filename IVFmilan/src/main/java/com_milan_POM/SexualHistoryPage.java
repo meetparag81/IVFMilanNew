@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 
 public class SexualHistoryPage extends TestBase
 {
@@ -38,6 +39,7 @@ public class SexualHistoryPage extends TestBase
 	@FindBy(xpath="//label[text()='Lubrication used']//following::textarea[1]")WebElement Lubricationusedtext;
 	@FindBy(xpath="(//label[text()='Remarks'])[2]//following::textarea[1]")WebElement remarktext;
 	WebDriverWait wait = new WebDriverWait(driver, 30);
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	SexualHistoryPage()
 	{
@@ -120,7 +122,7 @@ public class SexualHistoryPage extends TestBase
 
 
 	public boolean validateRelstionship() throws Exception
-	{
+{
 		System.out.println("WSexsualHistory form fill testcase started");
 		
 		Select year = new Select(yeardropdown);
@@ -162,6 +164,7 @@ public class SexualHistoryPage extends TestBase
 	
 	public int relationshipyears()
 	{
+		
 		Select year = new Select(yeardropdown);
 		List<WebElement>years = year.getOptions();
 		int relationshipyears=  years.size()-1;
@@ -177,6 +180,61 @@ public class SexualHistoryPage extends TestBase
 		return relationshipmonths;
 		
 	}
+	public double TryingToConcieveSinceYear()
+	{
+		
+		double convinceyears = 0;
+		int count= reader.getRowCount("SexualHistory");
+		for(int rows=2;rows<=count;rows++)
+		{
+		String relationsince= reader.getCellData("SexualHistory", 0, rows);
+		if(relationsince.equals("12"))
+		{
+		Select year = new Select(yeardropdown);
+		year.selectByVisibleText(relationsince);
+		Select concieveyears1 = new Select(concieveyears);
+		List<WebElement>years=concieveyears1.getOptions();
+				double convinceyears1= years.size()-1;
+				convinceyears= convinceyears1;
+				break;
+				
+			}
+		
+		}	
+		return convinceyears;
+	}
+		
+		
+		public double TryingToConcieveSinceMonth()
+		{
+			
+			double convinceMonth = 0;
+			int count= reader.getRowCount("SexualHistory");
+			for(int rows=2;rows<=count;rows++)
+			{
+			String relationsinceM= reader.getCellData("SexualHistory", 0, rows);
+			if(relationsinceM.equals("5"))
+			{
+			Select year = new Select(monthdropdown);
+			year.selectByVisibleText(relationsinceM);
+			Select concieveyears1 = new Select(concieveyears);
+			List<WebElement>years=concieveyears1.getOptions();
+					double convinceMonth1= years.size()-1;
+					convinceMonth= convinceMonth1;
+					break;
+					
+				}
+			
+			}	
+			return convinceMonth;
+		
+	}
+	
+	
+	
+	
+	
+	
 	public String SexualDysfunctioncharacters()
 	{
 		
@@ -205,6 +263,7 @@ public class SexualHistoryPage extends TestBase
 	
 	public boolean Lubricationusedtext()
 	{
+		
 		Select Lubricationusedt= new Select(Lubricationused);
 		Lubricationusedt.selectByVisibleText("Yes");
 		Lubricationusedtext.isDisplayed();		
@@ -221,7 +280,14 @@ public class SexualHistoryPage extends TestBase
 		String number=Number.getText();
 		return number;
 	}
-}
+	
+	
+		
+		
+		
+	}
+	
+
 
 
 

@@ -41,8 +41,9 @@ public class WSexsualHistoryTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		EMRPage= HomePage.ClickonEMR();
+		//EMRPage= HomePage.ClickonEMR();
 		//EMRPage=HomePage.SearchusingCalender();
+		EMRPage = HomePage.searchPaient();
 		WHP= EMRPage.clickOnWomenField();
 		SHP= WHP.ClickonSexsuslHistory(); 
 	}
@@ -56,7 +57,7 @@ public class WSexsualHistoryTest extends TestBase
 		
 		
 		
-		@Test(priority=1, enabled = false)
+		@Test(priority=1,enabled=false)
 		public void InrelationshipsinceYearsTest()
 		{
 			int Actual= SHP.relationshipyears();
@@ -84,7 +85,7 @@ public class WSexsualHistoryTest extends TestBase
 		SHP.formfilling();
 		String Actual = SHP.SexsualHistoryTitle();
 		String Expected = "History";
-		AssertJUnit.assertEquals(Actual, Expected);
+		Assert.assertEquals(Actual, Expected);
 		
 		}
 		@Test(priority=5,enabled = false)
@@ -100,29 +101,46 @@ public class WSexsualHistoryTest extends TestBase
 		{
 		 String Actual = SHP.SexualDysfunctioncharacters();	
 		 String Expected = "246";
-		 AssertJUnit.assertEquals(Actual, Expected);
+		 Assert.assertEquals(Actual, Expected);
 		}
 		
 		@Test(priority=7,enabled = false)
 		public void DyspareuniatextTest() throws Exception 
 		{
 		 boolean Actual = SHP.DyspareuniaText();	
-		 AssertJUnit.assertTrue(Actual);
+		 Assert.assertTrue(Actual);
 		}
 		
 		@Test(priority=8,enabled = false)
 		public void Lubricationusedtext() throws Exception 
 		{
 		 boolean Actual = SHP.Lubricationusedtext();	
-		 AssertJUnit.assertTrue(Actual);
+		 Assert.assertTrue(Actual);
 		}
 		
-		@Test(priority=9)
+		@Test(priority=9,enabled = false)
 		public void Remarktexttest() throws Exception 
 		{
 			String Actual = SHP.Remarktext();
 			String Expected = "0";
 		}
+		@Test(priority=10)
+		public void TryingToConcieveSinceYearTest()
+		{
+			
+			double Actual = SHP.TryingToConcieveSinceYear();
+			double Expected = 12.0;
+			
+		}
+		@Test(priority=11)
+		public void TryingToConcieveSinceMonthTest()
+		{
+			
+			double Actual = SHP.TryingToConcieveSinceMonth();
+			double Expected = 5.0;
+			
+		}
+		
 		@ AfterMethod
 		public void Teardown()
 		{
