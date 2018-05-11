@@ -1,233 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="8" passed="5">
+<testng-results skipped="0" failed="1" ignored="2" total="3" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="141440" started-at="2018-05-11T06:03:59Z" finished-at="2018-05-11T06:06:20Z">
+  <suite name="Default suite" duration-ms="55853" started-at="2018-05-11T13:00:33Z" finished-at="2018-05-11T13:01:28Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="141440" started-at="2018-05-11T06:03:59Z" finished-at="2018-05-11T06:06:20Z">
-      <class name="com_Milan_Test.WVitalsTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="setup" is-config="true" duration-ms="24832" started-at="2018-05-11T11:33:59Z" finished-at="2018-05-11T11:34:24Z">
+    <test name="Default test" duration-ms="55853" started-at="2018-05-11T13:00:33Z" finished-at="2018-05-11T13:01:28Z">
+      <class name="com_Milan_Test.WPastMedicationHistoryTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WPastMedicationHistoryTest@5f341870]" name="Setup" is-config="true" duration-ms="51867" started-at="2018-05-11T18:30:33Z" finished-at="2018-05-11T18:31:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="BMITest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="BMITest" duration-ms="3467" started-at="2018-05-11T11:34:24Z" data-provider="getTestData" finished-at="2018-05-11T11:34:28Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[60.0]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[180.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA["89"]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA["59"]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[59.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[96.0]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- Setup -->
+        <test-method status="FAIL" signature="pastMedicationHistorysetdataTest()[pri:3, instance:com_Milan_Test.WPastMedicationHistoryTest@5f341870]" name="pastMedicationHistorysetdataTest" duration-ms="2811" started-at="2018-05-11T18:31:24Z" finished-at="2018-05-11T18:31:27Z">
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index: 3, Size: 3]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at com_milan_POM.WPastMedicationHistoryPage.pastMedicationHistorysetdata(WPastMedicationHistoryPage.java:122)
+	at com_Milan_Test.WPastMedicationHistoryTest.pastMedicationHistorysetdataTest(WPastMedicationHistoryTest.java:67)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- BMITest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="TearDown" is-config="true" duration-ms="688" started-at="2018-05-11T11:34:28Z" finished-at="2018-05-11T11:34:28Z">
+        </test-method> <!-- pastMedicationHistorysetdataTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WPastMedicationHistoryTest@5f341870]" name="Teardown" is-config="true" duration-ms="766" started-at="2018-05-11T18:31:28Z" finished-at="2018-05-11T18:31:28Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="setup" is-config="true" duration-ms="24405" started-at="2018-05-11T11:34:28Z" finished-at="2018-05-11T11:34:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="BMITest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="BMITest" duration-ms="3588" started-at="2018-05-11T11:34:53Z" data-provider="getTestData" finished-at="2018-05-11T11:34:56Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[80.0]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[170.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA["90"]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA["60"]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[60.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[97.8]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BMITest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="TearDown" is-config="true" duration-ms="672" started-at="2018-05-11T11:34:56Z" finished-at="2018-05-11T11:34:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="setup" is-config="true" duration-ms="24429" started-at="2018-05-11T11:34:57Z" finished-at="2018-05-11T11:35:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="BMITest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="BMITest" duration-ms="3054" started-at="2018-05-11T11:35:21Z" data-provider="getTestData" finished-at="2018-05-11T11:35:24Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[100.0]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[160.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA["100"]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA["70"]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[80.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[99.0]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BMITest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="TearDown" is-config="true" duration-ms="673" started-at="2018-05-11T11:35:24Z" finished-at="2018-05-11T11:35:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="setup" is-config="true" duration-ms="22471" started-at="2018-05-11T11:35:25Z" finished-at="2018-05-11T11:35:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="BMITest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="BMITest" duration-ms="3514" started-at="2018-05-11T11:35:48Z" data-provider="getTestData" finished-at="2018-05-11T11:35:51Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[90.0]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[150.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA["120"]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA["80"]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[99.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[100.0]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BMITest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="TearDown" is-config="true" duration-ms="672" started-at="2018-05-11T11:35:51Z" finished-at="2018-05-11T11:35:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="setup" is-config="true" duration-ms="23948" started-at="2018-05-11T11:35:52Z" finished-at="2018-05-11T11:36:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="BMITest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:3, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="BMITest" duration-ms="3540" started-at="2018-05-11T11:36:16Z" data-provider="getTestData" finished-at="2018-05-11T11:36:19Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[70.0]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[100.0]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA["121"]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA["81"]]>
-              </value>
-            </param>
-            <param index="4">
-              <value>
-                <![CDATA[101.0]]>
-              </value>
-            </param>
-            <param index="5">
-              <value>
-                <![CDATA[101.0]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- BMITest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WVitalsTest@4f7d0008]" name="TearDown" is-config="true" duration-ms="656" started-at="2018-05-11T11:36:19Z" finished-at="2018-05-11T11:36:20Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-      </class> <!-- com_Milan_Test.WVitalsTest -->
+        </test-method> <!-- Teardown -->
+      </class> <!-- com_Milan_Test.WPastMedicationHistoryTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
