@@ -49,13 +49,13 @@ public class WVitalsTest extends TestBase
 		
 	}
 	
-	@Test(priority=1,enabled= false)
+	/*@Test(priority=1)
 	public void HRValueTest()
 	{
 		WVP.HRValue();	
-	}
+	}*/
 	
-	@Test(priority=2,dataProvider= "getTestData",enabled=false)
+	@Test(priority=1,dataProvider= "getTestData")
 	public void BPSystolicBundryValueTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
 	{
 		boolean message = true;
@@ -82,27 +82,20 @@ public class WVitalsTest extends TestBase
 	System.out.println("value is in range");
 	}
 	
-	@Test(priority=4,dataProvider= "getTestData",enabled= false)
-	public void AllvaluesSaveTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
+	@Test(priority=3,dataProvider= "getTestData")
+	public void SaveAllValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
 	{
 		String Actual = WVP.SaveAllvalues(Weight, Height, BPSystolicval, BPDiastolic, HR, Temperature);
 		
 	}
-	@Test(priority=3,dataProvider= "getTestData", enabled = true)
+	@Test(priority=2,dataProvider= "getTestData", enabled = true)
 	public void BMITest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) throws Exception
 	{
 		System.out.println("started");
 		Float Actual =WVP.BMIvalue(Weight, Height);
 		Double Expected = WVP.ExpectedResult();
-		Assert.assertEquals(Actual, Expected, Expected);
-		
-		
-		
-			
-			
-		
-		
-		}
+		Assert.assertEquals(Actual, Expected, Expected);		
+	}
 		
 		
 		

@@ -184,6 +184,7 @@ double rowdata2,rowdata1;
 		int count= rowcount;
 		for(int rows=2;rows<=count;rows++ )
 		{
+			System.out.println();
 			String Weight =reader.getCellData("Vitals", 0, rows);
 			String Height =reader.getCellData("Vitals", 1, rows);
 			String BPSystolic  = reader.getCellData("Vitals", 2, rows);
@@ -237,7 +238,7 @@ double rowdata2,rowdata1;
 		 String Expected = reader.getCellData("Vitals", "BMI", rows);
 		 Double Exp= Double.parseDouble(Expected);
 		 Expected1= Exp;
-		 break;
+		 
 		}
 		return Expected1;
 		
