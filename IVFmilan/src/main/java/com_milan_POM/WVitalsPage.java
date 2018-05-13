@@ -191,6 +191,7 @@ double rowdata2,rowdata1;
 			String BPDiastolic  = reader.getCellData("Vitals", 3, rows);
 			String HRRange = reader.getCellData("Vitals", 4, rows);
 			String Temp = reader.getCellData("Vitals", 5, rows);
+			
 			Object[] obj= {Weight,Height,BPSystolic,BPDiastolic,HRRange,Temp};
 			mydata.add(obj);
 		}
@@ -198,33 +199,7 @@ double rowdata2,rowdata1;
 		return mydata;
 	}
 	
-	/*public static ArrayList<Object[]>  getdatafromExcelforBMI()
-	{
-		Exls_Reader reader = null;
-		
-		ArrayList<Object[]> mydata = new ArrayList<Object[]>();
-		try
-		{
-		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		int rowcount= reader.getRowCount("Vitals");
-		int count= rowcount;
-		for(int rows=2;rows<=count;rows++ )
-		{
-			String Weight =reader.getCellData("Vitals", 1, rows);
-			String Height =reader.getCellData("Vitals", 2, rows);
-			String BPSystolic  = reader.getCellData("Vitals", 3, rows);
-			String BPDiastolic  = reader.getCellData("Vitals", 4, rows);
-			String HRRange = reader.getCellData("Vitals", 5, rows);
-			Object[] obj= {Weight,Height,BPSystolic,BPDiastolic,HRRange};
-			mydata.add(obj);
-		}
-		
-		return mydata;*/
+	
 	
 	
 	

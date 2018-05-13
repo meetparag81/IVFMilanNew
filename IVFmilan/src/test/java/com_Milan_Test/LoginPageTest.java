@@ -5,11 +5,14 @@ import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 import com_milan_POM.Loginpage;
 import com_milan_POM.EMRDashBoardPage;
@@ -22,11 +25,12 @@ public class LoginPageTest extends TestBase
 	Loginpage Loginpage;	
 	HomePage HomePage;
 	EMRDashBoardPage EMRPage;
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	LoginPageTest() throws Exception
 	{
 		super();
 	}
-	@ BeforeTest
+	@ BeforeMethod
 	public void Seup()
 	{
 		TestBase.initalization();
@@ -34,31 +38,55 @@ public class LoginPageTest extends TestBase
 		 
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
-	@ Test(priority=1)
-	public void loginTest() throws Exception
+	@Test(priority=1,enabled=false)
+	public void InvalidusernameTest()
 	{
-		HomePage= Loginpage.Verifylogin( prop.getProperty("username"),prop.getProperty("password"));
-		//HomePage.searchPaient();
+		String username = reader.getCellData("LoginPage", 0, 2);	
+		String Actual= Loginpage.Invalidusername(username);
+		String Msg= reader.getCellData("LoginPage", 2, 2);
+		String Expected= Msg;
+		Assert.assertEquals(Actual, Expected);
+		System.out.println("InvalidusernameTest is completed");
+	}
+	
+	@Test(priority=2)
+	public void InvalidPasswordTest() throws Exception
+	{
+		String username = reader.getCellData("LoginPage", 0, 2);
+		String password = reader.getCellData("LoginPage", 1, 2);
+		String Actual= Loginpage.Invaliduserpassword(username, password);
+		String Msg= reader.getCellData("LoginPage", 2, 3);
+		String Expected= Msg;
+		Assert.assertEquals(Actual, Expected);
+	}
+	
+	@Test(priority=3)
+	public void ButtonEnableConditionTest()
+	{
+		
+		boolean flag1=Loginpage.ButtonEnableCondition(prop.getProperty("username"));
+		Assert.assertFalse(flag1);
 	}
 		
+	@ Test(priority=4)
+	public void LoginTest() throws Exception
+	{
+		HomePage= Loginpage.Verifylogin( prop.getProperty("username"),prop.getProperty("password"));
+		String Title = "Palash IVF - Login";		
+		String Actual = Loginpage.Homepagetitle();
+		Assert.assertEquals(Title, Actual);
+	}	
 		
 		
-		@ Test(priority=2)
 		
-		private void pageTitleTest()
-		{
-			String Title = "Palash IVF - Login";		
-			String Actual = Loginpage.Homepagetitle();
-			AssertJUnit.assertEquals(Title, Actual);					
-		}		
 
 			
 		
 		
-		@ AfterTest
+		@ AfterMethod
 		public void Teardown()
 		{
-			//driver.quit();
+			driver.quit();
 		}
 		
 		

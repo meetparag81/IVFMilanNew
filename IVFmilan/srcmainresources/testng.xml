@@ -3,6 +3,7 @@
 <suite name="IVFSuite" parallel="tests" thread-count="2">
 <listeners>
 		<listener class-name="com_Milan_ExtendReport.ExtentReport" />
+		<listener class-name="com_Milan_Analyzer.MyTransformer" />
 	</listeners>
 <test name="IVFTEST">	
 		<classes>
