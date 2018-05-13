@@ -38,8 +38,8 @@ public class LoginPageTest extends TestBase
 		 
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
-	@Test(priority=1,enabled=false)
-	public void InvalidusernameTest()
+	@Test(priority=1)
+	public void InvalidusernameTest() throws Exception
 	{
 		String username = reader.getCellData("LoginPage", 0, 2);	
 		String Actual= Loginpage.Invalidusername(username);
@@ -52,12 +52,13 @@ public class LoginPageTest extends TestBase
 	@Test(priority=2)
 	public void InvalidPasswordTest() throws Exception
 	{
-		String username = reader.getCellData("LoginPage", 0, 2);
-		String password = reader.getCellData("LoginPage", 1, 2);
+		String username = reader.getCellData("LoginPage", 0, 3);
+		String password = reader.getCellData("LoginPage", 1, 3);
 		String Actual= Loginpage.Invaliduserpassword(username, password);
 		String Msg= reader.getCellData("LoginPage", 2, 3);
 		String Expected= Msg;
 		Assert.assertEquals(Actual, Expected);
+		System.out.println("InvalidpasswordTest is completed");
 	}
 	
 	@Test(priority=3)

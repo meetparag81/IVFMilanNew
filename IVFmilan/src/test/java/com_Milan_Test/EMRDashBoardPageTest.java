@@ -46,10 +46,11 @@ public class EMRDashBoardPageTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		EMRPage= HomePage.ClickonEMR();
+		EMRPage=HomePage.SearchusingCalender();
+		//EMRPage= HomePage.ClickonEMR();
 		//EMRPage = HomePage.searchPaient();
-		//SearchPage = new SearchPage();
-		//EMRPage=HomePage.SearchusingCalender();
+		//
+		
 		
 		
 		
@@ -62,7 +63,7 @@ public class EMRDashBoardPageTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		
 		String Actual= EMRPage.TitleHistoryPage();
-		String Expected = "Female History";
+		String Expected = "History";
 		Assert.assertEquals(Actual, Expected);
 		System.out.println("ClickonWoomenPaientFieldTest is completed");
 		
@@ -72,7 +73,7 @@ public class EMRDashBoardPageTest extends TestBase
 	{
 		MHP= EMRPage.clickOnMenField();
 		String Actual= EMRPage.TitleHistoryPage();
-		String Expected = "Male History";
+		String Expected = "History";
 		Assert.assertEquals(Actual, Expected);
 		
 		System.out.println("ClickonMenPaientFieldTest is completed");
@@ -86,12 +87,12 @@ public class EMRDashBoardPageTest extends TestBase
 		System.out.println("ClickonMenPaientFieldTest is completed");		
 	}
 	
-	@Test(priority=4)
+	/*@Test(priority=4)
 	public void OptionSelectedOnAllergyformTest() throws Exception
 	{
-		EMRPage= HomePage.ClickonEMR();		
+		EMRPage= HomePage.searchPaient();		
 		Allergies.AllergiesNameonDashboard();
-	}
+	}*/
 	
 	
 	@ AfterMethod

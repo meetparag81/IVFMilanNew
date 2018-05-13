@@ -71,10 +71,11 @@ public class Loginpage extends TestBase {
 
 	}
 
-	public String Invalidusername(String un) {
+	public String Invalidusername(String un) throws Exception {
 		username.clear();
 		username.sendKeys(un);
 		password.click();
+		Thread.sleep(3000);
 		String message = Msgcorrectusername.getText();
 		return message;
 	}
@@ -85,10 +86,13 @@ public class Loginpage extends TestBase {
 		username.sendKeys(un);
 		password.clear();
 		password.sendKeys(psw);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		clinic = wait.until(ExpectedConditions.visibilityOf(clinic));
 		Select drop = new Select(clinic);
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		drop.selectByVisibleText("Lavida Fertility Bangkok");
 		Loginbutton.click();
+		Thread.sleep(3000);
 		String message = Msgcorrectusername.getText();
 		return message;
 

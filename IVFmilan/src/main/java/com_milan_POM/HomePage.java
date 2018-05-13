@@ -94,7 +94,7 @@ public class HomePage extends TestBase {
 			size = Integer.parseInt(s);
 			System.out.println("Patient size is" + size);
 		} catch (NumberFormatException e) {
-			// System.out.println("Youve entered non-integer number");
+			 System.out.println("String is not converted into integer number");
 		} finally {
 			// System. out. println( "finally block executed") ;
 		}
@@ -215,14 +215,14 @@ public class HomePage extends TestBase {
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("03")) 
+			if (date.equals("07")) 
 			{
 				dates.get(i).click();
 				break;
 			}
 
 		}
-		String Paitentname = reader.getCellData("HomePage", 0, 6);
+		String Paitentname = reader.getCellData("HomePage", 0, 8);
 		Thread.sleep(3000);
 		searchpaient.sendKeys(Paitentname);
 		TestUtil.VisibleOn(driver, Searchbutton, 20);

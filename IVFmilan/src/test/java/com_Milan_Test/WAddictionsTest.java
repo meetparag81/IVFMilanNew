@@ -38,8 +38,8 @@ public void Setup() throws Exception
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		//EMRPage=HomePage.SearchusingCalender();
 		//EMRPage= HomePage.ClickonEMR();
-		//SearchPage= new SearchPage();
-		EMRPage = HomePage.searchPaient();
+		EMRPage=HomePage.SearchusingCalender();
+		//EMRPage = HomePage.searchPaient();
 		WHP= EMRPage.clickOnWomenField();
 		Addictions= WHP.ClickOnAddictions();
 }
