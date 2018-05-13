@@ -124,9 +124,9 @@ public class SexualHistoryPage extends TestBase
 	public boolean validateRelstionship() throws Exception
 {
 		System.out.println("WSexsualHistory form fill testcase started");
-		
+		String years= reader.getCellData("SexualHistory", 0, 8);
 		Select year = new Select(yeardropdown);
-		year.selectByVisibleText("8");
+		year.selectByVisibleText(years);
 		List<WebElement>year1 = year.getOptions();
 		String relationyears= year1.get(9).getText();
 		int yearsize= year1.size();
@@ -143,16 +143,18 @@ public class SexualHistoryPage extends TestBase
 		 List<WebElement>durationyear =Durationyears.getOptions();
 		 String durationyrs = durationyear.get(9).getText();
 		int yrsize= durationyear.size();
-		Durationyears.selectByVisibleText("8");	
-		System.out.println("Durationyears"+ durationyrs);
+		String yrs= reader.getCellData("SexualHistory", 0, 8);
+		Durationyears.selectByVisibleText(yrs);	
+		//System.out.println("Durationyears"+ durationyrs);
 		Select Durationmonth = new Select(Durationmnths);
 		 List<WebElement>durationmonth=Durationmonth.getOptions();
 		String durationmths= durationmonth.get(9).getText();
 		 int mnthsize= durationmonth.size();		 
 		 System.out.println("Duration month size"+durationmths);
-		 
+		 boolean flag=false;
 		 if(relationyears.equals(durationyrs)  &&relationmonths.equals(durationmths))
 		 {
+			 flag=true;
 			 Save.click();
 		 }
 			 

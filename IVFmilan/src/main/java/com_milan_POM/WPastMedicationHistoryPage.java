@@ -22,13 +22,13 @@ public class WPastMedicationHistoryPage extends TestBase
 	@FindBy(xpath="//input[@id='txtItemName']")WebElement InputsearchboxBrandName;
 	@FindBy(xpath="(//ul[@role='listbox'])[2]")WebElement Searchbox; 
 	@FindBy(xpath="(//input[@name='inlineRadioOptions2'])[2]")WebElement GenericName;
-	@FindBy(xpath="(//table[@id='profile_table']/tbody)[2]//input")WebElement DrugName;
+	@FindBy(xpath="(//table[@id='profile_table'])[2]//tbody//td/div/input[@ng-model='Item.DrugeName']")WebElement DrugName;
 	@FindBy(xpath="//th[text()='Time Period']//following::select")WebElement TimePeriod;
 	@FindBy(xpath="//th[text()='Status']//following::select[2]")WebElement DrugStatus;
 	@FindBy(xpath="//button[text()=' Save'][@class='btn btn-primary ng-binding']")WebElement Save;
 	WebDriverWait wait = new WebDriverWait(driver, 30);
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-	
+	String drug1,Name2,Name;
 	WPastMedicationHistoryPage()
 	{
 		PageFactory.initElements(driver, this);
@@ -68,13 +68,14 @@ public class WPastMedicationHistoryPage extends TestBase
 		Thread.sleep(1000);
 		InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
-		InputsearchboxGeneric.sendKeys("A");
+		//InputsearchboxGeneric.sendKeys("A");
 		//TestUtil.VisibleOn(driver, Searchbox, 50);
 				
 				List<WebElement>searchbox1= driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a"));
 				TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a")),20);
 		for(int i=0;i<=searchbox1.size();i++)
 		{
+			
 			if(searchbox1.get(i).getText().contains("ADAPALENE"))
 			{
 			TestUtil.VisibleElementsOn(driver, searchbox1, 20);
@@ -83,13 +84,42 @@ public class WPastMedicationHistoryPage extends TestBase
 			}		
 		}
 		Thread.sleep(2000);
-		String Name= DrugName.getAttribute("value");
-		Select TimePeriod1= new Select(TimePeriod);
-		TimePeriod1.selectByVisibleText("Days");
 		
-		List<WebElement>Rowstable= driver.findElements(By.xpath("(//table[@id='profile_table']/tbody)[2]"));
-		Select Status = new Select(DrugStatus);
-		Status.selectByVisibleText("Withdrawn");
+		//String Name= DrugName.getAttribute("value");
+		
+		List<WebElement>rugrow = driver.findElements(By.xpath("(//table[@id='profile_table'])[2]//tbody/tr"));
+		 int Drugrowcount = rugrow.size();
+		 for(int j=1;j<=Drugrowcount;j++)
+		 {
+			 WebElement DrugName1 = driver.findElement(By.xpath("(//table[@id='profile_table'])[2]//tbody/tr["+j+"]/td[1]/div/input"));
+			  Name= DrugName1.getAttribute("value");
+			 if(Name.contains("ADAPALENE"))
+			 {
+				 System.out.println("patient already has previous Medication added");
+				 
+				  WebElement Timedays = driver.findElement(By.xpath("(//table[@id='profile_table'])[2]//tbody/tr["+j+"]/td[3]//div[2]/select"));
+				 Select TimePerioddays= new Select(Timedays);
+				 TimePerioddays.selectByVisibleText("Days");
+				 WebElement Dose= driver.findElement(By.xpath("(//table[@id='profile_table'])[2]//tbody/tr["+j+"]/td[2]//input"));
+				 Dose.sendKeys("1");
+				 WebElement Timeperiodvalue= driver.findElement(By.xpath("(//table[@id='profile_table'])[2]//tbody/tr["+j+"]/td[3]//input"));
+				 Timeperiodvalue.sendKeys("2");
+				 WebElement Remarks = driver.findElement(By.xpath("(//table[@id='profile_table'])[2]//tbody/tr["+j+"]/td[4]//input"));
+				 Remarks.sendKeys("Added dose i time for2 days");
+				 WebElement statusdrug = driver.findElement(By.xpath("(//table[@id='profile_table'])[2]//tbody/tr["+j+"]/td[5]//select"));
+					Select Status = new Select(statusdrug);
+					Status.selectByVisibleText("Withdrawn");
+					break;
+					 
+				 
+			 }
+			 
+			 
+		 }
+		 Name2= Name;
+		 
+		
+		
 		//wait.until(ExpectedConditions.textToBePresentInElementValue(DrugName, "ADAPALENE"));
 		/*String value =  (String)((JavascriptExecutor) driver).executeAsyncScript("return document.getElementById('pastMedicationHistory').value");
 		System.out.println(value);*/
@@ -97,49 +127,82 @@ public class WPastMedicationHistoryPage extends TestBase
 				
 		
 		
-		return Name;
+		return Name2;
 		
 	}
 	
-	public String pastMedicationHistorysetdata() throws Exception
+	public int pastMedicationHistorysetdata() throws Exception
 	{
 		String Search1 = null,Search = null;
 		int rows=2;
 		TestUtil.VisibleOn(driver, GenericName,30);
 		GenericName.click();
-		TestUtil.VisibleOn(driver, InputsearchboxGeneric, 60);
+		TestUtil.VisibleOn(driver, InputsearchboxGeneric, 30);
+		
+		String search= reader.getCellData("SearchBYA", 0, 2);
 		InputsearchboxGeneric.sendKeys("ADA");
 			Thread.sleep(1000);
 			InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);
 			Thread.sleep(1000);
-			InputsearchboxGeneric.sendKeys("A");
+			//InputsearchboxGeneric.sendKeys("A");
 			//TestUtil.VisibleOn(driver, Searchbox, 50);
 					
 					List<WebElement>searchbox1= driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a"));
 					TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a")),20);
 					int count=0;
-			for(int i=0;i<=searchbox1.size();i++)
+			for(int i=0;i<searchbox1.size();i++)
 			{
 				 Search1 = searchbox1.get(i).getText();
-				 count++;
 				 
-				if(count!=0);
-				{
-					Search= Search1;
-				}
-			}
-			String Search2=Search;
+				 if(count<searchbox1.size())
+				 {
+					 reader.setCellData("pastMedicationHistory", "SearchBYA",rows , Search1);
+					 count++;
+					 rows++;
+				 }
+				
 					
+				
+			}
 			
-		reader.setCellData("pastMedicationHistory", "Search",rows , Search2);
-		rows++;
-		
-	
-		
-		
-		return null;
+			return count;
+			
 		
 	}
+	
+	public String drugexpected()
+	{
+		String drugexpected = null;
+		int count=reader.getRowCount("pastMedicationHistory");
+		for(int rows=2;rows<=count;rows++)
+		{
+		 drugexpected=reader.getCellData("pastMedicationHistory", 0, rows);
+		 count++;
+		 if(drugexpected.contains("ADAPALENE"))
+		 {
+			 String drug1= drugexpected; 
+		 }	}
+		String drug= drug1;
+		System.out.println("Drug is placed at"+count);
+		return drug;
+		
+		
+	}
+	public int DeleteExisingRows()
+	{
+		List<WebElement>Existingdrug= driver.findElements(By.xpath("//table[@class='table table-striped table-hover table-bordered']//tr"));
+		int count= Existingdrug.size();
+		
+		
+		
+		
+		
+		
+		return 0;
+		
+	}
+	
+	
 	
 	
 	

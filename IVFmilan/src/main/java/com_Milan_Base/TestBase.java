@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.testng.annotations.Listeners;
 
 import com_Milan_util.TestNGListners;
+import com_Milan_util.TestUtil;
 import com_Milan_util.WebEventListener;
  
 @Listeners(com_Milan_util.TestNGListners.class)
@@ -70,6 +72,8 @@ public class TestBase
 		driver = e_driver;
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get(prop.getProperty("url"));
 		
 	}

@@ -126,7 +126,7 @@ public class HomePage extends TestBase
 					
 					
 					 
-						String PatientName=	reader.getCellData("HomePage", "PatientName", 5);
+						String PatientName=	reader.getCellData("HomePage", "PatientName", 12);
 						Thread.sleep(3000);						
 						if(name1.contains(PatientName))
 							
@@ -241,7 +241,7 @@ public EMRDashBoardPage SearchusingCalender() throws Exception
 		for(int i=0;i<Total_nodes;i++)
 		{
 			String date= dates.get(i).getText();
-			if(date.equals("04"))
+			if(date.equals("03"))
 			{
 			dates.get(i).click();
 			break;
@@ -249,9 +249,9 @@ public EMRDashBoardPage SearchusingCalender() throws Exception
 			
 				
 		}
-		
+		String Paitentname= reader.getCellData("HomePage", 0, 6);
 		Thread.sleep(3000);
-		searchpaient.sendKeys("Vidya");
+		searchpaient.sendKeys(Paitentname);
 		TestUtil.VisibleOn(driver, Searchbutton, 20);
 		Searchbutton.click();
 		int k=1;
@@ -262,7 +262,7 @@ public EMRDashBoardPage SearchusingCalender() throws Exception
 				TestUtil.VisibleOn(driver, Nameofpatient, 30);
 				String name1=Nameofpatient.getText();
 				Thread.sleep(4000);				
-				if(name1.contains("Ms.Vidya B E"))
+				if(name1.contains(Paitentname))
 				{
 					//Thread.sleep(4000);
 					WebElement EMR= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//div[@id='tableToExport']/table/tbody/tr["+ k +"]/td[1]/a[2]"))));

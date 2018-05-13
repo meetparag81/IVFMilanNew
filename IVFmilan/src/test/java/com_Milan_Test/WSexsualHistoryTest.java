@@ -38,7 +38,6 @@ public class WSexsualHistoryTest extends TestBase
 	public void Seup() throws Exception
 	{
 		TestBase.initalization();
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		//EMRPage= HomePage.ClickonEMR();
@@ -65,20 +64,20 @@ public class WSexsualHistoryTest extends TestBase
 			AssertJUnit.assertEquals(Expected, Actual);
 			System.out.println("InrelationshipsinceYearsTest is passed");			
 		}
-		@Test(priority=2,enabled = false)
+		@Test(priority=2,enabled=false)
 		public void testRelationtlists() throws Exception
 		{
 			boolean flag1 = SHP.validateRelstionship();
 			AssertJUnit.assertTrue(flag1);
 		}
-		@Test(priority=3, enabled=false)
+		@Test(priority=3,enabled=false)
 		public void textboxSexualDysfunctionTest() throws Exception
 		{
 			boolean flag= SHP.textboxSexualDysfunction();
 		
 			AssertJUnit.assertTrue(flag);
 		}
-		@Test(priority=4,enabled = false)
+		@Test(priority=4,enabled=false)
 		public void FillSexsuslHistorytest() throws Exception 
 		{
 			
@@ -88,7 +87,7 @@ public class WSexsualHistoryTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 		
 		}
-		@Test(priority=5,enabled = false)
+		@Test(priority=5,enabled=false)
 		public void SexInrelationshipsinceMonthsTest() throws Exception 
 		{
 		SHP.formfilling();
@@ -96,7 +95,7 @@ public class WSexsualHistoryTest extends TestBase
 		int Expected = 11;
 		
 		}
-		@Test(priority=6,enabled = false)
+		@Test(priority=6,enabled=false)
 		public void numberofcharacterexualDysfunctionTest() throws Exception 
 		{
 		 String Actual = SHP.SexualDysfunctioncharacters();	
@@ -104,27 +103,27 @@ public class WSexsualHistoryTest extends TestBase
 		 Assert.assertEquals(Actual, Expected);
 		}
 		
-		@Test(priority=7,enabled = false)
+		@Test(priority=7,enabled=false)
 		public void DyspareuniatextTest() throws Exception 
 		{
 		 boolean Actual = SHP.DyspareuniaText();	
 		 Assert.assertTrue(Actual);
 		}
 		
-		@Test(priority=8,enabled = false)
+		@Test(priority=8,enabled=false)
 		public void Lubricationusedtext() throws Exception 
 		{
 		 boolean Actual = SHP.Lubricationusedtext();	
 		 Assert.assertTrue(Actual);
 		}
 		
-		@Test(priority=9,enabled = false)
+		@Test(priority=9,enabled=false)
 		public void Remarktexttest() throws Exception 
 		{
 			String Actual = SHP.Remarktext();
 			String Expected = "0";
 		}
-		@Test(priority=10)
+		@Test(priority=10,enabled=false)
 		public void TryingToConcieveSinceYearTest()
 		{
 			
@@ -132,7 +131,7 @@ public class WSexsualHistoryTest extends TestBase
 			double Expected = 12.0;
 			
 		}
-		@Test(priority=11)
+		@Test(priority=11,enabled=true)
 		public void TryingToConcieveSinceMonthTest()
 		{
 			

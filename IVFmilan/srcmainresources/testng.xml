@@ -6,15 +6,16 @@
 	</listeners>
 <test name="IVFTEST">	
 		<classes>
-	<class name="com_Milan_Test.LoginPageTest"/>
-    <class name="com_Milan_Test.HomePageTest"/>
+	 <class name="com_Milan_Test.SearchPageTest"/>
+      <class name="com_Milan_Test.LoginPageTest"/>
       <class name="com_Milan_Test.WPastMedicationHistoryTest"/>
+      <class name="com_Milan_Test.WcomplaintsTest"/>
       <class name="com_Milan_Test.WAllergiesTest"/>
       <class name="com_Milan_Test.FemaleDiagnosisTest"/>
       <class name="com_Milan_Test.WomenHistoryPageTest"/>
       <class name="com_Milan_Test.WObstetricHistoryPageTest"/>
       <class name="com_Milan_Test.WMenstrualHistoryTest"/>
-      <class name="com_Milan_Test.HomePageTest1"/>
+      <class name="com_Milan_Test.WVitalsTest"/>
       <class name="com_Milan_Test.WAddictionsTest"/>
       <class name="com_Milan_Test.EMRDashBoardPageTest"/>
       <class name="com_Milan_Test.WSexsualHistoryTest"/>

@@ -3,13 +3,27 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WPastMedicationHistoryTest">
+      <class name="com_Milan_Test.WObstetricHistoryPageTest">
         <methods>
-          <include name="Teardown"/>
-          <include name="pastMedicationHistorysetdataTest"/>
+          <include name="DeliveryTypeEnableconditionTest"/>
+          <include name="RowGridEnableTest"/>
+          <include name="EctopiccEnableCondititionTest"/>
+          <include name="LiveBirthAbovePostTermconditionTest"/>
+          <include name="BirthWeightValueTextTest"/>
+          <include name="ComplicationsEnableCondititionTest"/>
+          <include name="LiveBirthEnableTest"/>
+          <include name="LiveBirthPretermconditionTest"/>
+          <include name="StillBornEnableTest"/>
+          <include name="CongenitalAnamolyEnableCondititionTest"/>
+          <include name="AbortionEnableCondititionTest"/>
+          <include name="LiveBirthFullTermconditionTest"/>
           <include name="Setup"/>
+          <include name="ValueInEctopicTest"/>
+          <include name="DeliveryEnableCondititionTest"/>
+          <include name="Teardown"/>
+          <include name="SaveOutcometypesTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WPastMedicationHistoryTest -->
+      </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

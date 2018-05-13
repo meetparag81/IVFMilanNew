@@ -23,6 +23,8 @@ public class TestUtil extends TestBase
 {
 	
 public static long IMPLICIT_WAIT = 30;
+public static long PAGE_LOAD_TIMEOUT = 20;
+
 	
 	
 	public static void ClickOn(WebDriver driver,WebElement locator,int timeout)

@@ -39,7 +39,6 @@ public class WVitalsTest extends TestBase
 	public void setup() throws Exception
 	{
 		TestBase.initalization();
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		//EMRPage= HomePage.ClickonEMR();
@@ -83,7 +82,7 @@ public class WVitalsTest extends TestBase
 	}
 	
 	@Test(priority=3,dataProvider= "getTestData")
-	public void SaveAllValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
+	public void SaveAllVitalsValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
 	{
 		String Actual = WVP.SaveAllvalues(Weight, Height, BPSystolicval, BPDiastolic, HR, Temperature);
 		
