@@ -19,8 +19,8 @@ public class EMRDashBoardPage extends TestBase
 private @FindBy(xpath="//a[@id='menuField_women']") WebElement womenfield;
 private @FindBy(xpath="//a[@id='menuField_men']") WebElement menfield;
 private @FindBy(xpath="//*[@id='0']")WebElement visitwomen;
-private @FindBy(xpath ="(//a[@title='History'])[1]")WebElement Historylinkwomen; 
-private @FindBy(xpath="(//a[@title='History'])[2]")WebElement Historylinkmen;
+private @FindBy(xpath ="//a[@class='icoLink femaleHistory'][@title='History']")WebElement Historylinkwomen; 
+private @FindBy(xpath="//a[@class='icoLink maleHistory'][@title='History']")WebElement Historylinkmen;
 private @FindBy(xpath="//a[@class='icoLink femaleDiagnosis'][@title='Diagnosis']")WebElement FemaleDiagnosis;
 private @FindBy(xpath="//a[@class='icoLink femaleComplaints']")WebElement Femalecomplaints;
 private @FindBy(xpath="//a[@class='icoLink femaleVitals']")WebElement WVitals;
@@ -65,7 +65,7 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 				else
 				{
 					
-				System.out.println("History  not availsble");
+				System.out.println("History  not available");
 				
 											
 				}

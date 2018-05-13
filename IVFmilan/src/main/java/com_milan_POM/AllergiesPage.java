@@ -73,7 +73,7 @@ public class AllergiesPage extends TestBase
 		
 		List<WebElement>Allergyrows= driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
 				int rows = Allergyrows.size();
-				System.out.println("No of rows"+rows);
+				//System.out.println("No of rows"+rows);
 				
 		rows=rows+1;
 		for( int row1=rows ;row1<= 6;row1++)

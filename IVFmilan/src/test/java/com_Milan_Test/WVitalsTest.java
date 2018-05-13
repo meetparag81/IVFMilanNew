@@ -29,6 +29,7 @@ public class WVitalsTest extends TestBase
 	WVitalsPage WVP;
 	Exls_Reader reader;
 	
+	
 
 	WVitalsTest()
 	{
@@ -54,7 +55,7 @@ public class WVitalsTest extends TestBase
 		WVP.HRValue();	
 	}*/
 	
-	@Test(priority=1,dataProvider= "getTestData")
+	@Test(priority=1,groups = {"smoketest" },dataProvider= "getTestData")
 	public void BPSystolicBundryValueTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
 	{
 		boolean message = true;
@@ -87,7 +88,7 @@ public class WVitalsTest extends TestBase
 		String Actual = WVP.SaveAllvalues(Weight, Height, BPSystolicval, BPDiastolic, HR, Temperature);
 		
 	}
-	@Test(priority=2,dataProvider= "getTestData", enabled = true)
+	@Test(priority=2,groups = {"smoketest" },dataProvider= "getTestData", enabled = true)
 	public void BMITest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) throws Exception
 	{
 		System.out.println("started");
@@ -108,8 +109,8 @@ public class WVitalsTest extends TestBase
 	@DataProvider
 	public  Iterator<Object[]> getTestData()
 	{
-		ArrayList<Object[]>	TestDatagetdatafromExcelforBPSystolic= WVitalsPage.getdatafromExcel();	
-	return TestDatagetdatafromExcelforBPSystolic.iterator();
+		ArrayList<Object[]>	BPSystolic= WVitalsPage.getdatafromExcel();	
+	return BPSystolic.iterator();
 	}
 	
 	@AfterMethod

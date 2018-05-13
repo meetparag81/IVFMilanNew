@@ -2,9 +2,14 @@ package com_Milan_Test;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
@@ -14,6 +19,7 @@ import com_milan_POM.Loginpage;
 import com_milan_POM.WomenHistoryPage;
 import com_milan_POM.AddictionsPage;
 import com_milan_POM.SearchPage;
+import com_milan_POM.WVitalsPage;
 
 public class WAddictionsTest extends TestBase
 {
@@ -36,10 +42,9 @@ public void Setup() throws Exception
 		TestBase.initalization();
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		//EMRPage=HomePage.SearchusingCalender();
+		EMRPage = HomePage.searchPaient();
 		//EMRPage= HomePage.ClickonEMR();
-		EMRPage=HomePage.SearchusingCalender();
-		//EMRPage = HomePage.searchPaient();
+		//EMRPage=HomePage.SearchusingCalender();
 		WHP= EMRPage.clickOnWomenField();
 		Addictions= WHP.ClickOnAddictions();
 }
@@ -50,101 +55,112 @@ public void Setup() throws Exception
 		driver.quit();
 	}
 	
-	@Test(priority=1)
+	@Test(priority=1,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionSmokeTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableForSmoke();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=2)
+	@Test(priority=2,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionAlkoholTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForAlcohol();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=3)
+	@Test(priority=3,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionTobacoTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForTobaco();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionAdictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForDrugAdiction();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
 	
-	@Test(priority=5)
+	@Test(priority=5,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=6)
+	@Test(priority=6,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearSmokeTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForSmoke();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=7)
+	@Test(priority=7,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearAlkoholTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForAlkohol();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=8)
+	@Test(priority=8,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearTobacoTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForTobaco();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
 	
-	@Test(priority=9)
+	@Test(priority=9,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenDrugAddictionYearTest()
 	{
 		boolean flag= Addictions.EnableConditionForSinceWhenDrugAdiction();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
 	
-	@Test(priority=10)
+	@Test(priority=10,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=11)
+	@Test(priority=11,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthSmokeTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForSmoke();
 		AssertJUnit.assertTrue(flag);
 	}
-	@Test(priority=12)
+	@Test(priority=12,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthAlkoholTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForAlkohol();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=13)
+	@Test(priority=13,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthTobocoTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForTobaco();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=14)
+	@Test(priority=14,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForDrugAdiction();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	@Test(priority=15)
+	@Test(priority=15,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthForCaffeineAddiction()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForCaffeineAddiction();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 	}
-	
+	@Test(priority=16,groups = {"smoketest" },dataProvider= "getTestData")
+	public void saveAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
+			String Frequency, String Quantity) throws Exception
+	{
+		Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+	}
+	@DataProvider
+	public  Iterator<Object[]> getTestData()
+	{
+		ArrayList<Object[]>	Addictions= AddictionsPage.getdatafromExcel();	
+	return Addictions.iterator();
+	}
 	
 	
 }
