@@ -7,7 +7,7 @@
         <methods>
           <include name="Setup"/>
           <include name="Teardown"/>
-          <include name="saveAdictions" invocation-numbers="0 1"/>
+          <include name="saveAdictions"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
     </classes>
