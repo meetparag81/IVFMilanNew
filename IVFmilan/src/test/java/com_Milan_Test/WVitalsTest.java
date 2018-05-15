@@ -96,15 +96,6 @@ public class WVitalsTest extends TestBase
 		Double Expected = WVP.ExpectedResult();
 		Assert.assertEquals(Actual, Expected, Expected);		
 	}
-		
-		
-		
-		
-	
-	
-	
-	
-	
 	
 	@DataProvider
 	public  Iterator<Object[]> getTestData()

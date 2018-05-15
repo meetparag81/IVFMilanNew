@@ -13,6 +13,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_milan_POM.EMRDashBoardPage;
 import com_milan_POM.HomePage;
 import com_milan_POM.Loginpage;
@@ -29,7 +30,9 @@ public class WAddictionsTest extends TestBase
 	WomenHistoryPage WHP;
 	AddictionsPage Addictions;
 	SearchPage SearchPage;
-	
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	String Expected,Expectednew, Expectedold,Expected1;
+	int count1=0;
 	
 	public WAddictionsTest()
 	{
@@ -154,6 +157,36 @@ public void Setup() throws Exception
 			String Frequency, String Quantity) throws Exception
 	{
 		Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+		String count= reader.getCellData("Addictions", 7, 2);
+		try{
+			 
+			count1 = Integer.parseInt(count);
+			 
+		}
+		catch(NumberFormatException e)
+		{
+			System.out.println("String is not converted into number");
+		}
+		finally
+		{
+			System.out.println("finally block executed");
+		}
+		if(count1 >0)
+		{
+			 String Expectedold = reader.getCellData("Addictions", "Message", 3);
+			 Expected1 = Expectedold;			
+		}
+		else
+		{
+			
+			 String Expectednew	= reader.getCellData("Addictions", "Message", 2);
+			 Expected1= Expectednew;
+		}
+		Expected = Expected1;
+		String Actual= Addictions.FlashMessage();
+		 
+		Assert.assertEquals(Actual, Expected);
+		System.out.println("AddictionSaveTest is Passed");
 	}
 	@DataProvider
 	public  Iterator<Object[]> getTestData()

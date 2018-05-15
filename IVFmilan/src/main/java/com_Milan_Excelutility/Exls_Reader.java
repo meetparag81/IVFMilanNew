@@ -388,7 +388,8 @@ public Exls_Reader(String path)
 			
 		}
 		// removes a column and all the contents
-		public boolean removeColumn(String sheetName, int colNum) {
+		public boolean removeColumn(String sheetName, int colNum) 
+		{
 			try{
 			if(!isSheetExist(sheetName))
 				return false;
@@ -498,6 +499,8 @@ public Exls_Reader(String path)
 						System.out.println(datatable.getCellData("TC5", col, 1)); 
 					} */
 		}
+		
+		
 }
 
 

@@ -51,7 +51,7 @@ public class HomePage extends TestBase {
 			// WebElement rowcount =
 			//// driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+
 			//// k +"]/td[4]/text()"));
-			System.out.println("test patient Name");
+			
 			Thread.sleep(5000);
 			List<WebElement> rows2 = driver
 					.findElements(By.xpath("//table[@class='table table-hover table-striped']/tbody/tr/td[4]/text()"));
@@ -147,7 +147,7 @@ public class HomePage extends TestBase {
 		Patient1.click();
 		int Rowcount = reader.getRowCount("HomePage");
 
-		String PatientName = reader.getCellData("HomePage", "PatientName", 5);
+		String PatientName = reader.getCellData("HomePage", "PatientName", 7);
 		Thread.sleep(3000);
 		Searchbox1.sendKeys(PatientName);
 		// Searchbox1.submit();
@@ -159,9 +159,10 @@ public class HomePage extends TestBase {
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 
-		System.out.println("totalsearch" + search.size());
+		//System.out.println("totalsearch" + search.size());
 		// search.get(0).click();
-		for (int i = 0; i < search.size(); i++) {
+		for (int i = 0; i < search.size(); i++) 
+		{
 			Thread.sleep(1000);
 			// String name = search.get(i).getText();
 			search.get(i).click();
@@ -175,10 +176,17 @@ public class HomePage extends TestBase {
 			 */
 
 		}
+		if(checkbox.isDisplayed())
+		{
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		TestUtil.VisibleOn(driver, checkbox, 20);
 		executor.executeScript("arguments[0].click();", checkbox);
-
+		}
+		else
+		{
+			return new EMRDashBoardPage();
+		}
+		
 		/*
 		 * List<WebElement>visits
 		 * =driver.findElements(By.xpath("//tbody//input[@type='checkbox']"));
@@ -191,7 +199,7 @@ public class HomePage extends TestBase {
 		 * 
 		 * } else { System.out.println("no visits found");
 		 */
-		System.out.println("Searchtestcompleted");
+		//System.out.println("Searchtestcompleted");
 		return new EMRDashBoardPage();
 
 	}
