@@ -33,7 +33,6 @@ public class WFamilyHistoryTest extends TestBase
 	public void Seup() throws Exception
 		{
 			TestBase.initalization();
-			driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 			Loginpage= new Loginpage();
 			HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 			EMRPage= HomePage.ClickonEMR();

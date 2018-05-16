@@ -28,7 +28,6 @@ public class WcomplaintsTest extends TestBase
 	public void Setup() throws Exception
 	{
 		TestBase.initalization();
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage= HomePage.ClickonEMR();
@@ -49,7 +48,7 @@ public class WcomplaintsTest extends TestBase
 	
 
 }
-	@Test(priority=1,enabled= false)
+	@Test(priority=1,enabled= true)
 	public  void NewPatientPresentingComplaintsTest() throws Exception 
 	{
 		
@@ -60,7 +59,7 @@ public class WcomplaintsTest extends TestBase
 		
 				
 	}
-	@Test(priority=2,enabled= false)
+	@Test(priority=2,enabled= true)
 	public void SaveTheComplaintsTest() throws Exception
 	{
 		WCP.NewPatientPresentingComplaints();

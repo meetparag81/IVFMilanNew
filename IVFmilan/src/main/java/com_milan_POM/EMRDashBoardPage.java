@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -50,7 +51,10 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 				//System.out.println("womentfield"+ womenfield.isDisplayed());
 				TestUtil.VisibleOn(driver, womenfield, 20);
 				womenfield.click();
-				TestUtil.VisibleOn(driver, Historylinkwomen, 30);
+				TestUtil.VisibleOn(driver, Historylinkwomen, 20);
+				JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+				jse.executeScript("arguments[0].scrollIntoView()", Historylinkwomen);
 				Historylinkwomen.click();
 				//System.out.println("Womenfieldis displayed");
 				List<WebElement> visitw=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
@@ -89,7 +93,7 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 		
 	public String TitleHistoryPage() 
 	{
-		TestUtil.VisibleOn(driver, TitleHistory, 40);
+		TestUtil.VisibleOn(driver, TitleHistory, 20);
 		String Title=TitleHistory.getText();
 		return Title;
 		
@@ -98,17 +102,20 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 
 		public MenHistoryPage clickOnMenField() throws InterruptedException
 		{
-					Thread.sleep(3000);
+					TestUtil.VisibleOn(driver, menfield, 20);
 				if(menfield.isDisplayed())
 				{
-					TestUtil.VisibleOn(driver, menfield, 30);
+					TestUtil.VisibleOn(driver, menfield, 20);
 					menfield.click();
 					//System.out.println("menfield"+ menfield.isDisplayed());
 					
 				/*List<WebElement>checkbox= driver.findElements(By.xpath("html/body/div[1]/div/div/div/table/tbody/tr//td[1]"));
 				System.out.println ("checkbox size is"+checkbox.size());
 				checkbox.get(0).click();*/
-					Thread.sleep(3000);				
+					TestUtil.VisibleOn(driver, Historylinkmen, 20);			
+					JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+					jse.executeScript("arguments[0].scrollIntoView()", Historylinkmen);
 					Historylinkmen.click();
 					//System.out.println(" Clicked onMen History");
 					List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
@@ -122,7 +129,7 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 							else
 							{
 								
-							System.out.println("History  not availsble");
+							System.out.println("Men visit not seen");
 							
 														
 							}

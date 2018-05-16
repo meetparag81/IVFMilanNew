@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WAddictionsTest">
+      <class name="com_Milan_Test.EMRDashBoardPageTest">
         <methods>
-          <include name="Setup"/>
-          <include name="Teardown"/>
-          <include name="saveAdictions"/>
+          <include name="ClickOnMenPaientHistory"/>
+          <include name="Seup"/>
+          <include name="teardown"/>
         </methods>
-      </class> <!-- com_Milan_Test.WAddictionsTest -->
+      </class> <!-- com_Milan_Test.EMRDashBoardPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

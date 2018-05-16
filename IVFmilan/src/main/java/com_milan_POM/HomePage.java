@@ -18,7 +18,7 @@ import com_Milan_util.TestUtil;
 public class HomePage extends TestBase {
 	@FindBy(id = "patientBtn")
 	private WebElement Patient;
-	@FindBy(xpath = "//*[@id='txtfullName']")
+	@FindBy(xpath = "//input[@id='txtfullName']")
 	private WebElement Searchbox1;
 	private @FindBy(xpath = "//ul[@class='dropdown-menu ng-isolate-scope crx_mouse_visited']") WebElement Searchbox;
 	private @FindBy(xpath = "//h5[text()='Prescription']") WebElement title;
@@ -75,7 +75,8 @@ public class HomePage extends TestBase {
 		return Title.getText();
 	}
 
-	public String Homepagetitle() {
+	public String Homepagetitle()
+	{
 		// System.out.println("========Homepagetitle testcase started======");
 		String msg = driver.getTitle();
 		return msg;
@@ -102,8 +103,7 @@ public class HomePage extends TestBase {
 		for (i = 1; i <= 125; i++) {
 			if (j <= 10) {
 				Thread.sleep(3000);
-				WebElement rowcount = driver
-						.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr[" + j + "]/td[4]"));
+				WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr[" + j + "]/td[4]"));
 				String name1 = rowcount.getText();
 
 				// System.out.println(name1+ i+ j);
@@ -114,8 +114,7 @@ public class HomePage extends TestBase {
 
 				{
 					Thread.sleep(3000);
-					driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr[" + j + "]/td[1]/a[2]"))
-							.click();
+					driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr[" + j + "]/td[1]/a[2]")).click();
 					// System.out.println("click on EMR ");
 					i = 122;
 					System.out.println("===========recodfound==============");
@@ -141,18 +140,30 @@ public class HomePage extends TestBase {
 	}
 
 	public EMRDashBoardPage searchPaient() throws Exception {
-		WebElement Patient1 = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
+		WebElement Patient1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
 		Paitent = wait.until(ExpectedConditions.visibilityOf(Patient));
 		Patient1.click();
 		int Rowcount = reader.getRowCount("HomePage");
 
 		String PatientName = reader.getCellData("HomePage", "PatientName", 7);
-		Thread.sleep(3000);
+/*List<WebElement>Radiobutton=driver.findElements(By.xpath("//input[@type='radio']"));
+int radiobuttons= Radiobutton.size();
+for(int i=1;i<=radiobuttons;i++)
+{
+	WebElement buttonsname = driver.findElement(By.xpath("//*[@id='dropdown_menu']/div/div[1]/label["+i+"]"));
+	String name= buttonsname.getText();
+	int rows=2;
+	String radionames=reader.getCellData("HomePage", "RadioButtons",rows);
+		if(Radiobutton.get(i).isSelected()==false)
+		{
+			Radiobutton.get(i).click();
+			break;
+			
+		}
+		
+	}*/
+		Thread.sleep(2000);
 		Searchbox1.sendKeys(PatientName);
-		// Searchbox1.submit();
-		// Thread.sleep(1000);
-		// checkbox.click();
 		TestUtil.VisibleOn(driver, Searchbox1, 05);
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
@@ -216,8 +227,7 @@ public class HomePage extends TestBase {
 				.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
 		TestUtil.VisibleOn(driver, Calender, 40);
 		Calender.click();
-		List<WebElement> dates = wait.until(
-				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
+		List<WebElement> dates = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
 
 		int Total_nodes = dates.size();
 		for (int i = 0; i < Total_nodes; i++) 
@@ -230,9 +240,9 @@ public class HomePage extends TestBase {
 			}
 
 		}
-		String Paitentname = reader.getCellData("HomePage", 0, 8);
+		String SendPaitentname = reader.getCellData("HomePage", 0, 8);
 		Thread.sleep(3000);
-		searchpaient.sendKeys(Paitentname);
+		searchpaient.sendKeys(SendPaitentname);
 		TestUtil.VisibleOn(driver, Searchbutton, 20);
 		Searchbutton.click();
 		int k = 1;
@@ -243,11 +253,11 @@ public class HomePage extends TestBase {
 			TestUtil.VisibleOn(driver, Nameofpatient, 30);
 			String name1 = Nameofpatient.getText();
 			Thread.sleep(4000);
+			String Paitentname = reader.getCellData("HomePage", 0, 15);
 			if (name1.contains(Paitentname)) 
 			{
-				// Thread.sleep(4000);
-				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
+				 Thread.sleep(2000);
+				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
 				EMR.click();
 				System.out.println("click on EMR ");
 

@@ -36,7 +36,6 @@ public class WMenstrualHistoryTest extends TestBase
 	public void Setup() throws Exception
 	{
 		TestBase.initalization();
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage=HomePage.SearchusingCalender();
@@ -44,7 +43,7 @@ public class WMenstrualHistoryTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		MHP=WHP.ClickOnMenstrualHistory();
 	}
-	@Test(priority=1, enabled=false)
+	@Test(priority=1, enabled=true)
 	public  void AgeOfMenarcheRangeSartTest() 
 	{
 		String Actual= MHP.AgeOfMenarcheFirst();
@@ -54,7 +53,7 @@ public class WMenstrualHistoryTest extends TestBase
 				
 	}
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public  void MenarcheRangeEndTest() 
 	{
 		
@@ -63,7 +62,7 @@ public class WMenstrualHistoryTest extends TestBase
 		AssertJUnit.assertEquals(Actual, Expected, "Last range value is incorrect");
 		System.out.println("MenarcheRangeEndTest completed");
 	}
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,enabled=true)
 	public  void LMPcalenderdateSelectionTest() 
 	{
 		boolean flag1=MHP.DatePicker();
@@ -73,7 +72,7 @@ public class WMenstrualHistoryTest extends TestBase
 	}
 	
 	
-	@Test(priority=4,enabled=false)
+	@Test(priority=4,enabled=true)
 	public  void AmenorrheaTypeTest() 
 	{
 		boolean flag2=MHP.AmenorrheaType();

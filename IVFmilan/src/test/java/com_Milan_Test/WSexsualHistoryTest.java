@@ -56,7 +56,7 @@ public class WSexsualHistoryTest extends TestBase
 		
 		
 		
-		@Test(priority=1,enabled=false)
+		@Test(priority=1,enabled=true)
 		public void InrelationshipsinceYearsTest()
 		{
 			int Actual= SHP.relationshipyears();
@@ -64,20 +64,20 @@ public class WSexsualHistoryTest extends TestBase
 			AssertJUnit.assertEquals(Expected, Actual);
 			System.out.println("InrelationshipsinceYearsTest is passed");			
 		}
-		@Test(priority=2,enabled=false)
+		@Test(priority=2,enabled=true)
 		public void testRelationtlists() throws Exception
 		{
 			boolean flag1 = SHP.validateRelstionship();
 			AssertJUnit.assertTrue(flag1);
 		}
-		@Test(priority=3,enabled=false)
+		@Test(priority=3,enabled=true)
 		public void textboxSexualDysfunctionTest() throws Exception
 		{
 			boolean flag= SHP.textboxSexualDysfunction();
 		
 			AssertJUnit.assertTrue(flag);
 		}
-		@Test(priority=4,enabled=false)
+		@Test(priority=4,enabled=true)
 		public void FillSexsuslHistorytest() throws Exception 
 		{
 			
@@ -87,7 +87,7 @@ public class WSexsualHistoryTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 		
 		}
-		@Test(priority=5,enabled=false)
+		@Test(priority=5,enabled=true)
 		public void SexInrelationshipsinceMonthsTest() throws Exception 
 		{
 		SHP.formfilling();
@@ -95,7 +95,7 @@ public class WSexsualHistoryTest extends TestBase
 		int Expected = 11;
 		
 		}
-		@Test(priority=6,enabled=false)
+		@Test(priority=6,enabled=true)
 		public void numberofcharacterexualDysfunctionTest() throws Exception 
 		{
 		 String Actual = SHP.SexualDysfunctioncharacters();	
@@ -103,27 +103,27 @@ public class WSexsualHistoryTest extends TestBase
 		 Assert.assertEquals(Actual, Expected);
 		}
 		
-		@Test(priority=7,enabled=false)
+		@Test(priority=7,enabled=true)
 		public void DyspareuniatextTest() throws Exception 
 		{
 		 boolean Actual = SHP.DyspareuniaText();	
 		 Assert.assertTrue(Actual);
 		}
 		
-		@Test(priority=8,enabled=false)
+		@Test(priority=8,enabled=true)
 		public void Lubricationusedtext() throws Exception 
 		{
 		 boolean Actual = SHP.Lubricationusedtext();	
 		 Assert.assertTrue(Actual);
 		}
 		
-		@Test(priority=9,enabled=false)
+		@Test(priority=9,enabled=true)
 		public void Remarktexttest() throws Exception 
 		{
 			String Actual = SHP.Remarktext();
 			String Expected = "0";
 		}
-		@Test(priority=10,enabled=false)
+		@Test(priority=10,enabled=true)
 		public void TryingToConcieveSinceYearTest()
 		{
 			

@@ -47,7 +47,7 @@ public class WAllergiesTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		Allergies= WHP.ClickOnAllergies();	
 	}
-	@Test(priority=2,enabled= false)
+	@Test(priority=2,enabled= true)
 	public void FoodAllergyvalidationTest()
 	{
 		
@@ -64,7 +64,7 @@ public class WAllergiesTest extends TestBase
 	}
 		
 
-@Test(priority=3,enabled= false)
+@Test(priority=3,enabled= true)
 public void OptionSelectedOnAllergyCurrentStstusTest() throws Exception
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();

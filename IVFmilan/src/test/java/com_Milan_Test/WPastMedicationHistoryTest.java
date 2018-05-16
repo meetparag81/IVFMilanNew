@@ -66,7 +66,7 @@ public class WPastMedicationHistoryTest extends TestBase
 		System.out.println("DrugNameFieldEnableconditionTest is completed");
 		
 	}
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,enabled=true)
 	public void pastMedicationHistorysetdataTest() throws Exception
 	{
 		int Actual= PMHP.pastMedicationHistorysetdata();

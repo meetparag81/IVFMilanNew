@@ -36,7 +36,6 @@ public class WObstetricHistoryPageTest extends TestBase
 	public void Setup() throws Exception
 	{
 		TestBase.initalization();
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		//EMRPage=HomePage.SearchusingCalender();
@@ -48,21 +47,21 @@ public class WObstetricHistoryPageTest extends TestBase
 		
 	}
 		
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	public void BirthWeightValueTextTest()
 	{
 		double Actual=OHP.BirthWeightText();
 		double Expected = 1.234;
 		Assert.assertEquals(Actual, Expected, Actual);
 	}
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void BirthWeightEnableConditionTest()
 	{
 		boolean flag1=OHP.BirthWeightEnabled();
 		Assert.assertTrue(flag1);
 	}
 	
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,enabled=true)
 	public void ValueInAbortiontionTest() 
 	{
 	
@@ -70,7 +69,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		String Expected = "1";
 		Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=4,enabled=false)
+	@Test(priority=4,enabled=true)
 	public void ValueInLivebirthoptionTest() 
 	{
 	
@@ -78,7 +77,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		String Expected = "1";
 		Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=5,enabled=false)
+	@Test(priority=5,enabled=true)
 	public void ValueInEctopicTest() 
 	{
 	
@@ -87,72 +86,72 @@ public class WObstetricHistoryPageTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 	}
 	
-	@Test(priority=6,enabled=false)
+	@Test(priority=6,enabled=true)
 	public void DeliveryTypeEnableconditionTest() 
 	{
 		boolean flag= OHP.DileveryTypeEnabledcondition();
 		Assert.assertTrue(flag);
 		
 	}
-	@Test(priority=7,enabled=false)	
+	@Test(priority=7,enabled=true)	
 	public void LiveBirthEnableTest()
 	{
 	boolean flag=OHP.LivebirthEnableConditition();
 	Assert.assertFalse(flag);
 	}
-	@Test(priority=8,enabled=false)	
+	@Test(priority=8,enabled=true)	
 	public void RowGridEnableTest()
 	{
 	boolean flag=OHP.RowGridEnableConditition();
 	Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=9,enabled=false)	
+	@Test(priority=9,enabled=true)	
 	public void StillBornEnableTest()
 	{
 	boolean flag=OHP.StillbornGridEnableConditition();
 	Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=10,enabled=false)	
+	@Test(priority=10,enabled=true)	
 	public void EctopiccEnableCondititionTest()
 	{
 	boolean flag=OHP.EctopiccEnableConditition();
 	Assert.assertFalse(flag);
 	}
 	
-	@Test(priority=11,enabled=false)	
+	@Test(priority=11,enabled=true)	
 	public void AbortionEnableCondititionTest()
 	{
 	boolean flag=OHP.AbortionEnableConditition();
 	Assert.assertFalse(flag);
 	}
-	@Test(priority=12,enabled=false)	
+	@Test(priority=12,enabled=true)	
 	public void DeliveryEnableCondititionTest()
 	{
 	boolean flag=OHP.DeliveroptionEnableConditition();
 	Assert.assertTrue(flag);
 	}
-	@Test(priority=13,enabled=false)	
+	@Test(priority=13,enabled=true)	
 	public void ComplicationsEnableCondititionTest()
 	{
 	boolean flag=OHP.ComplicationsEnableConditition();
 	Assert.assertTrue(flag);
 	}
-	@Test(priority=14,enabled=false)	
+	@Test(priority=14,enabled=true)	
 	public void CongenitalAnamolyEnableCondititionTest()
 	{
 	boolean flag=OHP.CongenitalAnamolyEnableCondition();
 			Assert.assertTrue(flag);
 	}
-	@Test(priority=15,enabled=false)	
+	@Test(priority=15,enabled=true)	
 	public void LiveBirthPretermconditionTest()
 	{
 	String Actual=OHP.LiveBirthPretermcondition();
 	String Expected = "Preterm";
 	Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=16,enabled=false)
+	@Test(priority=16,enabled=true)
 	public void LiveBirthFullTermconditionTest()
 	{
 		
@@ -161,7 +160,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	Assert.assertEquals(Actual, Expected);
 		
 	}
-	@Test(priority=17,enabled=false)
+	@Test(priority=17,enabled=true)
 	public void LiveBirthAbovePostTermconditionTest()
 	{
 	String Actual =OHP.LiveBirthAbovePostTermcondition();
