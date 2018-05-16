@@ -43,19 +43,19 @@ public class HomePageTest extends TestBase
 		Assert.assertEquals(Actualrows, Expected);
 	}
 		
-@ Test(priority=2,enabled=false)
+@ Test(priority=2,enabled=true)
 			
 	public void ClickOnCmrTest() throws Exception 
 	{
 		EMRPage= HomePage.ClickonEMR();
-		System.out.println("clicked on EMR");
+		//System.out.println("clicked on EMR");
 		String Actual= HomePage.EMRPageTitle();
 		String Expected = "EMR Dashboard";
 		Assert.assertEquals(Actual, Expected);
 		System.out.println( "patient click on dashboard is completed");
 		
 	}
-@ Test(priority=3,enabled=false)
+@ Test(priority=3,enabled=true)
 
 public void SearchPatientUsingCalenderTest() throws Exception 
 {
