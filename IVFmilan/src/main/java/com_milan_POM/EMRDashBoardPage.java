@@ -27,12 +27,12 @@ private @FindBy(xpath="//a[@class='icoLink femaleComplaints']")WebElement Female
 private @FindBy(xpath="//a[@class='icoLink femaleVitals']")WebElement WVitals;
 private @FindBy(xpath="(//a[@title='Diagnosis'])[2]")WebElement MaleDiagnosis;
 private @FindBy(xpath="//input[@id='0']")WebElement visitmen;
-private @FindBy(xpath= "//span[contains (text(), 'EMR Dashboard')]")WebElement TitleEMR;
-private @FindBy(xpath = "//span[contains (text(), 'History')]")WebElement TitleHistory;
+private static @FindBy(xpath= "//span[contains (text(), 'EMR Dashboard')]")WebElement TitleEMR;
+private static @FindBy(xpath = "//span[contains (text(), 'History')]")WebElement TitleHistory;
 private @FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]")WebElement Sexualhistory; 
 private @FindBy(xpath="(//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input[@type='checkbox'])[1]")WebElement visitw;
 private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@id='0']") WebElement checkboxvisitm;
-	
+
 	
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	
@@ -102,7 +102,7 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 
 		public MenHistoryPage clickOnMenField() throws InterruptedException
 		{
-					TestUtil.VisibleOn(driver, menfield, 20);
+				//	TestUtil.VisibleOn(driver, menfield, 20);
 				if(menfield.isDisplayed())
 				{
 					TestUtil.VisibleOn(driver, menfield, 20);
@@ -121,7 +121,7 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 					List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 							if(visitm.size()!=0)
 							{
-							System.out.println("Visitcount" + visitm.size());
+							//System.out.println("Visitcount" + visitm.size());
 							TestUtil.VisibleElementsOn(driver, visitm, 30);
 							visitm.get(0).click();
 							System.out.println("Men visit cliked");	
@@ -129,7 +129,7 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 							else
 							{
 								
-							System.out.println("Men visit not seen");
+							return new MenHistoryPage();
 							
 														
 							}
@@ -137,9 +137,7 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 				}
 				else
 				{
-					System.out.println("MenHistory not found");
-					
-					
+				String Title = TitleEMR.getText();		
 				}
 				return  new MenHistoryPage();
 		
@@ -221,6 +219,26 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 										
 			}
 			return new WVitalsPage();		
+		}
+		
+		public String GetEmrTitle()
+		{		
+			String Title = TitleEMR.getText();
+			
+			return Title;			
+		}
+		public boolean GetEnableconditionMenfield()
+		{
+			menfield.isDisplayed();
+			
+			return false;
+			
+		}
+		public boolean GetGetEnableconditionWoMenfield()
+		{
+			womenfield.isDisplayed();
+			return false;
+			
 		}
 	
 	

@@ -108,7 +108,7 @@ public class HomePage extends TestBase {
 
 				// System.out.println(name1+ i+ j);
 
-				String PatientName = reader.getCellData("HomePage", "PatientName", 12);
+				String PatientName = reader.getCellData("HomePage", "PatientName", 16);
 				Thread.sleep(3000);
 				if (name1.contains(PatientName))
 
@@ -139,32 +139,39 @@ public class HomePage extends TestBase {
 		return new EMRDashBoardPage();
 	}
 
-	public EMRDashBoardPage searchPaient() throws Exception {
+	public EMRDashBoardPage searchPaient() throws Exception 
+	{
 		WebElement Patient1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
 		Paitent = wait.until(ExpectedConditions.visibilityOf(Patient));
 		Patient1.click();
 		int Rowcount = reader.getRowCount("HomePage");
 
 		String PatientName = reader.getCellData("HomePage", "PatientName", 7);
-/*List<WebElement>Radiobutton=driver.findElements(By.xpath("//input[@type='radio']"));
+List<WebElement>Radiobutton=driver.findElements(By.xpath("//input[@type='radio']"));
 int radiobuttons= Radiobutton.size();
+int rows=1;
 for(int i=1;i<=radiobuttons;i++)
 {
+	
+	rows++;
 	WebElement buttonsname = driver.findElement(By.xpath("//*[@id='dropdown_menu']/div/div[1]/label["+i+"]"));
 	String name= buttonsname.getText();
-	int rows=2;
+	
 	String radionames=reader.getCellData("HomePage", "RadioButtons",rows);
-		if(Radiobutton.get(i).isSelected()==false)
+	if(name==radionames)
 		{
 			Radiobutton.get(i).click();
 			break;
-			
+						
 		}
 		
-	}*/
+		
+		
+		
+	}
 		Thread.sleep(2000);
 		Searchbox1.sendKeys(PatientName);
-		TestUtil.VisibleOn(driver, Searchbox1, 05);
+		TestUtil.VisibleOn(driver, Searchbox1, 20);
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
 		Searchbox1.sendKeys("");
@@ -215,7 +222,8 @@ for(int i=1;i<=radiobuttons;i++)
 
 	}
 
-	public String Dahboardtitle() {
+	public String Dahboardtitle() 
+	{
 
 		String Title = Dashboardtitle.getText();
 		return Title;
