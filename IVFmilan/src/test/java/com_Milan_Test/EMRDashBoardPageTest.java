@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 import com_milan_POM.AllergiesPage;
 import com_milan_POM.EMRDashBoardPage;
@@ -32,7 +33,10 @@ public class EMRDashBoardPageTest extends TestBase
 	SearchPage SearchPage;
 	AllergiesPage Allergies;
 	FemaleDiagnosisPage FemaleDiagnosis;
-	
+	String Actual1, Expected1;
+	int count=0;
+	int row=2;
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	EMRDashBoardPageTest()
 	{
@@ -54,16 +58,49 @@ public class EMRDashBoardPageTest extends TestBase
 		
 		
 		
+		
 	}
 	@Test(priority=1)
 	public void ClickonWoomenPaientFieldTest() throws InterruptedException
 	{
+		MHP= EMRPage.clickOnMenField();
+		boolean flag = EMRPage.GetGetEnableconditionWoMenfield();
+		if(flag==false)
+		{
+			 Actual1=EMRPage.GetEmrTitle();
+			 count++;
+		}
+		else
+		{
+			Actual1= EMRPage.TitleHistoryPage();
+		}
+		String Actual= Actual1;
+		
 		
 		WHP= EMRPage.clickOnWomenField();
-		
-		String Actual= EMRPage.TitleHistoryPage();
-		String Expected = "History";
-		Assert.assertEquals(Actual, Expected);
+		boolean flag1 = EMRPage.GetEnableconditionMenfield();
+		if(flag==false)
+		{
+			 Actual1=EMRPage.GetEmrTitle();
+			 count++;
+		}
+		else
+		{
+			EMRPage.TitleHistoryPage();
+		}
+		String Actual2= Actual1;
+		if(count>0)
+		{
+			row++;
+			 Expected1 = reader.getCellData("EMRPage", "Message", row);
+		}
+		else
+		{
+			Expected1=reader.getCellData("EMRPage", "Message", row);
+		}
+		String Expected = Expected1;
+		Assert.assertEquals(Actual2, Expected);
+				
 		System.out.println("ClickonWoomenPaientFieldTest is completed");
 		
 	}
@@ -71,8 +108,27 @@ public class EMRDashBoardPageTest extends TestBase
 	public void ClickOnMenPaientHistory() throws Exception
 	{
 		MHP= EMRPage.clickOnMenField();
-		String Actual= EMRPage.TitleHistoryPage();
-		String Expected = "History";
+		boolean flag = EMRPage.GetEnableconditionMenfield();
+		if(flag==false)
+		{
+			 Actual1=EMRPage.GetEmrTitle();
+			 count++;
+		}
+		else
+		{
+			EMRPage.TitleHistoryPage();
+		}
+		String Actual= Actual1;
+		if(count>0)
+		{
+			row++;
+			 Expected1 = reader.getCellData("EMRPage", "Message", row);
+		}
+		else
+		{
+			Expected1=reader.getCellData("EMRPage", "Message", row);
+		}
+		String Expected = Expected1;
 		Assert.assertEquals(Actual, Expected);
 		
 		System.out.println("ClickonMenPaientFieldTest is completed");

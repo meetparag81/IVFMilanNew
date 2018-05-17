@@ -11,6 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 import com_milan_POM.EMRDashBoardPage;
 import com_milan_POM.HomePage;
@@ -21,6 +22,7 @@ public class HomePageTest extends TestBase
 	Loginpage Loginpage;	
 	HomePage HomePage;
 	EMRDashBoardPage EMRPage;
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	HomePageTest()
 	{
@@ -38,7 +40,7 @@ public class HomePageTest extends TestBase
 	public void DatacreationTest() throws Exception
 	{
 		int Actualrows= HomePage.PatientDataCreation();
-		int Expected = 12;
+		int Expected = reader.getRowCount("HomePage");
 		Assert.assertEquals(Actualrows, Expected);
 	}
 		

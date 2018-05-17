@@ -31,7 +31,7 @@ public class WAddictionsTest extends TestBase
 	AddictionsPage Addictions;
 	SearchPage SearchPage;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-	String Expected,Expectednew, Expectedold,Expected1;
+	String Expected,Expectednew, Expectedold,Expected1,Actual,Actualnew,Actualold;
 	int count1=0;
 	
 	public WAddictionsTest()
@@ -171,19 +171,25 @@ public void Setup() throws Exception
 		{
 			System.out.println("finally block executed");
 		}
+		String Name = Addictions.Buttonname();
 		if(count1 >0)
 		{
 			 String Expectedold = reader.getCellData("Addictions", "Message", 3);
-			 Expected1 = Expectedold;			
+			 Expected1 = Expectedold;
+			 Actualold = Addictions.UpdateSaveFlashMessage();
+			 Actual = Actualnew;
 		}
 		else
 		{
 			
 			 String Expectednew	= reader.getCellData("Addictions", "Message", 2);
 			 Expected1= Expectednew;
+			 Actualnew= Addictions.NewSaveFlashMessage();
+				 Actual = Actualnew;
+			 
 		}
 		Expected = Expected1;
-		String Actual= Addictions.FlashMessage();
+		
 		 
 		Assert.assertEquals(Actual, Expected);
 		System.out.println("AddictionSaveTest is Passed");
