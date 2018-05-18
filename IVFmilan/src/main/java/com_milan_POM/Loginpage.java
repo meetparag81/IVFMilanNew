@@ -27,9 +27,8 @@ public class Loginpage extends TestBase {
 	WebElement SizeOfPaitent;
 	private @FindBy(xpath = "//span[@class='errorMsg ng-binding']")
 	WebElement Msgcorrectusername;
-	Exls_Reader reader = new Exls_Reader(
-			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-	WebDriverWait wait = new WebDriverWait(driver, 10);
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	
 
 	public Loginpage() {
 
@@ -41,11 +40,8 @@ public class Loginpage extends TestBase {
 
 		password.sendKeys(psw);
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
-		clinic = wait.until(ExpectedConditions.visibilityOf(clinic));
-		// clinic =
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//*[@id='InputSourceOfReference']"))));
-		Select drop = new Select(clinic);
+		TestUtil.VisibleOn(driver, clinic, 30);
+				Select drop = new Select(clinic);
 		Thread.sleep(2000);
 		drop.selectByVisibleText("Lavida Fertility Bangkok");
 		Loginbutton.click();

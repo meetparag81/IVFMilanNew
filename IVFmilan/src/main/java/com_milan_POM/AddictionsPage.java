@@ -239,7 +239,7 @@ public class AddictionsPage extends TestBase {
 		count1 = checkbox.size();
 		
 
-			for (int i = 1; i <= 1; i++) 
+			for (int i = 1; i <=5; i++) 
 			{
 				WebElement checkbox1 = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
 				
@@ -273,7 +273,7 @@ public class AddictionsPage extends TestBase {
 			for (int i = 1; i <= 5; i++) 
 			{
 				count1=0;
-				rows1++;
+				rows1--;
 				WebElement addictionnames = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[1]//label"));
 				String names = addictionnames.getText();				
 				switch (names) 
@@ -296,7 +296,7 @@ public class AddictionsPage extends TestBase {
 					frequencyS.selectByVisibleText(Frequency1);
 					WebElement Noofcigaret = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 					Noofcigaret.sendKeys(Quantity1);
-					rows1++;
+					rows1--;
 					break;
 
 				case "Alcohol":
@@ -326,7 +326,7 @@ public class AddictionsPage extends TestBase {
 					FrequencyA.selectByVisibleText(Frequency1);
 					WebElement Alkoholqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 					Alkoholqty.sendKeys(Quantity1);
-					rows1++;
+					rows1--;
 					break;
 				case "Tobacco":
 					WebElement checkboxT = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
@@ -356,7 +356,7 @@ public class AddictionsPage extends TestBase {
 					FrequencyTobaco.selectByVisibleText(Frequency1);
 					WebElement Tobacoqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 					Tobacoqty.sendKeys(Quantity1);
-					rows1++;
+					rows1--;
 					break;
 
 				case "Drug Addiction":
@@ -385,7 +385,7 @@ public class AddictionsPage extends TestBase {
 					FrequencyDA.selectByVisibleText(Frequency1);
 					WebElement DrugAddictionqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 					DrugAddictionqty.sendKeys(Quantity1);
-					rows1++;
+					rows1--;
 					break;
 
 				case "Caffeine Addiction":
@@ -417,7 +417,7 @@ public class AddictionsPage extends TestBase {
 					FrequencyDA1.selectByVisibleText(Frequency1);
 					WebElement CaffeineAddictionqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 					CaffeineAddictionqty.sendKeys(Quantity1);
-					rows1++;
+					rows1--;
 					break;
 				}//switch
 			}//for
@@ -432,9 +432,10 @@ public class AddictionsPage extends TestBase {
 			} finally 
 			{
 				System.out.println("Save the form");
-				break;
+				Save.click();
 			}	
 		}//while
+		
 		
 		//Save.click();
 		/*String Message = NewSaveflashmsg.getText();

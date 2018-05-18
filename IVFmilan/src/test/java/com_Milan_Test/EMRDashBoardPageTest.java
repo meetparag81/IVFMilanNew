@@ -20,6 +20,7 @@ import com_milan_POM.HomePage;
 import com_milan_POM.Loginpage;
 import com_milan_POM.MenHistoryPage;
 import com_milan_POM.SearchPage;
+import com_milan_POM.WInvestigationPage;
 import com_milan_POM.WomenHistoryPage;
 import com_milan_POM.FemaleDiagnosisPage;
 
@@ -33,6 +34,7 @@ public class EMRDashBoardPageTest extends TestBase
 	SearchPage SearchPage;
 	AllergiesPage Allergies;
 	FemaleDiagnosisPage FemaleDiagnosis;
+	WInvestigationPage Investigation;
 	String Actual1, Expected1;
 	int count=0;
 	int row=2;
@@ -60,7 +62,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 		
 	}
-	@Test(priority=1)
+	@Test(priority=1,enabled=false)
 	public void ClickonWoomenPaientFieldTest() throws InterruptedException
 	{
 		MHP= EMRPage.clickOnMenField();
@@ -104,7 +106,7 @@ public class EMRDashBoardPageTest extends TestBase
 		System.out.println("ClickonWoomenPaientFieldTest is completed");
 		
 	}
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
 	public void ClickOnMenPaientHistory() throws Exception
 	{
 		MHP= EMRPage.clickOnMenField();
@@ -135,7 +137,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 	}
 	
-	@Test(priority=3)
+	@Test(priority=3,enabled=false)
 	public void ClickOnDiagnosisTest() throws Exception
 	{
 		FemaleDiagnosis= EMRPage.ClickOnDiagnosis();
@@ -148,6 +150,14 @@ public class EMRDashBoardPageTest extends TestBase
 		EMRPage= HomePage.searchPaient();		
 		Allergies.AllergiesNameonDashboard();
 	}*/
+	@Test(priority=4)
+	public void ClickOnInvestigation() throws Exception
+	{
+		Investigation= EMRPage.ClickOnInvestigation();
+		
+		
+	}
+	
 	
 	
 	@ AfterMethod

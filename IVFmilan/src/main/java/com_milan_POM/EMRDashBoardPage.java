@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,7 +33,7 @@ private static @FindBy(xpath = "//span[contains (text(), 'History')]")WebElement
 private @FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]")WebElement Sexualhistory; 
 private @FindBy(xpath="(//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input[@type='checkbox'])[1]")WebElement visitw;
 private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@id='0']") WebElement checkboxvisitm;
-
+@FindBy(xpath="//a[@class='icoLink femaleInvestigations'][@title='Investigations']")WebElement Investigation;
 	
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	
@@ -174,8 +175,10 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 		{
 			TestUtil.VisibleOn(driver, womenfield, 20);
 			womenfield.click();	
-			//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
-			Thread.sleep(3000);
+			TestUtil.VisibleOn(driver, Femalecomplaints, 20);
+			JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+			jse.executeScript("arguments[0].scrollIntoView()", Femalecomplaints);
 			Femalecomplaints.click();
 			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if(visitm.size()!=0)
@@ -200,8 +203,9 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 			TestUtil.VisibleOn(driver, womenfield, 20);
 			womenfield.click();	
 			//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
-			Thread.sleep(3000);
-			WVitals.click();
+			Thread.sleep(2000);
+			Actions act = new Actions(driver);
+			act.moveToElement(WVitals).click().perform();
 			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if(visitm.size()!=0)
 			{
@@ -220,6 +224,26 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 			}
 			return new WVitalsPage();		
 		}
+		public WInvestigationPage ClickOnInvestigation() throws Exception
+		{
+			TestUtil.VisibleOn(driver, womenfield, 30);
+			womenfield.click();	
+			Thread.sleep(2000);
+			Actions act = new Actions(driver);
+			act.moveToElement(Investigation).click().perform();
+			
+			//TestUtil.VisibleOn(driver, Investigation, 20);
+			//JavascriptExecutor jse = (JavascriptExecutor)driver;
+
+			//jse.executeScript("arguments[0].scrollIntoView()", Investigation);
+			//Investigation.click();
+			
+			return new WInvestigationPage();
+		}
+		
+		
+		
+		
 		
 		public String GetEmrTitle()
 		{		

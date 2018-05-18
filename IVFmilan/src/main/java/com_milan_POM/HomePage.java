@@ -174,6 +174,8 @@ for(int i=1;i<=radiobuttons;i++)
 		TestUtil.VisibleOn(driver, Searchbox1, 20);
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
+		Searchbox1.sendKeys(Keys.BACK_SPACE);
+		Thread.sleep(1000);
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 

@@ -152,7 +152,7 @@ public void Setup() throws Exception
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForCaffeineAddiction();
 		Assert.assertTrue(flag);
 	}
-	@Test(priority=16,groups = {"smoketest" },dataProvider= "getTestData")
+	@Test(priority=16,groups = {"smoketest" },dataProvider= "getTestData",enabled= false)
 	public void saveAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
 			String Frequency, String Quantity) throws Exception
 	{
@@ -194,6 +194,56 @@ public void Setup() throws Exception
 		Assert.assertEquals(Actual, Expected);
 		System.out.println("AddictionSaveTest is Passed");
 	}
+	@Test (priority=17,groups = {"Functional" })
+	public void saveNewAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
+			String Frequency, String Quantity) throws Exception
+	{
+		Addictions.NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+		String count= reader.getCellData("Addictions", 7, 2);
+		try{
+			 
+			count1 = Integer.parseInt(count);
+			 
+		}
+		catch(NumberFormatException e)
+		{
+			System.out.println("String is not converted into number");
+		}
+		finally
+		{
+			System.out.println("finally block executed");
+		}
+		String Name = Addictions.Buttonname();
+		if(count1 >0)
+		{
+			 String Expectedold = reader.getCellData("Addictions", "Message", 3);
+			 Expected1 = Expectedold;
+			 Actualold = Addictions.UpdateSaveFlashMessage();
+			 Actual = Actualnew;
+		}
+		else
+		{
+			
+			 String Expectednew	= reader.getCellData("Addictions", "Message", 2);
+			 Expected1= Expectednew;
+			 Actualnew= Addictions.NewSaveFlashMessage();
+				 Actual = Actualnew;
+			 
+		}
+		Expected = Expected1;
+		
+		 
+		Assert.assertEquals(Actual, Expected);
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
 	@DataProvider
 	public  Iterator<Object[]> getTestData()
 	{
