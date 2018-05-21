@@ -1,57 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="16" total="17" passed="0">
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="41" started-at="2018-05-18T10:09:39Z" finished-at="2018-05-18T10:09:39Z">
+  <suite name="Default suite" duration-ms="28412" started-at="2018-05-21T18:26:10Z" finished-at="2018-05-21T18:26:39Z">
     <groups>
-      <group name="Functional">
-        <method signature="WAddictionsTest.saveNewAdictions(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:17, instance:com_Milan_Test.WAddictionsTest@68e5eea7]" name="saveNewAdictions" class="com_Milan_Test.WAddictionsTest"/>
-      </group> <!-- Functional -->
     </groups>
-    <test name="Default test" duration-ms="41" started-at="2018-05-18T10:09:39Z" finished-at="2018-05-18T10:09:39Z">
-      <class name="com_Milan_Test.WAddictionsTest">
-        <test-method status="FAIL" signature="saveNewAdictions(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:17, instance:com_Milan_Test.WAddictionsTest@68e5eea7]" name="saveNewAdictions" duration-ms="0" started-at="2018-05-18T15:39:39Z" finished-at="2018-05-18T15:39:39Z">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Cannot inject @Test annotated Method [saveNewAdictions] with [class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String].
-For more information on native dependency injection please refer to http://testng.org/doc/documentation-main.html#native-dependency-injection]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Cannot inject @Test annotated Method [saveNewAdictions] with [class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String, class java.lang.String].
-For more information on native dependency injection please refer to http://testng.org/doc/documentation-main.html#native-dependency-injection
-	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:244)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:172)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:458)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:569)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1308)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1036)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1126)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
+    <test name="Default test" duration-ms="28412" started-at="2018-05-21T18:26:10Z" finished-at="2018-05-21T18:26:39Z">
+      <class name="com_Milan_Test.WInvestigationPageTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WInvestigationPageTest@58ea606c]" name="Setup" is-config="true" duration-ms="22891" started-at="2018-05-21T23:56:10Z" finished-at="2018-05-21T23:56:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- saveNewAdictions -->
-      </class> <!-- com_Milan_Test.WAddictionsTest -->
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="subcycle()[pri:2, instance:com_Milan_Test.WInvestigationPageTest@58ea606c]" name="subcycle" duration-ms="5486" started-at="2018-05-21T23:56:33Z" finished-at="2018-05-21T23:56:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- subcycle -->
+      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
