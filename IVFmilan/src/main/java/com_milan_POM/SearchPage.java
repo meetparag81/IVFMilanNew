@@ -82,9 +82,18 @@ public class SearchPage extends TestBase {
 			break;
 
 		}
+		List<WebElement> visit = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']//tr//input"));
+		int visitsize = visit.size();
+		if(visitsize!=0)
+		{
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		TestUtil.VisibleOn(driver, checkbox, 20);
 		executor.executeScript("arguments[0].click();", checkbox);
+		}
+		else
+		{
+			return new EMRDashBoardPage();
+		}
 		return new EMRDashBoardPage();
 
 	}
@@ -108,7 +117,7 @@ public class SearchPage extends TestBase {
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("03")) 
+			if (date.equals("22")) 
 			{
 				dates.get(i).click();
 				break;

@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="28412" started-at="2018-05-21T18:26:10Z" finished-at="2018-05-21T18:26:39Z">
+  <suite name="Default suite" duration-ms="78491" started-at="2018-05-22T04:36:46Z" finished-at="2018-05-22T04:38:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="28412" started-at="2018-05-21T18:26:10Z" finished-at="2018-05-21T18:26:39Z">
-      <class name="com_Milan_Test.WInvestigationPageTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WInvestigationPageTest@58ea606c]" name="Setup" is-config="true" duration-ms="22891" started-at="2018-05-21T23:56:10Z" finished-at="2018-05-21T23:56:33Z">
+    <test name="Default test" duration-ms="78491" started-at="2018-05-22T04:36:46Z" finished-at="2018-05-22T04:38:04Z">
+      <class name="com_Milan_Test.SearchPageTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.SearchPageTest@5f341870]" name="Setup" is-config="true" duration-ms="10305" started-at="2018-05-22T10:06:46Z" finished-at="2018-05-22T10:06:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="subcycle()[pri:2, instance:com_Milan_Test.WInvestigationPageTest@58ea606c]" name="subcycle" duration-ms="5486" started-at="2018-05-21T23:56:33Z" finished-at="2018-05-21T23:56:39Z">
+        <test-method status="PASS" signature="SearchPatientUsingCalenderTest()[pri:1, instance:com_Milan_Test.SearchPageTest@5f341870]" name="SearchPatientUsingCalenderTest" duration-ms="18128" started-at="2018-05-22T10:06:56Z" finished-at="2018-05-22T10:07:14Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- subcycle -->
-      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
+        </test-method> <!-- SearchPatientUsingCalenderTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.SearchPageTest@5f341870]" name="Teardown" is-config="true" duration-ms="664" started-at="2018-05-22T10:07:14Z" finished-at="2018-05-22T10:07:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.SearchPageTest@5f341870]" name="Setup" is-config="true" duration-ms="9018" started-at="2018-05-22T10:07:15Z" finished-at="2018-05-22T10:07:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="SearchPatientUsingPatientTabTest()[pri:2, instance:com_Milan_Test.SearchPageTest@5f341870]" name="SearchPatientUsingPatientTabTest" duration-ms="39703" started-at="2018-05-22T10:07:24Z" finished-at="2018-05-22T10:08:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchPatientUsingPatientTabTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.SearchPageTest@5f341870]" name="Teardown" is-config="true" duration-ms="656" started-at="2018-05-22T10:08:04Z" finished-at="2018-05-22T10:08:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+      </class> <!-- com_Milan_Test.SearchPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

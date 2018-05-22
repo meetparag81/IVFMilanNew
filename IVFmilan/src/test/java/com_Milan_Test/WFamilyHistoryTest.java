@@ -35,7 +35,8 @@ public class WFamilyHistoryTest extends TestBase
 			TestBase.initalization();
 			Loginpage= new Loginpage();
 			HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-			EMRPage= HomePage.ClickonEMR();
+			EMRPage= HomePage.searchPaient();
+			//EMRPage= HomePage.ClickonEMR();
 			WHP= EMRPage.clickOnWomenField();	
 		}
 }

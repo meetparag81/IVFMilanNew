@@ -30,21 +30,10 @@ public class WcomplaintsTest extends TestBase
 		TestBase.initalization();
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		EMRPage= HomePage.ClickonEMR();
+		//EMRPage= HomePage.ClickonEMR();
 		//EMRPage=HomePage.SearchusingCalender();
-		//EMRPage=HomePage.searchPaient();
+		EMRPage=HomePage.searchPaient();
 		WCP=EMRPage.ClickOnComplaints();
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 }

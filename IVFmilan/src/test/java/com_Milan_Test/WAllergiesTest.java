@@ -41,7 +41,8 @@ public class WAllergiesTest extends TestBase
 		TestBase.initalization();
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		EMRPage= HomePage.ClickonEMR();
+		EMRPage = HomePage.searchPaient();
+		//EMRPage= HomePage.ClickonEMR();
 		//SearchPage SP = new SearchPage();
 		//EMRPage= HomePage.SearchusingCalender();
 		WHP= EMRPage.clickOnWomenField();
