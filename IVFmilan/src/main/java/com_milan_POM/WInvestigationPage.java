@@ -26,6 +26,7 @@ public class WInvestigationPage extends TestBase {
 	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")WebElement fornegetiveflashmsg;
 	@FindBy(xpath="//div[@class='close-button ng-scope']")WebElement closeflash;
 @FindBy(xpath="//*[@class='toast-text ng-scope']//span//following::span")WebElement saveflashmessage;
+@FindBy(xpath="(//button[@class='btn btn-primary'])[3]") WebElement Save;
 	
 
 	static Exls_Reader reader = new Exls_Reader(
@@ -148,7 +149,7 @@ public class WInvestigationPage extends TestBase {
 	
 	public  int OUIARTSubTypes() throws Exception
 	{
-		System.out.println();
+		
 		REFIVFPACKAGEARTCycleCount();
 		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
 		String namesoptions =  reader.getCellData("Investigation", "IVF PACKAGE", 2);
@@ -196,6 +197,49 @@ public class WInvestigationPage extends TestBase {
 		
 		
 	}
+	public String OPUCycle() throws Exception
+	{
+		REFIVFPACKAGEARTCycleCount();
+		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
+		String namesoptions =  reader.getCellData("Investigation", "IVF PACKAGE", 2);
+		Select ArtTypename= new Select(ArtType);
+		ArtTypename.selectByVisibleText(namesoptions);
+		WebElement ARTSubtype = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[2]"));
+		Select ARTSubtype1= new Select(ARTSubtype);
+		List<WebElement> Subtypes = ARTSubtype1.getOptions();
+		int subtypesize= Subtypes.size();
+				
+		int rows2=2;
+		for(int j=1;j<subtypesize;j++)
+		{
+		String subtypenames= Subtypes.get(j).getText();
+		String subnames = reader.getCellData("Investigation", "OPU", rows2);
+			Select subtype= new Select(ARTSubtype);
+			rows2++;
+			if(subtypenames.equals(subnames))
+			{
+				ARTSubtype1.selectByVisibleText(subtypenames);
+				Save.click();
+				break;					
+			}
+			else
+			{
+				InvestigationPageTitle.getText();
+			}
+		}
+		return namesoptions;
+	}
+		  
+		
+		
+				
+		
+		
+		
+		
+		
+		
+		
 	
 	
 	
