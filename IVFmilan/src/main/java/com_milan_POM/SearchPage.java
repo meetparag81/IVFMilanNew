@@ -117,14 +117,14 @@ public class SearchPage extends TestBase {
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("22")) 
+			if (date.equals("07")) 
 			{
 				dates.get(i).click();
 				break;
 			}
 
 		}
-		String Paitentname = reader.getCellData("HomePage", 0, 8);
+		String Paitentname = reader.getCellData("HomePage", 0, 15);
 		Thread.sleep(3000);
 		searchpaient.sendKeys(Paitentname);
 		TestUtil.VisibleOn(driver, Searchbutton, 20);

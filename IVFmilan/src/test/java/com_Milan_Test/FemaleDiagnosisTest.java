@@ -89,13 +89,13 @@ public class FemaleDiagnosisTest extends TestBase
 	
 	
 	
-	@Test(priority=5,enabled=false)
+	@Test(priority=5,groups = {"smoketest" },enabled=true)
 	public void TypeSelectionboxEnableconditionForOtherfavorireTest()
 	{
 		boolean flag= FDP.TypeSelectionboxEnablecondition();
 		assertTrue(flag);
 	}
-	@Test(priority=6,enabled=false)
+	@Test(priority=6,groups = {"smoketest" },enabled=true)
 	public void DeleteFromFavoriteTest() throws Exception
 	{
 	String Actual=	FDP.DeleteFromFavorite();
@@ -103,7 +103,7 @@ public class FemaleDiagnosisTest extends TestBase
 	String Expected = "Favourite Diagnosis Deleted Successfuly";
 	System.out.println("Favorite is deleted from favorite section");
 	}
-	@Test(priority=7,enabled=true)
+	@Test(priority=7,groups = {"smoketest" },enabled=true)
 	public void checkboxclickTest() throws Exception
 	{
 	boolean flag=	FDP.checkboxclick();

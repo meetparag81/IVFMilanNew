@@ -27,6 +27,7 @@ public class WInvestigationPage extends TestBase {
 	@FindBy(xpath="//div[@class='close-button ng-scope']")WebElement closeflash;
 @FindBy(xpath="//*[@class='toast-text ng-scope']//span//following::span")WebElement saveflashmessage;
 @FindBy(xpath="(//button[@class='btn btn-primary'])[3]") WebElement Save;
+@FindBy(xpath="//i[@class='fa fa-calendar']")WebElement Calender;
 	
 
 	static Exls_Reader reader = new Exls_Reader(
@@ -219,6 +220,19 @@ public class WInvestigationPage extends TestBase {
 			if(subtypenames.equals(subnames))
 			{
 				ARTSubtype1.selectByVisibleText(subtypenames);
+				Calender.click();
+				List<WebElement> dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//td"));
+				for(int k=0;k<=dates.size();k++)
+				{
+					String datevalue= dates.get(k).getText();
+					if(datevalue.equals("04"))
+					{
+						dates.get(k).click();
+						break;
+						
+					}
+					
+				}
 				Save.click();
 				break;					
 			}
@@ -227,7 +241,9 @@ public class WInvestigationPage extends TestBase {
 				InvestigationPageTitle.getText();
 			}
 		}
-		return namesoptions;
+		String msg = saveflashmessage.getText();
+		System.out.println(msg);
+		return msg;
 	}
 		  
 		

@@ -5,12 +5,12 @@ import org.testng.ITestResult;
 
 import com_Milan_Base.TestBase;
 
-public class RetryAnalyzer extends TestBase implements IRetryAnalyzer
+public class RetryAnalyzer implements IRetryAnalyzer
 {
 	int counter = 0;
 	int retrylimit=3;
 	
-	
+	 
 	
 	
 	

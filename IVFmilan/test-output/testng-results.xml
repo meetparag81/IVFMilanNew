@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="2" total="3" passed="1">
+<testng-results skipped="0" failed="0" ignored="1" total="4" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="32414" started-at="2018-05-23T13:53:01Z" finished-at="2018-05-23T13:53:34Z">
+  <suite name="Default suite" duration-ms="79632" started-at="2018-05-23T18:23:58Z" finished-at="2018-05-23T18:25:17Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="32414" started-at="2018-05-23T13:53:01Z" finished-at="2018-05-23T13:53:34Z">
-      <class name="com_Milan_Test.WInvestigationPageTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WInvestigationPageTest@1ebd319f]" name="Setup" is-config="true" duration-ms="24593" started-at="2018-05-23T19:23:01Z" finished-at="2018-05-23T19:23:26Z">
+    <test name="Default test" duration-ms="79632" started-at="2018-05-23T18:23:58Z" finished-at="2018-05-23T18:25:17Z">
+      <class name="com_Milan_Test.HomePageTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.HomePageTest@3c0be339]" name="Setup" is-config="true" duration-ms="10169" started-at="2018-05-23T23:53:58Z" finished-at="2018-05-23T23:54:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="OUIARTSubTypesTest()[pri:3, instance:com_Milan_Test.WInvestigationPageTest@1ebd319f]" name="OUIARTSubTypesTest" duration-ms="7784" started-at="2018-05-23T19:23:26Z" finished-at="2018-05-23T19:23:34Z">
+        <test-method status="PASS" signature="ClickOnCmrTest()[pri:2, instance:com_Milan_Test.HomePageTest@3c0be339]" name="ClickOnCmrTest" duration-ms="16400" started-at="2018-05-23T23:54:08Z" finished-at="2018-05-23T23:54:24Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OUIARTSubTypesTest -->
-      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
+        </test-method> <!-- ClickOnCmrTest -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com_Milan_Test.HomePageTest@3c0be339]" name="teardown" is-config="true" duration-ms="680" started-at="2018-05-23T23:54:24Z" finished-at="2018-05-23T23:54:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.HomePageTest@3c0be339]" name="Setup" is-config="true" duration-ms="8738" started-at="2018-05-23T23:54:25Z" finished-at="2018-05-23T23:54:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="SearchPatientUsingCalenderTest()[pri:3, instance:com_Milan_Test.HomePageTest@3c0be339]" name="SearchPatientUsingCalenderTest" duration-ms="22175" started-at="2018-05-23T23:54:34Z" finished-at="2018-05-23T23:54:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchPatientUsingCalenderTest -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com_Milan_Test.HomePageTest@3c0be339]" name="teardown" is-config="true" duration-ms="767" started-at="2018-05-23T23:54:56Z" finished-at="2018-05-23T23:54:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.HomePageTest@3c0be339]" name="Setup" is-config="true" duration-ms="8920" started-at="2018-05-23T23:54:57Z" finished-at="2018-05-23T23:55:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="SearchPatientUsingPatientTabTest()[pri:4, instance:com_Milan_Test.HomePageTest@3c0be339]" name="SearchPatientUsingPatientTabTest" duration-ms="11039" started-at="2018-05-23T23:55:06Z" finished-at="2018-05-23T23:55:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchPatientUsingPatientTabTest -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com_Milan_Test.HomePageTest@3c0be339]" name="teardown" is-config="true" duration-ms="704" started-at="2018-05-23T23:55:17Z" finished-at="2018-05-23T23:55:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com_Milan_Test.HomePageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -44,7 +44,7 @@ public class WInvestigationPageTest extends TestBase
 
 	}
 
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,groups = {"smoketest" },enabled=true)
 	public void CycleCreationTest() throws Exception 
 	{
 		int Actual = Investigation.Setsearchvalue();
@@ -52,7 +52,7 @@ public class WInvestigationPageTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 	}
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,groups = {"smoketest" },enabled=true)
 	public void IVFPACKAGEARTCyclecountTest() throws Exception
 	{
 	int Actual =Investigation.REFIVFPACKAGEARTCycleCount();
@@ -72,18 +72,28 @@ public class WInvestigationPageTest extends TestBase
 	
 	Assert.assertEquals(Actual, expected);	
 	}
-	@Test(priority=3,enabled=true)
+	@Test(priority=3,groups = {"smoketest" },enabled=true)
 	public void OUIARTSubTypesTest() throws Exception
 	{
 		int Actual =Investigation.OUIARTSubTypes();
 		int expected = 4;
 		
-		Assert.assertEquals(Actual, expected);
+		Assert.assertEquals(Actual, expected);	
 		
+	}
+	
+	@Test(priority=4)
+	public void OPUCycleTest() throws Exception
+	{
+		String Actual =Investigation.OPUCycle();
+		String Expected = reader.getCellData("Investigation", "Fash message", 2);
 		
+	}
+	{
 		
 		
 	}
+	
 	
 	
 	

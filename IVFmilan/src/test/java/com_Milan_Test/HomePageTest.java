@@ -44,7 +44,7 @@ public class HomePageTest extends TestBase
 		Assert.assertEquals(Actualrows, Expected);
 	}
 		
-@ Test(priority=2,enabled=true)
+@ Test(priority=2)
 			
 	public void ClickOnCmrTest() throws Exception 
 	{
@@ -56,7 +56,7 @@ public class HomePageTest extends TestBase
 		System.out.println( "patient click on dashboard is completed");
 		
 	}
-@ Test(priority=3,enabled=true)
+@ Test(priority=3)
 
 public void SearchPatientUsingCalenderTest() throws Exception 
 {
