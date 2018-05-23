@@ -52,13 +52,39 @@ public class WInvestigationPageTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 	}
 	
-	@Test(priority=2)
-	public void REFIVFPACKAGEARTCycleTest() throws Exception
+	@Test(priority=2,enabled=false)
+	public void IVFPACKAGEARTCyclecountTest() throws Exception
 	{
-	int Actual =Investigation.REFIVFPACKAGEARTCycle();
-	int Expected = 6;
-	Assert.assertEquals(Actual, Expected);
+	int Actual =Investigation.REFIVFPACKAGEARTCycleCount();
+	/*String exp = reader.getCellData("Investigation", "IVF PACKAG Count", 2);
+	try{
+		int expect = Integer.parseInt(exp);
+	}
+	catch(Exception e)
+	{
+		System.out.println("String is not conveted into int");
+	}
+	finally
+	{
+		System.out.println("finally executed");
+	}*/
+	int expected = 7;
 	
+	Assert.assertEquals(Actual, expected);	
+	}
+	@Test(priority=3,enabled=true)
+	public void OUIARTSubTypesTest() throws Exception
+	{
+		int Actual =Investigation.OUIARTSubTypes();
+		int expected = 4;
+		
+		Assert.assertEquals(Actual, expected);
+		
+		
+		
 		
 	}
+	
+	
+	
 }

@@ -16,8 +16,10 @@ import com_Milan_util.TestUtil;
 
 public class WInvestigationPage extends TestBase {
 	@FindBy(xpath = "//li[text()='Cycles']")
+	static
 	WebElement Cycles;
 	@FindBy(xpath = "(//input[@name='txtServiceName'])[2]")
+	static
 	WebElement Search;
 	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")
 	WebElement InvestigationPageTitle;
@@ -26,15 +28,19 @@ public class WInvestigationPage extends TestBase {
 @FindBy(xpath="//*[@class='toast-text ng-scope']//span//following::span")WebElement saveflashmessage;
 	
 
-	Exls_Reader reader = new Exls_Reader(
+	static Exls_Reader reader = new Exls_Reader(
 			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	int count = 0;
-	int rows = 1;
-	int rows1=2;
+	static int rows = 1;
+	static int rows1=1;
 	int count1 = 0;
 	int count2;
+	String subtypname;
+	int sizeofsubtype;
+	String subsize = null;
 
-	WInvestigationPage() {
+	WInvestigationPage() 
+	{
 		PageFactory.initElements(driver, this);
 	}
 
@@ -71,7 +77,7 @@ public class WInvestigationPage extends TestBase {
 		return size;
 	}
 
-	public int REFIVFPACKAGEARTCycle() throws Exception 
+	public int REFIVFPACKAGEARTCycleCount() throws Exception 
 	{
 		Cycles.click();
 		String Name = reader.getCellData("Investigation", "Search", 2);
@@ -84,9 +90,7 @@ public class WInvestigationPage extends TestBase {
 		int size = searchlist.size();
 
 		int i = 1; rows=2;
-		/*while (i <= size) 
-		{*/
-			
+				
 			String cyclename = reader.getCellData("Investigation", "Searchresult", 3);
 			String ARTName = searchlist.get(i).getText();
 			if (cyclename.equals(ARTName)) 
@@ -100,28 +104,101 @@ public class WInvestigationPage extends TestBase {
 			Select ArtType1 = new Select(ArtType);
 			List<WebElement>selectoptions=ArtType1.getOptions();
 			int size1= selectoptions.size();
+			String sizeoptions = Integer.toString(size1);
+			reader.setCellData("Investigation", "IVF PACKAG Count", 2, sizeoptions);
+			int rows3=2;
+			int count1 = 0;
 			for(int j=1;j<size1;j++)
 			{
 				String arr1;
 			String OptionNames =  selectoptions.get(j).getText();
+			//System.out.println(OptionNames);
 
 			
-			String namesoptions =  reader.getCellData("Investigation", "REF. IVF PACKAGE", rows1);
-			rows1++;
+			
+			String namesoptions =  reader.getCellData("Investigation", "IVF PACKAGE", rows3);
+			
+			 rows3++;
 			if(OptionNames.equals(namesoptions))
 			{
-				count++;
+				//Select ArtTypename= new Select(ArtType);
+				//ArtTypename.selectByVisibleText(OptionNames);
+				
+				
+				count1++;
+				
+								
+			}	
+			else
+			{
+				InvestigationPageTitle.getText();
 				
 			}
+			
+			
 			count2= count;
-			
-			
-
-			}
-			
-
-		return count2;
+	}
+	return count2;
+}
+	
+	
+	
+	
+	
+	
+	public  int OUIARTSubTypes() throws Exception
+	{
+		System.out.println();
+		REFIVFPACKAGEARTCycleCount();
+		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
+		String namesoptions =  reader.getCellData("Investigation", "IVF PACKAGE", 2);
+		Select ArtTypename= new Select(ArtType);
+		ArtTypename.selectByVisibleText(namesoptions);
+		WebElement ARTSubtype = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[2]"));
+		Select ARTSubtype1= new Select(ARTSubtype);
+		List<WebElement> Subtypes = ARTSubtype1.getOptions();
+		int subtypesize= Subtypes.size();
+		
+		try
+		{
+		  subsize = Integer.toString(subtypesize);
 		}
+		catch(NumberFormatException e)
+		{
+			System.out.println("not convertedinto aatring");
+		}
+		
+		String subsize1= subsize;
+		reader.setCellData("Investigation", "ARTSubTypecount", 2, subsize1);
+		int rows2=2;
+		for(int j=1;j<subtypesize;j++)
+		{
+		String subtypenames= Subtypes.get(j).getText();
+		String subnames = reader.getCellData("Investigation", "OPU", rows2);
+			Select subtype= new Select(ARTSubtype);
+			rows2++;
+			if(subtypenames.equals(subnames))
+			{
+				ARTSubtype1.selectByVisibleText(subtypenames);
+			WebElement subtypeele= ARTSubtype1.getFirstSelectedOption();
+			String subtypname= subtypeele.getText();
+			count++;
+						
+		}
+		  
+		
+		
+				
+		}
+		return count;
+		 
+		
+		
+		
+	}
+	
+	
+	
 		
 
 
