@@ -15,18 +15,21 @@ import com_Milan_util.TestUtil;
 
 public class AllergiesPage extends TestBase
 {
-	@FindBy (xpath="(//button[@id='btnAddObstetricHistoryRow'])[2]")WebElement Addrows;
-	@FindBy(xpath="(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]")WebElement Allergytype;
-	@FindBy(xpath="(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[2]")WebElement DrugAllergyType;
-	@FindBy(xpath="//div[@id='allergies']/div/div[2]/div/table/tbody/tr[2]/td[3]/div[2]/input")WebElement FoodAllergy;
-	@FindBy(xpath="(//th[text()='Current Status']//following::select)[3]")WebElement Currentstatus;
-	@FindBy(xpath="//span[text()='History']//following::span[@class='ng-binding']")WebElement NoofAllergies;
-	@FindBy(xpath="//button[@id='btnSaveUpdateHistory']")WebElement Save;
-	
-	
-	
-	int rows;
-	WebDriverWait wait = new WebDriverWait(driver, 30);
+	private @FindBy (xpath="(//button[@id='btnAddObstetricHistoryRow'])[2]")
+	static WebElement Addrows;
+	private @FindBy(xpath="(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]")WebElement Allergytype;
+	private @FindBy(xpath="(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[2]")WebElement DrugAllergyType;
+	private @FindBy(xpath="//div[@id='allergies']/div/div[2]/div/table/tbody/tr[2]/td[3]/div[2]/input")WebElement FoodAllergy;
+	private @FindBy(xpath="(//th[text()='Current Status']//following::select)[3]")WebElement Currentstatus;
+	private @FindBy(xpath="(//span[text()='History']//following::span[@class='ng-binding'])[1]")WebElement NoofAllergies;
+	private @FindBy(xpath="//button[@id='btnSaveUpdateHistory']")
+	static WebElement Save;
+	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
+	private @FindBy(xpath="//button[@class='btn btn-default']")
+	static WebElement Cancel;
+	static private @FindBy(xpath="//button[@class='btn btn-primary ng-binding']") WebElement Update;
+	 int rows;
+	static WebDriverWait wait = new WebDriverWait(driver, 30);
 	
 	
 	
@@ -41,7 +44,7 @@ public class AllergiesPage extends TestBase
 		return true;
 	}
 
-	public String AllergiesNameonDashboard() 
+	public String AllergiesNameOnDashboard() 
 	{
 		TestUtil.VisibleOn(driver, NoofAllergies, 20);
 		
@@ -67,8 +70,23 @@ public class AllergiesPage extends TestBase
 	System.out.println("Drugname is"+DrugName);
 		return DrugName;
 	}
+	
+	public void AllergySelection() throws Exception
+	{
+		List<WebElement>Selections = driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
+		int Selectionssize = Selections.size();
+		if(Selectionssize ==0)
+		
+		{
+			AddnewAllergies();
+		}
+		else
+		{
+			existingPaitent();
+		}
+	}
 
-	public void AddnewAllergies() throws InterruptedException
+	public static void AddnewAllergies() throws InterruptedException
 	{
 		
 		List<WebElement>Allergyrows= driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
@@ -237,6 +255,7 @@ public class AllergiesPage extends TestBase
 			}//for rows
 		Save.click();
 		System.out.println("Clicked on Save button");
+		return ;
 		
 		
 		
@@ -258,7 +277,7 @@ public class AllergiesPage extends TestBase
 		}
 		
 	}
-	public void NewPaitent()
+	public void NewAllergies()
 	{
 		rows=rows+1;
 		for( int row1=rows ;row1<= 6;row1++)
@@ -415,12 +434,53 @@ public class AllergiesPage extends TestBase
 				}//forallergy
 		}
 		
+		
 	}
-	public void existingPaitent()
+	public  String SaveMessageForNewPaient()
+	{
+		String message= SaveMessage.getText();
+		return message;
+	}
+	
+	public String AllergiesOnDashboardforNewPatient()
+	{
+		String msg= NoofAllergies.getText();
+		
+		return msg;
+		
+	}
+
+	
+	public static void existingPaitent()
+	{
+		List<WebElement>typeofallergies= driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
+		int size=typeofallergies.size();
+		for(int i=1;i<=size;i++)
+		{
+			WebElement option= driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+i+"]//td[2]//select"));
+			Select option1 = new Select(option);
+		WebElement ele=	option1.getFirstSelectedOption();
+	String elementtext = ele.getText();
+	System.out.println(elementtext);
+	if(elementtext.equals("Drug Allergy"));
+	{
+		/*Addrows.click();
+		Update.click();
+		break;*/
+		
+	}
+	 if(elementtext.equals("Skin Allergy"))
+	{
+		
+	}
+	else if(elementtext.contains("Drug Allergy"))
 	{
 		
 	}
 	
-	
 
+
+		}	
+	}
 }
+

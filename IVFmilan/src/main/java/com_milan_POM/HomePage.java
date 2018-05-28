@@ -233,8 +233,7 @@ for(int i=1;i<=radiobuttons;i++)
 
 	public EMRDashBoardPage SearchusingCalender() throws Exception 
 	{
-		WebElement Calender = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
+		WebElement Calender = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
 		TestUtil.VisibleOn(driver, Calender, 40);
 		Calender.click();
 		List<WebElement> dates = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));

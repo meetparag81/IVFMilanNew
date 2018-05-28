@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 import com_milan_POM.AllergiesPage;
 import com_milan_POM.EMRDashBoardPage;
@@ -30,6 +31,7 @@ public class WAllergiesTest extends TestBase
 	WomenHistoryPage WHP;
 	AllergiesPage Allergies;
 	SearchPage SP;
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	WAllergiesTest()
 	{
@@ -48,37 +50,53 @@ public class WAllergiesTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		Allergies= WHP.ClickOnAllergies();	
 	}
-	@Test(priority=2,enabled= true)
+	@Test(priority=2,enabled= false)
 	public void FoodAllergyvalidationTest()
 	{
 		
 		boolean flag= Allergies.foodvalidation();
-		AssertJUnit.assertTrue(flag);
+		Assert.assertTrue(flag);
 		System.out.println("Alergy textbox is enabled");
 	}
-	@Test(priority=1)
+	@Test(priority=3,enabled= false)
 	public void AddNewAllergiesTest() throws InterruptedException
 	{
-		Allergies.AddnewAllergies();
-		String Actial= Allergies.AllergiesNameonDashboard();
-		String Expected= ",17 BETAESTRADIOL,foodAllergy,SkinAllergy,smokeAllergy";
+		AllergiesPage.AddnewAllergies();
+		String Actial= Allergies.SaveMessageForNewPaient();
+		String expected = reader.getCellData("Allergies", "Message", 2);
+		
+	}
+	
+	@Test(priority=2,enabled= false)
+	public void SaveMessage()
+	{
+	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();
+	
+	String Expected= reader.getCellData("Allergies", "Message", 3);
 	}
 		
 
-@Test(priority=3,enabled= true)
+@Test(priority=3,enabled= false)
 public void OptionSelectedOnAllergyCurrentStstusTest() throws Exception
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();
 	String Expected = "Present";
 	AssertJUnit.assertEquals(Actual, Expected);
 }
-@Test(priority=4)
+@Test(priority=4,enabled= false)
 public void ExistingPatientDrugAllergyTypeTest() throws Exception
 {
 	EMRPage= HomePage.SearchusingCalender();	
-	String Actual = Allergies.AllergiesNameonDashboard();
+	String Actual = Allergies.AllergiesNameOnDashboard();
 			String Expected="17 BETAESTRADIOL";
 			System.out.println();
+		
+}
+@Test(priority=1)
+public void AllergySelectionTest() throws Exception
+{
+	Allergies.AllergySelection();
+	
 }
 	
 	

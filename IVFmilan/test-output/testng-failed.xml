@@ -7,8 +7,11 @@
         <methods>
           <include name="OptionSelectedOnAllergyCurrentStstusTest"/>
           <include name="Seup"/>
+          <include name="SaveMessage"/>
+          <include name="AllergySelectionTest"/>
           <include name="ExistingPatientDrugAllergyTypeTest"/>
           <include name="Teardown"/>
+          <include name="AddNewAllergiesTest"/>
           <include name="FoodAllergyvalidationTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WAllergiesTest -->

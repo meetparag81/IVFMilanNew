@@ -55,8 +55,10 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 				TestUtil.VisibleOn(driver, Historylinkwomen, 20);
 				JavascriptExecutor jse = (JavascriptExecutor)driver;
 
-				jse.executeScript("arguments[0].scrollIntoView()", Historylinkwomen);
-				Historylinkwomen.click();
+				//jse.executeScript("arguments[0].scrollIntoView()", Historylinkwomen);
+				Actions act = new Actions(driver);
+				act.moveToElement(Historylinkwomen).click().perform();
+				
 				//System.out.println("Womenfieldis displayed");
 				List<WebElement> visitw=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 				if(visitw.size()!=0)

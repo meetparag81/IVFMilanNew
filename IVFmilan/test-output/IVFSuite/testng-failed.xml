@@ -7,39 +7,34 @@
   </listeners>
   <test name="IVFTEST(failed)" parallel="tests">
     <classes>
-      <class name="com_Milan_Test.FemaleDiagnosisTest">
+      <class name="com_Milan_Test.WSexsualHistoryTest">
         <methods>
-          <include name="CodevalueTest"/>
-          <include name="ClickOnOtherDiagnosisTest"/>
-          <include name="Setup"/>
-          <include name="UnFavoriteTheFavioriteTest"/>
-          <include name="TearDown"/>
-          <include name="AddFavoriteFromListTest"/>
-          <include name="checkboxclickTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
-      <class name="com_Milan_Test.WcomplaintsTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="NextFollowUpTest"/>
+          <include name="testRelationtlists"/>
+          <include name="Seup"/>
           <include name="Teardown"/>
         </methods>
-      </class> <!-- com_Milan_Test.WcomplaintsTest -->
+      </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
+      <class name="com_Milan_Test.WAllergiesTest">
+        <methods>
+          <include name="OptionSelectedOnAllergyCurrentStstusTest"/>
+          <include name="Seup"/>
+          <include name="ExistingPatientDrugAllergyTypeTest"/>
+          <include name="Teardown"/>
+          <include name="FoodAllergyvalidationTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WAllergiesTest -->
       <class name="com_Milan_Test.SearchPageTest">
         <methods>
           <include name="Teardown"/>
-          <include name="SearchPatientUsingPatientTabTest"/>
           <include name="Setup"/>
           <include name="SearchPatientUsingCalenderTest"/>
         </methods>
       </class> <!-- com_Milan_Test.SearchPageTest -->
       <class name="com_Milan_Test.WMenstrualHistoryTest">
         <methods>
-          <include name="MenstrualFlowtextTest"/>
-          <include name="MenstruationTest1"/>
-          <include name="SavevaluesTest"/>
+          <include name="AgeOfMenarcheRangeSartTest"/>
           <include name="Teardown"/>
-          <include name="CycleDurationTest"/>
+          <include name="MenarcheRangeEndTest"/>
           <include name="Setup"/>
         </methods>
       </class> <!-- com_Milan_Test.WMenstrualHistoryTest -->
@@ -51,14 +46,49 @@
           <include name="SaveAllVitalsValuesTest" invocation-numbers="0 0 0 0 1 1 2 2 3 3 4 4"/>
         </methods>
       </class> <!-- com_Milan_Test.WVitalsTest -->
-      <class name="com_Milan_Test.WAllergiesTest">
+      <class name="com_Milan_Test.WAddictionsTest">
         <methods>
-          <include name="Seup"/>
-          <include name="ExistingPatientDrugAllergyTypeTest"/>
+          <include name="Setup"/>
           <include name="Teardown"/>
-          <include name="AddNewAllergiesTest"/>
+          <include name="saveNewAdictions"/>
         </methods>
-      </class> <!-- com_Milan_Test.WAllergiesTest -->
+      </class> <!-- com_Milan_Test.WAddictionsTest -->
+      <class name="com_Milan_Test.WInvestigationPageTest">
+        <methods>
+          <include name="IVFPACKAGEARTCyclecountTest"/>
+          <include name="CycleCreationTest"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
+      <class name="com_Milan_Test.FemaleDiagnosisTest">
+        <methods>
+          <include name="CodevalueTest"/>
+          <include name="ClickOnOtherDiagnosisTest"/>
+          <include name="Setup"/>
+          <include name="UnFavoriteTheFavioriteTest"/>
+          <include name="TearDown"/>
+          <include name="AddFavoriteFromListTest"/>
+          <include name="DeleteFromFavoriteTest"/>
+          <include name="checkboxclickTest"/>
+          <include name="TypeSelectionboxEnableconditionForOtherfavorireTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
+      <class name="com_Milan_Test.HomePageTest">
+        <methods>
+          <include name="ClickOnCmrTest"/>
+          <include name="Setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.HomePageTest -->
+      <class name="com_Milan_Test.WcomplaintsTest">
+        <methods>
+          <include name="NewPatientPresentingComplaintsTest"/>
+          <include name="Setup"/>
+          <include name="NextFollowUpTest"/>
+          <include name="Teardown"/>
+          <include name="SaveTheComplaintsTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
     </classes>
   </test> <!-- IVFTEST(failed) -->
 </suite> <!-- Failed suite [IVFSuite] -->
