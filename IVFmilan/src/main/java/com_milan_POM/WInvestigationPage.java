@@ -1,5 +1,6 @@
 package com_milan_POM;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -12,7 +13,6 @@ import org.testng.annotations.AfterMethod;
 
 import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
-import com_Milan_util.TestUtil;
 
 public class WInvestigationPage extends TestBase {
 	@FindBy(xpath = "//li[text()='Cycles']")
@@ -22,24 +22,29 @@ public class WInvestigationPage extends TestBase {
 	static
 	WebElement Search;
 	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")
+	static
 	WebElement InvestigationPageTitle;
-	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")WebElement fornegetiveflashmsg;
+	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")
+	static WebElement fornegetiveflashmsg;
 	@FindBy(xpath="//div[@class='close-button ng-scope']")WebElement closeflash;
 @FindBy(xpath="//*[@class='toast-text ng-scope']//span//following::span")WebElement saveflashmessage;
 @FindBy(xpath="(//button[@class='btn btn-primary'])[3]") WebElement Save;
+@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")
+static WebElement existcycles;
 @FindBy(xpath="//i[@class='fa fa-calendar']")WebElement Calender;
 	
 
 	static Exls_Reader reader = new Exls_Reader(
 			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-	int count = 0;
-	static int rows = 1;
-	static int rows1=1;
+	 private static int count = 0;
+	private static int rows = 1;
+	private static int rows1=1;
 	int count1 = 0;
-	int count2;
+	static int count2;
 	String subtypname;
 	int sizeofsubtype;
 	String subsize = null;
+	int sizeofcycletypes;
 
 	WInvestigationPage() 
 	{
@@ -78,8 +83,9 @@ public class WInvestigationPage extends TestBase {
 		}
 		return size;
 	}
-
-	public int REFIVFPACKAGEARTCycleCount() throws Exception 
+	
+	
+	public static void IVFcycleData() throws Exception
 	{
 		Cycles.click();
 		String Name = reader.getCellData("Investigation", "Search", 2);
@@ -89,20 +95,132 @@ public class WInvestigationPage extends TestBase {
 		Thread.sleep(1000);
 		Search.sendKeys("f");
 		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));
-		int size = searchlist.size();
+		
+		
+	}
+	
+	
+	
+	public static ArrayList<Object[]>Selectcycletypes1() throws Exception
+	{
+		ArrayList<Object[]> mycycletypesdata = new ArrayList<Object[]>();
+		Cycles.click();
+		String Name = reader.getCellData("Investigation", "Search", 2);
+		Search.sendKeys(Name);
+		Thread.sleep(1000);
+		Search.sendKeys(Keys.BACK_SPACE);
+		Thread.sleep(1000);
+		Search.sendKeys("f");
+		int l = 0;
+		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));
+		int sizeofcycletypes = searchlist.size();
+		while( l< sizeofcycletypes)
+		{
+			String first = searchlist.get(l).getText();
+			l++;
+			String second = searchlist.get(l).getText();
+			l++;
+			String Third = searchlist.get(l).getText();
+			l++;
+			String four = searchlist.get(l).getText();
+			l++;
+			String five = searchlist.get(l).getText();
+			l++;
+			String six = searchlist.get(l).getText();
+			l++;
+			String seven = searchlist.get(l).getText();
+			l++;
+			
+			Object[] obj = {first,second,Third,four,five,six,seven};
+			
+			mycycletypesdata.add(obj);	
+		}
+		
+		int arraysize= mycycletypesdata.size();
+		return mycycletypesdata;
+	}
+	
+	
+	public static  ArrayList<Object[]> cycletypesfromexcel()
+	{
+		ArrayList<Object[]> mydata = new ArrayList<Object[]>();
+		try
+		{
+		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+		for(int rows=2;rows<=7;rows++ )
+		{
+			
+			String first =reader.getCellData("Vitals", 2, rows);
+			String second =reader.getCellData("Vitals", 2, rows);
+			String third  = reader.getCellData("Vitals",2, rows);
+			String four  = reader.getCellData("Vitals", 2, rows);
+			String five = reader.getCellData("Vitals", 2, rows);
+			String six = reader.getCellData("Vitals", 2, rows);
+			String seven = reader.getCellData("Vitals", 2, rows);
+			
+			Object[] obj= {first,second,third,four,five,six,seven};
+			mydata.add(obj);
+		}
+		
+		return mydata;
+		
+		
+	}
+		
+		
+		
+			
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
 
+	public static int REFIVFPACKAGEARTCycleCount() throws Exception 
+	{
+		System.out.println();
+		//cycletypes();
+		Cycles.click();
+		String Name = reader.getCellData("Investigation", "Search", 2);
+		Search.sendKeys(Name);
+		Thread.sleep(1000);
+		Search.sendKeys(Keys.BACK_SPACE);
+		Thread.sleep(1000);
+		Search.sendKeys("f");	
 		int i = 1; rows=2;
-				
+		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));	
 			String cyclename = reader.getCellData("Investigation", "Searchresult", 3);
+			
 			String ARTName = searchlist.get(i).getText();
-			if (cyclename.equals(ARTName)) 
+			List<WebElement> rows = driver.findElements(By.xpath("//th[text()='Package Name']//following::tr//td[text()='REF. IVF PACKAGE']"));
+			int size=rows.size();
+			String namecycle= searchlist.get(i).getText();
+			if (size==0 && namecycle.equals(ARTName)) 
 			{
 				searchlist.get(i).click();
-				
+						
 			}
+			else
+			{
+				searchlist.get(i).click();
+				String errormessage= existcycles.getText();	
+				System.out.println(errormessage);
+			}
+			
 			Thread.sleep(2000);
 			WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
-			String ARTTypechar = reader.getCellData("Investigation", "REF. IVF PACKAGE", 5);
 			Select ArtType1 = new Select(ArtType);
 			List<WebElement>selectoptions=ArtType1.getOptions();
 			int size1= selectoptions.size();
@@ -138,7 +256,7 @@ public class WInvestigationPage extends TestBase {
 			}
 			
 			
-			count2= count;
+			count2= count1;
 	}
 	return count2;
 }
@@ -150,7 +268,7 @@ public class WInvestigationPage extends TestBase {
 	
 	public  int OUIARTSubTypes() throws Exception
 	{
-		
+		System.out.println();		
 		REFIVFPACKAGEARTCycleCount();
 		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
 		String namesoptions =  reader.getCellData("Investigation", "IVF PACKAGE", 2);
@@ -198,8 +316,9 @@ public class WInvestigationPage extends TestBase {
 		
 		
 	}
-	public String OPUCycle() throws Exception
+	public void OPUCycle() throws Exception
 	{
+		System.out.println();
 		REFIVFPACKAGEARTCycleCount();
 		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
 		String namesoptions =  reader.getCellData("Investigation", "IVF PACKAGE", 2);
@@ -215,8 +334,7 @@ public class WInvestigationPage extends TestBase {
 		{
 		String subtypenames= Subtypes.get(j).getText();
 		String subnames = reader.getCellData("Investigation", "OPU", rows2);
-			Select subtype= new Select(ARTSubtype);
-			rows2++;
+		rows2++;
 			if(subtypenames.equals(subnames))
 			{
 				ARTSubtype1.selectByVisibleText(subtypenames);
@@ -234,15 +352,20 @@ public class WInvestigationPage extends TestBase {
 					
 				}
 				Save.click();
-				break;					
+							
 			}
 			else
 			{
 				InvestigationPageTitle.getText();
 			}
+			break;
 		}
+	}
+		
+	
+	public String SaveMessage()
+	{
 		String msg = saveflashmessage.getText();
-		System.out.println(msg);
 		return msg;
 	}
 		  
@@ -270,6 +393,11 @@ public class WInvestigationPage extends TestBase {
 	public void Teardown() 
 	{
 		driver.close();
+	}
+
+	public static ArrayList<Object[]> Selectcycletypes() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

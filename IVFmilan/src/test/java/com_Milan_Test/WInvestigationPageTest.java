@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import java.util.ArrayList;
+
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -44,7 +46,7 @@ public class WInvestigationPageTest extends TestBase
 
 	}
 
-	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	@Test(priority=1,groups = {"smoketest" },enabled=false)
 	public void CycleCreationTest() throws Exception 
 	{
 		int Actual = Investigation.Setsearchvalue();
@@ -52,27 +54,34 @@ public class WInvestigationPageTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 	}
 	
-	@Test(priority=2,groups = {"smoketest" },enabled=true)
+	
+	
+	@Test(priority=4,groups = {"smoketest" },enabled=false)
+	public void cycletypesTest() throws Exception
+	{
+		ArrayList<Object[]> actual = WInvestigationPage.Selectcycletypes1();
+		int a = actual.size();
+		ArrayList<Object[]>  expected = WInvestigationPage.cycletypesfromexcel();
+		int b = expected.size();
+		Assert.assertEquals(actual, expected);
+		
+		
+		
+	}
+	
+	
+	
+	
+	@Test(priority=2,groups = {"smoketest" },enabled=false)
 	public void IVFPACKAGEARTCyclecountTest() throws Exception
 	{
-	int Actual =Investigation.REFIVFPACKAGEARTCycleCount();
-	/*String exp = reader.getCellData("Investigation", "IVF PACKAG Count", 2);
-	try{
-		int expect = Integer.parseInt(exp);
-	}
-	catch(Exception e)
-	{
-		System.out.println("String is not conveted into int");
-	}
-	finally
-	{
-		System.out.println("finally executed");
-	}*/
+	int Actual =WInvestigationPage.REFIVFPACKAGEARTCycleCount();
 	int expected = 7;
 	
 	Assert.assertEquals(Actual, expected);	
+	System.out.println("IVFPACKAGEARTCyclecountTest is completed");
 	}
-	@Test(priority=3,groups = {"smoketest" },enabled=true)
+	@Test(priority=3,groups = {"smoketest" },enabled=false)
 	public void OUIARTSubTypesTest() throws Exception
 	{
 		int Actual =Investigation.OUIARTSubTypes();
@@ -82,17 +91,17 @@ public class WInvestigationPageTest extends TestBase
 		
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4,groups = {"smoketest" },enabled=true)
 	public void OPUCycleTest() throws Exception
 	{
-		String Actual =Investigation.OPUCycle();
+		Investigation.OPUCycle();
+		String Actual =Investigation.SaveMessage();
 		String Expected = reader.getCellData("Investigation", "Fash message", 2);
 		
 	}
-	{
-		
-		
-	}
+	
+	
+	
 	
 	
 	

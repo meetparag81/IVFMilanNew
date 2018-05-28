@@ -149,21 +149,27 @@ public class HomePage extends TestBase {
 		String PatientName = reader.getCellData("HomePage", "PatientName", 7);
 List<WebElement>Radiobutton=driver.findElements(By.xpath("//input[@type='radio']"));
 int radiobuttons= Radiobutton.size();
-int rows=1;
-for(int i=1;i<=radiobuttons;i++)
+int rows=2;
+for(int i=1;i<radiobuttons;i++)
 {
 	
-	rows++;
+	
 	WebElement buttonsname = driver.findElement(By.xpath("//*[@id='dropdown_menu']/div/div[1]/label["+i+"]"));
 	String name= buttonsname.getText();
 	
 	String radionames=reader.getCellData("HomePage", "RadioButtons",rows);
-	if(name==radionames)
+	rows++;
+	if(name.equals(radionames))
 		{
 			Radiobutton.get(i).click();
 			break;
 						
 		}
+	else
+	{
+		Radiobutton.get(2).click();
+		break;
+	}
 		
 		
 		
