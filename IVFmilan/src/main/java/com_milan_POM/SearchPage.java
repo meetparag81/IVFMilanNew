@@ -124,7 +124,7 @@ public class SearchPage extends TestBase {
 			}
 
 		}
-		String Paitentname = reader.getCellData("HomePage", 0, 15);
+		String Paitentname = reader.getCellData("HomePage", 0, 8);
 		Thread.sleep(3000);
 		searchpaient.sendKeys(Paitentname);
 		TestUtil.VisibleOn(driver, Searchbutton, 20);
@@ -140,8 +140,7 @@ public class SearchPage extends TestBase {
 			if (name1.contains(Paitentname)) 
 			{
 				// Thread.sleep(4000);
-				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
+				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
 				EMR.click();
 				System.out.println("click on EMR ");
 
