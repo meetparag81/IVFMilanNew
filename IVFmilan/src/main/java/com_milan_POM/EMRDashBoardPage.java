@@ -178,10 +178,12 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 			TestUtil.VisibleOn(driver, womenfield, 20);
 			womenfield.click();	
 			TestUtil.VisibleOn(driver, Femalecomplaints, 20);
-			JavascriptExecutor jse = (JavascriptExecutor)driver;
+			/*JavascriptExecutor jse = (JavascriptExecutor)driver;
 
 			jse.executeScript("arguments[0].scrollIntoView()", Femalecomplaints);
-			Femalecomplaints.click();
+			Femalecomplaints.click();*/
+			Actions act = new Actions(driver);
+			act.moveToElement(Femalecomplaints).click().perform();
 			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if(visitm.size()!=0)
 			{
