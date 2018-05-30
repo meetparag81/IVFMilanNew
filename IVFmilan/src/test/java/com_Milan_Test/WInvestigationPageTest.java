@@ -55,23 +55,6 @@ public class WInvestigationPageTest extends TestBase
 	}
 	
 	
-	
-	@Test(priority=4,groups = {"smoketest" },enabled=false)
-	public void cycletypesTest() throws Exception
-	{
-		ArrayList<Object[]> actual = WInvestigationPage.Selectcycletypes1();
-		int a = actual.size();
-		ArrayList<Object[]>  expected = WInvestigationPage.cycletypesfromexcel();
-		int b = expected.size();
-		Assert.assertEquals(actual, expected);
-		
-		
-		
-	}
-	
-	
-	
-	
 	@Test(priority=2,groups = {"smoketest" },enabled=false)
 	public void IVFPACKAGEARTCyclecountTest() throws Exception
 	{

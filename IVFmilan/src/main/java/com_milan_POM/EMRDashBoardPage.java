@@ -230,8 +230,9 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 		}
 		public WInvestigationPage ClickOnInvestigation() throws Exception
 		{
-			TestUtil.VisibleOn(driver, womenfield, 30);
-			womenfield.click();	
+			TestUtil.VisibleOn(driver, womenfield, 20);
+			Actions act1 = new Actions(driver);
+			act1.moveToElement(womenfield).click().perform();
 			Thread.sleep(2000);
 			Actions act = new Actions(driver);
 			act.moveToElement(Investigation).click().perform();

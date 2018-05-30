@@ -14,16 +14,14 @@ import org.testng.annotations.AfterMethod;
 import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
 
-public class WInvestigationPage extends TestBase {
+public class WInvestigationPage extends TestBase 
+{
 	@FindBy(xpath = "//li[text()='Cycles']")
-	static
-	WebElement Cycles;
+	static WebElement Cycles;
 	@FindBy(xpath = "(//input[@name='txtServiceName'])[2]")
-	static
-	WebElement Search;
+	static WebElement Search;
 	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")
-	static
-	WebElement InvestigationPageTitle;
+	static WebElement InvestigationPageTitle;
 	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")
 	static WebElement fornegetiveflashmsg;
 	@FindBy(xpath="//div[@class='close-button ng-scope']")WebElement closeflash;
@@ -34,8 +32,7 @@ static WebElement existcycles;
 @FindBy(xpath="//i[@class='fa fa-calendar']")WebElement Calender;
 	
 
-	static Exls_Reader reader = new Exls_Reader(
-			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	static Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	 private static int count = 0;
 	private static int rows = 1;
 	private static int rows1=1;
@@ -94,85 +91,16 @@ static WebElement existcycles;
 		Search.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
 		Search.sendKeys("f");
-		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));
-		
-		
 	}
+		
+
+ 
+		
+		
 	
 	
 	
-	public static ArrayList<Object[]>Selectcycletypes1() throws Exception
-	{
-		ArrayList<Object[]> mycycletypesdata = new ArrayList<Object[]>();
-		Cycles.click();
-		String Name = reader.getCellData("Investigation", "Search", 2);
-		Search.sendKeys(Name);
-		Thread.sleep(1000);
-		Search.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
-		Search.sendKeys("f");
-		int l = 0;
-		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));
-		int sizeofcycletypes = searchlist.size();
-		while( l< sizeofcycletypes)
-		{
-			String first = searchlist.get(l).getText();
-			l++;
-			String second = searchlist.get(l).getText();
-			l++;
-			String Third = searchlist.get(l).getText();
-			l++;
-			String four = searchlist.get(l).getText();
-			l++;
-			String five = searchlist.get(l).getText();
-			l++;
-			String six = searchlist.get(l).getText();
-			l++;
-			String seven = searchlist.get(l).getText();
-			l++;
-			
-			Object[] obj = {first,second,Third,four,five,six,seven};
-			
-			mycycletypesdata.add(obj);	
-		}
-		
-		int arraysize= mycycletypesdata.size();
-		return mycycletypesdata;
-	}
 	
-	
-	public static  ArrayList<Object[]> cycletypesfromexcel()
-	{
-		ArrayList<Object[]> mydata = new ArrayList<Object[]>();
-		try
-		{
-		reader= new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-		
-		
-		for(int rows=2;rows<=7;rows++ )
-		{
-			
-			String first =reader.getCellData("Vitals", 2, rows);
-			String second =reader.getCellData("Vitals", 2, rows);
-			String third  = reader.getCellData("Vitals",2, rows);
-			String four  = reader.getCellData("Vitals", 2, rows);
-			String five = reader.getCellData("Vitals", 2, rows);
-			String six = reader.getCellData("Vitals", 2, rows);
-			String seven = reader.getCellData("Vitals", 2, rows);
-			
-			Object[] obj= {first,second,third,four,five,six,seven};
-			mydata.add(obj);
-		}
-		
-		return mydata;
-		
-		
-	}
 		
 		
 		
@@ -347,7 +275,6 @@ static WebElement existcycles;
 					{
 						dates.get(k).click();
 						break;
-						
 					}
 					
 				}
@@ -360,6 +287,7 @@ static WebElement existcycles;
 			}
 			break;
 		}
+		
 	}
 		
 	
@@ -368,6 +296,8 @@ static WebElement existcycles;
 		String msg = saveflashmessage.getText();
 		return msg;
 	}
+	
+	
 		  
 		
 		

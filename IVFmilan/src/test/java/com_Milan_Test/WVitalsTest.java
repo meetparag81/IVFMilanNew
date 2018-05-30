@@ -82,7 +82,7 @@ public class WVitalsTest extends TestBase
 	System.out.println("value is in range");
 	}
 	
-	@Test(priority=3,dataProvider= "getTestData")
+	@Test(priority=3,groups = {"smoketest" },dataProvider= "getTestData")
 	public void SaveAllVitalsValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
 	{
 		String Actual = WVP.SaveAllvalues(Weight, Height, BPSystolicval, BPDiastolic, HR, Temperature);

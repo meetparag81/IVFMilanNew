@@ -3,12 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WInvestigationPageTest">
+      <class name="com_Milan_Test.WOPUCycyclePageTest">
         <methods>
-          <include name="OPUCycleTest"/>
+          <include name="TearDown"/>
+          <include name="ClickonCycletabTest"/>
+          <include name="SelectSubTypeCycleTest"/>
+          <include name="DeleteARTCycleTest"/>
+          <include name="ARTCycleAvailabilityMessageTest"/>
           <include name="Setup"/>
+          <include name="NoofCyclesTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
+      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
