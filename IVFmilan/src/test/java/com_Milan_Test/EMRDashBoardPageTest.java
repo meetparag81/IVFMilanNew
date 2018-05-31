@@ -21,6 +21,7 @@ import com_milan_POM.Loginpage;
 import com_milan_POM.MenHistoryPage;
 import com_milan_POM.SearchPage;
 import com_milan_POM.WInvestigationPage;
+import com_milan_POM.WVitalsPage;
 import com_milan_POM.WomenHistoryPage;
 import com_milan_POM.FemaleDiagnosisPage;
 
@@ -35,6 +36,7 @@ public class EMRDashBoardPageTest extends TestBase
 	AllergiesPage Allergies;
 	FemaleDiagnosisPage FemaleDiagnosis;
 	WInvestigationPage Investigation;
+	WVitalsPage Vitals;
 	String Actual1, Expected1;
 	int count=0;
 	int row=2;
@@ -151,12 +153,18 @@ public class EMRDashBoardPageTest extends TestBase
 		Allergies.AllergiesNameonDashboard();
 	}*/
 	@Test(priority=4)
-	public void ClickOnInvestigation() throws Exception
+	public void ClickOnInvestigationTest() throws Exception
 	{
 		Investigation= EMRPage.ClickOnInvestigation();
 		
 		
 	}
+	@Test(priority=5)
+	public void ClickOnVitalTest() throws Exception
+	{
+		EMRPage.ClickOnVitals();
+	}
+	
 	
 	
 	

@@ -33,8 +33,8 @@ private static @FindBy(xpath = "//span[contains (text(), 'History')]")WebElement
 private @FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]")WebElement Sexualhistory; 
 private @FindBy(xpath="(//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input[@type='checkbox'])[1]")WebElement visitw;
 private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@id='0']") WebElement checkboxvisitm;
-@FindBy(xpath="//a[@class='icoLink femaleInvestigations'][@title='Investigations']")WebElement Investigation;
-	
+private @FindBy(xpath="//a[@class='icoLink femaleInvestigations'][@title='Investigations']")WebElement Investigation;
+private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoption;	
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	
 	public EMRDashBoardPage()
@@ -51,13 +51,15 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 			{
 				//System.out.println("womentfield"+ womenfield.isDisplayed());
 				TestUtil.VisibleOn(driver, womenfield, 20);
-				womenfield.click();
+				Actions act = new Actions(driver);
+				act.moveToElement(womenfield).click().perform();
+				//womenfield.click();
 				TestUtil.VisibleOn(driver, Historylinkwomen, 20);
 				JavascriptExecutor jse = (JavascriptExecutor)driver;
 
 				//jse.executeScript("arguments[0].scrollIntoView()", Historylinkwomen);
-				Actions act = new Actions(driver);
-				act.moveToElement(Historylinkwomen).click().perform();
+				Actions act1 = new Actions(driver);
+				act1.moveToElement(Historylinkwomen).click().perform();
 				
 				//System.out.println("Womenfieldis displayed");
 				List<WebElement> visitw=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
@@ -205,11 +207,13 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 		public WVitalsPage ClickOnVitals() throws Exception 
 		{
 			TestUtil.VisibleOn(driver, womenfield, 20);
-			womenfield.click();	
+			Actions act = new Actions(driver);
+			act.moveToElement(womenfield).click().perform();
+			//womenfield.click();	
 			//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
 			Thread.sleep(2000);
-			Actions act = new Actions(driver);
-			act.moveToElement(WVitals).click().perform();
+			Actions act1 = new Actions(driver);
+			act1.moveToElement(WVitals).click().perform();
 			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if(visitm.size()!=0)
 			{
@@ -267,6 +271,12 @@ private@FindBy(xpath="/html/body/div[1]/div/div/div/table/tbody//tr/td//input[@i
 		{
 			womenfield.isDisplayed();
 			return false;
+			
+		}
+		public CycleListPage ClickonCycle()
+		{
+			Cycleoption.click();
+			return new CycleListPage();
 			
 		}
 	

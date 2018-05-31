@@ -7,7 +7,8 @@
 	</listeners>
 <test name="IVFTEST">	
 		<classes>
-	  <class name="com_Milan_Test.SearchPageTest"/>
+	   <class name="com_Milan_Test.SearchPageTest"/>
+      <class name="com_Milan_Test.WOPUCycyclePageTest"/>
       <class name="com_Milan_Test.LoginPageTest"/>
       <class name="com_Milan_Test.WInvestigationPageTest"/>
       <class name="com_Milan_Test.WPastMedicationHistoryTest"/>
@@ -15,6 +16,7 @@
       <class name="com_Milan_Test.WAllergiesTest"/>
       <class name="com_Milan_Test.FemaleDiagnosisTest"/>
       <class name="com_Milan_Test.WomenHistoryPageTest"/>
+      <class name="com_Milan_Test.CycleListPageTest"/>
       <class name="com_Milan_Test.WObstetricHistoryPageTest"/>
       <class name="com_Milan_Test.WMenstrualHistoryTest"/>
       <class name="com_Milan_Test.WVitalsTest"/>

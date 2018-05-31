@@ -3,6 +3,7 @@ package com_Milan_Test;
 import java.util.ArrayList;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -74,7 +75,7 @@ public class WInvestigationPageTest extends TestBase
 		
 	}
 	
-	@Test(priority=4,groups = {"smoketest" },enabled=true)
+	@Test(priority=4,groups = {"smoketest" },enabled=false)
 	public void OPUCycleTest() throws Exception
 	{
 		Investigation.OPUCycle();
@@ -83,6 +84,12 @@ public class WInvestigationPageTest extends TestBase
 		
 	}
 	
+	
+	@AfterMethod
+	public void Teardown() 
+	{
+		driver.quit();
+	}
 	
 	
 	

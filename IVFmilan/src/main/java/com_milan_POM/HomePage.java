@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -191,7 +192,9 @@ for(int i=1;i<radiobuttons;i++)
 		{
 			Thread.sleep(1000);
 			// String name = search.get(i).getText();
-			search.get(i).click();
+			Actions act = new Actions(driver);
+			act.moveToElement(search.get(i)).click().perform();
+			//search.get(i).click();
 			break;
 			/*
 			 * if(name.contains("Parag Agrawal"))

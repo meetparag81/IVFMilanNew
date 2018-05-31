@@ -55,7 +55,7 @@ public class WVitalsTest extends TestBase
 		WVP.HRValue();	
 	}*/
 	
-	@Test(priority=1,groups = {"smoketest" },dataProvider= "getTestData")
+	@Test(priority=1,groups = {"Boundryvalue" },dataProvider= "getTestData")
 	public void BPSystolicBundryValueTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
 	{
 		boolean message = true;

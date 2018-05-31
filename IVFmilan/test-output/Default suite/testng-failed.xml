@@ -7,9 +7,6 @@
         <methods>
           <include name="TearDown"/>
           <include name="ClickonCycletabTest"/>
-          <include name="SelectSubTypeCycleTest"/>
-          <include name="DeleteARTCycleTest"/>
-          <include name="ARTCycleAvailabilityMessageTest"/>
           <include name="Setup"/>
         </methods>
       </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->

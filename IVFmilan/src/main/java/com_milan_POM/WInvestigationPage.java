@@ -319,15 +319,8 @@ static WebElement existcycles;
 	
 	
 
-	@AfterMethod
-	public void Teardown() 
-	{
-		driver.close();
-	}
+	
 
-	public static ArrayList<Object[]> Selectcycletypes() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 }

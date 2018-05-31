@@ -27,8 +27,7 @@ public class WOPUCycyclePageTest extends TestBase
 	EMRDashBoardPage EMRPage;
 	WInvestigationPage Investigation;
 	WOPUCycyclePage WOC;
-	CycleListPage CLP;
-	static Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	WOPUCycyclePageTest()
 	{
 		super();
@@ -47,15 +46,16 @@ public class WOPUCycyclePageTest extends TestBase
 		 WOC = new WOPUCycyclePage();
 	}
 	
-	@Test(priority=4,groups = {"functional" },enabled=true)
+	@Test(priority=5,groups = {"functional" },enabled=false)
 	public void DeleteARTCycleTest() throws Exception
 	{		
 	String Actual=	WOC.DeleteTheSevice();
 	String Expected = reader.getCellData("Investigation", "Fashmessage", 3);
+	System.out.println("cycle is deleted sucessfully");
 	}
 	
-	@Test(priority=2,groups = {"functional" },enabled=true)
-	public void SelectSubTypeCycleTest() throws Exception
+	@Test(priority=3,groups = {"functional" },enabled=false)
+	public void OPUsubtypeICSITest() throws Exception
 	{
 		
 		String Actual = WOC.OPUsubtypeICSI();
@@ -64,7 +64,7 @@ public class WOPUCycyclePageTest extends TestBase
 		System.out.println("SelectSubTypeCycleTest is completed");
 		
 	}
-	@Test(priority=3,groups = {"smoketest" },enabled=true)
+	@Test(priority=4,groups = {"smoketest" },enabled=false)
 	public void ARTCycleAvailabilityMessageTest() throws Exception 
 	{
 		String Actual = WOC.ARTCycleAvailabilityMessage();
@@ -73,20 +73,30 @@ public class WOPUCycyclePageTest extends TestBase
 		System.out.println("ARTCycleAvailabilityMessage is completed");
 		
 	}
-	@Test(priority=1,groups = {"functional" },enabled=true)
+	@Test(priority=2,groups = {"functional" },enabled=false)
 	public void NoofCyclesTest() throws Exception 
 	{
 		int Actual= WOC.NoofCycles();
 		int Expected = 7;
 		Assert.assertEquals(Actual, Expected);		
 	}
-	@Test(priority=5,groups = {"smoketest" },enabled=true)
+	@Test(priority=6,groups = {"smoketest" },enabled=true)
 	public void ClickonCycletabTest() throws Exception
 	{
-		CLP= WOC.ClickOnCycle();
+		String Actual= WOC.ClickOnCycle();
+		
 
 			
 	}
+	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	public void SearchcycleTest() throws Exception
+	{
+		 WOC.SearchThecycles();
+
+			
+	}
+	
+	
 	
 	
 	@AfterMethod

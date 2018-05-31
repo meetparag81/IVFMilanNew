@@ -26,6 +26,7 @@ public class CycleListPage extends TestBase
 	public String CycleListTitle()
 	{
 		String msg= CyclelistTitle.getText();
+		System.out.println(msg);
 		return msg;
 	}
 	
