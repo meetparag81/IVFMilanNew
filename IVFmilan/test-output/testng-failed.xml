@@ -1,82 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [IVFSuite]" parallel="tests">
-  <listeners>
-    <listener class-name="com_Milan_ExtendReport.ExtentReport"/>
-    <listener class-name="com_Milan_Analyzer.MyTransformer"/>
-  </listeners>
-  <test name="IVFTEST(failed)" parallel="tests">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WAddictionsTest">
+      <class name="com_Milan_Test.WOPUCycyclePageTest">
         <methods>
-          <include name="Setup"/>
-          <include name="Teardown"/>
-          <include name="saveNewAdictions"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WAddictionsTest -->
-      <class name="com_Milan_Test.WcomplaintsTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="Teardown"/>
-          <include name="SaveTheComplaintsTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WcomplaintsTest -->
-      <class name="com_Milan_Test.WSexsualHistoryTest">
-        <methods>
-          <include name="testRelationtlists"/>
-          <include name="Seup"/>
-          <include name="Teardown"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
-      <class name="com_Milan_Test.WomenHistoryPageTest">
-        <methods>
-          <include name="pastMedicationHistoryTest"/>
-          <include name="setup"/>
-          <include name="Teardown"/>
-          <include name="VaccinationTest"/>
-          <include name="AddictionsTest"/>
-          <include name="FamilyHistoryTest"/>
-          <include name="socialHistoryTest"/>
-          <include name="PreviousTreatmentHistoryTest"/>
-          <include name="SurgicalHistoryTest"/>
-          <include name="AllergiesTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WomenHistoryPageTest -->
-      <class name="com_Milan_Test.CycleListPageTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="NewCycleButtonEnableConditionTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.CycleListPageTest -->
-      <class name="com_Milan_Test.HomePageTest">
-        <methods>
-          <include name="ClickOnCmrTest"/>
-          <include name="Setup"/>
-          <include name="teardown"/>
-        </methods>
-      </class> <!-- com_Milan_Test.HomePageTest -->
-      <class name="com_Milan_Test.WVitalsTest">
-        <methods>
-          <include name="setup"/>
-          <include name="BMITest"/>
-          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0 4 4"/>
           <include name="TearDown"/>
-          <include name="SaveAllVitalsValuesTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WVitalsTest -->
-      <class name="com_Milan_Test.FemaleDiagnosisTest">
-        <methods>
-          <include name="CodevalueTest"/>
-          <include name="ClickOnOtherDiagnosisTest"/>
+          <include name="OPUsubtypeICSITest"/>
+          <include name="ARTCycleAvailabilityMessageTest"/>
           <include name="Setup"/>
-          <include name="UnFavoriteTheFavioriteTest"/>
-          <include name="TearDown"/>
-          <include name="AddFavoriteFromListTest"/>
-          <include name="DeleteFromFavoriteTest"/>
-          <include name="checkboxclickTest"/>
-          <include name="TypeSelectionboxEnableconditionForOtherfavorireTest"/>
+          <include name="SearchcycleTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
+      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
     </classes>
-  </test> <!-- IVFTEST(failed) -->
-</suite> <!-- Failed suite [IVFSuite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -6,8 +6,10 @@
       <class name="com_Milan_Test.WOPUCycyclePageTest">
         <methods>
           <include name="TearDown"/>
-          <include name="ClickonCycletabTest"/>
+          <include name="OPUsubtypeICSITest"/>
+          <include name="ARTCycleAvailabilityMessageTest"/>
           <include name="Setup"/>
+          <include name="SearchcycleTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
     </classes>

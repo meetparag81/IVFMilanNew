@@ -82,13 +82,13 @@ public class WVitalsTest extends TestBase
 	System.out.println("value is in range");
 	}
 	
-	@Test(priority=3,groups = {"smoketest" },dataProvider= "getTestData")
-	public void SaveAllVitalsValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature)
+	@Test(priority=2,groups = {"smoketest" },dataProvider= "getTestData")
+	public void SaveAllVitalsValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) throws Exception
 	{
 		String Actual = WVP.SaveAllvalues(Weight, Height, BPSystolicval, BPDiastolic, HR, Temperature);
 		
 	}
-	@Test(priority=2,groups = {"smoketest" },dataProvider= "getTestData", enabled = true)
+	@Test(priority=1,groups = {"smoketest" },dataProvider= "getTestData", enabled = true)
 	public void BMITest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) throws Exception
 	{
 		System.out.println("started");

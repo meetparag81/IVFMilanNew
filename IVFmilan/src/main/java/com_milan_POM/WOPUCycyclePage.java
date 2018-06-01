@@ -269,6 +269,7 @@ return count2;
 			
 			
 		}
+		Thread.sleep(2000);
 		msg = Availabilitymessage.getText();		
 		System.out.println(msg);
 				

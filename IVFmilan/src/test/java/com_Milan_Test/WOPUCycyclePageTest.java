@@ -46,7 +46,7 @@ public class WOPUCycyclePageTest extends TestBase
 		 WOC = new WOPUCycyclePage();
 	}
 	
-	@Test(priority=5,groups = {"functional" },enabled=false)
+	@Test(priority=5,groups = {"functional" },enabled=true)
 	public void DeleteARTCycleTest() throws Exception
 	{		
 	String Actual=	WOC.DeleteTheSevice();
@@ -54,7 +54,7 @@ public class WOPUCycyclePageTest extends TestBase
 	System.out.println("cycle is deleted sucessfully");
 	}
 	
-	@Test(priority=3,groups = {"functional" },enabled=false)
+	@Test(priority=3,groups = {"functional" },enabled=true)
 	public void OPUsubtypeICSITest() throws Exception
 	{
 		
@@ -64,7 +64,7 @@ public class WOPUCycyclePageTest extends TestBase
 		System.out.println("SelectSubTypeCycleTest is completed");
 		
 	}
-	@Test(priority=4,groups = {"smoketest" },enabled=false)
+	@Test(priority=4,groups = {"smoketest" },enabled=true)
 	public void ARTCycleAvailabilityMessageTest() throws Exception 
 	{
 		String Actual = WOC.ARTCycleAvailabilityMessage();
@@ -73,7 +73,7 @@ public class WOPUCycyclePageTest extends TestBase
 		System.out.println("ARTCycleAvailabilityMessage is completed");
 		
 	}
-	@Test(priority=2,groups = {"functional" },enabled=false)
+	@Test(priority=2,groups = {"functional" },enabled=true)
 	public void NoofCyclesTest() throws Exception 
 	{
 		int Actual= WOC.NoofCycles();

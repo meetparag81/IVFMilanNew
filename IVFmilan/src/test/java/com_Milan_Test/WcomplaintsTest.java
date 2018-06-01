@@ -37,7 +37,7 @@ public class WcomplaintsTest extends TestBase
 	
 
 }
-	@Test(priority=1,enabled= true)
+	@Test(priority=2,groups = {"smoketest" },enabled= true)
 	public  void NewPatientPresentingComplaintsTest() throws Exception 
 	{
 		
@@ -48,7 +48,7 @@ public class WcomplaintsTest extends TestBase
 		
 				
 	}
-	@Test(priority=2,enabled= true)
+	@Test(priority=1,groups = {"functional" },enabled= true)
 	public void SaveTheComplaintsTest() throws Exception
 	{
 		WCP.NewPatientPresentingComplaints();
@@ -56,7 +56,7 @@ public class WcomplaintsTest extends TestBase
 		String expected = "Modality is mandatory field";
 		Assert.assertEquals(Actual, expected);
 	}
-	@Test(priority=3)
+	@Test(priority=3,groups = {"smoketest" })
 	public void NextFollowUpTest() throws Exception
 	{
 	boolean flag=WCP.NextFollowUp();

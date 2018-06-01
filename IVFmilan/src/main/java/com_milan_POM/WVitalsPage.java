@@ -122,7 +122,7 @@ double rowdata2,rowdata1;
 		return BPvalues;
 			
 	}
-	public String SaveAllvalues(String weightval,String Heightval,String BPSystolicval, String BPDiastolicval,String HRRangeval,String Tempval )
+	public String SaveAllvalues(String weightval,String Heightval,String BPSystolicval, String BPDiastolicval,String HRRangeval,String Tempval ) throws InterruptedException
 	{
 		Weight.clear();
 		Weight.sendKeys(weightval);
@@ -138,8 +138,8 @@ double rowdata2,rowdata1;
 		Temprature.clear();
 		Temprature.sendKeys(Tempval);
 		Save.click();
-		TestUtil.VisibleOn(driver, FlashMessage, 20);
-	String message=	FlashMessage.getText();
+		Thread.sleep(2000);
+	String message="";//	FlashMessage.getText();
 		
 		
 		return message;

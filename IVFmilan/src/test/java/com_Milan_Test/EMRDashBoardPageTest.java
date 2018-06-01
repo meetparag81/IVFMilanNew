@@ -64,10 +64,10 @@ public class EMRDashBoardPageTest extends TestBase
 		
 		
 	}
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,groups = {"SmokeTest" },enabled=false)
 	public void ClickonWoomenPaientFieldTest() throws InterruptedException
 	{
-		MHP= EMRPage.clickOnMenField();
+		WHP= EMRPage.clickOnWomenField();
 		boolean flag = EMRPage.GetGetEnableconditionWoMenfield();
 		if(flag==false)
 		{
@@ -81,7 +81,7 @@ public class EMRDashBoardPageTest extends TestBase
 		String Actual= Actual1;
 		
 		
-		WHP= EMRPage.clickOnWomenField();
+		MHP= EMRPage.clickOnMenField();
 		boolean flag1 = EMRPage.GetEnableconditionMenfield();
 		if(flag==false)
 		{
@@ -108,7 +108,7 @@ public class EMRDashBoardPageTest extends TestBase
 		System.out.println("ClickonWoomenPaientFieldTest is completed");
 		
 	}
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,groups = {"SmokeTest" },enabled=false)
 	public void ClickOnMenPaientHistory() throws Exception
 	{
 		MHP= EMRPage.clickOnMenField();
@@ -139,7 +139,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 	}
 	
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,groups = {"SmokeTest" },enabled=true)
 	public void ClickOnDiagnosisTest() throws Exception
 	{
 		FemaleDiagnosis= EMRPage.ClickOnDiagnosis();
@@ -152,20 +152,25 @@ public class EMRDashBoardPageTest extends TestBase
 		EMRPage= HomePage.searchPaient();		
 		Allergies.AllergiesNameonDashboard();
 	}*/
-	@Test(priority=4)
+	@Test(priority=4,groups = {"SmokeTest" },enabled=true)
 	public void ClickOnInvestigationTest() throws Exception
 	{
 		Investigation= EMRPage.ClickOnInvestigation();
 		
 		
 	}
-	@Test(priority=5)
+	@Test(priority=5,groups = {"SmokeTest" })
 	public void ClickOnVitalTest() throws Exception
 	{
 		EMRPage.ClickOnVitals();
 	}
 	
-	
+	@Test(priority=6,groups = {"SmokeTest" })
+	public void ClickOnComplaintTest() throws Exception
+	{
+		System.out.println();
+		EMRPage.ClickOnComplaints();
+	}
 	
 	
 	@ AfterMethod

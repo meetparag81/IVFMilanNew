@@ -14,13 +14,29 @@
           <include name="saveNewAdictions"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
+      <class name="com_Milan_Test.WOPUCycyclePageTest">
+        <methods>
+          <include name="TearDown"/>
+          <include name="ClickonCycletabTest"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
       <class name="com_Milan_Test.WcomplaintsTest">
         <methods>
+          <include name="NewPatientPresentingComplaintsTest"/>
           <include name="Setup"/>
+          <include name="NextFollowUpTest"/>
           <include name="Teardown"/>
           <include name="SaveTheComplaintsTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WcomplaintsTest -->
+      <class name="com_Milan_Test.SearchPageTest">
+        <methods>
+          <include name="Teardown"/>
+          <include name="Setup"/>
+          <include name="SearchPatientUsingCalenderTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.SearchPageTest -->
       <class name="com_Milan_Test.WSexsualHistoryTest">
         <methods>
           <include name="testRelationtlists"/>
@@ -28,28 +44,16 @@
           <include name="Teardown"/>
         </methods>
       </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
-      <class name="com_Milan_Test.WomenHistoryPageTest">
-        <methods>
-          <include name="pastMedicationHistoryTest"/>
-          <include name="setup"/>
-          <include name="Teardown"/>
-          <include name="VaccinationTest"/>
-          <include name="AddictionsTest"/>
-          <include name="FamilyHistoryTest"/>
-          <include name="socialHistoryTest"/>
-          <include name="PreviousTreatmentHistoryTest"/>
-          <include name="SurgicalHistoryTest"/>
-          <include name="AllergiesTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WomenHistoryPageTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
+          <include name="CycleListTitleTest"/>
           <include name="Setup"/>
           <include name="NewCycleButtonEnableConditionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
       <class name="com_Milan_Test.HomePageTest">
         <methods>
+          <include name="SearchPatientUsingCalenderTest"/>
           <include name="ClickOnCmrTest"/>
           <include name="Setup"/>
           <include name="teardown"/>
@@ -58,10 +62,9 @@
       <class name="com_Milan_Test.WVitalsTest">
         <methods>
           <include name="setup"/>
-          <include name="BMITest"/>
-          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0 4 4"/>
+          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0 2 4 4"/>
           <include name="TearDown"/>
-          <include name="SaveAllVitalsValuesTest"/>
+          <include name="SaveAllVitalsValuesTest" invocation-numbers="0 0 0 0 1 1 2 2 3 3 4 4"/>
         </methods>
       </class> <!-- com_Milan_Test.WVitalsTest -->
       <class name="com_Milan_Test.FemaleDiagnosisTest">
@@ -69,12 +72,8 @@
           <include name="CodevalueTest"/>
           <include name="ClickOnOtherDiagnosisTest"/>
           <include name="Setup"/>
-          <include name="UnFavoriteTheFavioriteTest"/>
           <include name="TearDown"/>
-          <include name="AddFavoriteFromListTest"/>
           <include name="DeleteFromFavoriteTest"/>
-          <include name="checkboxclickTest"/>
-          <include name="TypeSelectionboxEnableconditionForOtherfavorireTest"/>
         </methods>
       </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
     </classes>

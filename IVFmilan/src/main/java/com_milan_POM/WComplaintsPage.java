@@ -14,13 +14,13 @@ import com_Milan_util.TestUtil;
 
 public class WComplaintsPage extends TestBase
 {
-	@FindBy(xpath="(//label[text()='LMP']//following::button)[1]")WebElement Buttoncomplaints;
+	@FindBy(xpath="//label[@class='col-md-12 col-lg-12 control-label']/following::button[@class='ng-binding']")WebElement Buttoncomplaints;
 	@FindBy(xpath="//div[@class='checkboxLayer show']/div[2]")WebElement PresentingComplaints;
 	@FindBy(xpath="//div[@id='toasty']")WebElement FlashMessage;
 	@FindBy(xpath="//textarea[@name='FollowUpNotes']")WebElement FollowupNotes;
 	@FindBy(xpath="//textarea[@name='Reason']")WebElement FollowUpReason;
 	@FindBy(xpath="//button[@class='btn btn-primary ng-binding']")WebElement Save;
-	@FindBy(xpath="(//i[@class='fa fa-calendar'])[2]")WebElement calender;
+	@FindBy(xpath="//label [@class='col-sm-12 col-md-12 col-lg-12 control-label']//following::i")WebElement calender;
 	List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 	
 	
