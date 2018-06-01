@@ -277,7 +277,9 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 		}
 		public CycleListPage ClickonCycle()
 		{
-			Cycleoption.click();
+			Actions act = new Actions(driver);
+			act.moveToElement(Cycleoption).click().perform();
+			//Cycleoption.click();
 			return new CycleListPage();
 			
 		}

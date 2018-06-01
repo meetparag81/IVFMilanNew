@@ -1,95 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
+<testng-results skipped="0" failed="0" ignored="2" total="6" passed="4">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="256289" started-at="2018-06-01T06:43:23Z" finished-at="2018-06-01T06:47:39Z">
+  <suite name="Default suite" duration-ms="89885" started-at="2018-06-01T13:06:05Z" finished-at="2018-06-01T13:07:35Z">
     <groups>
-      <group name="functional">
-        <method signature="WOPUCycyclePageTest.DeleteARTCycleTest()[pri:5, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="DeleteARTCycleTest" class="com_Milan_Test.WOPUCycyclePageTest"/>
-        <method signature="WOPUCycyclePageTest.NoofCyclesTest()[pri:2, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="NoofCyclesTest" class="com_Milan_Test.WOPUCycyclePageTest"/>
-        <method signature="WOPUCycyclePageTest.OPUsubtypeICSITest()[pri:3, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="OPUsubtypeICSITest" class="com_Milan_Test.WOPUCycyclePageTest"/>
-      </group> <!-- functional -->
-      <group name="smoketest">
-        <method signature="WOPUCycyclePageTest.ARTCycleAvailabilityMessageTest()[pri:4, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="ARTCycleAvailabilityMessageTest" class="com_Milan_Test.WOPUCycyclePageTest"/>
-        <method signature="WOPUCycyclePageTest.ClickonCycletabTest()[pri:6, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="ClickonCycletabTest" class="com_Milan_Test.WOPUCycyclePageTest"/>
-        <method signature="WOPUCycyclePageTest.SearchcycleTest()[pri:1, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="SearchcycleTest" class="com_Milan_Test.WOPUCycyclePageTest"/>
-      </group> <!-- smoketest -->
     </groups>
-    <test name="Default test" duration-ms="256289" started-at="2018-06-01T06:43:23Z" finished-at="2018-06-01T06:47:39Z">
-      <class name="com_Milan_Test.WOPUCycyclePageTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="Setup" is-config="true" duration-ms="24816" started-at="2018-06-01T12:13:23Z" finished-at="2018-06-01T12:13:48Z">
+    <test name="Default test" duration-ms="89885" started-at="2018-06-01T13:06:05Z" finished-at="2018-06-01T13:07:35Z">
+      <class name="com_Milan_Test.CycleListPageTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Setup" is-config="true" duration-ms="20366" started-at="2018-06-01T18:36:05Z" finished-at="2018-06-01T18:36:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="SearchcycleTest()[pri:1, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="SearchcycleTest" duration-ms="3691" started-at="2018-06-01T12:13:48Z" finished-at="2018-06-01T12:13:51Z">
+        <test-method status="PASS" signature="ClickonNewCycleTest()[pri:1, instance:com_Milan_Test.CycleListPageTest@2638011]" name="ClickonNewCycleTest" duration-ms="1204" started-at="2018-06-01T18:36:25Z" finished-at="2018-06-01T18:36:27Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SearchcycleTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="TearDown" is-config="true" duration-ms="682" started-at="2018-06-01T12:13:51Z" finished-at="2018-06-01T12:13:52Z">
+        </test-method> <!-- ClickonNewCycleTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Teardown" is-config="true" duration-ms="738" started-at="2018-06-01T18:36:27Z" finished-at="2018-06-01T18:36:27Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="Setup" is-config="true" duration-ms="20160" started-at="2018-06-01T12:13:52Z" finished-at="2018-06-01T12:14:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="NoofCyclesTest()[pri:2, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="NoofCyclesTest" duration-ms="36627" started-at="2018-06-01T12:14:12Z" finished-at="2018-06-01T12:14:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NoofCyclesTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="TearDown" is-config="true" duration-ms="704" started-at="2018-06-01T12:14:49Z" finished-at="2018-06-01T12:14:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="Setup" is-config="true" duration-ms="22826" started-at="2018-06-01T12:14:50Z" finished-at="2018-06-01T12:15:12Z">
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Setup" is-config="true" duration-ms="20406" started-at="2018-06-01T18:36:27Z" finished-at="2018-06-01T18:36:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="OPUsubtypeICSITest()[pri:3, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="OPUsubtypeICSITest" duration-ms="35142" started-at="2018-06-01T12:15:12Z" finished-at="2018-06-01T12:15:48Z">
+        <test-method status="PASS" signature="CycleListTitleTest()[pri:2, instance:com_Milan_Test.CycleListPageTest@2638011]" name="CycleListTitleTest" duration-ms="183" started-at="2018-06-01T18:36:48Z" finished-at="2018-06-01T18:36:48Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- OPUsubtypeICSITest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="TearDown" is-config="true" duration-ms="702" started-at="2018-06-01T12:15:48Z" finished-at="2018-06-01T12:15:48Z">
+        </test-method> <!-- CycleListTitleTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Teardown" is-config="true" duration-ms="737" started-at="2018-06-01T18:36:48Z" finished-at="2018-06-01T18:36:49Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="Setup" is-config="true" duration-ms="21485" started-at="2018-06-01T12:15:48Z" finished-at="2018-06-01T12:16:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ARTCycleAvailabilityMessageTest()[pri:4, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="ARTCycleAvailabilityMessageTest" duration-ms="5900" started-at="2018-06-01T12:16:10Z" finished-at="2018-06-01T12:16:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ARTCycleAvailabilityMessageTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="TearDown" is-config="true" duration-ms="734" started-at="2018-06-01T12:16:16Z" finished-at="2018-06-01T12:16:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="Setup" is-config="true" duration-ms="20406" started-at="2018-06-01T12:16:16Z" finished-at="2018-06-01T12:16:37Z">
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Setup" is-config="true" duration-ms="20798" started-at="2018-06-01T18:36:49Z" finished-at="2018-06-01T18:37:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="DeleteARTCycleTest()[pri:5, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="DeleteARTCycleTest" duration-ms="3475" started-at="2018-06-01T12:16:37Z" finished-at="2018-06-01T12:16:40Z">
+        <test-method status="PASS" signature="ARTTypeOptionTest()[pri:5, instance:com_Milan_Test.CycleListPageTest@2638011]" name="ARTTypeOptionTest" duration-ms="908" started-at="2018-06-01T18:37:10Z" finished-at="2018-06-01T18:37:10Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DeleteARTCycleTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="TearDown" is-config="true" duration-ms="725" started-at="2018-06-01T12:16:40Z" finished-at="2018-06-01T12:16:41Z">
+        </test-method> <!-- ARTTypeOptionTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Teardown" is-config="true" duration-ms="797" started-at="2018-06-01T18:37:10Z" finished-at="2018-06-01T18:37:11Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="Setup" is-config="true" duration-ms="21095" started-at="2018-06-01T12:16:41Z" finished-at="2018-06-01T12:17:02Z">
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Setup" is-config="true" duration-ms="18312" started-at="2018-06-01T18:37:11Z" finished-at="2018-06-01T18:37:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ClickonCycletabTest()[pri:6, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="ClickonCycletabTest" duration-ms="36347" started-at="2018-06-01T12:17:02Z" finished-at="2018-06-01T12:17:39Z">
+        <test-method status="PASS" signature="NoofProtocolandselectionTest()[pri:6, instance:com_Milan_Test.CycleListPageTest@2638011]" name="NoofProtocolandselectionTest" duration-ms="4646" started-at="2018-06-01T18:37:30Z" finished-at="2018-06-01T18:37:34Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ClickonCycletabTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.WOPUCycyclePageTest@2638011]" name="TearDown" is-config="true" duration-ms="730" started-at="2018-06-01T12:17:39Z" finished-at="2018-06-01T12:17:39Z">
+        </test-method> <!-- NoofProtocolandselectionTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@2638011]" name="Teardown" is-config="true" duration-ms="745" started-at="2018-06-01T18:37:34Z" finished-at="2018-06-01T18:37:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TearDown -->
-      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
+        </test-method> <!-- Teardown -->
+      </class> <!-- com_Milan_Test.CycleListPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

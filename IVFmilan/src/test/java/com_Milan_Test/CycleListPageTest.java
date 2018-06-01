@@ -1,6 +1,7 @@
 package com_Milan_Test;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import com_Milan_Base.TestBase;
@@ -38,25 +39,66 @@ public class CycleListPageTest extends TestBase
 		EMRPage = HomePage.searchPaient();
 		// EMRPage= HomePage.ClickonEMR();
 		// EMRPage=HomePage.SearchusingCalender();
-		Investigation = EMRPage.ClickOnInvestigation();
-		 WOC = new WOPUCycyclePage();
-		 CLP=  EMRPage.ClickonCycle();
+		CLP=  EMRPage.ClickonCycle();
+		 
+		 
 		
 	}
-	@Test(priority=1)
+	@Test(priority=1,enabled=true)
+	public void ClickonNewCycleTest()
+	{
+		String act= CLP.ClickonNewCycle();
+		String exp = reader.getCellData("CycleList", "ListTitle", 3);
+		Assert.assertEquals(act, exp);
+		System.out.println("ClickonNewCycleTest is completed");
+		
+	}
+	
+	
+	
+	@Test(priority=2,enabled=true)
 	public void CycleListTitleTest()
 	{
 	String Actual=CLP.CycleListTitle();
-	String Expected = 	reader.getCellData("Investigation", "CycleList", 2);
+	String Expected = 	reader.getCellData("CycleList", "ListTitle", 2);
+	System.out.println("CycleListTitleTest completed");
 	
 	}
 	
-	@Test(priority=2)
+	@Test(priority=3,enabled=false)
 	public void NewCycleButtonEnableConditionTest()
 	{
 	boolean flag1=CLP.NewCycleButtonEnableCondition();
 	
 	Assert.assertTrue(flag1);
+	}
+	
+	@Test(priority=4,enabled=false)
+	public void EnabledconditionARTTypeTest()
+	{
+	boolean flag2=CLP.EnabledconditionARTType();
+	
+	Assert.assertFalse(flag2);
+	}
+	@Test(priority=5)
+	public void ARTTypeOptionTest()
+	{
+	String act=	CLP.ARTTypeOption();
+	String exp = reader.getCellData("CycleList", "ARTtype", 2);
+	Assert.assertEquals(act, exp);	
+	System.out.println("ARTTypeOptionTest is completed" );
+	}
+	@Test(priority=6)
+	public void NoofProtocolandselectionTest ()
+	{
+		CLP.NoofProtocol();
+	}
+	
+	
+	@AfterMethod
+	public void Teardown()
+	{
+		driver.quit();
 	}
 	
 	

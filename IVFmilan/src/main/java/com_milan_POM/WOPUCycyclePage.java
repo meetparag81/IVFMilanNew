@@ -67,7 +67,9 @@ public class WOPUCycyclePage extends TestBase
 		TestUtil.VisibleOn(driver, Searchbox, 20);
 		Actions act = new Actions(driver);
 		act.moveToElement(Searchbox);
-		Searchbox.sendKeys(Name);
+		act.click();
+		act.sendKeys(Name);
+		act.build().perform();
 		Thread.sleep(1000);
 		Searchbox.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
@@ -269,7 +271,7 @@ return count2;
 			
 			
 		}
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		msg = Availabilitymessage.getText();		
 		System.out.println(msg);
 				

@@ -26,8 +26,7 @@ public class WInvestigationPageTest extends TestBase
 	AddictionsPage Addictions;
 	SearchPage SearchPage;
 	WInvestigationPage Investigation;
-	Exls_Reader reader = new Exls_Reader(
-			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	int exp, Expected;
 
 	public WInvestigationPageTest() {
