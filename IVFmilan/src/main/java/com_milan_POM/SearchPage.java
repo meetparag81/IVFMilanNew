@@ -106,12 +106,10 @@ public class SearchPage extends TestBase {
 	}
 
 	public EMRDashBoardPage SearchusingCalender() throws Exception {
-		WebElement Calender = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
+		WebElement Calender = wait.until(ExpectedConditions	.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
 		TestUtil.VisibleOn(driver, Calender, 40);
 		Calender.click();
-		List<WebElement> dates = wait.until(
-				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
+		List<WebElement> dates = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
 
 		int Total_nodes = dates.size();
 		for (int i = 0; i < Total_nodes; i++) 
@@ -127,7 +125,15 @@ public class SearchPage extends TestBase {
 		String Paitentname = reader.getCellData("HomePage", 0, 8);
 		Thread.sleep(3000);
 		searchpaient.sendKeys(Paitentname);
+		try
+		{
 		TestUtil.VisibleOn(driver, Searchbutton, 20);
+		}
+		catch(Exception e)
+		{
+		System.out.println("Element is not seen within time");
+		throw(e);
+		}
 		Searchbutton.click();
 		int k = 1;
 		while (k <= 10) 

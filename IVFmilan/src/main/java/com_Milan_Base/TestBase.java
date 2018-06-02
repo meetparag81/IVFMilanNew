@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -74,7 +75,15 @@ public class TestBase
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		try
+		{
 		driver.get(prop.getProperty("url"));
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("url is not entered");
+			throw(e);
+		}
 		
 	}
 	

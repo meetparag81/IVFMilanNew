@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.apache.poi.hssf.util.HSSFColor.TEAL;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 
 public class FemaleDiagnosisPage extends TestBase 
@@ -41,7 +43,8 @@ public class FemaleDiagnosisPage extends TestBase
 	@FindBy(name="Reason")WebElement Reasonfordelete;
 	@FindBy(xpath="(//button[@class='btn btn-primary'])[5]")WebElement SaveonReason;
 	@FindBy(xpath="//table[@class='table table-hover table-striped']/tbody/tr[1]/td[2]/div")WebElement ClickFavorite;
-	
+	Exls_Reader reader= null;
+	int value;
 	
 	
 	int count;
@@ -78,14 +81,31 @@ public class FemaleDiagnosisPage extends TestBase
 	
 	public void ClickOnOtherDiagbosisForNewPaitent() throws Exception
 	{
+		
+		System.out.println();
+		try
+		{
+		 reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+		}
+		catch(Exception e)
+		{
+			System.out.println("file is opened");
+			throw(e);
+		}
+		
 		Otherdiagnosis.click();
 
 		TestUtil.VisibleOn(driver, Plus, 30);
 		Plus.click();
 		TestUtil.VisibleOn(driver, Codeinput, 30);
-		Codeinput.sendKeys("delete1489");
+		String codevalue= reader.getCellData("Diagnosis", "Codevalue", 2);
+		Codeinput.sendKeys(codevalue);
 		TestUtil.VisibleOn(driver, description, 30);
-		description.sendKeys("delete1489");
+		description.sendKeys(codevalue);
+		 value = Integer.parseInt(codevalue);
+		 int val = value+1;
+		String valueforcode = Integer.toString(val);
+		reader.setCellData("Diagnosis", "Codevalue", 2, valueforcode);
 		TestUtil.VisibleOn(driver, Save, 30);
 		Save.click();
 		
@@ -105,7 +125,7 @@ public class FemaleDiagnosisPage extends TestBase
 
 	}
 
-	public String Codevalue()
+	public String AddCodevalue()
 	{
 		Otherdiagnosis.click();
 		TestUtil.VisibleOn(driver, CodeValue, 30);
@@ -222,6 +242,8 @@ public class FemaleDiagnosisPage extends TestBase
 	
 	public String DeleteFromFavorite() throws Exception
 	{
+		String valueforcode = null;
+
 		Otherdiagnosis.click();	
 		List<WebElement>code=driver.findElements(By.xpath("(//div[@class='table-responsive table-bordered fixed_header'])[1]//tr/td[4]"));
 		TestUtil.VisibleElementsOn(driver, code, 30);
@@ -231,7 +253,10 @@ public class FemaleDiagnosisPage extends TestBase
 			Thread.sleep(2000);
 			WebElement codename= driver.findElement(By.xpath("(//div[@class='table-responsive table-bordered fixed_header'])[1]//tr["+i+"]/td[4]"));
 			String codename1= codename.getText();
-			if(codename1.contains("delete1289"))
+			reader.setCellData("Diagnosis", "favoritedelete", 2, codename1);
+			 valueforcode =reader.getCellData("Diagnosis", "favoritedelete", 2);
+			
+			if(codename1.contains(valueforcode))
 			{
 				ClickFavorite.click();
 				break;
@@ -239,13 +264,28 @@ public class FemaleDiagnosisPage extends TestBase
 		}		
 		FavouriteDiagnosis.click();
 		Thread.sleep(3000);
-		SearchFavorite.sendKeys("delete1289");
+		SearchFavorite.sendKeys(valueforcode);
 		Thread.sleep(1000);
+		try
+		{
 		Searchckick.click();
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element is not seen with in the time");
+			throw(e);
+		}
 		Last.click();
+		try
+		{
 		TestUtil.VisibleOn(driver, Favoritename, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("element is not found within the timeperiod" );
+		}
 		String Name= Favoritename.getText();
-		if(Name.contains("delete1289"))
+		if(Name.contains(valueforcode))
 		{
 			Delete.click();
 			TestUtil.VisibleOn(driver, Reasonfordelete, 20);

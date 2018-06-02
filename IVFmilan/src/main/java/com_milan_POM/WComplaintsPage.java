@@ -2,7 +2,9 @@ package com_milan_POM;
 
 import java.util.List;
 
+import org.eclipse.jetty.util.log.Log;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -40,7 +42,17 @@ public class WComplaintsPage extends TestBase
 		if(NoofRows==0)
 		{
 			Thread.sleep(2000);	
+			try{
+				WebElement ele = Buttoncomplaints;
 			Buttoncomplaints.isEnabled();
+			}
+			catch(Exception e)
+			{
+				TestUtil.getScreenshot(driver, "NewPatientPresentingComplaints"+".png");
+				throw(e);
+			
+			
+			}
 			
 			System.out.println("button is disabled"+ Buttoncomplaints.isEnabled()+"buttonisdisplayed"+Buttoncomplaints.isDisplayed());
 			Buttoncomplaints.click();
@@ -172,7 +184,15 @@ public class WComplaintsPage extends TestBase
 				
 			}
 			TestUtil.VisibleOn(driver, FollowUpReason, 20);
+			try
+			{
 			FollowUpReason.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
+			}
+			catch(TimeoutException e)
+			{
+				Log.getLog();
+				throw(e);
+			}
 			TestUtil.VisibleOn(driver, FollowupNotes, 20);
 			FollowupNotes.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
 			Save.click();
@@ -182,7 +202,15 @@ public class WComplaintsPage extends TestBase
 		
 		public boolean NextFollowUp()
 		{
+			try
+			{
 			TestUtil.VisibleOn(driver, calender, 20);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element is not seen within time");
+				throw(e);
+			}
 			calender.click();
 			List<WebElement>Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']/tbody//td/button"));
 			int datesize= Dates.size();
