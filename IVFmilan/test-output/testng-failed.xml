@@ -7,7 +7,7 @@
         <methods>
           <include name="Teardown"/>
           <include name="Setup"/>
-          <include name="ClickonNewCycleTest"/>
+          <include name="MethodofSemenCollectionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
     </classes>

@@ -46,7 +46,7 @@ public class WOPUCycyclePageTest extends TestBase
 		 WOC = new WOPUCycyclePage();
 	}
 	
-	@Test(priority=5,groups = {"functional" },enabled=true)
+	@Test(priority=5,groups = {"functional" },enabled=false)
 	public void DeleteARTCycleTest() throws Exception
 	{		
 	String Actual=	WOC.DeleteTheSevice();
@@ -54,7 +54,7 @@ public class WOPUCycyclePageTest extends TestBase
 	System.out.println("cycle is deleted sucessfully");
 	}
 	
-	@Test(priority=3,groups = {"functional" },enabled=true)
+	@Test(priority=3,groups = {"functional" },enabled=false)
 	public void OPUsubtypeICSITest() throws Exception
 	{
 		
@@ -88,12 +88,18 @@ public class WOPUCycyclePageTest extends TestBase
 
 			
 	}
+	@Test(priority=7)
+	public void NoofProtocolTest()
+	{
+		
+	}
+	
+	
+	
 	@Test(priority=1,groups = {"smoketest" },enabled=true)
 	public void SearchcycleTest() throws Exception
 	{
-		 WOC.SearchThecycles();
-
-			
+		 WOC.SearchThecycles();			
 	}
 	
 	

@@ -34,7 +34,7 @@ public class LoginPageTest extends TestBase
 	public void Seup()
 	{
 		TestBase.initalization();
-		 Loginpage = new Loginpage();
+		Loginpage = new Loginpage();
 		 
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}

@@ -1,16 +1,14 @@
 package com_milan_POM;
 
-import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
-import com_milan_POM.SurgicalHistoryPage;
 
 public class WomenHistoryPage extends TestBase
 {
@@ -63,7 +61,19 @@ public class WomenHistoryPage extends TestBase
 		 public ObstetricHistoryPage ClickonObstetricHistory() throws Exception
 			{
 			 System.out.println("========ObstetricHistory click testcase started======");
+			 try
+			 {
 			 TestUtil.VisibleOn(driver, ObstetricHistory, 20);
+			 }
+			 catch(Exception e)
+			 {
+				 System.out.println("element is not visible withinthe time period");
+				 throw(e);
+			 }
+			 finally
+			 {
+				 System.out.println("Finally block executed");
+			 }
 			 ObstetricHistory.click();
 			 System.out.println("clicked on Obstetric History");
 				/*List<WebElement> history = driver.findElements(By.xpath("//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li"));

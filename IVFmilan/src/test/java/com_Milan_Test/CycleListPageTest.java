@@ -44,7 +44,7 @@ public class CycleListPageTest extends TestBase
 		 
 		
 	}
-	@Test(priority=1,enabled=true)
+	@Test(priority=1,enabled=false)
 	public void ClickonNewCycleTest()
 	{
 		String act= CLP.ClickonNewCycle();
@@ -56,7 +56,7 @@ public class CycleListPageTest extends TestBase
 	
 	
 	
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled=false)
 	public void CycleListTitleTest()
 	{
 	String Actual=CLP.CycleListTitle();
@@ -80,7 +80,7 @@ public class CycleListPageTest extends TestBase
 	
 	Assert.assertFalse(flag2);
 	}
-	@Test(priority=5)
+	@Test(priority=5,enabled=false)
 	public void ARTTypeOptionTest()
 	{
 	String act=	CLP.ARTTypeOption();
@@ -88,10 +88,25 @@ public class CycleListPageTest extends TestBase
 	Assert.assertEquals(act, exp);	
 	System.out.println("ARTTypeOptionTest is completed" );
 	}
-	@Test(priority=6)
+	@Test(priority=6,enabled=false)
 	public void NoofProtocolandselectionTest ()
 	{
-		CLP.NoofProtocol();
+		int Act=CLP.NoofProtocol();
+		int exp= reader.getRowCount("CycleList");
+		Assert.assertEquals(Act, exp);
+		System.out.println("NoofProtocolandselectionTest is completed");
+	}
+	@Test(priority=7)
+	public void MethodofSemenCollectionTest()
+	{
+		int Act=CLP.MethodofSemenCollection();
+		reader.getCellData("CycleList", "SiemenSize", 2);
+		
+	}
+	@Test(priority=8)
+	public void MethodSourceofspermTest()
+	{
+		CLP.Sourceofsperm();
 	}
 	
 	

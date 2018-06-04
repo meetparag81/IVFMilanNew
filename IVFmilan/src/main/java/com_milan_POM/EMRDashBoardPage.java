@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -54,7 +55,15 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 				Actions act = new Actions(driver);
 				act.moveToElement(womenfield).click().perform();
 				//womenfield.click();
-				TestUtil.VisibleOn(driver, Historylinkwomen, 20);
+				try
+				{
+					TestUtil.VisibleOn(driver, Historylinkwomen, 20);			
+				}
+				catch(TimeoutException e)
+				{
+					System.out.println("element is not seen within the time");
+				}
+				
 				JavascriptExecutor jse = (JavascriptExecutor)driver;
 
 				//jse.executeScript("arguments[0].scrollIntoView()", Historylinkwomen);
@@ -152,7 +161,8 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 		public FemaleDiagnosisPage ClickOnDiagnosis() throws Exception
 		{
 			TestUtil.VisibleOn(driver, womenfield, 20);
-			womenfield.click();	
+			Actions act= new Actions(driver);
+			act.moveToElement(womenfield).click().perform();	
 			//TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
 			Thread.sleep(3000);
 			FemaleDiagnosis.click();

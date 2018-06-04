@@ -47,7 +47,7 @@ public class FemaleDiagnosisTest extends TestBase
 				
 	}
 	
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	public void ClickOnOtherDiagnosisTest() throws Exception
 	{
 		FDP.ClickOnOtherDiagbosisForNewPaitent();
@@ -89,13 +89,13 @@ public class FemaleDiagnosisTest extends TestBase
 	
 	
 	
-	@Test(priority=5,groups = {"smoketest" },enabled=false)
+	@Test(priority=5,groups = {"smoketest" },enabled=true)
 	public void TypeSelectionboxEnableconditionForOtherfavorireTest()
 	{
 		boolean flag= FDP.TypeSelectionboxEnablecondition();
 		assertTrue(flag);
 	}
-	@Test(priority=6,groups = {"smoketest" },enabled=true)
+	@Test(priority=6,groups = {"smoketest" },enabled=false)
 	public void DeleteFromFavoriteTest() throws Exception
 	{
 		
@@ -104,7 +104,7 @@ public class FemaleDiagnosisTest extends TestBase
 	String Expected = reader.getCellData("Diagnosis", "Expected Result", 2);
 	System.out.println("Favorite is deleted from favorite section");
 	}
-	@Test(priority=7,groups = {"smoketest" },enabled=false)
+	@Test(priority=7,groups = {"smoketest" },enabled=true)
 	public void checkboxclickTest() throws Exception
 	{
 	boolean flag=	FDP.checkboxclick();
