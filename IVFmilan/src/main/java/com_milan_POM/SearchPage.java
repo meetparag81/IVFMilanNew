@@ -41,7 +41,7 @@ public class SearchPage extends TestBase {
 	WebElement calender;
 	@FindBy(xpath = "//span[text()='Queue Management']//following::input[2]")
 	WebElement searchpaient;
-	@FindBy(xpath = "//button[text()='Search']")
+	@FindBy(xpath = "(//button[text()='Search'])[1]")
 	WebElement Searchbutton;
 	@FindBy(xpath = "//span[@class='icon-screen ng-binding']")
 	WebElement QueueManagement;
@@ -107,7 +107,7 @@ public class SearchPage extends TestBase {
 
 	public EMRDashBoardPage SearchusingCalender() throws Exception {
 		WebElement Calender = wait.until(ExpectedConditions	.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
-		TestUtil.VisibleOn(driver, Calender, 40);
+		TestUtil.VisibleOn(driver, Calender, 20);
 		Calender.click();
 		List<WebElement> dates = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
 
@@ -115,7 +115,7 @@ public class SearchPage extends TestBase {
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("07")) 
+			if (date.equals("01")) 
 			{
 				dates.get(i).click();
 				break;
@@ -134,7 +134,11 @@ public class SearchPage extends TestBase {
 		System.out.println("Element is not seen within time");
 		throw(e);
 		}
+		if(Searchbutton.isDisplayed()&&Searchbutton.isEnabled())
+		{
 		Searchbutton.click();
+		}
+		
 		int k = 1;
 		while (k <= 10) 
 		{
@@ -160,7 +164,7 @@ public class SearchPage extends TestBase {
 	}
 
 	public String QueueManagementpage() {
-		String Title = QueueManagement.getText();
+		String Title = EMRTitle.getText();
 		return Title;
 
 	}

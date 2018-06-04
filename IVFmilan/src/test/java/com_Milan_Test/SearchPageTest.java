@@ -45,7 +45,7 @@ public class SearchPageTest extends TestBase
 			
 			String Actual=	SearchPage.QueueManagementpage();
 			
-			String Expectted = "Queue Management";
+			String Expectted = "EMR Dashboard";
 			Assert.assertEquals(Actual, Expectted);
 			
 		}
