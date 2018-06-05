@@ -46,7 +46,7 @@ public class WInvestigationPageTest extends TestBase
 
 	}
 
-	@Test(priority=1,groups = {"smoketest" },enabled=false)
+	@Test(priority=1,groups = {"smoketest" },enabled=true)
 	public void CycleCreationTest() throws Exception 
 	{
 		int Actual = Investigation.Setsearchvalue();
@@ -55,7 +55,7 @@ public class WInvestigationPageTest extends TestBase
 	}
 	
 	
-	@Test(priority=2,groups = {"smoketest" },enabled=false)
+	@Test(priority=2,groups = {"smoketest" },enabled=true)
 	public void IVFPACKAGEARTCyclecountTest() throws Exception
 	{
 	int Actual =WInvestigationPage.REFIVFPACKAGEARTCycleCount();
@@ -64,7 +64,7 @@ public class WInvestigationPageTest extends TestBase
 	Assert.assertEquals(Actual, expected);	
 	System.out.println("IVFPACKAGEARTCyclecountTest is completed");
 	}
-	@Test(priority=3,groups = {"smoketest" },enabled=false)
+	@Test(priority=3,groups = {"smoketest" },enabled=true)
 	public void OUIARTSubTypesTest() throws Exception
 	{
 		int Actual =Investigation.OUIARTSubTypes();

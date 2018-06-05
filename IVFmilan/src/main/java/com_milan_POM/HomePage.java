@@ -1,6 +1,7 @@
 package com_milan_POM;
 
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,11 +17,10 @@ import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 
+
 public class HomePage extends TestBase {
-	@FindBy(id = "patientBtn")
-	private WebElement Patient;
-	@FindBy(xpath = "//input[@id='txtfullName']")
-	private WebElement Searchbox1;
+	private @FindBy (xpath="//a[@id='patientBtn']")WebElement Patient;
+	private @FindBy(xpath = "//input[@id='txtfullName']") WebElement Searchbox1;
 	private @FindBy(xpath = "//ul[@class='dropdown-menu ng-isolate-scope crx_mouse_visited']") WebElement Searchbox;
 	private @FindBy(xpath = "//h5[text()='Prescription']") WebElement title;
 	private @FindBy(xpath = "//span[text()='EMR Dashboard']") WebElement EMRTitle;
@@ -142,11 +142,18 @@ public class HomePage extends TestBase {
 
 	public EMRDashBoardPage searchPaient() throws Exception 
 	{
-		WebElement Patient1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
-		Paitent = wait.until(ExpectedConditions.visibilityOf(Patient));
-		Patient1.click();
+		try
+		{			
+		//WebElement Patient1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
+		TestUtil.VisibleOn(driver, Paitent, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("element is not seen within time");
+		}
+		Paitent.click();
+		
 		int Rowcount = reader.getRowCount("HomePage");
-
 		String PatientName = reader.getCellData("HomePage", "PatientName", 7);
 List<WebElement>Radiobutton=driver.findElements(By.xpath("//input[@type='radio']"));
 int radiobuttons= Radiobutton.size();
@@ -178,13 +185,22 @@ for(int i=1;i<radiobuttons;i++)
 	}
 		Thread.sleep(2000);
 		Searchbox1.sendKeys(PatientName);
+		try
+		{
 		TestUtil.VisibleOn(driver, Searchbox1, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element not seen with in 20 sec");
+		}
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
 		Thread.sleep(1000);
-		//Searchbox1.sendKeys(Keys.BACK_SPACE);
-		//Thread.sleep(1000);
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
+		if(search.containsAll(search))
+		{
+			Searchbox1.sendKeys(Keys.BACK_SPACE);
+		}
 
 		//System.out.println("totalsearch" + search.size());
 		// search.get(0).click();
@@ -192,23 +208,23 @@ for(int i=1;i<radiobuttons;i++)
 		{
 			Thread.sleep(1000);
 			// String name = search.get(i).getText();
-			Actions act = new Actions(driver);
-			act.moveToElement(search.get(i)).click().perform();
-			//search.get(i).click();
+			/*Actions act = new Actions(driver);
+			act.moveToElement(search.get(i)).click().perform();*/
+			search.get(i).click();
 			break;
-			/*
-			 * if(name.contains("Parag Agrawal"))
-			 * System.out.println("Paitent found"); {
-			 * wait.until(ExpectedConditions.visibilityOfAllElements(search));
-			 * search.get(i).click(); System.out.println("clicked on Paitent");
-			 * break; }
-			 */
-
+			
 		}
 		if(checkbox.isDisplayed())
 		{
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		try
+		{
 		TestUtil.VisibleOn(driver, checkbox, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("element not seen within20 seconds");
+		}
 		executor.executeScript("arguments[0].click();", checkbox);
 		}
 		else

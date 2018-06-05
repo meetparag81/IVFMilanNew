@@ -1,5 +1,7 @@
 package com_Milan_Test;
 
+import java.io.FileNotFoundException;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -25,6 +27,7 @@ public class CycleListPageTest extends TestBase
 	
 	
 	
+	
 	CycleListPageTest()
 	{
 		super();
@@ -44,10 +47,11 @@ public class CycleListPageTest extends TestBase
 		 
 		
 	}
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	public void ClickonNewCycleTest()
 	{
 		String act= CLP.ClickonNewCycle();
+		
 		String exp = reader.getCellData("CycleList", "ListTitle", 3);
 		Assert.assertEquals(act, exp);
 		System.out.println("ClickonNewCycleTest is completed");
@@ -56,7 +60,7 @@ public class CycleListPageTest extends TestBase
 	
 	
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void CycleListTitleTest()
 	{
 	String Actual=CLP.CycleListTitle();
@@ -65,7 +69,7 @@ public class CycleListPageTest extends TestBase
 	
 	}
 	
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,enabled=true)
 	public void NewCycleButtonEnableConditionTest()
 	{
 	boolean flag1=CLP.NewCycleButtonEnableCondition();
@@ -73,14 +77,14 @@ public class CycleListPageTest extends TestBase
 	Assert.assertTrue(flag1);
 	}
 	
-	@Test(priority=4,enabled=false)
+	@Test(priority=4,enabled=true)
 	public void EnabledconditionARTTypeTest()
 	{
 	boolean flag2=CLP.EnabledconditionARTType();
 	
 	Assert.assertFalse(flag2);
 	}
-	@Test(priority=5,enabled=false)
+	@Test(priority=5,enabled=true)
 	public void ARTTypeOptionTest()
 	{
 	String act=	CLP.ARTTypeOption();
@@ -88,11 +92,11 @@ public class CycleListPageTest extends TestBase
 	Assert.assertEquals(act, exp);	
 	System.out.println("ARTTypeOptionTest is completed" );
 	}
-	@Test(priority=6,enabled=false)
+	@Test(priority=6,enabled=true)
 	public void NoofProtocolandselectionTest ()
 	{
 		int Act=CLP.NoofProtocol();
-		int exp= reader.getRowCount("CycleList");
+		int exp= 12;
 		Assert.assertEquals(Act, exp);
 		System.out.println("NoofProtocolandselectionTest is completed");
 	}
@@ -100,14 +104,30 @@ public class CycleListPageTest extends TestBase
 	public void MethodofSemenCollectionTest()
 	{
 		int Act=CLP.MethodofSemenCollection();
-		reader.getCellData("CycleList", "SiemenSize", 2);
+		int exp= 4;
+		Assert.assertEquals(Act, exp, "value is not matched");
+		System.out.println("MethodofSemenCollectionTest is completed");
+		
 		
 	}
 	@Test(priority=8)
 	public void MethodSourceofspermTest()
 	{
-		CLP.Sourceofsperm();
+		int act= CLP.Sourceofsperm();
+		int exp = 4;
+		Assert.assertEquals(act, exp);
+		System.out.println("MethodSourceofspermTest is completed");
+		
 	}
+	@Test(priority=9)
+	public void SourceofSpermselectionTest()
+	{
+		String Act= CLP.SourceofSpermselection();
+		String Exp = reader.getCellData("CycleList", "sourceofsperm", 3);
+		Assert.assertEquals(Act, Exp);
+	}
+	
+	
 	
 	
 	@AfterMethod

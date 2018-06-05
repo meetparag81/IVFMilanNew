@@ -2,6 +2,7 @@ package com_milan_POM;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import javax.xml.xpath.XPath;
 
@@ -81,8 +82,16 @@ public class AddictionsPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean CurrentStatusEnableForSmoke() {
+	public boolean CurrentStatusEnableForSmoke() 
+	{
+		try
+		{
 		TestUtil.ClickOn(driver, smoke, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element not seen within 20 seconds");
+		}
 		if (smoke.isDisplayed()) {
 			smoke.click();
 		}
@@ -91,26 +100,56 @@ public class AddictionsPage extends TestBase {
 
 	}
 
-	public boolean CurrentStatusEnableConditionForAlcohol() {
+	public boolean CurrentStatusEnableConditionForAlcohol() 
+	{
+		try{
 		TestUtil.ClickOn(driver, Alkohol, 20);
-		if (Alkohol.isDisplayed()) {
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			
+		}
+		if (Alkohol.isDisplayed()) 
+		{
 			Alkohol.click();
 		}
 		currentstatusAlcohol.isDisplayed();
 		return true;
 	}
 
-	public boolean CurrentStatusEnableConditionForTobaco() {
+	public boolean CurrentStatusEnableConditionForTobaco() 
+	{
+		try
+		{
 		TestUtil.ClickOn(driver, Tobaco, 20);
-		if (Alkohol.isDisplayed()) {
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			
+		}
+		if (Alkohol.isDisplayed()) 
+		{
 			Alkohol.click();
 		}
 		currentstatusTobaco.isDisplayed();
 		return true;
 	}
 
-	public boolean CurrentStatusEnableConditionForDrugAdiction() {
-		TestUtil.ClickOn(driver, DrugAdiction, 20);
+	public boolean CurrentStatusEnableConditionForDrugAdiction() 
+	{
+		try
+		{
+			TestUtil.ClickOn(driver, DrugAdiction, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			
+		}
+		
+		
 		if (DrugAdiction.isDisplayed()) {
 			DrugAdiction.click();
 		}
@@ -118,17 +157,38 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean CurrentStatusEnableConditionForCaffeineAddiction() {
-		TestUtil.ClickOn(driver, CaffeineAddiction, 20);
-		if (CaffeineAddiction.isDisplayed()) {
+	public boolean CurrentStatusEnableConditionForCaffeineAddiction() 
+	{
+		try
+		{
+			TestUtil.ClickOn(driver, CaffeineAddiction, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			
+		}		
+		if (CaffeineAddiction.isDisplayed()) 
+		{
+			
 			CaffeineAddiction.click();
 		}
 		currentstatusCaffeineAddiction.isDisplayed();
 		return true;
 	}
 
-	public boolean EnableConditionForSinceWhenDrugAdiction() {
-		TestUtil.ClickOn(driver, DrugAdiction, 20);
+	public boolean EnableConditionForSinceWhenDrugAdiction() 
+	{
+		try
+		{
+			TestUtil.ClickOn(driver, DrugAdiction, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			
+		}
+		
 		if (DrugAdiction.isDisplayed()) {
 			DrugAdiction.click();
 		}
@@ -136,8 +196,10 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean EnableConditionSinceWhenForAlkohol() {
-		TestUtil.ClickOn(driver, Alkohol, 20);
+	public boolean EnableConditionSinceWhenForAlkohol() 
+	{
+		
+		
 		if (Alkohol.isDisplayed()) {
 			Alkohol.click();
 		}
@@ -145,64 +207,104 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean EnableConditionSinceWhenForTobaco() {
-		TestUtil.ClickOn(driver, Tobaco, 20);
-		if (Tobaco.isDisplayed()) {
+	public boolean EnableConditionSinceWhenForTobaco() 
+	{
+		try
+		{
+			TestUtil.ClickOn(driver, Tobaco, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			throw(e);
+		}
+		
+		
+		if (Tobaco.isDisplayed()) 
+		{
 			Tobaco.click();
 		}
 		SinceWhenYearTobaco.isDisplayed();
 		return true;
 	}
 
-	public boolean EnableConditionSinceWhenForSmoke() {
-		TestUtil.ClickOn(driver, Tobaco, 20);
-		if (smoke.isDisplayed()) {
+	public boolean EnableConditionSinceWhenForSmoke() 
+	{
+		try
+		{
+			TestUtil.ClickOn(driver, Tobaco, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			
+		}
+		
+		if (smoke.isDisplayed()) 
+		{
 			smoke.click();
 		}
 		SinceWhenYearSmoke.isDisplayed();
 		return true;
 	}
 
-	public boolean EnableConditionSinceWhenYearFor() {
-		TestUtil.ClickOn(driver, Tobaco, 20);
-		if (smoke.isDisplayed()) {
+	public boolean EnableConditionSinceWhenYearFor()
+	{
+		try
+		{
+			TestUtil.ClickOn(driver, Tobaco, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+			
+		}		
+		
+		if (smoke.isDisplayed()) 
+		{
 			smoke.click();
 		}
 		SenceWhenMonthSmioke.isDisplayed();
 		return true;
 	}
 
-	public boolean EnableconditionSinceWhenMonthForSmoke() {
+	public boolean EnableconditionSinceWhenMonthForSmoke() 
+	{
 		smoke.click();
 		SinceWhenMonthTobaco.isDisplayed();
 		return true;
 	}
 
-	public boolean EnableconditionSinceWhenMonthForAlkohol() {
+	public boolean EnableconditionSinceWhenMonthForAlkohol() 
+	{
 		Alkohol.click();
 		SinceWhenMonthAlkohol.click();
 		return true;
 	}
 
-	public boolean EnableconditionSinceWhenMonthForTobaco() {
+	public boolean EnableconditionSinceWhenMonthForTobaco() 
+	{
 		Tobaco.click();
 		SinceWhenMonthTobaco.isDisplayed();
 		return true;
 	}
 
-	public boolean EnableconditionSinceWhenMonthForDrugAdiction() {
+	public boolean EnableconditionSinceWhenMonthForDrugAdiction()
+	{
 		DrugAdiction.click();
 		SinceWhenMonthDrugAdiction.isDisplayed();
 		return true;
 	}
 
-	public boolean EnableconditionSinceWhenMonthForCaffeineAddiction() {
+	public boolean EnableconditionSinceWhenMonthForCaffeineAddiction() 
+	{
 		CaffeineAddiction.click();
 		SinceWhenMonthCaffeineAddiction.isDisplayed();
 		return true;
 	}
 
-	public static ArrayList<Object[]> getdatafromExcel() {
+	public static ArrayList<Object[]> getdatafromExcel() 
+	{
 		Exls_Reader reader = null;
 
 		ArrayList<Object[]> mydata = new ArrayList<Object[]>();

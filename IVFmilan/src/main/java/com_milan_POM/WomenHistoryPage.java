@@ -183,7 +183,15 @@ public class WomenHistoryPage extends TestBase
 				{
 					History.get(i).click();
 				}*/
+			try
+			{
 			TestUtil.VisibleOn(driver, addictions, 30);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Element not seen within 20 sec");
+				
+			}
 			addictions.click();
 			System.out.println("clicked on Addictions");
 			return new AddictionsPage();

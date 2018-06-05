@@ -16,7 +16,7 @@ import com_Milan_util.TestUtil;
 
 public class WComplaintsPage extends TestBase
 {
-	@FindBy(xpath="//label[@class='col-md-12 col-lg-12 control-label']/following::button[@class='ng-binding']")WebElement Buttoncomplaints;
+	private @FindBy(xpath="//label[@class='col-md-12 col-lg-12 control-label']/following::button[@class='ng-binding']")WebElement Buttoncomplaints;
 	@FindBy(xpath="//div[@class='checkboxLayer show']/div[2]")WebElement PresentingComplaints;
 	@FindBy(xpath="//div[@id='toasty']")WebElement FlashMessage;
 	@FindBy(xpath="//textarea[@name='FollowUpNotes']")WebElement FollowupNotes;

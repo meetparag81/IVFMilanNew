@@ -246,7 +246,15 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 		}
 		public WInvestigationPage ClickOnInvestigation() throws Exception
 		{
+			try
+			{
 			TestUtil.VisibleOn(driver, womenfield, 20);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element is not seen with in time");
+				throw(e);
+			}
 			Actions act1 = new Actions(driver);
 			act1.moveToElement(womenfield).click().perform();
 			Thread.sleep(2000);
@@ -288,8 +296,8 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 		public CycleListPage ClickonCycle()
 		{
 			Actions act = new Actions(driver);
-			act.moveToElement(Cycleoption).click().perform();
-			//Cycleoption.click();
+			//act.moveToElement(Cycleoption).click().perform();
+			Cycleoption.click();
 			return new CycleListPage();
 			
 		}
