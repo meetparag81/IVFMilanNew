@@ -37,7 +37,14 @@ public class WomenHistoryPage extends TestBase
 	public SexualHistoryPage ClickonSexsuslHistory() throws InterruptedException
 	{
 		System.out.println("========sexsuslHistory click testcase started======");
+		try
+		{
 		TestUtil.VisibleOn(driver, SexualHistory, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not displayed within20 sec");
+		}
 		SexualHistory.click();
 		System.out.println("clicked on Sexual history");
 		/*List<WebElement> history = driver.findElements(By.xpath("//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li"));

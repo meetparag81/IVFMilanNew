@@ -63,7 +63,7 @@ public void SearchPatientUsingCalenderTest() throws Exception
 	HomePage.SearchusingCalender();
 	String Actual=	HomePage.Dahboardtitle();
 	String Expectted = "EMR Dashboard";
-	AssertJUnit.assertEquals(Actual, Expectted);
+	Assert.assertEquals(Actual, Expectted);
 	System.out.println("search patient through Searchbox is completed");
 }
 @Test(priority=4)

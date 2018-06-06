@@ -214,8 +214,8 @@ for(int i=1;i<radiobuttons;i++)
 			break;
 			
 		}
-		if(checkbox.isDisplayed())
-		{
+		//if(checkbox.isDisplayed())
+		//{
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		try
 		{
@@ -226,11 +226,11 @@ for(int i=1;i<radiobuttons;i++)
 			System.out.println("element not seen within20 seconds");
 		}
 		executor.executeScript("arguments[0].click();", checkbox);
-		}
-		else
-		{
-			return new EMRDashBoardPage();
-		}
+		//}
+		//else
+		//{
+			//return new EMRDashBoardPage();
+		//}
 		
 		/*
 		 * List<WebElement>visits
@@ -267,7 +267,7 @@ for(int i=1;i<radiobuttons;i++)
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("07")) 
+			if (date.equals("01")) 
 			{
 				dates.get(i).click();
 				break;

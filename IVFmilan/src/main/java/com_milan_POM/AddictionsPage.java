@@ -216,7 +216,7 @@ public class AddictionsPage extends TestBase {
 		catch(Exception e)
 		{
 			System.out.println("Element is not seen with in20 seconds");
-			throw(e);
+			
 		}
 		
 		

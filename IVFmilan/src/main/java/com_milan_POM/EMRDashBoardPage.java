@@ -187,22 +187,30 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 		}
 		public WComplaintsPage ClickOnComplaints() throws Exception
 		{
+			try
+			{
 			TestUtil.VisibleOn(driver, womenfield, 10);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("element not seen within10 seconds");
+			}
 			Actions act = new Actions(driver);
 			act.moveToElement(womenfield).click().perform();
-			//womenfield.click();	
-			//TestUtil.VisibleOn(driver, Femalecomplaints, 10);
-			/*JavascriptExecutor jse = (JavascriptExecutor)driver;
-
-			jse.executeScript("arguments[0].scrollIntoView()", Femalecomplaints);
-			Femalecomplaints.click();*/
 			Actions act1 = new Actions(driver);
 			act1.moveToElement(Femalecomplaints).click().perform();
 			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if(visitm.size()!=0)
 			{
 			System.out.println("Visitcount" + visitm.size());
+			try
+			{
 			TestUtil.VisibleElementsOn(driver, visitm, 10);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("element not seen within10 sec");
+			}
 			visitm.get(1).click();
 			System.out.println("Complaints visit cliked");
 			
@@ -296,8 +304,8 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 		public CycleListPage ClickonCycle()
 		{
 			Actions act = new Actions(driver);
-			//act.moveToElement(Cycleoption).click().perform();
-			Cycleoption.click();
+			act.moveToElement(Cycleoption).click().perform();
+			//Cycleoption.click();
 			return new CycleListPage();
 			
 		}

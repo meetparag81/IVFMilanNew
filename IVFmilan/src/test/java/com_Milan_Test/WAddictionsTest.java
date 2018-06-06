@@ -167,7 +167,7 @@ public void Setup() throws Exception
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest is completed");
 	}
-	@Test(priority=16,groups = {"smoketest" },dataProvider= "getTestData",enabled= true)
+	@Test(priority=16,groups = {"functional" },dataProvider= "getTestData",enabled= true)
 	public void saveAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
 			String Frequency, String Quantity) throws Exception
 	{
