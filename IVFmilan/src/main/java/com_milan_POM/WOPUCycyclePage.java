@@ -3,6 +3,7 @@ package com_milan_POM;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -18,8 +19,7 @@ import com_Milan_util.TestUtil;
 
 public class WOPUCycyclePage extends TestBase 
 {
-	@FindBy(xpath = "//li[text()='Cycles']")
-	 WebElement Cycles;
+	@FindBy(xpath = "//li[text()='Cycles']")WebElement Cycles;
 	@FindBy(xpath = "//h5[text() ='Procedures']//following::input[@id='txtServiceName']") WebElement Searchbox;
 	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']") static WebElement saveflashmessage;
 	@FindBy(xpath = "//i[@class='fa fa-calendar']")
@@ -208,7 +208,7 @@ return count2;
 		
 	}
 		
-	public  String OPUsubtypeICSI() throws Exception 
+	public  String SaveOPUsubtypeICSI() throws Exception 
 	{
 		Actions act = new Actions(driver);
 		act.moveToElement(Cycles).click().perform();
@@ -282,32 +282,73 @@ return count2;
 
 	public  String ClickOnCycle() throws Exception 
 	{	
-		OPUsubtypeICSI();
+		SaveOPUsubtypeICSI();
 		 Cycleoption.click();
 		 msg= CyclelistTitle.getText();
 		return msg;
 		
 	}
 	
+	public boolean Existingcycle()
+	{
+		try
+		{
+		TestUtil.VisibleOn(driver, Cycles, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("element is not seen with in 20 seconds");
+		}
+		Actions act = new Actions(driver);
+		act.moveToElement(Cycles).click().perform();
+		List<WebElement> Availrow = driver.findElements(By.xpath("//table/tbody[3]/tr/td[4]"));
+		boolean flag= false;
+		int Rowssize =Availrow.size();
+		
+		if(Rowssize>0)
+		{
+			flag=true;
+		}
+		else
+		{
+			
+			flag= false;	
+		}
+		
+		
+		
+		
+		return flag;
+		
+	}
+	
+	
+	
 	public  String DeleteTheSevice()
 	{
-		
+		/*try
+		{
 		TestUtil.VisibleOn(driver, Cycles, 20);
-		Cycles.click();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element is not seen with in20 seconds");
+		}
+		
+		Cycles.click();*/
 		List<WebElement> Availrow = driver.findElements(By.xpath("//table/tbody[3]/tr/td[4]"));
 		int Rowssize =Availrow.size();
 		String msg="";
 		if(Rowssize>0)
 		{
-			Delete.click();
-			
+			Delete.click();			
 			Deletetext.sendKeys("NA");
 			SaveDeletediailog.click();
 			msg= DeleteMessage.getText();
 		}
 		else
 		{
-			System.out.println("");
+			
 			msg ="cyclenotfound";
 		}
 		

@@ -46,25 +46,37 @@ public class WOPUCycyclePageTest extends TestBase
 		 WOC = new WOPUCycyclePage();
 	}
 	
-	@Test(priority=5,groups = {"functional" },enabled=false)
+	@Test(priority=1,groups = {"functional" },enabled=true)
 	public void DeleteARTCycleTest() throws Exception
 	{		
+		boolean flag =WOC.Existingcycle();
+		if(flag)
+		{
 	String Actual=	WOC.DeleteTheSevice();
 	String Expected = reader.getCellData("Investigation", "Fashmessage", 3);
+	Assert.assertEquals(Actual, Expected);
 	System.out.println("cycle is deleted sucessfully");
+		}
+		else
+		{
+			String Actual = WOC.DeleteTheSevice();
+			 String Expected = reader.getCellData("Investigation", "Fashmessage", 5);
+			 Assert.assertEquals(Actual, Expected);
+			 System.out.println("cycle is not available");
+		}
 	}
 	
-	@Test(priority=3,groups = {"functional" },enabled=false)
-	public void OPUsubtypeICSITest() throws Exception
+	@Test(priority=4,groups = {"functional" },enabled=true)
+	public void SaveOPUsubtypeICSITest() throws Exception
 	{
-		
-		String Actual = WOC.OPUsubtypeICSI();
+		String Actual = WOC.SaveOPUsubtypeICSI();
+	
 		String Expected = reader.getCellData("Investigation","Fashmessage", 2);
 		Assert.assertEquals(Actual, Expected);
 		System.out.println("SelectSubTypeCycleTest is completed");
 		
 	}
-	@Test(priority=4,groups = {"smoketest" },enabled=true)
+	@Test(priority=5,groups = {"smoketest" },enabled=true)
 	public void ARTCycleAvailabilityMessageTest() throws Exception 
 	{
 		String Actual = WOC.ARTCycleAvailabilityMessage();
@@ -73,7 +85,7 @@ public class WOPUCycyclePageTest extends TestBase
 		System.out.println("ARTCycleAvailabilityMessage is completed");
 		
 	}
-	@Test(priority=2,groups = {"functional" },enabled=true)
+	@Test(priority=3,groups = {"functional" },enabled=true)
 	public void NoofCyclesTest() throws Exception 
 	{
 		int Actual= WOC.NoofCycles();
@@ -96,7 +108,7 @@ public class WOPUCycyclePageTest extends TestBase
 	
 	
 	
-	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	@Test(priority=2,groups = {"smoketest" },enabled=true)
 	public void SearchcycleTest() throws Exception
 	{
 		 WOC.SearchThecycles();			

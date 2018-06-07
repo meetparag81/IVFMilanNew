@@ -225,7 +225,10 @@ for(int i=1;i<radiobuttons;i++)
 		{
 			System.out.println("element not seen within20 seconds");
 		}
-		executor.executeScript("arguments[0].click();", checkbox);
+		Actions sct = new Actions(driver);
+		sct.moveToElement(checkbox).click().perform();
+		//executor.executeScript("arguments[0].click();", checkbox);
+		
 		//}
 		//else
 		//{

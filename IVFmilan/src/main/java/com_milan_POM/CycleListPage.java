@@ -72,6 +72,14 @@ public class CycleListPage extends TestBase
 	public boolean EnabledconditionARTType()
 	{
 		ClickonNewCycle();
+		try
+		{
+			TestUtil.VisibleOn(driver, Artselecttype, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element is not seen within 20 seconds");
+		}
 		boolean flag= Artselecttype.isEnabled();	
 		
 		
@@ -91,8 +99,9 @@ public class CycleListPage extends TestBase
 		
 	}
 	
-	public int NoofProtocol()
+	public int NoofProtocol() throws Exception
 	{
+		Thread.sleep(2000);
 		String NameofProtocol = null;
 		ClickonNewCycle();
 		Select Protocolopt= new Select(Protocol);
@@ -102,7 +111,7 @@ public class CycleListPage extends TestBase
 		int rows=row;
 		int count=0;
 		rows=row+1;
-		for(int i=1;i<SizeofProtocol;i++)
+		for(int i=0;i<SizeofProtocol;i++)
 		{
 			
 		String ProtocolName= NoofProtocol.get(i).getText();
