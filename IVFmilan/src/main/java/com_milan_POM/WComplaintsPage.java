@@ -37,8 +37,8 @@ public class WComplaintsPage extends TestBase
 	
 	public  int NewPatientPresentingComplaints() throws Exception
 	{
-		List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
-		int NoofRows= Rows.size();
+		List<WebElement>complaintRows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
+		int NoofRows= complaintRows.size();
 		if(NoofRows==0)
 		{
 			Thread.sleep(2000);	
@@ -49,7 +49,7 @@ public class WComplaintsPage extends TestBase
 			catch(Exception e)
 			{
 				TestUtil.getScreenshot(driver, "NewPatientPresentingComplaints"+".png");
-				throw(e);
+				
 			
 			
 			}
@@ -72,7 +72,7 @@ public class WComplaintsPage extends TestBase
 		}
 		else
 		{
-			System.out.println("Patient is existing Patient");
+			System.out.println("Patient has existing complaints");
 		}
 		
 		return count;	

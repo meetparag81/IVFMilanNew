@@ -61,9 +61,9 @@ static WebElement existcycles;
 		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));
 		int size = searchlist.size();
 
-		for (int i = 0; i <= 8; i++) {
+		for (int i = 0; i <= 7; i++) {
 			rows++;
-			if (rows == 8) {
+			if (rows == 7) {
 				break;
 			} else {
 				String resultnames = searchlist.get(i).getText();

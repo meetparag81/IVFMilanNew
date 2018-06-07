@@ -55,6 +55,7 @@ public class WcomplaintsTest extends TestBase
 		String Actual= WCP.SaveTheComplaints();
 		String expected = "Modality is mandatory field";
 		Assert.assertEquals(Actual, expected);
+		System.out.println("SaveTheComplaintsTest is completed");
 	}
 	@Test(priority=3,groups = {"smoketest" })
 	public void NextFollowUpTest() throws Exception

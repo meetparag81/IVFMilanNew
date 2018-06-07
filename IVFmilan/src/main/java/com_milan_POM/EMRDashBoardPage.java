@@ -19,7 +19,7 @@ import com_Milan_util.TestUtil;
 
 public class EMRDashBoardPage extends TestBase
 {
-private @FindBy(xpath="//a[@id='menuField_women']") WebElement womenfield;
+private @FindBy(xpath="//li[@class='active']/a[@id='menuField_women']") WebElement womenfield;
 private @FindBy(xpath="//a[@id='menuField_men']") WebElement menfield;
 private @FindBy(xpath="//*[@id='0']")WebElement visitwomen;
 private @FindBy(xpath ="//a[@class='icoLink femaleHistory'][@title='History']")WebElement Historylinkwomen; 
@@ -191,14 +191,13 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 			{
 			TestUtil.VisibleOn(driver, womenfield, 10);
 			}
-			catch(TimeoutException e)
+			catch (TimeoutException e)
 			{
-				System.out.println("element not seen within10 seconds");
+				System.out.println("elementisnotseen within 20 sec");
 			}
 			Actions act = new Actions(driver);
 			act.moveToElement(womenfield).click().perform();
-			Actions act1 = new Actions(driver);
-			act1.moveToElement(Femalecomplaints).click().perform();
+				//womenfield.click();
 			List<WebElement> visitm=driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if(visitm.size()!=0)
 			{
@@ -221,12 +220,19 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 			System.out.println("Complaints visits are not available");
 			
 										
-			}
-			return new WComplaintsPage();		
+			}			
+			return new WComplaintsPage();
 		}
 		public WVitalsPage ClickOnVitals() throws Exception 
 		{
+			try
+			{
 			TestUtil.VisibleOn(driver, womenfield, 20);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element is not seen with in 20 sec");
+			}
 			Actions act = new Actions(driver);
 			act.moveToElement(womenfield).click().perform();
 			//womenfield.click();	
