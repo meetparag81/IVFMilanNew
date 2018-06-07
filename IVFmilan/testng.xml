@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com_Milan_Test.SearchPageTest"/>
+      <class name="com_Milan_Test.WOPUCycyclePageTest"/>
+      <class name="com_Milan_Test.LoginPageTest"/>
+      <class name="com_Milan_Test.WInvestigationPageTest"/>
+      <class name="com_Milan_Test.WPastMedicationHistoryTest"/>
+      <class name="com_Milan_Test.WcomplaintsTest"/>
+      <class name="com_Milan_Test.WAllergiesTest"/>
+      <class name="com_Milan_Test.FemaleDiagnosisTest"/>
+      <class name="com_Milan_Test.WomenHistoryPageTest"/>
+      <class name="com_Milan_Test.CycleListPageTest"/>
+      <class name="com_Milan_Test.WObstetricHistoryPageTest"/>
+      <class name="com_Milan_Test.WMenstrualHistoryTest"/>
+      <class name="com_Milan_Test.WVitalsTest"/>
+      <class name="com_Milan_Test.WAddictionsTest"/>
+      <class name="com_Milan_Test.EMRDashBoardPageTest"/>
+      <class name="com_Milan_Test.WSexsualHistoryTest"/>
+      <class name="com_Milan_Test.HomePageTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
