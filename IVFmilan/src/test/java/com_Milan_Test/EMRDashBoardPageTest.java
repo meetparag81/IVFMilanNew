@@ -64,7 +64,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 		
 	}
-	@Test(priority=1,groups = {"SmokeTest" },enabled=false)
+	@Test(priority=1,groups = {"smokeTest" },enabled=false)
 	public void ClickonWoomenPaientFieldTest() throws InterruptedException
 	{
 		WHP= EMRPage.clickOnWomenField();
@@ -139,7 +139,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 	}
 	
-	@Test(priority=3,groups = {"SmokeTest" },enabled=true)
+	@Test(priority=3,groups = {"smokeTest" },enabled=true)
 	public void ClickOnDiagnosisTest() throws Exception
 	{
 		FemaleDiagnosis= EMRPage.ClickOnDiagnosis();
