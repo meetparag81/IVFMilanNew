@@ -42,6 +42,8 @@ public class CycleListPageTest extends TestBase
 		EMRPage = HomePage.searchPaient();
 		// EMRPage= HomePage.ClickonEMR();
 		// EMRPage=HomePage.SearchusingCalender();
+		WOC = new WOPUCycyclePage();
+		WOC.SaveOPUsubtypeICSI();
 		CLP=  EMRPage.ClickonCycle();
 		 
 		 

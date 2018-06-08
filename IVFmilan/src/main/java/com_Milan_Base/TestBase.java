@@ -82,7 +82,7 @@ public class TestBase
 		catch(TimeoutException e)
 		{
 			System.out.println("url is not entered");
-			throw(e);
+			
 		}
 		
 	}
