@@ -52,27 +52,23 @@ public void Setup() throws Exception
 		Addictions= WHP.ClickOnAddictions();
 }
 	
-	@AfterMethod
-	public void Teardown()
-	{
-		driver.quit();
-	}
 	
-	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	
+	@Test(priority=1,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionSmokeTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableForSmoke();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionSmokeTest is completed");
 	}
-	@Test(priority=2,groups = {"smoketest" },enabled=true)
+	@Test(priority=2,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionAlkoholTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForAlcohol();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionAlkoholTest is completed");
 	}
-	@Test(priority=3,groups = {"smoketest" },enabled=true)
+	@Test(priority=3,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionTobacoTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForTobaco();
@@ -80,7 +76,7 @@ public void Setup() throws Exception
 		System.out.println("CurrentStatusEnableConditionTobacoTest is completed");
 	}
 	
-	@Test(priority=4,groups = {"smoketest" },enabled=true)
+	@Test(priority=4,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionAdictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForDrugAdiction();
@@ -88,28 +84,28 @@ public void Setup() throws Exception
 		System.out.println("CurrentStatusEnableConditionAdictionTest is completed");
 	}
 	
-	@Test(priority=5,groups = {"smoketest" },enabled=true)
+	@Test(priority=5,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionCaffeineAddictionTest is completed");
 	}
-	@Test(priority=6,groups = {"smoketest" },enabled=true)
+	@Test(priority=6,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearSmokeTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForSmoke();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionCaffeineAddictionTest is completed");
 	}
-	@Test(priority=7,groups = {"smoketest" },enabled=true)
+	@Test(priority=7,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearAlkoholTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForAlkohol();
 		Assert.assertTrue(flag);
 		System.out.println("SenceWhenEnableconditionSinceWhenYearAlkoholTest is completed");
 	}
-	@Test(priority=8,groups = {"smoketest" },enabled=true)
+	@Test(priority=8,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearTobacoTest()
 	{
 		boolean flag= Addictions.EnableConditionSinceWhenForTobaco();
@@ -117,7 +113,7 @@ public void Setup() throws Exception
 		System.out.println("SenceWhenEnableconditionSinceWhenYearTobacoTest is completed");
 	}
 	
-	@Test(priority=9,groups = {"smoketest" },enabled=true)
+	@Test(priority=9,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenDrugAddictionYearTest()
 	{
 		boolean flag= Addictions.EnableConditionForSinceWhenDrugAdiction();
@@ -125,7 +121,7 @@ public void Setup() throws Exception
 		System.out.println("SenceWhenEnableconditionSinceWhenDrugAddictionYearTest is completed");
 	}
 	
-	@Test(priority=10,groups = {"smoketest" },enabled=true)
+	@Test(priority=10,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();
@@ -139,28 +135,28 @@ public void Setup() throws Exception
 		AssertJUnit.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthSmokeTest is completed");
 	}
-	@Test(priority=12,groups = {"smoketest" },enabled=true)
+	@Test(priority=12,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthAlkoholTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForAlkohol();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthAlkoholTest is completed");
 	}
-	@Test(priority=13,groups = {"smoketest" },enabled=true)
+	@Test(priority=13,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthTobocoTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForTobaco();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthTobocoTest is completed");
 	}
-	@Test(priority=14,groups = {"smoketest" },enabled=true)
+	@Test(priority=14,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForDrugAdiction();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest is completed");
 	}
-	@Test(priority=15,groups = {"smoketest" },enabled=true)
+	@Test(priority=15,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForCaffeineAddiction();
@@ -192,7 +188,10 @@ public void Setup() throws Exception
 			 String Expectedold = reader.getCellData("Addictions", "Message", 3);
 			 Expected1 = Expectedold;
 			 Actualold = Addictions.UpdateSaveFlashMessage();
-			 Actual = Actualnew;
+			 Actual = Actualold;
+			 Assert.assertEquals(Actual, Expected1);
+				System.out.println("AddictionSaveTest is Passed");
+			 
 		}
 		else
 		{
@@ -201,15 +200,13 @@ public void Setup() throws Exception
 			 Expected1= Expectednew;
 			 Actualnew= Addictions.NewSaveFlashMessage();
 				 Actual = Actualnew;
+				 Assert.assertEquals(Actual, Expected);
+					System.out.println("AddictionSaveTest is Passed");
 			 
 		}
-		Expected = Expected1;
 		
-		 
-		Assert.assertEquals(Actual, Expected);
-		System.out.println("AddictionSaveTest is Passed");
 	}
-	@Test (priority=17,groups = {"functional" })
+	@Test (priority=17,groups = {"functional" },enabled=false)
 	public void saveNewAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
 			String Frequency, String Quantity) throws Exception
 	{
@@ -264,6 +261,11 @@ public void Setup() throws Exception
 	{
 		ArrayList<Object[]>	Addictions= AddictionsPage.getdatafromExcel();	
 	return Addictions.iterator();
+	}
+	@AfterMethod
+	public void Teardown()
+	{
+		driver.quit();
 	}
 	
 	

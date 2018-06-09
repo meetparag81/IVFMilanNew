@@ -2,6 +2,7 @@ package com_Milan_Test;
 
 import java.io.FileNotFoundException;
 
+import org.apache.bcel.generic.BALOAD;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -42,9 +43,19 @@ public class CycleListPageTest extends TestBase
 		EMRPage = HomePage.searchPaient();
 		// EMRPage= HomePage.ClickonEMR();
 		// EMRPage=HomePage.SearchusingCalender();
+		Investigation = EMRPage.ClickOnInvestigation();
 		WOC = new WOPUCycyclePage();
-		WOC.SaveOPUsubtypeICSI();
+		 boolean flag= WOC.Existingcycle();
+		 if(flag==false)
+		 {
+			 WOC.SaveOPUsubtypeICSI();
+		 }
+		 else
+		 {
+			 System.out.println("cycle already exist");
+		 }
 		CLP=  EMRPage.ClickonCycle();
+		
 		 
 		 
 		
@@ -53,7 +64,6 @@ public class CycleListPageTest extends TestBase
 	public void ClickonNewCycleTest()
 	{
 		String act= CLP.ClickonNewCycle();
-		
 		String exp = reader.getCellData("CycleList", "ListTitle", 3);
 		Assert.assertEquals(act, exp);
 		System.out.println("ClickonNewCycleTest is completed");
@@ -74,6 +84,7 @@ public class CycleListPageTest extends TestBase
 	@Test(priority=3,enabled=false)
 	public void NewCycleButtonEnableConditionTest()
 	{
+		System.out.println();
 	boolean flag1=CLP.NewCycleButtonEnableCondition();
 	
 	Assert.assertTrue(flag1);
@@ -88,7 +99,7 @@ public class CycleListPageTest extends TestBase
 	Assert.assertFalse(flag2);
 	System.out.println("EnabledconditionARTTypeTest is completed");
 	}
-	@Test(priority=5,enabled=false)
+	@Test(priority=5,enabled=true)
 	public void ARTTypeOptionTest()
 	{
 	String act=	CLP.ARTTypeOption();

@@ -339,22 +339,22 @@ public class AddictionsPage extends TestBase {
 		List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
 
 		count1 = checkbox.size();
-		
+		checkbox.clear();
 
-			for (int i = 1; i <=5; i++) 
+			for (int i = 1; i <=count1; i++) 
 			{
 				WebElement checkbox1 = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
 				
 				if (checkbox1.isSelected() == false) 
 				{
-					AddictionsPage.NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+					NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 					Save.click();
 					break;
 
 				}
 				else
 				{
-					AddictionsPage.ExistingAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+					ExistingAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 					break;
 					
 				}
@@ -363,7 +363,7 @@ public class AddictionsPage extends TestBase {
 			
 	}
 	
-	public static void NewAddictions(String Addiction1, String CurrentStatus1, String SinceMonth1, String SinceYear1,
+	public  void NewAddictions(String Addiction1, String CurrentStatus1, String SinceMonth1, String SinceYear1,
 			String Frequency1, String Quantity1) 
 	{
 		List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
@@ -547,19 +547,21 @@ public class AddictionsPage extends TestBase {
 	}
 	
 		
-		public static void ExistingAddictions(String Addiction2, String CurrentStatus2, String SinceMonth2, String SinceYear2,String Frequency2, String Quantity2)
+		public  void ExistingAddictions(String Addiction2, String CurrentStatus2, String SinceMonth2, String SinceYear2,String Frequency2, String Quantity2)
 		{
 			count1++;
-		int count1 = 0;
+		int count = 0;
 				List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
-				count1 = checkbox.size();
+				count = checkbox.size();
 				int rows1 = 1;
 				int count2 = 0;
-				while (rows1 <= 5) 
-				{
-					for (int i = 1; i <= 5; i++) 
+				int i=1;
+				
+				
+					while (i <= count) 
 					{
 						rows1++;
+						
 						WebElement addictionnames = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[1]//label"));
 						String names = addictionnames.getText();
 						
@@ -599,6 +601,7 @@ public class AddictionsPage extends TestBase {
 							WebElement Noofcigaret = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 							Noofcigaret.clear();
 							Noofcigaret.sendKeys(Quantity2);
+							i++;
 							rows1++;
 							break;
 
@@ -634,6 +637,7 @@ public class AddictionsPage extends TestBase {
 							Alkoholqty.clear();
 							Alkoholqty.sendKeys(Quantity2);
 							rows1++;
+							i++;
 							break;
 						case "Tobacco":
 							WebElement checkboxT = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
@@ -667,6 +671,7 @@ public class AddictionsPage extends TestBase {
 							Tobacoqty.clear();
 							Tobacoqty.sendKeys(Quantity2);
 							rows1++;
+							i++;
 							break;
 
 						case "Drug Addiction":
@@ -701,6 +706,7 @@ public class AddictionsPage extends TestBase {
 							DrugAddictionqty.clear();
 							DrugAddictionqty.sendKeys(Quantity2);
 							rows1++;
+							i++;
 							break;
 
 						case "Caffeine Addiction":
@@ -736,6 +742,7 @@ public class AddictionsPage extends TestBase {
 							WebElement CaffeineAddictionqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 							CaffeineAddictionqty.clear();
 							CaffeineAddictionqty.sendKeys(Quantity2);
+							i++;
 							rows1++;
 				
 				
@@ -744,8 +751,8 @@ public class AddictionsPage extends TestBase {
 				
 			
 			}//switch
-						break;
-					}//for
+						
+					
 					try 
 					{
 						String countnew = Integer.toString(count1);
@@ -759,12 +766,12 @@ public class AddictionsPage extends TestBase {
 						System.out.println("Save the form");
 					}
 					
-				} // while
+					}//while
 
 				Save.click();
 				
 				
-				String Message = NewSaveflashmsg.getText();
+				String Message = UpdateFlashMessage.getText();
 
 				System.out.println(Message);
 				
@@ -785,6 +792,7 @@ public class AddictionsPage extends TestBase {
 				public String UpdateSaveFlashMessage() 
 				{
 					String Message = UpdateFlashMessage.getText();
+					System.out.println("Addictionupdate message="+ Message);
 					return Message;
 				}
 				

@@ -25,6 +25,7 @@ public class CycleListPage extends TestBase
 	private @FindBy(xpath="//label[@class='col-sm-12 col-md-12 col-lg-12 control-label p-r-0']//following::div/select")WebElement Semen;
 	private @FindBy(xpath="//label[text()='Source of Sperm']//following-sibling::div/select")WebElement Sourceofsperm;
 	private @FindBy(xpath="(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[2]")WebElement Donor;
+	private @FindBy(xpath ="//span[@class='multiSelect inlineBlock buttonClicked']/button")WebElement Indication;
 	String msg ="";
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	CycleListPage()
@@ -35,13 +36,15 @@ public class CycleListPage extends TestBase
 	
 	public boolean NewCycleButtonEnableCondition()
 	{
+		 System.out.println();
 		 boolean flag1 = Newcyclebutton.isEnabled();
 		return flag1;
 		
 	}
 	public String ClickonNewCycle()
 	{
-		
+		System.out.println();
+		boolean flag= NewCycleButtonEnableCondition();
 		if(NewCycleButtonEnableCondition()==true)
 		{
 		Newcyclebutton.click();
@@ -246,6 +249,33 @@ public class CycleListPage extends TestBase
 		return msg;
 		
 	}
+	public String IndicationtypeSelection()
+	{
+	Indication.click();
+	List<WebElement> IndicationList = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
+	int indicationsize= IndicationList.size();
+	int row = 1;
+	int rows=row+1;
+	int count=0;
+	for(int i= 0;i<=indicationsize;i++)
+	{
+		String IndicationNames= IndicationList.get(i).getText();
+		reader.setCellData("CycleList", "IndicationNames", rows, IndicationNames);
+		
+		String NameIndication = reader.getCellData("CycleList", "IndicationNames", rows);
+		if(NameIndication.equals(IndicationNames))
+		{
+			IndicationList.get(i).click();
+			rows++;
+			count++;
+		}
+		
+	}
+	 
+	return msg;
+	
+	}
+	
 				
 
 		

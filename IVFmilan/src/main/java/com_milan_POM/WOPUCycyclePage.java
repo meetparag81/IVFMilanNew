@@ -210,41 +210,37 @@ return count2;
 		
 	public  String SaveOPUsubtypeICSI() throws Exception 
 	{
-		Actions act = new Actions(driver);
-		act.moveToElement(Cycles).click().perform();
+		
+		/*Actions act = new Actions(driver);
+		act.moveToElement(Cycles).click().perform();*/
 		//Cycles.click();
 		List<WebElement> Availrow = driver.findElements(By.xpath("//table/tbody[3]/tr/td[4]"));
 		int Rowssize =Availrow.size();
-		if(Rowssize>0)
+		if(Existingcycle()==true)
 		{
 			
-			Delete.click();
-			
-			Deletetext.sendKeys("NA");
-			SaveDeletediailog.click();
-			SearchThecycles();
-			subtypedataentry();
-			
-			
-			
+			msg="Cycle Already available";
+		
 		}
 		else
 		{
 		SearchThecycles();
 		subtypedataentry();
-		
+		Save.click();
+		msg = saveflashmessage.getText();
+		 
 		}
 		
-		Save.click();
-		String msg1 = saveflashmessage.getText();
-		return msg1;
+		
+		return msg;
+		
 
 	}
 
 	public   String ARTCycleAvailabilityMessage() throws Exception
 	{
-		TestUtil.VisibleOn(driver, Cycles, 20);
-		Cycles.click();
+		/*TestUtil.VisibleOn(driver, Cycles, 20);
+		Cycles.click();*/
 		String Name = reader.getCellData("Investigation", "Search", 2);
 		Searchbox.sendKeys(Name);
 		Thread.sleep(1000);
@@ -259,21 +255,22 @@ return count2;
 		List<WebElement> Availrow = driver.findElements(By.xpath("//table/tbody[3]/tr/td[4]"));
 		int Availrowsize = Availrow.size();
 		String namecycle = searchlist.get(i).getText();
-		if ( namecycle.equals(ARTName)) 
+		
+		String msg="";
+		
+		if (Availrowsize>0) 
 		{
 			searchlist.get(i).click();
+			Thread.sleep(1000);
+			msg = Availabilitymessage.getText();
 		}
 		else
 		{
-			System.out.println("ARTCycle is already available");
-			
-			
-			
-			
+			msg = "cyclenotfound";
+		
 		}
-		Thread.sleep(1000);
-		msg = Availabilitymessage.getText();		
-		System.out.println(msg);
+		
+		//System.out.println(msg);
 				
 		return msg;		
 

@@ -54,8 +54,7 @@ public class EMRDashBoardPageTest extends TestBase
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage = HomePage.searchPaient();
-		//EMRPage=HomePage.SearchusingCalender();
-		//EMRPage= HomePage.ClickonEMR();
+		
 		
 		
 		
@@ -64,7 +63,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 		
 	}
-	@Test(priority=1,groups = {"smokeTest" },enabled=false)
+	@Test(priority=1,groups = {"smokeTest" },enabled=true)
 	public void ClickonWoomenPaientFieldTest() throws InterruptedException
 	{
 		WHP= EMRPage.clickOnWomenField();
@@ -80,92 +79,48 @@ public class EMRDashBoardPageTest extends TestBase
 		}
 		String Actual= Actual1;
 		
-		
-		MHP= EMRPage.clickOnMenField();
-		boolean flag1 = EMRPage.GetEnableconditionMenfield();
-		if(flag==false)
-		{
-			 Actual1=EMRPage.GetEmrTitle();
-			 count++;
-		}
-		else
-		{
-			EMRPage.TitleHistoryPage();
-		}
-		String Actual2= Actual1;
-		if(count>0)
-		{
-			row++;
-			 Expected1 = reader.getCellData("EMRPage", "Message", row);
-		}
-		else
-		{
-			Expected1=reader.getCellData("EMRPage", "Message", row);
-		}
+		 Expected1 = reader.getCellData("EMRPage", "Message", row);
 		String Expected = Expected1;
-		Assert.assertEquals(Actual2, Expected);
+		Assert.assertEquals(Actual1, Expected);
 				
 		System.out.println("ClickonWoomenPaientFieldTest is completed");
 		
 	}
-	@Test(priority=2,groups = {"SmokeTest" },enabled=false)
+	@Test(priority=2,groups = {"smoketest" },enabled=true)
 	public void ClickOnMenPaientHistory() throws Exception
 	{
 		MHP= EMRPage.clickOnMenField();
-		boolean flag = EMRPage.GetEnableconditionMenfield();
-		if(flag==false)
-		{
-			 Actual1=EMRPage.GetEmrTitle();
-			 count++;
-		}
-		else
-		{
-			EMRPage.TitleHistoryPage();
-		}
+		 
 		String Actual= Actual1;
-		if(count>0)
-		{
-			row++;
+		
 			 Expected1 = reader.getCellData("EMRPage", "Message", row);
-		}
-		else
-		{
-			Expected1=reader.getCellData("EMRPage", "Message", row);
-		}
-		String Expected = Expected1;
-		Assert.assertEquals(Actual, Expected);
 		
 		System.out.println("ClickonMenPaientFieldTest is completed");
 		
-	}
+		}
 	
-	@Test(priority=3,groups = {"smokeTest" },enabled=true)
+	@Test(priority=3, groups = {"smoketest" },enabled=true)
 	public void ClickOnDiagnosisTest() throws Exception
 	{
 		FemaleDiagnosis= EMRPage.ClickOnDiagnosis();
 		System.out.println("ClickonMenPaientFieldTest is completed");		
 	}
 	
-	/*@Test(priority=4)
-	public void OptionSelectedOnAllergyformTest() throws Exception
-	{
-		EMRPage= HomePage.searchPaient();		
-		Allergies.AllergiesNameonDashboard();
-	}*/
-	@Test(priority=4,groups = {"smokeTest" },enabled=true)
+	
+	@Test(priority=4,groups = {"smoketest" },enabled=true)
 	public void ClickOnInvestigationTest() throws Exception
 	{
 		Investigation= EMRPage.ClickOnInvestigation();
 		
 		
 	}
-	@Test(priority=5,groups = {"smokeTest" })
+	@Test(priority=5,groups = {"smoketest" })
 	public void ClickOnVitalTest() throws Exception
 	{
 		EMRPage.ClickOnVitals();
 	}
 	
-	@Test(priority=6,groups = {"smokeTest" })
+	@Test(priority=6,groups = {"smoketest" })
 	public void ClickOnComplaintTest() throws Exception
 	{
 		System.out.println();

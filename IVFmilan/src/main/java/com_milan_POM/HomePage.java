@@ -177,9 +177,7 @@ for(int i=1;i<radiobuttons;i++)
 	{
 		Radiobutton.get(2).click();
 		break;
-	}
-		
-		
+	}		
 		
 		
 	}
@@ -197,25 +195,41 @@ for(int i=1;i<radiobuttons;i++)
 		Thread.sleep(1000);
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
-		if(search.containsAll(search))
+		if(search.size()>0)
 		{
 			Searchbox1.sendKeys(Keys.BACK_SPACE);
 		}
+		else
+		{
+			Searchbox1.clear();
+			Searchbox1.sendKeys(PatientName);
+			Searchbox1.sendKeys(Keys.BACK_SPACE);
+		}
 
-		//System.out.println("totalsearch" + search.size());
-		// search.get(0).click();
+		
 		for (int i = 0; i < search.size(); i++) 
 		{
 			Thread.sleep(1000);
 			// String name = search.get(i).getText();
 			/*Actions act = new Actions(driver);
 			act.moveToElement(search.get(i)).click().perform();*/
+			WebElement result= search.get(i);
+			boolean flag= result.isDisplayed();
+			if(flag)
+			{
 			search.get(i).click();
 			break;
+			}
+			else
+			{
+				Searchbox1.clear();
+				Searchbox1.sendKeys(PatientName);
+				search.get(i).click();
+			}
 			
 		}
-		//if(checkbox.isDisplayed())
-		//{
+		if(checkbox.isDisplayed())
+		{
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		try
 		{
@@ -227,28 +241,14 @@ for(int i=1;i<radiobuttons;i++)
 		}
 		Actions sct = new Actions(driver);
 		sct.moveToElement(checkbox).click().perform();
-		//executor.executeScript("arguments[0].click();", checkbox);
-		
-		//}
-		//else
-		//{
-			//return new EMRDashBoardPage();
-		//}
-		
-		/*
-		 * List<WebElement>visits
-		 * =driver.findElements(By.xpath("//tbody//input[@type='checkbox']"));
-		 * 
-		 * System.out.println("visits Rows are" + visits.size());
-		 * //input[@id='0'] if( visits.size()!=0) {
-		 * 
-		 * Thread.sleep(3000); visits.get(0).click();
-		 * System.out.println(("clickoncheckbox"));
-		 * 
-		 * } else { System.out.println("no visits found");
-		 */
-		//System.out.println("Searchtestcompleted");
+		}
+		else
+		{
+			return new EMRDashBoardPage();
+		}
 		return new EMRDashBoardPage();
+		
+		
 
 	}
 
@@ -290,7 +290,7 @@ for(int i=1;i<radiobuttons;i++)
 			TestUtil.VisibleOn(driver, Nameofpatient, 30);
 			String name1 = Nameofpatient.getText();
 			Thread.sleep(4000);
-			String Paitentname = reader.getCellData("HomePage", 0, 15);
+			String Paitentname = reader.getCellData("HomePage", 0, 16);
 			if (name1.contains(Paitentname)) 
 			{
 				 Thread.sleep(2000);

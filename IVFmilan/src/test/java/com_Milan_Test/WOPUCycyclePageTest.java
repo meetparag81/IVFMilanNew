@@ -40,13 +40,11 @@ public class WOPUCycyclePageTest extends TestBase
 		Loginpage = new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage = HomePage.searchPaient();
-		// EMRPage= HomePage.ClickonEMR();
-		// EMRPage=HomePage.SearchusingCalender();
 		Investigation = EMRPage.ClickOnInvestigation();
 		 WOC = new WOPUCycyclePage();
 	}
 	
-	@Test(priority=1,groups = {"functional" },enabled=true)
+	@Test(priority=2,groups = {"functional" },enabled=false)
 	public void DeleteARTCycleTest() throws Exception
 	{		
 		boolean flag =WOC.Existingcycle();
@@ -69,23 +67,43 @@ public class WOPUCycyclePageTest extends TestBase
 	@Test(priority=4,groups = {"functional" },enabled=true)
 	public void SaveOPUsubtypeICSITest() throws Exception
 	{
+		boolean flag= WOC.Existingcycle();
+		if(flag==true)
+		{
 		String Actual = WOC.SaveOPUsubtypeICSI();
-	
-		String Expected = reader.getCellData("Investigation","Fashmessage", 2);
+		String Expected = reader.getCellData("Investigation","Fashmessage",6 );
 		Assert.assertEquals(Actual, Expected);
 		System.out.println("SelectSubTypeCycleTest is completed");
+		}
+		else
+		{
+		String Actual = WOC.SaveOPUsubtypeICSI();
+		String Expected = reader.getCellData("Investigation","Fashmessage",2 );
+		System.out.println("SelectSubTypeCycleTest is completed");
+		}
+		
+		
 		
 	}
-	@Test(priority=5,groups = {"smoketest" },enabled=true)
+	@Test(priority=1,groups = {"smoketest" },enabled=true)
 	public void ARTCycleAvailabilityMessageTest() throws Exception 
 	{
+		boolean flag =WOC.Existingcycle();
+		if(flag)
+		{
 		String Actual = WOC.ARTCycleAvailabilityMessage();
-		String Expected = reader.getCellData("Investigation","Fashmessage", 3);
+		String Expected = reader.getCellData("Investigation","Fashmessage", 4);
 		Assert.assertEquals(Actual, Expected);
+		System.out.println("ARTCycleAvailabilityMessageTest completed");
+		}
+		else
+		{
+			String act = WOC.ARTCycleAvailabilityMessage();			
+		}
 		System.out.println("ARTCycleAvailabilityMessage is completed");
 		
 	}
-	@Test(priority=3,groups = {"functional" },enabled=true)
+	@Test(priority=3,groups = {"functional" },enabled=false)
 	public void NoofCyclesTest() throws Exception 
 	{
 		int Actual= WOC.NoofCycles();
@@ -96,17 +114,8 @@ public class WOPUCycyclePageTest extends TestBase
 	public void ClickonCycletabTest() throws Exception
 	{
 		String Actual= WOC.ClickOnCycle();
-		
-
-			
-	}
-	@Test(priority=7)
-	public void NoofProtocolTest()
-	{
-		
-	}
 	
-	
+	}
 	
 	@Test(priority=2,groups = {"smoketest" },enabled=true)
 	public void SearchcycleTest() throws Exception

@@ -19,7 +19,7 @@ import com_Milan_util.TestUtil;
 
 public class EMRDashBoardPage extends TestBase
 {
-private @FindBy(xpath="//li[@class='active']/a[@id='menuField_women']") WebElement womenfield;
+private @FindBy(xpath="//a[@id='menuField_women']") WebElement womenfield;
 private @FindBy(xpath="//a[@id='menuField_men']") WebElement menfield;
 private @FindBy(xpath="//*[@id='0']")WebElement visitwomen;
 private @FindBy(xpath ="//a[@class='icoLink femaleHistory'][@title='History']")WebElement Historylinkwomen; 
@@ -46,11 +46,9 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 	
 		public  WomenHistoryPage clickOnWomenField() throws InterruptedException
 		{
-			TestUtil.VisibleOn(driver, womenfield, 10);
-			//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@id='menuField_women']")));
+						
 			if(womenfield.isDisplayed())
-			{
-				//System.out.println("womentfield"+ womenfield.isDisplayed());
+			{				
 				TestUtil.VisibleOn(driver, womenfield, 10);
 				Actions act = new Actions(driver);
 				act.moveToElement(womenfield).click().perform();
@@ -83,7 +81,7 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 				else
 				{
 					
-				System.out.println("History  not available");
+				System.out.println("Visit  not available");
 				
 											
 				}
@@ -92,7 +90,7 @@ private @FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoptio
 				TestUtil.VisibleOn(driver, womenfield, 30);
 			 visitw.click();*/
 				//visitwomen.click();
-				System.out.println("Women visit cliked");
+				//System.out.println("Women visit cliked");
 			}
 			else
 			{

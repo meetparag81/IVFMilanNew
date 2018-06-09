@@ -3,16 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.CycleListPageTest">
+      <class name="com_Milan_Test.WAddictionsTest">
         <methods>
-          <include name="Teardown"/>
-          <include name="EnabledconditionARTTypeTest"/>
-          <include name="ARTTypeOptionTest"/>
           <include name="Setup"/>
-          <include name="MethodofSemenCollectionTest"/>
-          <include name="NoofProtocolandselectionTest"/>
+          <include name="Teardown"/>
+          <include name="saveAdictions" invocation-numbers="0 1 2 3 4"/>
         </methods>
-      </class> <!-- com_Milan_Test.CycleListPageTest -->
+      </class> <!-- com_Milan_Test.WAddictionsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
