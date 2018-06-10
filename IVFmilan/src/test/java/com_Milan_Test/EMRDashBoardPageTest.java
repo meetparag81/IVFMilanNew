@@ -125,6 +125,10 @@ public class EMRDashBoardPageTest extends TestBase
 	{
 		System.out.println();
 		EMRPage.ClickOnComplaints();
+		String act = EMRPage.ComplaintText();
+		String exp= reader.getCellData("EMRPage", "Message", 4);
+		Assert.assertEquals(act, exp, "text not matched");
+		System.out.println("ClickOnComplaints test completed");
 	}
 	
 	

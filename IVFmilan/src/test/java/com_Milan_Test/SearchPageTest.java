@@ -47,6 +47,7 @@ public class SearchPageTest extends TestBase
 			
 			String Expectted = "EMR Dashboard";
 			Assert.assertEquals(Actual, Expectted);
+			System.out.println("SearchPatientUsingCalenderTest is completed");
 			
 		}
 		@Test(priority=2)
@@ -55,6 +56,8 @@ public class SearchPageTest extends TestBase
 			SearchPage.searchPaient();
 			String Actual=	SearchPage.Dahboardtitle();
 			String Expectted = "EMR Dashboard";
+			Assert.assertEquals(Actual, Expectted);
+			System.out.println("SearchPatientUsingPatientTabTest is completed");
 			
 		}
 		

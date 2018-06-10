@@ -48,13 +48,11 @@ public class WComplaintsPage extends TestBase
 			}
 			catch(Exception e)
 			{
-				TestUtil.getScreenshot(driver, "NewPatientPresentingComplaints"+".png");
+				System.out.println("Buttoncomplaints- button is not visible");
 				
 			
 			
-			}
-			
-		//Need to verify System.out.println("button is disabled"+ Buttoncomplaints.isEnabled()+"buttonisdisplayed"+Buttoncomplaints.isDisplayed());
+			}	
 			Buttoncomplaints.click();
 			Thread.sleep(2000);
 			List<WebElement> complaints = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
@@ -79,7 +77,7 @@ public class WComplaintsPage extends TestBase
 			
 	}
 		
-		private void ExistingPatientPresentingComplaints() throws Exception
+		public void ExistingPatientPresentingComplaints() throws Exception
 		{
 			List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 			int NoofRows= Rows.size();

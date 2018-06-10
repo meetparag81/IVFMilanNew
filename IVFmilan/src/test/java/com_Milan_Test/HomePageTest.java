@@ -49,11 +49,10 @@ public class HomePageTest extends TestBase
 	public void ClickOnCmrTest() throws Exception 
 	{
 		EMRPage= HomePage.ClickonEMR();
-		//System.out.println("clicked on EMR");
 		String Actual= HomePage.EMRPageTitle();
 		String Expected = "EMR Dashboard";
 		Assert.assertEquals(Actual, Expected);
-		System.out.println( "patient click on dashboard is completed");
+		System.out.println( "patient ClickOnCmrTest is completed");
 		
 	}
 @ Test(priority=3)

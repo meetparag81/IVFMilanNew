@@ -30,8 +30,6 @@ public class WcomplaintsTest extends TestBase
 		TestBase.initalization();
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		//EMRPage= HomePage.ClickonEMR();
-		//EMRPage=HomePage.SearchusingCalender();
 		EMRPage=HomePage.searchPaient();
 		WCP=EMRPage.ClickOnComplaints();
 	
@@ -51,7 +49,7 @@ public class WcomplaintsTest extends TestBase
 	@Test(priority=1,groups = {"functional" },enabled= true)
 	public void SaveTheComplaintsTest() throws Exception
 	{
-		WCP.NewPatientPresentingComplaints();
+		
 		String Actual= WCP.SaveTheComplaints();
 		String expected = "Modality is mandatory field";
 		Assert.assertEquals(Actual, expected);

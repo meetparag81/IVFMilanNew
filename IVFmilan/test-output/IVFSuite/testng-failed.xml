@@ -7,6 +7,14 @@
   </listeners>
   <test name="IVFTEST(failed)" parallel="tests">
     <classes>
+      <class name="com_Milan_Test.CycleListPageTest">
+        <methods>
+          <include name="Teardown"/>
+          <include name="ARTTypeOptionTest"/>
+          <include name="Setup"/>
+          <include name="NoofProtocolandselectionTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.CycleListPageTest -->
       <class name="com_Milan_Test.HomePageTest">
         <methods>
           <include name="SearchPatientUsingCalenderTest"/>
@@ -15,14 +23,28 @@
           <include name="teardown"/>
         </methods>
       </class> <!-- com_Milan_Test.HomePageTest -->
-      <class name="com_Milan_Test.WAddictionsTest">
+      <class name="com_Milan_Test.WMenstrualHistoryTest">
         <methods>
-          <include name="Setup"/>
+          <include name="MenstrualFlowtextTest"/>
+          <include name="MenstruationTest1"/>
+          <include name="SavevaluesTest"/>
+          <include name="AgeOfMenarcheRangeSartTest"/>
           <include name="Teardown"/>
-          <include name="saveNewAdictions"/>
-          <include name="saveAdictions" invocation-numbers="0 0 0 0 1"/>
+          <include name="AmenorrheaTypeTest"/>
+          <include name="CycleDurationTest"/>
+          <include name="LMPcalenderdateSelectionTest"/>
+          <include name="MenarcheRangeEndTest"/>
+          <include name="Setup"/>
         </methods>
-      </class> <!-- com_Milan_Test.WAddictionsTest -->
+      </class> <!-- com_Milan_Test.WMenstrualHistoryTest -->
+      <class name="com_Milan_Test.WPastMedicationHistoryTest">
+        <methods>
+          <include name="DrugNameFieldEnableconditionTest"/>
+          <include name="Teardown"/>
+          <include name="pastMedicationHistorysetdataTest"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WPastMedicationHistoryTest -->
       <class name="com_Milan_Test.WcomplaintsTest">
         <methods>
           <include name="NewPatientPresentingComplaintsTest"/>
@@ -35,37 +57,48 @@
       <class name="com_Milan_Test.WVitalsTest">
         <methods>
           <include name="setup"/>
-          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0"/>
+          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0 4 4"/>
           <include name="TearDown"/>
-          <include name="SaveAllVitalsValuesTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WVitalsTest -->
       <class name="com_Milan_Test.FemaleDiagnosisTest">
         <methods>
+          <include name="CodevalueTest"/>
+          <include name="ClickOnOtherDiagnosisTest"/>
           <include name="Setup"/>
+          <include name="UnFavoriteTheFavioriteTest"/>
           <include name="TearDown"/>
+          <include name="AddFavoriteFromListTest"/>
           <include name="checkboxclickTest"/>
+          <include name="TypeSelectionboxEnableconditionForOtherfavorireTest"/>
         </methods>
       </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
       <class name="com_Milan_Test.WInvestigationPageTest">
         <methods>
+          <include name="IVFPACKAGEARTCyclecountTest"/>
           <include name="Teardown"/>
           <include name="CycleCreationTest"/>
           <include name="Setup"/>
+          <include name="OUIARTSubTypesTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WInvestigationPageTest -->
       <class name="com_Milan_Test.WObstetricHistoryPageTest">
         <methods>
+          <include name="DeliveryTypeEnableconditionTest"/>
           <include name="RowGridEnableTest"/>
           <include name="EctopiccEnableCondititionTest"/>
           <include name="LiveBirthAbovePostTermconditionTest"/>
           <include name="ComplicationsEnableCondititionTest"/>
+          <include name="LiveBirthEnableTest"/>
+          <include name="ValueInAbortiontionTest"/>
           <include name="LiveBirthPretermconditionTest"/>
           <include name="StillBornEnableTest"/>
+          <include name="ValueInLivebirthoptionTest"/>
           <include name="CongenitalAnamolyEnableCondititionTest"/>
           <include name="AbortionEnableCondititionTest"/>
           <include name="LiveBirthFullTermconditionTest"/>
           <include name="Setup"/>
+          <include name="ValueInEctopicTest"/>
           <include name="DeliveryEnableCondititionTest"/>
           <include name="Teardown"/>
           <include name="SaveOutcometypesTest"/>

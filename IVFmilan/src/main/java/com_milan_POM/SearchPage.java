@@ -1,6 +1,8 @@
 package com_milan_POM;
 
 import java.util.List;
+import java.util.concurrent.TimeoutException;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -122,7 +124,7 @@ public class SearchPage extends TestBase {
 			}
 
 		}
-		String Paitentname = reader.getCellData("HomePage", 0, 8);
+		String Paitentname = reader.getCellData("HomePage", 0, 15);
 		Thread.sleep(3000);
 		searchpaient.sendKeys(Paitentname);
 		try
@@ -144,7 +146,15 @@ public class SearchPage extends TestBase {
 		{
 			Thread.sleep(3000);
 			WebElement Nameofpatient = driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tr[" + k + "]/td[4]"));
+			try
+			{
 			TestUtil.VisibleOn(driver, Nameofpatient, 30);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Nameofpatient is not seen on dashboard within 30 secs");
+			}
+					
 			String name1 = Nameofpatient.getText();
 			Thread.sleep(4000);
 			if (name1.contains(Paitentname)) 

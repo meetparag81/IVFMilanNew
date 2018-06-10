@@ -109,7 +109,7 @@ public class HomePage extends TestBase {
 
 				// System.out.println(name1+ i+ j);
 
-				String PatientName = reader.getCellData("HomePage", "PatientName", 16);
+				String PatientName = reader.getCellData("HomePage", "PatientName", 17);
 				Thread.sleep(3000);
 				if (name1.contains(PatientName))
 
@@ -118,7 +118,7 @@ public class HomePage extends TestBase {
 					driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr[" + j + "]/td[1]/a[2]")).click();
 					// System.out.println("click on EMR ");
 					i = 122;
-					System.out.println("===========recodfound==============");
+					//System.out.println("===========recodfound==============");
 					break;
 
 				}
@@ -139,12 +139,17 @@ public class HomePage extends TestBase {
 
 		return new EMRDashBoardPage();
 	}
+	
+	public void Searchinput()
+	{
+		
+		
+	}
 
 	public EMRDashBoardPage searchPaient() throws Exception 
 	{
 		try
 		{			
-		//WebElement Patient1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
 		TestUtil.VisibleOn(driver, Paitent, 20);
 		}
 		catch(Exception e)
@@ -207,25 +212,28 @@ for(int i=1;i<radiobuttons;i++)
 		}
 
 		
-		for (int i = 0; i < search.size(); i++) 
+		for (int i = 1; i < search.size(); i++) 
 		{
 			Thread.sleep(1000);
-			// String name = search.get(i).getText();
-			/*Actions act = new Actions(driver);
-			act.moveToElement(search.get(i)).click().perform();*/
-			WebElement result= search.get(i);
-			boolean flag= result.isDisplayed();
-			if(flag)
-			{
-			search.get(i).click();
+			 String name = search.get(i).getText();
+			 if(PatientName.equals(name))
+			 {
+			Actions act = new Actions(driver);
+			act.moveToElement(search.get(i)).click().perform();
 			break;
-			}
-			else
-			{
-				Searchbox1.clear();
-				Searchbox1.sendKeys(PatientName);
-				search.get(i).click();
-			}
+			 }
+			 else
+			 {
+				 
+				 Searchbox1.clear();
+					Searchbox1.sendKeys(PatientName);
+					Searchbox1.sendKeys(Keys.BACK_SPACE);
+					search.get(i).click();
+					
+			 }
+		
+			
+			
 			
 		}
 		if(checkbox.isDisplayed())
@@ -290,15 +298,15 @@ for(int i=1;i<radiobuttons;i++)
 			TestUtil.VisibleOn(driver, Nameofpatient, 30);
 			String name1 = Nameofpatient.getText();
 			Thread.sleep(4000);
-			String Paitentname = reader.getCellData("HomePage", 0, 16);
+			String Paitentname = reader.getCellData("HomePage", 0, 15);
 			if (name1.contains(Paitentname)) 
 			{
 				 Thread.sleep(2000);
 				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
 				EMR.click();
-				System.out.println("click on EMR ");
+				/*System.out.println("click on EMR ");
 
-				System.out.println("===========recodfound==============");
+				System.out.println("===========recodfound==============");*/
 				break;
 			}
 			k++;
