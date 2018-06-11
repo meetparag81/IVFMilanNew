@@ -29,6 +29,7 @@ public class WComplaintsPage extends TestBase
 	int i;
 	int j;
 	int count=0;
+	String msg;
 	
 	WComplaintsPage()
 	{
@@ -103,99 +104,154 @@ public class WComplaintsPage extends TestBase
 							}		
 				}
 			
+			
+			
 			}
-		public String SaveTheComplaints()
+		
+		
+		public int NumberOfComplaints() throws Exception
+		{
+			Buttoncomplaints.click();
+			Thread.sleep(3000);
+				List<WebElement> complaints = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
+				int complaintsnamessize= complaints.size();
+				for(int j = 1;j<=complaintsnamessize;j++)
+					{
+					String complaintname=	Rows.get(j).getText();
+						String Names= complaints.get(j).getText();
+							if(Names.contentEquals(complaintname))					
+							{
+								complaints.get(j).click();
+								count++;
+								break;
+							}
+							else
+							{
+								j++;
+								complaints.get(j).click();
+								
+								
+								
+							}
+					}
+			
+			
+			
+			
+			return complaintsnamessize;
+			
+		}
+		
+		
+		
+		public String SaveTheComplaints() throws Exception
 		{
 			List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 			List<WebElement> complaints = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr/td[2]"));
 			int NoofRows= Rows.size();
-			for(int k=1;k<=NoofRows;k++)
-			{				int SRNO= k;
-				//int No=Integer.parseInt(SRNO);
-				//List<WebElement> PresentingComplaint=  driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr/td[3]/span"));
-				//String Names=PresentingComplaint.get(i).getText();
-			
-				if(SRNO==1)
-				{	
-					
-					WebElement Onset1 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
-					Select Onsetone= new Select(Onset1);
-					Onsetone.selectByVisibleText("Gradual");
-					WebElement DurationDay1  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[1]"));
-							Select DurationDayone= new Select(DurationDay1); 
-							DurationDayone.selectByVisibleText("10");
-							WebElement DurationMonth1  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
-							Select DurationMonthone = new Select(DurationMonth1);
-							DurationMonthone.selectByVisibleText("2");
-							WebElement DurationYear1  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
-							Select DurationYearone = new Select(DurationYear1);
-							DurationYearone.selectByVisibleText("5");
+			if(NoofRows<=0)
+			{
+				NewPatientPresentingComplaints();
+				for(int k=1;k<=4;k++)
+				{
+					int SRNO= k;
+					switch(SRNO)
+					{
+					case(1):
+						WebElement Onset1 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
+						Select Onsetone= new Select(Onset1);
+						Onsetone.selectByVisibleText("Gradual");
+						WebElement DurationDay1  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[1]"));
+						Select DurationDayone= new Select(DurationDay1); 
+						DurationDayone.selectByVisibleText("10");
+						WebElement DurationMonth1  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
+						Select DurationMonthone = new Select(DurationMonth1);
+						DurationMonthone.selectByVisibleText("2");
+						WebElement DurationYear1  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
+						Select DurationYearone = new Select(DurationYear1);
+						DurationYearone.selectByVisibleText("5");
+						break;
+									
+						
+						case(2):
+						
+							WebElement Onset2 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
+							Select Onsettwo= new Select(Onset2);
+							Onsettwo.selectByVisibleText("Gradual");
+							WebElement DurationDay2  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[1]"));
+							Select DurationDaytwo= new Select(DurationDay2); 
+							DurationDaytwo.selectByVisibleText("10");
+							WebElement DurationMonth2  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
+							Select DurationMonthtwo = new Select(DurationMonth2);
+							DurationMonthtwo.selectByVisibleText("2");
+							WebElement DurationYear2  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
+							Select DurationYeartwo = new Select(DurationYear2);
+							DurationYeartwo.selectByVisibleText("6");
+							break;
 							
-				}
-				else if(SRNO==2)
-				{
-					WebElement Onset2 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
-					Select Onsettwo= new Select(Onset2);
-					Onsettwo.selectByVisibleText("Gradual");
-					WebElement DurationDay2  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[1]"));
-					Select DurationDaytwo= new Select(DurationDay2); 
-					DurationDaytwo.selectByVisibleText("10");
-					WebElement DurationMonth2  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
-					Select DurationMonthtwo = new Select(DurationMonth2);
-					DurationMonthtwo.selectByVisibleText("2");
-					WebElement DurationYear2  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
-					Select DurationYeartwo = new Select(DurationYear2);
-					DurationYeartwo.selectByVisibleText("6");
-				}
-				else if (SRNO==3) 
-				{
-					WebElement Onset3 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
-					Select Onsetthree= new Select(Onset3);
-					Onsetthree.selectByVisibleText("Gradual");
-					WebElement DurationDay3  =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select[1]"));
-					Select DurationDaythree= new Select(DurationDay3); 
-					DurationDaythree.selectByVisibleText("23");
-					WebElement DurationMonth3  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
-					Select DurationMonththree = new Select(DurationMonth3);
-					DurationMonththree.selectByVisibleText("2");
-					WebElement DurationYear3  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
-					Select DurationYearthree = new Select(DurationYear3);
-					DurationYearthree.selectByVisibleText("6");
-					
-				}
-				else if (SRNO==4) 
-				{
-					WebElement Onset4 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
-					Select Onsetfour= new Select(Onset4);
-					Onsetfour.selectByVisibleText("Sudden");
-					WebElement DurationDay4 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select[1]"));
-					Select DurationDayfour= new Select(DurationDay4); 
-					DurationDayfour.selectByVisibleText("29");
-					WebElement DurationMonth4  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
-					Select DurationMonthfour = new Select(DurationMonth4);
-					DurationMonthfour.selectByVisibleText("2");
-					WebElement DurationYear4  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
-					Select DurationYearfour = new Select(DurationYear4);
-					DurationYearfour.selectByVisibleText("6");
-					
-				}
+						
+						case(3): 
+						WebElement Onset3 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
+						Select Onsetthree= new Select(Onset3);
+						Onsetthree.selectByVisibleText("Gradual");
+						WebElement DurationDay3  =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select[1]"));
+						Select DurationDaythree= new Select(DurationDay3); 
+						DurationDaythree.selectByVisibleText("23");
+						WebElement DurationMonth3  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
+						Select DurationMonththree = new Select(DurationMonth3);
+						DurationMonththree.selectByVisibleText("2");
+						WebElement DurationYear3  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
+						Select DurationYearthree = new Select(DurationYear3);
+						DurationYearthree.selectByVisibleText("6");
+						break;
+								
+						case(4): 
+						
+						WebElement Onset4 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[4]/select"));
+						Select Onsetfour= new Select(Onset4);
+						Onsetfour.selectByVisibleText("Sudden");
+						WebElement DurationDay4 =  driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select[1]"));
+						Select DurationDayfour= new Select(DurationDay4); 
+						DurationDayfour.selectByVisibleText("29");
+						WebElement DurationMonth4  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[2]"));
+						Select DurationMonthfour = new Select(DurationMonth4);
+						DurationMonthfour.selectByVisibleText("2");
+						WebElement DurationYear4  =  driver.findElement(By.xpath("(//table[@class='table table-hover table-striped']//tbody/tr["+k+"]/td[5]//select)[3]"));
+						Select DurationYearfour = new Select(DurationYear4);
+						DurationYearfour.selectByVisibleText("6");
+						break;
 				
-			}
-			TestUtil.VisibleOn(driver, FollowUpReason, 20);
-			try
+					}
+				}
+					
+						
+					
+					TestUtil.VisibleOn(driver, FollowUpReason, 20);
+					try
+					{
+						FollowUpReason.clear();
+					FollowUpReason.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("FollowUpReason is not seen within 20 seconds");
+					}
+					FollowUpReason.clear();
+					TestUtil.VisibleOn(driver, FollowupNotes, 20);
+					FollowupNotes.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
+					Save.click();
+					System.out.println(FlashMessage.getText());
+					 msg= FlashMessage.getText();		
+					 
+					
+				}	
+			else
 			{
-			FollowUpReason.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
+				ExistingPatientPresentingComplaints();
 			}
-			catch(TimeoutException e)
-			{
-				Log.getLog();
-				throw(e);
-			}
-			TestUtil.VisibleOn(driver, FollowupNotes, 20);
-			FollowupNotes.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
-			Save.click();
-			System.out.println(FlashMessage.getText());
-			return FlashMessage.getText();
+			
+			return msg;
+			
 		}
 		
 		public boolean NextFollowUp()

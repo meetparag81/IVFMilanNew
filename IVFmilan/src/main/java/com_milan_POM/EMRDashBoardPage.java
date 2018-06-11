@@ -154,7 +154,8 @@ public class EMRDashBoardPage extends TestBase {
 
 	}
 
-	public WComplaintsPage ClickOnComplaints() throws Exception {
+	public WComplaintsPage ClickOnComplaints() throws Exception 
+	{
 		try {
 			TestUtil.VisibleOn(driver, womenfield, 10);
 		} catch (TimeoutException e) {
@@ -162,6 +163,7 @@ public class EMRDashBoardPage extends TestBase {
 		}
 		Actions act = new Actions(driver);
 		act.moveToElement(womenfield).click().perform();
+		Thread.sleep(2000);
 		if(Femalecomplaints.isDisplayed())
 		{
 			Actions act1 = new Actions(driver);
@@ -176,13 +178,11 @@ public class EMRDashBoardPage extends TestBase {
 		catch(TimeoutException e)
 		{
 			System.out.println("Femalecomplaints is not seen within 30 sec");
-		}
-		finally
-		{
-			Actions act1 = new Actions(driver);
-			act1.moveToElement(Femalecomplaints).click().perform();
+		}		
+		Actions act1 = new Actions(driver);
+		act1.moveToElement(Femalecomplaints).click().perform();
 			
-		}
+		
 		List<WebElement> visitm = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 		if (visitm.size() != 0) 
 		{

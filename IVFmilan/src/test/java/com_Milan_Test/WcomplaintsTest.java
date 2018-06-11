@@ -39,7 +39,7 @@ public class WcomplaintsTest extends TestBase
 	public  void NewPatientPresentingComplaintsTest() throws Exception 
 	{
 		
-		int Actual = WCP.NewPatientPresentingComplaints();
+		int Actual = WCP.NumberOfComplaints();
 		int Expected = 4;
 		Assert.assertEquals(Actual, Expected);
 		System.out.println("NewPatientPresentingComplaintsTest is passed");
