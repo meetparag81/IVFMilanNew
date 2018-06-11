@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 import com_milan_POM.WComplaintsPage;
 import com_milan_POM.EMRDashBoardPage;
@@ -19,7 +20,8 @@ public class WcomplaintsTest extends TestBase
 {	Loginpage Loginpage;
 	HomePage HomePage;
 	EMRDashBoardPage EMRPage;
-	WComplaintsPage WCP;	
+	WComplaintsPage WCP;
+	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	WcomplaintsTest()
 	{
 		super();
@@ -35,25 +37,36 @@ public class WcomplaintsTest extends TestBase
 	
 
 }
-	@Test(priority=2,groups = {"smoketest" },enabled= true)
-	public  void NewPatientPresentingComplaintsTest() throws Exception 
+	@Test(priority=1,groups = {"smoketest" },enabled= true)
+	public  void NumberOfComplaintsTest() throws Exception 
 	{
 		
 		int Actual = WCP.NumberOfComplaints();
-		int Expected = 4;
+		int Expected = 38;
 		Assert.assertEquals(Actual, Expected);
-		System.out.println("NewPatientPresentingComplaintsTest is passed");
+		System.out.println("NumberOfComplaintsTest is completed");
 		
 				
 	}
-	@Test(priority=1,groups = {"functional" },enabled= true)
+	@Test(priority=2,groups = {"functional" },enabled= true)
 	public void SaveTheComplaintsTest() throws Exception
 	{
 		
-		String Actual= WCP.SaveTheComplaints();
-		String expected = "Modality is mandatory field";
+		 WCP.SaveTheComplaints();
+		if(WCP.complaints()== true)
+		{
+		String Actual = WCP.MessageforPaitent();
+		String expected = reader.getCellData("Complaints", "Message", 2);
 		Assert.assertEquals(Actual, expected);
 		System.out.println("SaveTheComplaintsTest is completed");
+		}
+		else
+		{
+			String act = WCP.MessageforPaitent();
+			String expected = reader.getCellData("Complaints", "Message", 3);
+			Assert.assertEquals(act, expected);
+			System.out.println("SaveTheComplaintsTest is completed");
+		}
 	}
 	@Test(priority=3,groups = {"smoketest" })
 	public void NextFollowUpTest() throws Exception

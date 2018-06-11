@@ -44,7 +44,7 @@ public class HomePageTest extends TestBase
 		Assert.assertEquals(Actualrows, Expected);
 	}
 		
-@ Test(priority=2)
+@ Test(priority=4)
 			
 	public void ClickOnCmrTest() throws Exception 
 	{
@@ -65,7 +65,7 @@ public void SearchPatientUsingCalenderTest() throws Exception
 	Assert.assertEquals(Actual, Expectted);
 	System.out.println("search patient through Searchbox is completed");
 }
-@Test(priority=4)
+@Test(priority=2)
 private void SearchPatientUsingPatientTabTest() throws Exception 
 {
 	HomePage.searchPaient();

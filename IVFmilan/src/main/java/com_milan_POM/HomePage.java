@@ -33,6 +33,7 @@ public class HomePage extends TestBase {
 	private @FindBy(xpath = "//span[text()='Queue Management']//following::i[3]") WebElement calender;
 	private @FindBy(xpath = "//span[text()='Queue Management']//following::input[2]") WebElement searchpaient;
 	private @FindBy(xpath = "//button[text()='Search'][@ class='btn btn-primary']") WebElement Searchbutton;
+	private @FindBy(xpath="//li[@class='navCycles ng-scope active']")WebElement Queue;
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	Exls_Reader reader = new Exls_Reader(
 			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
@@ -212,29 +213,22 @@ for(int i=1;i<radiobuttons;i++)
 		}
 
 		
-		for (int i = 1; i < search.size(); i++) 
+		for (int i =0; i <= search.size(); i++) 
 		{
 			Thread.sleep(1000);
-			 String name = search.get(i).getText();
-			 if(PatientName.equals(name))
-			 {
+			String name = search.get(i).getText();
+			if(PatientName.equals(name))
+			{
 			Actions act = new Actions(driver);
 			act.moveToElement(search.get(i)).click().perform();
 			break;
-			 }
-			 else
+			}
+			 else 
 			 {
-				 
-				 Searchbox1.clear();
-					Searchbox1.sendKeys(PatientName);
-					Searchbox1.sendKeys(Keys.BACK_SPACE);
-					search.get(i).click();
-					
+				 search.get(i).click();
+				 break;
 			 }
 		
-			
-			
-			
 		}
 		if(checkbox.isDisplayed())
 		{
