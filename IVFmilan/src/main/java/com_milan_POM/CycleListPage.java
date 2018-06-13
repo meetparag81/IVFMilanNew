@@ -26,7 +26,15 @@ public class CycleListPage extends TestBase
 	private @FindBy(xpath="//label[text()='Source of Sperm']//following-sibling::div/select")WebElement Sourceofsperm;
 	private @FindBy(xpath="(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[2]")WebElement Donor;
 	private @FindBy(xpath ="//span[@class='multiSelect inlineBlock buttonClicked']/button")WebElement Indication;
-	String msg ="";
+	private @FindBy(xpath="//Button[@class='ng-binding']")WebElement SimulationDrug;
+	private@FindBy(xpath="//textarea[@name='txtCyWarning']")WebElement CycleWarnings;
+	private@FindBy(xpath="//textarea[@name='txtRemark']")WebElement Remarks;
+	private@FindBy(xpath="//button[@class='btn btn-primary']")WebElement Save;
+	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
+	private @FindBy(xpath="//a[@class='txt_bold ng-binding']")WebElement CycleCode;
+	private @FindBy(xpath="//i[@class='fa fa-calendar']")WebElement LMPcalender;
+	
+	String msg;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	CycleListPage()
 	{
@@ -95,8 +103,6 @@ public class CycleListPage extends TestBase
 		Select OptionART = new Select(Artselecttype);
 	WebElement option =	OptionART.getFirstSelectedOption();
 	String OptionName = option.getText();
-	//reader.removeColumn("CycleList", 0);
-	//reader.addColumn("CycleList", "ARTtype");
 	reader.setCellData("CycleList", "ARTtype", 2, OptionName);
 		return OptionName;
 		
@@ -182,9 +188,6 @@ public class CycleListPage extends TestBase
 						break;
 					}
 					
-					
-					
-					
 				}
 		
 				 
@@ -249,7 +252,7 @@ public class CycleListPage extends TestBase
 		return msg;
 		
 	}
-	public String IndicationtypeSelection()
+	public boolean IndicationtypeSelection()
 	{
 	Indication.click();
 	List<WebElement> IndicationList = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
@@ -257,6 +260,7 @@ public class CycleListPage extends TestBase
 	int row = 1;
 	int rows=row+1;
 	int count=0;
+	boolean flag=false;
 	for(int i= 0;i<=indicationsize;i++)
 	{
 		String IndicationNames= IndicationList.get(i).getText();
@@ -268,19 +272,135 @@ public class CycleListPage extends TestBase
 			IndicationList.get(i).click();
 			rows++;
 			count++;
+			if(count==2)
+			{
+				break;
+			}
+		}
+		else
+		{
+			IndicationList.get(i).click();
+			if(count==2)
+			{
+				flag=true;
+				break;
+			}
+			
+		}
+		List<WebElement>selectedIndicationoption = driver.findElements(By.xpath("//div[@class='col-md-12 col-sm-12 col-lg-12']/table/tbody/tr"));
+		int Size= selectedIndicationoption.size();
+		for(int j=1;j<=Size;j++)
+		{	
+		String names= selectedIndicationoption.get(i).getText();
+		
+		}
+	
+	}
+	return flag;
+	
+	}
+	
+	
+	public int SimulationDrug()
+	{
+		SimulationDrug.click();
+		List<WebElement>Drugs = driver.findElements(By.xpath("//div[@class='checkBoxContainer']//div"));
+		int Size= Drugs.size();
+		
+		for(WebElement drug:Drugs)
+		{
+			drug.click();
+			int count=0;
+			count++;
+			if(count==4)
+			{
+				break;
+			}
+			
+				
+		}
+		return Size;
+	}
+	public void InputvalueInTextBoxes()
+	{
+		
+		String remarks = reader.getCellData("CycleList", "Remarks", 2);
+		String warning = reader.getCellData("CycleList", "Remarks", 3);
+		Remarks.clear();
+		Remarks.sendKeys(remarks);
+		CycleWarnings.clear();		
+		CycleWarnings.sendKeys(warning);
+		
+	}
+	public void LMPDate()
+	{
+		LMPcalender.click();
+		List<WebElement>Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td"));
+		for(int i =1;i<=Dates.size();i++)
+		{
+			String Datetext= Dates.get(i).getText();
+			String date= reader.getCellData("CycleList", "Date", 2);
+			String arr[] = date.split(date);
+			String day = arr[0];
+			if(Datetext.equals(day))
+			{
+				Dates.get(i).click();
+				
+				break;
+			}
 		}
 		
 	}
-	 
-	return msg;
-	
+	public void SaveTheCycle() throws Exception
+	{
+		NoofProtocol();
+		
+		MethodofSemenCollection();
+		
+		Sourceofsperm();
+		IndicationtypeSelection();
+		InputvalueInTextBoxes();
+		LMPDate();
+		Save.click();
+				
+				
 	}
+	
+	public NewCycleListPage ClickonCyclecode() throws Exception
+	{
+		Thread.sleep(2000);
+		CycleCode.click();
+		
+		
+		
+		return new NewCycleListPage();
+		
+	}
+	
+	public String SaveMessage()
+	{
+		if(IndicationtypeSelection()==true)
+	{
+		msg= SaveMessage.getText();
+	}
+	else
+	{
+		msg="fillallmandetoryfields";
+	}
+		return msg;
+		
+	}
+	
+	
+}
+	
+	
 	
 				
 
 		
 		
-	}
+	
 	
 	
 

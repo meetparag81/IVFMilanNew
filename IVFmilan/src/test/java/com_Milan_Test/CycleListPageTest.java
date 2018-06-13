@@ -41,8 +41,6 @@ public class CycleListPageTest extends TestBase
 		Loginpage = new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage = HomePage.searchPaient();
-		// EMRPage= HomePage.ClickonEMR();
-		// EMRPage=HomePage.SearchusingCalender();
 		Investigation = EMRPage.ClickOnInvestigation();
 		WOC = new WOPUCycyclePage();
 		 boolean flag= WOC.Existingcycle();
@@ -72,16 +70,16 @@ public class CycleListPageTest extends TestBase
 	
 	
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void CycleListTitleTest()
 	{
 	String Actual=CLP.CycleListTitle();
-	String Expected = 	reader.getCellData("CycleList", "ListTitle", 2);
+	String Expected = reader.getCellData("CycleList", "ListTitle", 2);
 	System.out.println("CycleListTitleTest completed");
 	
 	}
 	
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,enabled=true)
 	public void NewCycleButtonEnableConditionTest()
 	{
 		System.out.println();
@@ -91,7 +89,7 @@ public class CycleListPageTest extends TestBase
 	System.out.println("NewCycleButtonEnableConditionTest is completed");
 	}
 	
-	@Test(priority=4,enabled=false)
+	@Test(priority=4,enabled=true)
 	public void EnabledconditionARTTypeTest()
 	{
 	boolean flag2=CLP.EnabledconditionARTType();
@@ -141,7 +139,17 @@ public class CycleListPageTest extends TestBase
 		String Exp = reader.getCellData("CycleList", "sourceofsperm", 3);
 		Assert.assertEquals(Act, Exp);
 	}
-	
+	@Test(priority=10)
+	public void SimulationDrugTest()
+	{
+		int Actual= CLP.SimulationDrug();
+	}
+	@Test(priority=10)
+	public void SaveTheCycle() throws Exception
+	{
+		CLP.SaveTheCycle();
+		
+	}
 	
 	
 	
