@@ -1,5 +1,8 @@
 package com_Milan_Test;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 import java.io.FileNotFoundException;
 
 import org.apache.bcel.generic.BALOAD;
@@ -43,28 +46,48 @@ public class CycleListPageTest extends TestBase
 		EMRPage = HomePage.searchPaient();
 		Investigation = EMRPage.ClickOnInvestigation();
 		WOC = new WOPUCycyclePage();
-		 boolean flag= WOC.Existingcycle();
-		 if(flag==false)
-		 {
-			 WOC.SaveOPUsubtypeICSI();
-		 }
-		 else
-		 {
-			 System.out.println("cycle already exist");
-		 }
+		boolean flag = WOC.AlreadySavedCycle();
+		if(flag==true)
+		{
+			WOC.AddExistionService();
+		}
+		else
+		{
+			int count =0;
+			 boolean flag1= WOC.Existingcycle();
+			 if(flag1==false)
+			 {
+				 WOC.SaveOPUsubtypeICSI();
+				 count++;
+			 }
+			 else
+			 {
+				 System.out.println("cycle already exist");
+			 }
+		}		
 		CLP=  EMRPage.ClickonCycle();
 		
 		 
 		 
 		
 	}
-	@Test(priority=1,enabled=false)
-	public void ClickonNewCycleTest()
+	@Test(priority=1,enabled=true)
+	
+	public void ClickonNewCycleTest() throws Exception
 	{
-		String act= CLP.ClickonNewCycle();
-		String exp = reader.getCellData("CycleList", "ListTitle", 3);
-		Assert.assertEquals(act, exp);
-		System.out.println("ClickonNewCycleTest is completed");
+		boolean flag = CLP.NewCycleButtonEnableCondition();
+		if(flag)
+		{
+			String Act= CLP.ClickonNewCycle();
+			String exp = reader.getCellData("CycleList", "ListTitle",2);
+			Assert.assertEquals(Act, exp);
+			System.out.println("ClickonNewCycleTest is completed");
+		}
+		else
+		{
+			assertFalse(flag);
+			System.out.println("ClickonNewCycleTest is completed");
+		}
 		
 	}
 	
@@ -73,81 +96,138 @@ public class CycleListPageTest extends TestBase
 	@Test(priority=2,enabled=true)
 	public void CycleListTitleTest()
 	{
-	String Actual=CLP.CycleListTitle();
-	String Expected = reader.getCellData("CycleList", "ListTitle", 2);
-	System.out.println("CycleListTitleTest completed");
+		boolean flag = CLP.NewCycleButtonEnableCondition();
+		if(flag)
+		{
+			String Actual=CLP.CycleListTitle();
+			String Expected = reader.getCellData("CycleList", "ListTitle", 2);
+			System.out.println("CycleListTitleTest completed");
+			
+		}
+		else
+		{
+			String Actual=CLP.CycleListTitle();
+			String Expected = reader.getCellData("CycleList", "ListTitle", 2);
+			System.out.println("CycleListTitleTest completed");
+		}
+		
+	
 	
 	}
 	
 	@Test(priority=3,enabled=true)
 	public void NewCycleButtonEnableConditionTest()
 	{
-		System.out.println();
-	boolean flag1=CLP.NewCycleButtonEnableCondition();
+		
+		boolean flag = CLP.NewCycleButtonEnableCondition();
+	if(flag==true)
+	{
+		Assert.assertTrue(flag);
+		System.out.println("NewCycleButtonEnableConditionTest is completed");
+	}
+	else
+	{
+		Assert.assertFalse(flag);
+		System.out.println("NewCycleButtonEnableConditionTest is completed");
+	}
 	
-	Assert.assertTrue(flag1);
-	System.out.println("NewCycleButtonEnableConditionTest is completed");
 	}
 	
 	@Test(priority=4,enabled=true)
-	public void EnabledconditionARTTypeTest()
+	public void EnabledconditionARTTypeTest() throws Exception
 	{
-	boolean flag2=CLP.EnabledconditionARTType();
-	
-	Assert.assertFalse(flag2);
-	System.out.println("EnabledconditionARTTypeTest is completed");
+		boolean flag1 = CLP.NewCycleButtonEnableCondition();
+		if(flag1==true)
+		{
+			boolean flag2=CLP.EnabledconditionARTType();
+			
+			Assert.assertFalse(flag2);
+			System.out.println("EnabledconditionARTTypeTest is completed");	
+			
+		}
+		else
+		{
+			try
+			{
+				assertTrue(flag1);
+			}
+			catch(AssertionError e)
+			{
+				System.out.println("Patient has already available cycle, which is not closed");
+				throw e;
+			}
+			
+		}
+		
 	}
-	@Test(priority=5,enabled=true)
-	public void ARTTypeOptionTest()
+	@Test(priority=5,enabled=false,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	public void ARTTypeOptionTest() throws Exception
 	{
 	String act=	CLP.ARTTypeOption();
 	String exp = "OPU";
 	Assert.assertEquals(act, exp);	
 	System.out.println("ARTTypeOptionTest is completed" );
 	}
-	@Test(priority=6,enabled=true)
-	public void NoofProtocolandselectionTest () throws Exception
+	@Test(priority=6,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	public void ProtocolandselectionTest () throws Exception
 	{
-		int Act=CLP.NoofProtocol();
-		int exp= 12;
+		String Act=CLP.NoofProtocol();
+		String exp= "Antagonist";
 		Assert.assertEquals(Act, exp);
 		System.out.println("NoofProtocolandselectionTest is completed");
 	}
-	@Test(priority=7)
-	public void MethodofSemenCollectionTest()
+	@Test(priority=7,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	public void MethodOfSemenCollectionTest() throws Exception
 	{
-		int Act=CLP.MethodofSemenCollection();
-		int exp= 4;
-		Assert.assertEquals(Act, exp, "value is not matched");
+		String Act=CLP.MethodofSemenCollection();
+		String exp= reader.getCellData("CycleList", "SiemenName",4);
+		Assert.assertEquals(Act, exp);
 		System.out.println("MethodofSemenCollectionTest is completed");
 		
 		
 	}
-	@Test(priority=8)
-	public void MethodSourceofspermTest()
+	@Test(priority=8,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	public void SourceofspermPartnerTest() throws Exception
 	{
-		int act= CLP.Sourceofsperm();
-		int exp = 4;
+		String act= CLP.SourceofspermPartner();
+		String exp = reader.getCellData("CycleList", "SpermName", 3);
 		Assert.assertEquals(act, exp);
 		System.out.println("MethodSourceofspermTest is completed");
 		
 	}
-	@Test(priority=9)
-	public void SourceofSpermselectionTest()
+	@Test(priority=9,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	public void SourceofSpermselectionDonorTest() throws Exception
 	{
-		String Act= CLP.SourceofSpermselection();
+		String Act= CLP.SourceofSpermselectionDonor();
 		String Exp = reader.getCellData("CycleList", "sourceofsperm", 3);
 		Assert.assertEquals(Act, Exp);
+		System.out.println("SourceofSpermselectionDonorTest is completed");
 	}
-	@Test(priority=10)
-	public void SimulationDrugTest()
+	@Test(priority=10,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	public void SimulationDrugTest() throws Exception
 	{
-		int Actual= CLP.SimulationDrug();
+		String Actual= CLP.SimulationDrug();
+		String Expected = reader.getCellData("CycleList", "Stimulation Drug", 4);
 	}
-	@Test(priority=10)
-	public void SaveTheCycle() throws Exception
+	@Test(priority=11,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	public void SaveTheCycleTest() throws Exception
 	{
 		CLP.SaveTheCycle();
+		boolean Save=CLP.SaveEnablecondition();
+		if(Save==true)
+		{
+		
+			String act= CLP.SaveMessage();
+			String exp = reader.getCellData("CycleList", "SaveMessage", 2);
+			
+		}
+		else
+		{
+			String act= CLP.SaveMessage();
+			String exp = reader.getCellData("CycleList", "SaveMessage", 3);
+			
+		}
+		
 		
 	}
 	

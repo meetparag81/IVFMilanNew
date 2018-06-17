@@ -79,7 +79,7 @@ public class TestBase
 		{
 		driver.get(prop.getProperty("url"));
 		}
-		catch(TimeoutException e)
+		catch(Exception e)
 		{
 			System.out.println("url is not entered");
 			
