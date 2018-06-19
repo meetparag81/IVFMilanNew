@@ -168,7 +168,7 @@ for(int i=1;i<radiobuttons;i++)
 {
 	
 	
-	WebElement buttonsname = driver.findElement(By.xpath("//*[@id='dropdown_menu']/div/div[1]/label["+i+"]"));
+	WebElement buttonsname = driver.findElement(By.xpath("//div[@id='dropdown_menu']/div/div[1]/label["+i+"]"));
 	String name= buttonsname.getText();
 	
 	String radionames=reader.getCellData("HomePage", "RadioButtons",rows);

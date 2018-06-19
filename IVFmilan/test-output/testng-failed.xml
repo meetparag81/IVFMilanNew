@@ -9,7 +9,6 @@
           <include name="EnabledconditionARTTypeTest"/>
           <include name="Setup"/>
           <include name="SaveTheCycleTest"/>
-          <include name="SourceofspermPartnerTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
     </classes>

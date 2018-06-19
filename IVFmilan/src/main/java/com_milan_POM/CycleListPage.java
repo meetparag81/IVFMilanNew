@@ -23,17 +23,18 @@ public class CycleListPage extends TestBase
 	private @FindBy(xpath="//label[text()='ART Type']//following-sibling::div/select")WebElement Artselecttype;
 	private @FindBy(xpath="//span[@class='icon-screen ng-binding']")WebElement Cyclepagetext;
 	private @FindBy(xpath="//label[text()='ART Type']//following::select[3]")WebElement Protocol;
-	private @FindBy(xpath="//select[@class='form-control ng-pristine ng-untouched ng-valid ng-not-empty']")WebElement Semen;
+	private @FindBy(xpath="(//select[@class='form-control ng-pristine ng-untouched ng-valid ng-not-empty'])[3]")WebElement Semen;
 	private @FindBy(xpath="//label[text()='Source of Sperm']//following-sibling::div/select")WebElement Sourceofsperm;
 	private @FindBy(xpath="(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[2]")WebElement Donor;
-	private @FindBy(xpath ="//span[@class='multiSelect inlineBlock buttonClicked']/button")WebElement Indication;
-	private @FindBy(xpath="(//span[@class='multiSelect inlineBlock']/button)[2]")WebElement SimulationDrug;
+	private @FindBy(xpath ="(//span[@class='multiSelect inlineBlock']/button)[1]")WebElement Indication;
+	private @FindBy(xpath="//label[contains(text(),'Stimulation Drug')]/following::button[1]")WebElement SimulationDrug;
 	private@FindBy(xpath="//textarea[@name='txtCyWarning']")WebElement CycleWarnings;
 	private@FindBy(xpath="//textarea[@name='txtRemark']")WebElement Remarks;
 	private@FindBy(xpath="//button[@class='btn btn-primary']")WebElement Save;
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
 	private @FindBy(xpath="//a[@class='txt_bold ng-binding']")WebElement CycleCode;
 	private @FindBy(xpath="//i[@class='fa fa-calendar']")WebElement LMPcalender;
+	private @FindBy(xpath="//a[@class='txt_bold ng-binding']")WebElement Cyclecode;
 	
 	
 	String msg;
@@ -65,7 +66,7 @@ public class CycleListPage extends TestBase
 	}
 	public String ClickonNewCycle() throws Exception
 	{
-		
+		Thread.sleep(3000);
 		boolean flag= NewCycleButtonEnableCondition();
 		if(NewCycleButtonEnableCondition()==true)
 		{
@@ -119,16 +120,16 @@ public class CycleListPage extends TestBase
 	}
 	public boolean EnabledconditionARTType() throws Exception
 	{
-		System.out.println();
 		
-		ClickonNewCycle();
+		
+		//ClickonNewCycle();
 		try
 		{
 			TestUtil.VisibleOn(driver, Artselecttype, 30);
 		}
 		catch(TimeoutException e)
 		{
-			System.out.println("Element is not seen within 20 seconds");
+			System.out.println("Element-Artselecttype is not seen within 20 seconds");
 		}
 		boolean flag= Artselecttype.isEnabled();	
 		
@@ -138,10 +139,10 @@ public class CycleListPage extends TestBase
 	}
 	public String  ARTTypeOption() throws Exception
 	{
-		 ClickonNewCycle();
+		// ClickonNewCycle();
 		Select OptionART = new Select(Artselecttype);
 	WebElement option =	OptionART.getFirstSelectedOption();
-	String OptionName = option.getAttribute("value");
+	String OptionName = option.getText();
 	reader.setCellData("CycleList", "ARTtype", 2, OptionName);
 		return OptionName;
 		
@@ -195,7 +196,7 @@ public class CycleListPage extends TestBase
 	public String MethodofSemenCollection() throws Exception
 	{
 		
-		ClickonNewCycle();
+		//ClickonNewCycle();
 		try
 		{
 			TestUtil.VisibleOn(driver, Semen, 30);
@@ -216,10 +217,8 @@ public class CycleListPage extends TestBase
 			if(count==4)
 			{
 				
-				Siementypes.get(i).click();
 				Name= Siementypes.get(i).getText();
-				
-				
+				Siementypes.get(i).click();
 				
 				break;
 			}
@@ -233,7 +232,7 @@ public class CycleListPage extends TestBase
 	}
 	public String SourceofspermPartner() throws Exception
 	{
-		ClickonNewCycle();
+		//ClickonNewCycle();
 		try
 		{
 			TestUtil.VisibleOn(driver, Sourceofsperm, 30);
@@ -246,7 +245,7 @@ public class CycleListPage extends TestBase
 		act.moveToElement(Sourceofsperm).click().perform();
 		List<WebElement>Sourceofsperms=driver.findElements(By.xpath("//label[text()='Source of Sperm']//following-sibling::div/select/option"));
 		
-		int count=1;
+		int count=0;
 		for(int i=0;i<=Sourceofsperms.size();i++)
 		{
 			count++;
@@ -254,13 +253,10 @@ public class CycleListPage extends TestBase
 			{
 				Name= Sourceofsperms.get(i).getText();
 				Sourceofsperms.get(i).click();
-				
 				WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[1]"));
 				 Name1=SOSName.getText();
-				if(Name.equals(Name1))
-				{
-						break;
-				}
+				 break;
+				
 						
 			}
 			/*else
@@ -288,7 +284,7 @@ public class CycleListPage extends TestBase
 	
 	public String SourceofSpermselectionDonor() throws Exception 
 	{
-		ClickonNewCycle();
+		//ClickonNewCycle();
 		try
 		{
 			TestUtil.VisibleOn(driver, Sourceofsperm, 30);
@@ -326,7 +322,18 @@ public class CycleListPage extends TestBase
 	}
 	public boolean IndicationtypeSelection()
 	{
-	Indication.click();
+		try
+		{
+			TestUtil.VisibleOn(driver, Indication, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("element- Indication is not seen within 30 sec");
+		}
+		Actions act = new Actions(driver);
+		act.moveToElement(Indication).click().perform();
+	
+	//Indication.click();
 	List<WebElement> IndicationList = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
 	int indicationsize= IndicationList.size();
 	int row = 1;
@@ -336,7 +343,7 @@ public class CycleListPage extends TestBase
 	for(int i= 0;i<=indicationsize;i++)
 	{
 		String IndicationNames= IndicationList.get(i).getText();
-		reader.setCellData("CycleList", "IndicationNames", rows, IndicationNames);
+	reader.setCellData("CycleList", "IndicationNames", rows, IndicationNames);
 		
 		String NameIndication = reader.getCellData("CycleList", "IndicationNames", rows);
 		if(NameIndication.equals(IndicationNames))
@@ -375,30 +382,53 @@ public class CycleListPage extends TestBase
 	
 	public String SimulationDrug() throws Exception
 	{
-		ClickonNewCycle();
+		try
+		{
+			TestUtil.VisibleOn(driver, SimulationDrug, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element-SimulationDrug is not seen within 30 sec");
+		}
+		System.out.println("SimulationDrug is displayed" +SimulationDrug.isDisplayed()+ "SimulationDrug is enabled"+ SimulationDrug.isEnabled());
+		//ClickonNewCycle();
+		Actions act = new Actions(driver);
+		act.moveToElement(SimulationDrug).click().perform();
+		
 		List<WebElement>Drugs = driver.findElements(By.xpath("//div[@class='checkBoxContainer']//div"));
 		int Size= Drugs.size();
-		
+		int count=0;
+		int rows=2;
 		for(int i=0;i<=Size;i++)
 		{
-			
-			int count=0;
-			
-			int rows=2;
-			if(count==Size)
+			String drugName=reader.getCellData("CycleList", "Stimulation Drug", 20);
+			Name= Drugs.get(i).getText();
+			if(Name.equals(drugName))
 			{
 				Drugs.get(i).click();
-				Name= Drugs.get(i).getText();
-				reader.setCellData("CycleList", "Stimulation Drug", rows, Name);
-				rows++;
-				count++;
 				break;
 			}
 			
+		 
+		
+		/* if(count<=1542)
+		 {
+			 Name= Drugs.get(i).getText();
+				reader.setCellData("CycleList", "Stimulation Drug", rows, Name);
+				 rows++;
+					count++;
+				if(count==1542)
+				{
+					break;
+				}*/
+		 }
+		return Name;
+		 
+			
 				
 		}
-		return Name;
-	}
+		
+	
 	public void InputvalueInTextBoxes()
 	{
 		
@@ -432,13 +462,14 @@ public class CycleListPage extends TestBase
 	public void SaveTheCycle() throws Exception
 	{
 		NoofProtocol();
-		
-		MethodofSemenCollection();
-		
-		SourceofSpermselectionDonor();
-		IndicationtypeSelection();
-		InputvalueInTextBoxes();
 		LMPDate();
+		InputvalueInTextBoxes();
+		IndicationtypeSelection();
+		SourceofspermPartner();
+		MethodofSemenCollection();
+		SimulationDrug();
+		//SourceofSpermselectionDonor();
+		
 		Save.click();
 				
 				
@@ -476,6 +507,13 @@ public class CycleListPage extends TestBase
 		
 		
 		return new NewCycleListPage();
+		
+	}
+	public CycleOverviewPage ClickOnCycleCode()
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(Cyclecode).click().perform();
+		return new CycleOverviewPage();
 		
 	}
 	

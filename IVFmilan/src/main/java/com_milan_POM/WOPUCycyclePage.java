@@ -31,8 +31,7 @@ public class WOPUCycyclePage extends TestBase
 	 WebElement Calender;
 	@FindBy(xpath = "(//button[@class='btn btn-primary'])[3]")
 	 WebElement Save;
-	@FindBy(xpath = "//a[@class='active_white_color']")
-	 WebElement Cycleoption;
+	@FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoption;
 	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']")
 	 WebElement Availabilitymessage;
 	@FindBy(xpath="//table/tbody[3]/tr/td[1]/span[@class='btn_delete']")
@@ -52,8 +51,6 @@ public class WOPUCycyclePage extends TestBase
 	@FindBy(xpath="(//input[@class='ng-pristine ng-untouched ng-valid ng-empty'])[2]")WebElement checboxpreviousprocedure;
 	@FindBy(xpath="//button[@id='btnAddPrePro'][@value='Save']")WebElement Add;
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement msgSaveafteradd;
-	
-	
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	 String msg;
 	 int count2;
@@ -302,9 +299,19 @@ return count2;
 		SaveOPUsubtypeICSI();
 		 Cycleoption.click();
 		 msg= CyclelistTitle.getText();
-		return msg;
+		
 		}
 		return msg;
+		
+		
+		
+	}
+	public CycleListPage ClickonCycleOption()
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(Cycleoption).click().perform();
+		return new CycleListPage();
+		
 		
 	}
 	
@@ -400,7 +407,7 @@ return count2;
 		{
 			System.out.println("checboxpreviousprocedure is not displayed with in30 seconds");
 		}
-		System.out.println("checkbox is displayed" + checboxpreviousprocedure.isDisplayed()+"and enabled" +  checboxpreviousprocedure.isEnabled());
+		//System.out.println("checkbox is displayed" + checboxpreviousprocedure.isDisplayed()+"and enabled" +  checboxpreviousprocedure.isEnabled());
 		Actions act = new Actions(driver);
 		act.moveToElement(checboxpreviousprocedure).click().perform();
 		act.moveToElement(Add).click().perform();
