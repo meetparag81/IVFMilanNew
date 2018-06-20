@@ -255,6 +255,7 @@ public class EMRDashBoardPage extends TestBase {
 
 		// jse.executeScript("arguments[0].scrollIntoView()", Investigation);
 		// Investigation.click();
+		
 
 		return new WInvestigationPage();
 	}

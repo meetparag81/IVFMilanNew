@@ -45,8 +45,8 @@ public class CycleListPageTest extends TestBase
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage = HomePage.searchPaient();
 		Investigation = EMRPage.ClickOnInvestigation();
-		
 		WOC = new WOPUCycyclePage();
+		
 		boolean flag = WOC.AlreadySavedCycle();
 		if(flag==true)
 		{
@@ -72,7 +72,7 @@ public class CycleListPageTest extends TestBase
 		 
 		
 	}
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	
 	public void ClickonNewCycleTest() throws Exception
 	{
@@ -94,7 +94,7 @@ public class CycleListPageTest extends TestBase
 	
 	
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void CycleListTitleTest()
 	{
 		boolean flag = CLP.NewCycleButtonEnableCondition();
@@ -116,7 +116,7 @@ public class CycleListPageTest extends TestBase
 	
 	}
 	
-	@Test(priority=3,enabled=false)
+	@Test(priority=3,enabled=true)
 	public void NewCycleButtonEnableConditionTest()
 	{
 		
@@ -171,16 +171,16 @@ public class CycleListPageTest extends TestBase
 	Assert.assertEquals(act, exp);	
 	System.out.println("ARTTypeOptionTest is completed" );
 	}
-	@Test(priority=6,enabled=false,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	@Test(priority=6,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
 	public void ProtocolandselectionTest () throws Exception
 	{
-
+		CLP.ClickonNewCycle();
 		String Act=CLP.NoofProtocol();
 		String exp= "Antagonist";
 		Assert.assertEquals(Act, exp);
 		System.out.println("NoofProtocolandselectionTest is completed");
 	}
-	@Test(priority=7,enabled=false,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	@Test(priority=7,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
 	public void MethodOfSemenCollectionTest() throws Exception
 	{
 		CLP.ClickonNewCycle();
@@ -191,7 +191,7 @@ public class CycleListPageTest extends TestBase
 		
 		
 	}
-	@Test(priority=8,enabled=false,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	@Test(priority=8,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
 	public void SourceofspermPartnerTest() throws Exception
 	{
 		CLP.ClickonNewCycle();
@@ -201,7 +201,7 @@ public class CycleListPageTest extends TestBase
 		System.out.println("MethodSourceofspermTest is completed");
 		
 	}
-	@Test(priority=9, enabled=false,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	@Test(priority=9, enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
 	public void SourceofSpermselectionDonorTest() throws Exception
 	{
 		CLP.ClickonNewCycle();
@@ -210,7 +210,7 @@ public class CycleListPageTest extends TestBase
 		Assert.assertEquals(Act, Exp);
 		System.out.println("SourceofSpermselectionDonorTest is completed");
 	}
-	@Test(priority=10,enabled=false,dependsOnMethods = {"EnabledconditionARTTypeTest"})
+	@Test(priority=10,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
 	public void SimulationDrugTest() throws Exception
 	{
 		CLP.ClickonNewCycle();
@@ -224,6 +224,7 @@ public class CycleListPageTest extends TestBase
 		boolean Save=CLP.SaveEnablecondition();
 		if(Save==true)
 		{
+			CLP.ClickonNewCycle();
 			CLP.SaveTheCycle();
 		
 			String act= CLP.SaveMessage();

@@ -152,7 +152,6 @@ public class CycleListPage extends TestBase
 	{
 		Thread.sleep(2000);
 		String NameofProtocol = null;
-		ClickonNewCycle();
 		Select Protocolopt= new Select(Protocol);
 		List<WebElement>NoofProtocol =  Protocolopt.getOptions();
 		int SizeofProtocol= NoofProtocol.size();
@@ -461,6 +460,7 @@ public class CycleListPage extends TestBase
 	}
 	public void SaveTheCycle() throws Exception
 	{
+		
 		NoofProtocol();
 		LMPDate();
 		InputvalueInTextBoxes();

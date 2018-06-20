@@ -241,8 +241,9 @@ for(int i=1;i<radiobuttons;i++)
 		{
 			System.out.println("element not seen within20 seconds");
 		}
-		Actions sct = new Actions(driver);
-		sct.moveToElement(checkbox).click().perform();
+		Actions act = new Actions(driver);
+		act.moveToElement(checkbox).click().perform();
+		
 		}
 		else
 		{

@@ -1,37 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="9" total="11" passed="2">
+<testng-results skipped="0" failed="0" ignored="1" total="4" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="205367" started-at="2018-06-19T10:36:43Z" finished-at="2018-06-19T10:40:08Z">
+  <suite name="Default suite" duration-ms="250650" started-at="2018-06-20T16:54:54Z" finished-at="2018-06-20T16:59:05Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="205367" started-at="2018-06-19T10:36:43Z" finished-at="2018-06-19T10:40:08Z">
-      <class name="com_Milan_Test.CycleListPageTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@11fc564b]" name="Setup" is-config="true" duration-ms="74278" started-at="2018-06-19T16:06:43Z" finished-at="2018-06-19T16:07:57Z">
+    <test name="Default test" duration-ms="250650" started-at="2018-06-20T16:54:54Z" finished-at="2018-06-20T16:59:05Z">
+      <class name="com_Milan_Test.CycleOverviewPageTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="Setup" is-config="true" duration-ms="77288" started-at="2018-06-20T22:24:55Z" finished-at="2018-06-20T22:26:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="EnabledconditionARTTypeTest()[pri:4, instance:com_Milan_Test.CycleListPageTest@11fc564b]" name="EnabledconditionARTTypeTest" duration-ms="5531" started-at="2018-06-19T16:07:57Z" finished-at="2018-06-19T16:08:03Z">
+        <test-method status="PASS" signature="ValueInSourceofSpermOptionTest()[pri:1, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="ValueInSourceofSpermOptionTest" duration-ms="6941" started-at="2018-06-20T22:26:12Z" finished-at="2018-06-20T22:26:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- EnabledconditionARTTypeTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@11fc564b]" name="Teardown" is-config="true" duration-ms="687" started-at="2018-06-19T16:08:03Z" finished-at="2018-06-19T16:08:03Z">
+        </test-method> <!-- ValueInSourceofSpermOptionTest -->
+        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="TearDown" is-config="true" duration-ms="700" started-at="2018-06-20T22:26:19Z" finished-at="2018-06-20T22:26:19Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@11fc564b]" name="Setup" is-config="true" duration-ms="72717" started-at="2018-06-19T16:08:03Z" finished-at="2018-06-19T16:09:16Z">
+        </test-method> <!-- TearDown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="Setup" is-config="true" duration-ms="73135" started-at="2018-06-20T22:26:19Z" finished-at="2018-06-20T22:27:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="SaveTheCycleTest()[pri:11, instance:com_Milan_Test.CycleListPageTest@11fc564b]" name="SaveTheCycleTest" duration-ms="51439" started-at="2018-06-19T16:09:16Z" depends-on-methods="com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest" finished-at="2018-06-19T16:10:07Z">
+        <test-method status="PASS" signature="ValueInMethodOfSemenCollectionOptionTest()[pri:2, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="ValueInMethodOfSemenCollectionOptionTest" duration-ms="5466" started-at="2018-06-20T22:27:33Z" finished-at="2018-06-20T22:27:38Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SaveTheCycleTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@11fc564b]" name="Teardown" is-config="true" duration-ms="666" started-at="2018-06-19T16:10:07Z" finished-at="2018-06-19T16:10:08Z">
+        </test-method> <!-- ValueInMethodOfSemenCollectionOptionTest -->
+        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="TearDown" is-config="true" duration-ms="654" started-at="2018-06-20T22:27:38Z" finished-at="2018-06-20T22:27:39Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Teardown -->
-      </class> <!-- com_Milan_Test.CycleListPageTest -->
+        </test-method> <!-- TearDown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="Setup" is-config="true" duration-ms="77801" started-at="2018-06-20T22:27:39Z" finished-at="2018-06-20T22:28:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="ValueInProtocolTest()[pri:3, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="ValueInProtocolTest" duration-ms="7975" started-at="2018-06-20T22:28:57Z" finished-at="2018-06-20T22:29:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ValueInProtocolTest -->
+        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@5609159b]" name="TearDown" is-config="true" duration-ms="650" started-at="2018-06-20T22:29:04Z" finished-at="2018-06-20T22:29:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
