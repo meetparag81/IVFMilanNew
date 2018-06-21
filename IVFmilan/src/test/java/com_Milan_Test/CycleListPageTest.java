@@ -220,7 +220,9 @@ public class CycleListPageTest extends TestBase
 		CLP.ClickonNewCycle();
 		String Actual= CLP.SimulationDrug();
 		String Expected = reader.getCellData("CycleList", "Stimulation Drug", 20);
-	}
+		Assert.assertEquals(Actual, Expected);
+		System.out.println("SimulationDrugTest is completed");
+	}																																													
 	@Test(priority=11,enabled=true, dependsOnMethods = {"EnabledconditionARTTypeTest"})
 	public void SaveTheCycleTest() throws Exception 
 	{
