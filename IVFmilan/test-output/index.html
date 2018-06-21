@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>C:\Users\paragb\AppData\Local\Temp\testng-eclipse-631831357\testng-customsuite.xml</span>
+                    <span>C:\Users\paragb\AppData\Local\Temp\testng-eclipse-1258634488\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,40 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">10 methods, 2 failed,  1 skipped,  7 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="MethodOfSemenCollectionTest">MethodOfSemenCollectionTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="SimulationDrugTest">SimulationDrugTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Skipped methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods skipped suite-Default_suite"> (hide)</a> <!-- hide-methods skipped suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods skipped suite-Default_suite"> (show)</a> <!-- show-methods skipped suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Default_suite">
+                      <span>
+                        <img width="3%" src="skipped.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="SaveTheCycleTest">SaveTheCycleTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,17 +135,37 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleOverviewPageTest" hash-for-method="ValueInMethodOfSemenCollectionOptionTest">ValueInMethodOfSemenCollectionOptionTest</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="ClickonNewCycleTest">ClickonNewCycleTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleOverviewPageTest" hash-for-method="ValueInProtocolTest">ValueInProtocolTest</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="CycleListTitleTest">CycleListTitleTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleOverviewPageTest" hash-for-method="ValueInSourceofSpermOptionTest">ValueInSourceofSpermOptionTest</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="EnabledconditionARTTypeTest">EnabledconditionARTTypeTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="NewCycleButtonEnableConditionTest">NewCycleButtonEnableConditionTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="ProtocolandselectionTest">ProtocolandselectionTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="SourceofSpermselectionDonorTest">SourceofSpermselectionDonorTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="com_Milan_Test.CycleListPageTest" hash-for-method="SourceofspermPartnerTest">SourceofspermPartnerTest</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -127,31 +180,234 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+          <div class="suite-Default_suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">com_Milan_Test.CycleOverviewPageTest</span>
+              <img src="failed.png"/>
+              <span class="class-name">com_Milan_Test.CycleListPageTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="ValueInMethodOfSemenCollectionOptionTest">
-                  </a> <!-- ValueInMethodOfSemenCollectionOptionTest -->
-                  <span class="method-name">ValueInMethodOfSemenCollectionOptionTest</span>
+                  <a name="MethodOfSemenCollectionTest">
+                  </a> <!-- MethodOfSemenCollectionTest -->
+                  <span class="method-name">MethodOfSemenCollectionTest</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [Electrostimulation] but found [null]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:129)
+	at org.testng.Assert.assertEquals(Assert.java:115)
+	at org.testng.Assert.assertEquals(Assert.java:189)
+	at org.testng.Assert.assertEquals(Assert.java:199)
+	at com_Milan_Test.CycleListPageTest.MethodOfSemenCollectionTest(CycleListPageTest.java:193)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="ValueInProtocolTest">
-                  </a> <!-- ValueInProtocolTest -->
-                  <span class="method-name">ValueInProtocolTest</span>
+                  <a name="SimulationDrugTest">
+                  </a> <!-- SimulationDrugTest -->
+                  <span class="method-name">SimulationDrugTest</span>
+                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index: 16, Size: 16
+	at java.util.ArrayList.rangeCheck(Unknown Source)
+	at java.util.ArrayList.get(Unknown Source)
+	at com_milan_POM.CycleListPage.SimulationDrug(CycleListPage.java:421)
+	at com_Milan_Test.CycleListPageTest.SimulationDrugTest(CycleListPageTest.java:221)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com_Milan_Test.CycleListPageTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="SaveTheCycleTest">
+                  </a> <!-- SaveTheCycleTest -->
+                  <span class="method-name">SaveTheCycleTest</span>
+                  <div class="stack-trace">org.openqa.selenium.NoSuchWindowException: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=67.0.3396.87)
+  (Driver info: chromedriver=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91),platform=Windows NT 6.3.9600 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+Build info: version: &apos;3.5.3&apos;, revision: &apos;a88d25fe6b&apos;, time: &apos;2017-08-29T12:42:44.417Z&apos;
+System info: host: &apos;IVF111&apos;, ip: &apos;192.168.1.56&apos;, os.name: &apos;Windows 8.1&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.3&apos;, java.version: &apos;1.8.0_161&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{mobileEmulationEnabled=false, hasTouchScreen=false, platform=WIN8_1, acceptSslCerts=false, acceptInsecureCerts=false, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, platformName=WIN8_1, setWindowRect=true, unexpectedAlertBehaviour=, applicationCacheEnabled=false, rotatable=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.36.540470 (e522d04694c7ebea4ba8821272dbef4f9b818c91), userDataDir=C:\Users\paragb\AppData\Local\Temp\scoped_dir18308_3340}, takesHeapSnapshot=true, pageLoadStrategy=normal, unhandledPromptBehavior=, databaseEnabled=false, handlesAlerts=true, version=67.0.3396.87, browserConnectionEnabled=false, nativeEvents=true, locationContextEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 3b0c440b196d8c93f340589ad0e7bc3c
+*** Element info: {Using=xpath, value=//li[text()=&apos;Cycles&apos;]}
+	at sun.reflect.GeneratedConstructorAccessor65.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)
+	at org.openqa.selenium.remote.http.JsonHttpResponseCodec.reconstructValue(JsonHttpResponseCodec.java:40)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:82)
+	at org.openqa.selenium.remote.http.AbstractHttpResponseCodec.decode(AbstractHttpResponseCodec.java:45)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:164)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:82)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:646)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:416)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:518)
+	at org.openqa.selenium.By$ByXPath.findElement(By.java:361)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:408)
+	at sun.reflect.GeneratedMethodAccessor5.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver$2.invoke(EventFiringWebDriver.java:105)
+	at com.sun.proxy.$Proxy8.findElement(Unknown Source)
+	at org.openqa.selenium.support.events.EventFiringWebDriver.findElement(EventFiringWebDriver.java:189)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy12.getCoordinates(Unknown Source)
+	at org.openqa.selenium.interactions.internal.MouseAction.getActionLocation(MouseAction.java:67)
+	at org.openqa.selenium.interactions.MoveMouseAction.perform(MoveMouseAction.java:43)
+	at org.openqa.selenium.interactions.CompositeAction.perform(CompositeAction.java:36)
+	at org.openqa.selenium.interactions.Actions$BuiltAction.perform(Actions.java:641)
+	at org.openqa.selenium.interactions.Actions.perform(Actions.java:594)
+	at com_milan_POM.WOPUCycyclePage.Existingcycle(WOPUCycyclePage.java:329)
+	at com_Milan_Test.CycleListPageTest.Setup(CycleListPageTest.java:58)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:599)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-skipped -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com_Milan_Test.CycleListPageTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="ClickonNewCycleTest">
+                  </a> <!-- ClickonNewCycleTest -->
+                  <span class="method-name">ClickonNewCycleTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="ValueInSourceofSpermOptionTest">
-                  </a> <!-- ValueInSourceofSpermOptionTest -->
-                  <span class="method-name">ValueInSourceofSpermOptionTest</span>
+                  <a name="CycleListTitleTest">
+                  </a> <!-- CycleListTitleTest -->
+                  <span class="method-name">CycleListTitleTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="EnabledconditionARTTypeTest">
+                  </a> <!-- EnabledconditionARTTypeTest -->
+                  <span class="method-name">EnabledconditionARTTypeTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="NewCycleButtonEnableConditionTest">
+                  </a> <!-- NewCycleButtonEnableConditionTest -->
+                  <span class="method-name">NewCycleButtonEnableConditionTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="ProtocolandselectionTest">
+                  </a> <!-- ProtocolandselectionTest -->
+                  <span class="method-name">ProtocolandselectionTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SourceofSpermselectionDonorTest">
+                  </a> <!-- SourceofSpermselectionDonorTest -->
+                  <span class="method-name">SourceofSpermselectionDonorTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SourceofspermPartnerTest">
+                  </a> <!-- SourceofspermPartnerTest -->
+                  <span class="method-name">SourceofspermPartnerTest</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -159,7 +415,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\paragb\AppData\Local\Temp\testng-eclipse-631831357\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\paragb\AppData\Local\Temp\testng-eclipse-1258634488\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -168,7 +424,7 @@
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
   &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com_Milan_Test.CycleOverviewPageTest&quot;/&gt;
+      &lt;class name=&quot;com_Milan_Test.CycleListPageTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -208,24 +464,52 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(10);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'ValueInProtocolTest')
-data.setCell(0, 2, 'com_Milan_Test.CycleOverviewPageTest')
-data.setCell(0, 3, 7975);
+data.setCell(0, 1, 'ProtocolandselectionTest')
+data.setCell(0, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(0, 3, 7962);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ValueInSourceofSpermOptionTest')
-data.setCell(1, 2, 'com_Milan_Test.CycleOverviewPageTest')
-data.setCell(1, 3, 6941);
+data.setCell(1, 1, 'SimulationDrugTest')
+data.setCell(1, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(1, 3, 7303);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'ValueInMethodOfSemenCollectionOptionTest')
-data.setCell(2, 2, 'com_Milan_Test.CycleOverviewPageTest')
-data.setCell(2, 3, 5466);
+data.setCell(2, 1, 'ClickonNewCycleTest')
+data.setCell(2, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(2, 3, 6534);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'SourceofspermPartnerTest')
+data.setCell(3, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(3, 3, 5881);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'SourceofSpermselectionDonorTest')
+data.setCell(4, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(4, 3, 5795);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'MethodOfSemenCollectionTest')
+data.setCell(5, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(5, 3, 5732);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'EnabledconditionARTTypeTest')
+data.setCell(6, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(6, 3, 5625);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'CycleListTitleTest')
+data.setCell(7, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(7, 3, 1627);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'NewCycleButtonEnableConditionTest')
+data.setCell(8, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(8, 3, 119);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'SaveTheCycleTest')
+data.setCell(9, 2, 'com_Milan_Test.CycleListPageTest')
+data.setCell(9, 3, 0);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 20 seconds</span>
+              <span class="suite-total-time">Total running time: 46 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -244,9 +528,9 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="ignored-class-div">
-              <span class="ignored-class-name">com_Milan_Test.CycleOverviewPageTest</span>
+              <span class="ignored-class-name">com_Milan_Test.CycleListPageTest</span>
               <div class="ignored-methods-div">
-                <span class="ignored-method-name">EnableconditionAddSimulationDrugTest</span>
+                <span class="ignored-method-name">ARTTypeOptionTest</span>
                 <br/>
               </div> <!-- ignored-methods-div -->
             </div> <!-- ignored-class-div -->
@@ -258,43 +542,125 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com_Milan_Test.CycleOverviewPageTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com_Milan_Test.CycleListPageTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">Setup</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">ValueInSourceofSpermOptionTest</span>
-                <span class="method-start">77288 ms</span>
+                <span class="method-name">ClickonNewCycleTest</span>
+                <span class="method-start">72867 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown</span>
-                <span class="method-start">84232 ms</span>
+                <span class="method-name">Teardown</span>
+                <span class="method-start">79417 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">Setup</span>
-                <span class="method-start">84932 ms</span>
+                <span class="method-start">80105 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">ValueInMethodOfSemenCollectionOptionTest</span>
-                <span class="method-start">158067 ms</span>
+                <span class="method-name">CycleListTitleTest</span>
+                <span class="method-start">152330 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown</span>
-                <span class="method-start">163535 ms</span>
+                <span class="method-name">Teardown</span>
+                <span class="method-start">153978 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">Setup</span>
-                <span class="method-start">164189 ms</span>
+                <span class="method-start">154642 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">ValueInProtocolTest</span>
-                <span class="method-start">241990 ms</span>
+                <span class="method-name">NewCycleButtonEnableConditionTest</span>
+                <span class="method-start">225580 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">TearDown</span>
-                <span class="method-start">249970 ms</span>
+                <span class="method-name">Teardown</span>
+                <span class="method-start">225700 ms</span>
               </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Setup</span>
+                <span class="method-start">226366 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">EnabledconditionARTTypeTest</span>
+                <span class="method-start">299912 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Teardown</span>
+                <span class="method-start">305549 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Setup</span>
+                <span class="method-start">306236 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">ProtocolandselectionTest</span>
+                <span class="method-start">379533 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Teardown</span>
+                <span class="method-start">387497 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Setup</span>
+                <span class="method-start">388185 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">MethodOfSemenCollectionTest</span>
+                <span class="method-start">460371 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Teardown</span>
+                <span class="method-start">466492 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Setup</span>
+                <span class="method-start">467180 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">SourceofspermPartnerTest</span>
+                <span class="method-start">538658 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Teardown</span>
+                <span class="method-start">544550 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Setup</span>
+                <span class="method-start">545239 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">SourceofSpermselectionDonorTest</span>
+                <span class="method-start">618776 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Teardown</span>
+                <span class="method-start">624575 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">Setup</span>
+                <span class="method-start">625263 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">SimulationDrugTest</span>
+                <span class="method-start">707323 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">Teardown</span>
+                <span class="method-start">714976 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Setup</span>
+                <span class="method-start">715694 ms</span>
+              </div> <!-- configuration-method before -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

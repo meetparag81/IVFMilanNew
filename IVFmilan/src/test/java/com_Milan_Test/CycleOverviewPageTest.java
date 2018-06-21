@@ -87,13 +87,7 @@ public class CycleOverviewPageTest extends TestBase
 	
 	
 
-	@Test(priority=6,enabled=false)
-	public void EnableconditionAddSimulationDrugTest()
-	{
-		boolean flag= COP.EnableconditionAddSimulationDrug();
-		assertFalse(flag);
-		System.out.println("EnableconditionAddSimulationDrugTest is completed");
-	}
+	
 	@Test(priority=1,enabled=true)
 	public void ValueInSourceofSpermOptionTest() throws Exception
 	{
@@ -119,6 +113,23 @@ public class CycleOverviewPageTest extends TestBase
 			Assert.assertEquals(act, exp);
 			System.out.println("ValueInProtocoltest is completed");
 		}
+		@Test(priority=4,enabled=true)
+		public void ValueInARTTypeTest() throws Exception 
+		{
+			String act= COP.ValueInARTType();
+			String exp = CLP.ARTTypeOption();
+			Assert.assertEquals(act, exp);
+			System.out.println("ValueInARTTypeTest is completed");
+		}
+		@Test(priority=5,enabled=true)
+		public void EnableconditionAddSimulationDrugTest()
+		{
+			boolean flag= COP.EnableconditionAddSimulationDrug();
+			assertFalse(flag);
+			System.out.println("EnableconditionAddSimulationDrugTest is completed");
+		}
+		
+		
 		
 	@AfterMethod
 	public void TearDown()

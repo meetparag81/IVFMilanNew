@@ -46,7 +46,7 @@ public class WInvestigationPageTest extends TestBase
 
 	}
 
-	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	@Test(priority=1,groups = {"smoketest" },enabled=false)
 	public void CycleCreationTest() throws Exception 
 	{
 		int Actual = Investigation.Setsearchvalue();

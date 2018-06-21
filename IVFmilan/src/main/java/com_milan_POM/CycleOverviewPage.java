@@ -32,6 +32,7 @@ public class CycleOverviewPage extends TestBase
 	private @FindBy(xpath="//label[text()='ART Type']/following-sibling::div/select")WebElement ARTType;
 	private @FindBy(xpath="//label[text()='ART Type']//following::select[2]")WebElement ARTSubType;
 	private @FindBy(xpath="//label[contains (text(), 'Protocol')]/following-sibling::div/select")WebElement Protocol;
+	private @FindBy(xpath="//label[contains (text(), 'ART Type')]/following-sibling::div/select")WebElement Arttype;
 	
 	String msg;
 	
@@ -108,12 +109,12 @@ public class CycleOverviewPage extends TestBase
 	public String ValueInMethodOfSemenCollectionOption() throws Exception
 	{
 		Select MOS = new Select(MethodofSemenCollection);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		
 		WebElement we = MOS.getFirstSelectedOption();
 		Actions act = new Actions(driver);
 		act.moveToElement(we);
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		msg= we.getText();
 		try
 		{
@@ -130,11 +131,11 @@ public class CycleOverviewPage extends TestBase
 	public String ValueInProtocol() throws Exception
 	{
 		Select VOP = new Select(Protocol);
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		WebElement we = VOP.getFirstSelectedOption();
 		Actions act = new Actions(driver);
 		act.moveToElement(we);
-		Thread.sleep(3000);
+		Thread.sleep(4000);
 		msg= we.getText();
 		try
 		{
@@ -150,11 +151,18 @@ public class CycleOverviewPage extends TestBase
 			return msg1;
 		}
 		return msg;
-		
-		
-		
-		
+	
+	}
+	public  String ValueInARTType() throws InterruptedException
+	{
+		Select ARTtype = new Select(ARTType);
+	WebElement we=	ARTtype.getFirstSelectedOption();
+	Thread.sleep(4000);
+	msg= we.getText();
+	
+		return msg;
 		
 	}
+	
 		
 	}

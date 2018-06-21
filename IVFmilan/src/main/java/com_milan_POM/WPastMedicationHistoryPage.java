@@ -60,9 +60,24 @@ public class WPastMedicationHistoryPage extends TestBase
 	}
 	public String DrugName() throws InterruptedException
 	{	
-		TestUtil.VisibleOn(driver, GenericName,30);
+		try
+		{
+			TestUtil.VisibleOn(driver, GenericName,30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element- GenericName is not seen within 30 sec");
+		}		
 		GenericName.click();
-		TestUtil.VisibleOn(driver, InputsearchboxGeneric, 60);
+		try
+		{
+			TestUtil.VisibleOn(driver, InputsearchboxGeneric, 60);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element- InputsearchboxGeneric is not seen within 60 sec");
+		}
+		
 		System.out.println("searchbox is displayed"+ InputsearchboxGeneric.isDisplayed());
 		InputsearchboxGeneric.sendKeys("ADA");
 		Thread.sleep(1000);

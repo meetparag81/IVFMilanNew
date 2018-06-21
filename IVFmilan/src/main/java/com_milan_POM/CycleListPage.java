@@ -64,16 +64,25 @@ public class CycleListPage extends TestBase
 		return flag1;
 		
 	}
-	public String ClickonNewCycle() throws Exception
+	public String ClickonNewCycle()  
 	{
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+		}
 		boolean flag= NewCycleButtonEnableCondition();
 		if(NewCycleButtonEnableCondition()==true)
 		{
 			Actions act = new Actions(driver);
 			act.moveToElement(Newcyclebutton).click().perform();
 		//Newcyclebutton.click();
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("Thread.sleep exception is seen ");
+			}
 		 msg = Cyclepagetext.getText();
 		}
 		else
@@ -148,9 +157,17 @@ public class CycleListPage extends TestBase
 		
 	}
 	
-	public String NoofProtocol() throws Exception
+	public String NoofProtocol()
 	{
-		Thread.sleep(2000);
+		try
+		{
+			Thread.sleep(2000);
+		}
+		catch(InterruptedException e)
+		{
+			System.out.println("Interrupted exception seen");
+		}
+		
 		String NameofProtocol = null;
 		Select Protocolopt= new Select(Protocol);
 		List<WebElement>NoofProtocol =  Protocolopt.getOptions();
@@ -192,7 +209,7 @@ public class CycleListPage extends TestBase
 	
 
 }
-	public String MethodofSemenCollection() throws Exception
+	public String MethodofSemenCollection()
 	{
 		
 		//ClickonNewCycle();
@@ -229,7 +246,7 @@ public class CycleListPage extends TestBase
 		return Name;
 		
 	}
-	public String SourceofspermPartner() throws Exception
+	public String SourceofspermPartner() 
 	{
 		//ClickonNewCycle();
 		try
@@ -281,7 +298,7 @@ public class CycleListPage extends TestBase
 				
 	
 	
-	public String SourceofSpermselectionDonor() throws Exception 
+	public String SourceofSpermselectionDonor() 
 	{
 		//ClickonNewCycle();
 		try
@@ -379,7 +396,7 @@ public class CycleListPage extends TestBase
 	}
 	
 	
-	public String SimulationDrug() throws Exception
+	public String SimulationDrug() 
 	{
 		try
 		{
@@ -501,7 +518,14 @@ public class CycleListPage extends TestBase
 	
 	public NewCycleListPage ClickonCyclecode() throws Exception
 	{
-		Thread.sleep(2000);
+		try
+		{
+		TestUtil.VisibleOn(driver, CycleCode, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element-cyclecode is not seen within 20 sec");
+		}
 		CycleCode.click();
 		
 		

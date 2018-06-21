@@ -1,6 +1,6 @@
 package com_milan_POM;
 
-import java.util.concurrent.TimeoutException;
+import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -106,7 +106,15 @@ public class WomenHistoryPage extends TestBase
 		 public  MedicalHistoryPage ClickonMedicalHistory() throws Throwable
 			{
 			 System.out.println("========MedicalHistory click testcase started======");
-			 TestUtil.VisibleOn(driver, medicalHistory, 20);
+			 try
+			 {
+				 TestUtil.VisibleOn(driver, medicalHistory, 20); 
+			 }
+			 catch(TimeoutException e)
+			 {
+				 System.out.println("Element-medicalHistory is not seen within 20 sec");
+			 }
+			 
 			 medicalHistory.click();
 			 System.out.println("clicked on MedicalHistory");
 			 
@@ -135,7 +143,15 @@ public class WomenHistoryPage extends TestBase
 		 public FamilyHistoryPage ClicOnFamilyHistory() throws InterruptedException
 			{
 			 System.out.println("========FamilyHistory click testcase started======");
-			 TestUtil.VisibleOn(driver, familyHistory, 20);
+			 try
+			 {
+				 TestUtil.VisibleOn(driver, familyHistory, 20);
+			 }
+			 catch(TimeoutException e)
+			 {
+				 System.out.println("Element-familyHistory is not seen with in20 sec");
+			 }
+			 
 			 familyHistory.click();
 			 System.out.println("clicked on FamilyHistory");
 			 return  new FamilyHistoryPage();
@@ -146,7 +162,15 @@ public class WomenHistoryPage extends TestBase
 		public  SurgicalHistoryPage ClickOnSurgicalHistory() throws InterruptedException 
 		{
 			System.out.println("========SurgicalHistory click testcase started======");
-			TestUtil.VisibleOn(driver, SurgicalHistory, 20);
+			try
+			{
+				TestUtil.VisibleOn(driver, SurgicalHistory, 20);
+			}
+			catch(org.openqa.selenium.TimeoutException e)
+			{
+				System.out.println("Element-SurgicalHistory is not seen within 20 sec");
+			}
+			
 			SurgicalHistory.click();
 			System.out.println("clicked on SurgicalHistory");
 			return new SurgicalHistoryPage();
@@ -154,7 +178,15 @@ public class WomenHistoryPage extends TestBase
 		public  previousTreatmentHistoryPage ClickOnpreviousTreatmentHistory() throws Exception
 		{
 			System.out.println("========previousTreatmentHistory click testcase started======");
+			try
+			{
 			TestUtil.VisibleOn(driver, previousTreatmentHistory, 20);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Element- previousTreatmentHistory is not seen with in 20 sec");
+				
+			}
 			previousTreatmentHistory.click();
 			System.out.println("clicked on previousTreatmentHistory");
 			return new previousTreatmentHistoryPage();
@@ -163,7 +195,14 @@ public class WomenHistoryPage extends TestBase
 		public  WPastMedicationHistoryPage ClickOnpastMedicationHistory() throws Exception
 		{
 			System.out.println("========pastMedicationHistory click testcase started======");
+			try
+			{
 			TestUtil.VisibleOn(driver, pastMedicationHistory, 20);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element- pastMedicationHistory is not seen with in 20 sec");
+			}
 			pastMedicationHistory.click();
 			System.out.println("clicked on pastMedicationHistory");
 			return new WPastMedicationHistoryPage();
@@ -172,7 +211,15 @@ public class WomenHistoryPage extends TestBase
 		public  AllergiesPage ClickOnAllergies() throws Throwable
 		{
 			System.out.println("========Alleregies click testcase started======");
-			TestUtil.VisibleOn(driver, allergies, 20);
+			try
+			{
+				TestUtil.VisibleOn(driver, allergies, 20);	
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element- allergies is not seen with in 20 sec");
+			}
+			
 			allergies.click();
 			System.out.println("clicked on Allergies");
 			return new AllergiesPage();
@@ -196,7 +243,7 @@ public class WomenHistoryPage extends TestBase
 			}
 			catch(Exception e)
 			{
-				System.out.println("Element not seen within 20 sec");
+				System.out.println("Element-addictions not seen within 20 sec");
 				
 			}
 			addictions.click();
@@ -208,7 +255,14 @@ public class WomenHistoryPage extends TestBase
 		public  VaccinationPage ClickOnVaccination() throws Exception
 		{
 			System.out.println("========Vaccination click testcase started======");
-			TestUtil.VisibleOn(driver, Vaccination, 20);
+			try
+			{
+				TestUtil.VisibleOn(driver, Vaccination, 20);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element-Vaccination is not seen within 20 sec");
+			}
 			Vaccination.click();
 			System.out.println("clicked on Vaccination");
 			return new VaccinationPage();
@@ -217,7 +271,14 @@ public class WomenHistoryPage extends TestBase
 		public  socialHistoryPage ClickOnsocialHistory() throws Exception
 		{
 			System.out.println("========Vaccination click testcase started======");
-			TestUtil.VisibleOn(driver, Vaccination, 20);
+			try
+			{
+				TestUtil.VisibleOn(driver, socialHistory, 20);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element-Vaccination is not seen within 20 sec");
+			}
 			socialHistory.click();
 			System.out.println("clicked on socialHistoryPage");
 			return new socialHistoryPage();
@@ -226,7 +287,15 @@ public class WomenHistoryPage extends TestBase
 		public  MenstrualHistoryPage ClickOnMenstrualHistory() throws Exception
 		{
 			System.out.println("========MenstrualHistory click testcase started======");
-			TestUtil.VisibleOn(driver, MenstrualHistory, 20);
+			try
+			{
+				TestUtil.VisibleOn(driver, MenstrualHistory, 20);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Element- MenstrualHistory is not seen with in 20 seconds");
+			}
+			
 			MenstrualHistory.click();
 			System.out.println("clicked on MenstrualHistoryPage");
 			return new MenstrualHistoryPage();

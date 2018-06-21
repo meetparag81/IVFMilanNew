@@ -172,19 +172,23 @@ public class CycleListPageTest extends TestBase
 	System.out.println("ARTTypeOptionTest is completed" );
 	}
 	@Test(priority=6,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
-	public void ProtocolandselectionTest () throws Exception
+	public void ProtocolandselectionTest ()
 	{
 		CLP.ClickonNewCycle();
-		String Act=CLP.NoofProtocol();
+		String Act;
+		Act = CLP.NoofProtocol();
+		
 		String exp= "Antagonist";
 		Assert.assertEquals(Act, exp);
 		System.out.println("NoofProtocolandselectionTest is completed");
 	}
 	@Test(priority=7,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
-	public void MethodOfSemenCollectionTest() throws Exception
+	public void MethodOfSemenCollectionTest() 
 	{
 		CLP.ClickonNewCycle();
-		String Act=CLP.MethodofSemenCollection();
+		 
+		
+		String Act = CLP.MethodofSemenCollection();
 		String exp= reader.getCellData("CycleList", "SiemenName",4);
 		Assert.assertEquals(Act, exp);
 		System.out.println("MethodofSemenCollectionTest is completed");
@@ -192,7 +196,7 @@ public class CycleListPageTest extends TestBase
 		
 	}
 	@Test(priority=8,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
-	public void SourceofspermPartnerTest() throws Exception
+	public void SourceofspermPartnerTest() 
 	{
 		CLP.ClickonNewCycle();
 		String act= CLP.SourceofspermPartner();
@@ -202,7 +206,7 @@ public class CycleListPageTest extends TestBase
 		
 	}
 	@Test(priority=9, enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
-	public void SourceofSpermselectionDonorTest() throws Exception
+	public void SourceofSpermselectionDonorTest()
 	{
 		CLP.ClickonNewCycle();
 		String Act= CLP.SourceofSpermselectionDonor();
@@ -211,14 +215,14 @@ public class CycleListPageTest extends TestBase
 		System.out.println("SourceofSpermselectionDonorTest is completed");
 	}
 	@Test(priority=10,enabled=true,dependsOnMethods = {"EnabledconditionARTTypeTest"})
-	public void SimulationDrugTest() throws Exception
+	public void SimulationDrugTest() 
 	{
 		CLP.ClickonNewCycle();
 		String Actual= CLP.SimulationDrug();
 		String Expected = reader.getCellData("CycleList", "Stimulation Drug", 20);
 	}
 	@Test(priority=11,enabled=true, dependsOnMethods = {"EnabledconditionARTTypeTest"})
-	public void SaveTheCycleTest() throws Exception
+	public void SaveTheCycleTest() throws Exception 
 	{
 		
 		boolean Save=CLP.SaveEnablecondition();
