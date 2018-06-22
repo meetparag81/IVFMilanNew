@@ -48,7 +48,7 @@ public class EMRDashBoardPageTest extends TestBase
 	}
 	
 	@ BeforeMethod
-	public void Seup() throws Exception
+	public void Seup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();

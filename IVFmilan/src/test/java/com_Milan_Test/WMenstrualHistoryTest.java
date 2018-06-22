@@ -33,7 +33,7 @@ public class WMenstrualHistoryTest extends TestBase
 	}
 	
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -88,7 +88,7 @@ public class WMenstrualHistoryTest extends TestBase
 	}
 	
 	@Test(priority=5)
-	public  void CycleDurationTest() throws Exception 
+	public  void CycleDurationTest() 
 	{
 		String Actual = MHP.GetCycleDurationvalue();
 		String Expected= "20";
@@ -96,7 +96,7 @@ public class WMenstrualHistoryTest extends TestBase
 		System.out.println("CycleDurationTest completed");
 	}
 	@Test(priority=7)
-	public  void MenstruationTest1() throws Exception 
+	public  void MenstruationTest1() 
 	{
 		String Actual = MHP.GetMenstruationvalue();
 		String  Expected= "10";

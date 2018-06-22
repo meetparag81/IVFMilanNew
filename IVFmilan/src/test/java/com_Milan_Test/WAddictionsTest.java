@@ -40,7 +40,7 @@ public class WAddictionsTest extends TestBase
 	}
 
 	@BeforeMethod
-public void Setup() throws Exception
+public void Setup() 
 {
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -165,7 +165,7 @@ public void Setup() throws Exception
 	}
 	@Test(priority=16,groups = {"functional" },dataProvider= "getTestData",enabled= true)
 	public void saveAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
-			String Frequency, String Quantity) throws Exception
+			String Frequency, String Quantity) 
 	{
 		Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 		String count= reader.getCellData("Addictions", 7, 2);

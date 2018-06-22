@@ -34,7 +34,7 @@ public class WInvestigationPageTest extends TestBase
 	}
 
 	@BeforeMethod
-	public void Setup() throws Exception 
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage = new Loginpage();
@@ -47,7 +47,7 @@ public class WInvestigationPageTest extends TestBase
 	}
 
 	@Test(priority=1,groups = {"smoketest" },enabled=false)
-	public void CycleCreationTest() throws Exception 
+	public void CycleCreationTest() 
 	{
 		int Actual = Investigation.Setsearchvalue();
 		int Expected = reader.getRowCount("Investigation");
@@ -56,7 +56,7 @@ public class WInvestigationPageTest extends TestBase
 	
 	
 	@Test(priority=2,groups = {"smoketest" },enabled=true)
-	public void IVFPACKAGEARTCyclecountTest() throws Exception
+	public void IVFPACKAGEARTCyclecountTest() 
 	{
 	int Actual =WInvestigationPage.REFIVFPACKAGEARTCycleCount();
 	int expected = 7;
@@ -65,7 +65,7 @@ public class WInvestigationPageTest extends TestBase
 	System.out.println("IVFPACKAGEARTCyclecountTest is completed");
 	}
 	@Test(priority=3,groups = {"smoketest" },enabled=true)
-	public void OUIARTSubTypesTest() throws Exception
+	public void OUIARTSubTypesTest() 
 	{
 		int Actual =Investigation.OUIARTSubTypes();
 		int expected = 4;
@@ -75,7 +75,7 @@ public class WInvestigationPageTest extends TestBase
 	}
 	
 	@Test(priority=4,groups = {"smoketest" },enabled=false)
-	public void OPUCycleTest() throws Exception
+	public void OPUCycleTest() 
 	{
 		Investigation.OPUCycle();
 		String Actual =Investigation.SaveMessage();

@@ -45,7 +45,7 @@ public class WomenHistoryPageTest extends TestBase
 		super();
 	}
 	@BeforeMethod
-	public void setup() throws Exception
+	public void setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -57,13 +57,13 @@ public class WomenHistoryPageTest extends TestBase
 	}
 	
 	@Test(priority=1)
-	public void SexualHistoryTest() throws InterruptedException
+	public void SexualHistoryTest() 
 	{
 		SHP= WHP.ClickonSexsuslHistory();
 	}
 	
 	@Test(priority=2)
-	public void ObstetricHistoryTest() throws Exception
+	public void ObstetricHistoryTest() 
 	{
 		OHP= WHP.ClickonObstetricHistory();
 	}
@@ -74,36 +74,36 @@ public class WomenHistoryPageTest extends TestBase
 	}
 	
 	@Test(priority=4)
-	public void FamilyHistoryTest () throws Throwable
+	public void FamilyHistoryTest () 
 	{
 		WHP.ClicOnFamilyHistory();
 	}
 	
 	@Test(priority=5)
-	public void SurgicalHistoryTest () throws Exception
+	public void SurgicalHistoryTest () 
 	{
 		WHP.ClickOnSurgicalHistory();
 	}
 	
 	@Test(priority=6)
-	public void PreviousTreatmentHistoryTest() throws Exception 
+	public void PreviousTreatmentHistoryTest() 
 	{
 		PTHP= WHP.ClickOnpreviousTreatmentHistory();
 	}
 	@Test(priority=7)
-	public void pastMedicationHistoryTest() throws Exception 
+	public void pastMedicationHistoryTest() 
 	{
 		PMH= WHP.ClickOnpastMedicationHistory();
 	}
 	
 	@Test(priority=8)
-	public void AllergiesTest() throws Throwable 
+	public void AllergiesTest() 
 	{
 		Allergies= WHP.ClickOnAllergies();
 	}
 	
 	@Test(priority=9)
-	public void AddictionsTest() throws Exception
+	public void AddictionsTest() 
 	{
 		Addictions= WHP.ClickOnAddictions();
 	}
@@ -114,7 +114,7 @@ public class WomenHistoryPageTest extends TestBase
 	}
 	
 	@Test(priority=10)
-	public void socialHistoryTest() throws Exception
+	public void socialHistoryTest() 
 	{
 		socialHistory = WHP.ClickOnsocialHistory();
 	}

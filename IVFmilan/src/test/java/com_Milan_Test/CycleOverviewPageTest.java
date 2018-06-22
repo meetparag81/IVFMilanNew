@@ -1,6 +1,7 @@
 package com_Milan_Test;
 
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 import javax.swing.text.StyledEditorKit.BoldAction;
 
@@ -44,7 +45,7 @@ public class CycleOverviewPageTest extends TestBase
 	
 	
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage = new Loginpage();
@@ -62,7 +63,7 @@ public class CycleOverviewPageTest extends TestBase
 		{
 
 			 boolean flag1= WOC.Existingcycle();
-			 if(flag1==false)
+			 if(flag1==true)
 			 {
 				 WOC.SaveOPUsubtypeICSI();
 
@@ -76,6 +77,7 @@ public class CycleOverviewPageTest extends TestBase
 		boolean flag1 = CLP.NewCycleButtonEnableCondition();
 		if(flag1==true)
 		{
+			CLP.ClickonNewCycle();
 			CLP.SaveTheCycle();	
 		}
 		else
@@ -125,8 +127,17 @@ public class CycleOverviewPageTest extends TestBase
 		public void EnableconditionAddSimulationDrugTest()
 		{
 			boolean flag= COP.EnableconditionAddSimulationDrug();
-			assertFalse(flag);
-			System.out.println("EnableconditionAddSimulationDrugTest is completed");
+			if(flag==true)
+			{
+				assertTrue(flag);
+				System.out.println("EnableconditionAddSimulationDrugTest is true");	
+			}
+			else
+			{
+				assertFalse(flag);
+				System.out.println("EnableconditionAddSimulationDrugTest is false");
+			}
+			
 		}
 		
 		

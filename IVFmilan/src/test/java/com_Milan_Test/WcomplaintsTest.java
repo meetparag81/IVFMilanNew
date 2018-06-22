@@ -27,7 +27,7 @@ public class WcomplaintsTest extends TestBase
 		super();
 	}
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -38,7 +38,7 @@ public class WcomplaintsTest extends TestBase
 
 }
 	@Test(priority=1,groups = {"smoketest" },enabled= true)
-	public  void NumberOfComplaintsTest() throws Exception 
+	public  void NumberOfComplaintsTest() 
 	{
 		
 		int Actual = WCP.NumberOfComplaints();
@@ -49,7 +49,7 @@ public class WcomplaintsTest extends TestBase
 				
 	}
 	@Test(priority=2,groups = {"functional" },enabled= true)
-	public void SaveTheComplaintsTest() throws Exception
+	public void SaveTheComplaintsTest() 
 	{
 		
 		 WCP.SaveTheComplaints();
@@ -69,7 +69,7 @@ public class WcomplaintsTest extends TestBase
 		}
 	}
 	@Test(priority=3,groups = {"smoketest" })
-	public void NextFollowUpTest() throws Exception
+	public void NextFollowUpTest() 
 	{
 	boolean flag=WCP.NextFollowUp();
 	

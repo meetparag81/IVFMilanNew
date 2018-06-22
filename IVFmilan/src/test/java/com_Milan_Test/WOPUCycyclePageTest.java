@@ -38,7 +38,7 @@ public class WOPUCycyclePageTest extends TestBase
 	}
 	
 	@BeforeMethod()
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage = new Loginpage();
@@ -51,7 +51,7 @@ public class WOPUCycyclePageTest extends TestBase
 	
 	
 	@Test(priority=1,groups = {"smoketest" },enabled=true)
-	public void AleadySavedCycleTest() throws Exception
+	public void AleadySavedCycleTest() 
 	{
 		boolean flag= WOC.AlreadySavedCycle();// if there is already available cycle saved this option become true.
 		if(flag==true)
@@ -69,7 +69,7 @@ public class WOPUCycyclePageTest extends TestBase
 		
 	}	
 	@Test(priority=2,groups = {"smoketest" },enabled=true)
-	public void MessageforAlreadtyavailableCycleTest() throws Exception
+	public void MessageforAlreadtyavailableCycleTest() 
 	{
 		boolean flag1 =WOC.AlreadySavedCycle();// if there is already available cycle saved this option become true.
 		if(flag1==false)

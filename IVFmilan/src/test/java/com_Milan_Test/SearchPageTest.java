@@ -29,7 +29,7 @@ public class SearchPageTest extends TestBase
 		super();
 	}
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -39,7 +39,7 @@ public class SearchPageTest extends TestBase
 	
 	
 		@Test(priority=1)
-		private void SearchPatientUsingCalenderTest() throws Exception 
+		private void SearchPatientUsingCalenderTest() 
 		{
 			SearchPage.SearchusingCalender();
 			
@@ -51,7 +51,7 @@ public class SearchPageTest extends TestBase
 			
 		}
 		@Test(priority=2)
-		private void SearchPatientUsingPatientTabTest() throws Exception 
+		private void SearchPatientUsingPatientTabTest() 
 		{
 			SearchPage.searchPaient();
 			String Actual=	SearchPage.Dahboardtitle();

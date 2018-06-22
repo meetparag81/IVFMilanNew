@@ -35,7 +35,7 @@ public class FemaleDiagnosisTest extends TestBase
 	}
 	
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -48,7 +48,7 @@ public class FemaleDiagnosisTest extends TestBase
 	}
 	
 	@Test(priority=1,enabled=true)
-	public void ClickOnOtherDiagnosisTest() throws Exception
+	public void ClickOnOtherDiagnosisTest() 
 	{
 		FDP.ClickOnOtherDiagbosisForNewPaitent();
 		String Actual = FDP.CodeUpdatedMessage();
@@ -68,7 +68,7 @@ public class FemaleDiagnosisTest extends TestBase
 		Assert.assertEquals(Actual, Expeted,"Codevalue doesn't matched");*/
 	}
 	@Test(priority=3,enabled=true)
-	public void AddFavoriteFromListTest() throws Exception
+	public void AddFavoriteFromListTest() 
 	{
 		
 		String Actual= FDP.ClickonFavoriteIcon();
@@ -78,7 +78,7 @@ public class FemaleDiagnosisTest extends TestBase
 		
 	}	
 	@Test(priority=4,enabled=true)
-	public void UnFavoriteTheFavioriteTest() throws Exception
+	public void UnFavoriteTheFavioriteTest() 
 	{
 		String Actual= FDP.UnFavoriteTheFaviorite();
 		String Expected= "Diagnosis is removed from the Favourite List";
@@ -96,7 +96,7 @@ public class FemaleDiagnosisTest extends TestBase
 		assertTrue(flag);
 	}
 	@Test(priority=6,groups = {"smoketest" },enabled=false)
-	public void DeleteFromFavoriteTest() throws Exception
+	public void DeleteFromFavoriteTest() 
 	{
 		
 	String Actual=	FDP.DeleteFromFavorite();
@@ -105,7 +105,7 @@ public class FemaleDiagnosisTest extends TestBase
 	System.out.println("Favorite is deleted from favorite section");
 	}
 	@Test(priority=7,groups = {"smoketest" },enabled=true)
-	public void checkboxclickTest() throws Exception
+	public void checkboxclickTest() 
 	{
 	boolean flag=	FDP.checkboxclick();
 	

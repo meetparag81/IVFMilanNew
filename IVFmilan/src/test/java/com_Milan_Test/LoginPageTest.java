@@ -39,7 +39,7 @@ public class LoginPageTest extends TestBase
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 	}
 	@Test(priority=1)
-	public void InvalidusernameTest() throws Exception
+	public void InvalidusernameTest() 
 	{
 		String username = reader.getCellData("LoginPage", 0, 2);	
 		String Actual= Loginpage.Invalidusername(username);
@@ -50,7 +50,7 @@ public class LoginPageTest extends TestBase
 	}
 	
 	@Test(priority=2)
-	public void InvalidPasswordTest() throws Exception
+	public void InvalidPasswordTest() 
 	{
 		String username = reader.getCellData("LoginPage", 0, 3);
 		String password = reader.getCellData("LoginPage", 1, 3);
@@ -70,7 +70,7 @@ public class LoginPageTest extends TestBase
 	}
 		
 	@ Test(priority=4)
-	public void LoginTest() throws Exception
+	public void LoginTest() 
 	{
 		HomePage= Loginpage.Verifylogin( prop.getProperty("username"),prop.getProperty("password"));
 		String Title = "Palash IVF - Login";		

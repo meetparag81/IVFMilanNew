@@ -33,7 +33,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	
 	
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -169,7 +169,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		
 	}
 	@Test(priority=18)
-	public void SaveOutcometypesTest() throws InterruptedException
+	public void SaveOutcometypesTest() 
 	{
 	int numberofRows=OHP.SaveOutcometypes();
 	int ExpectedRows= 5;

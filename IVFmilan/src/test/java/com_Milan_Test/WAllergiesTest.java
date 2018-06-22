@@ -38,7 +38,7 @@ public class WAllergiesTest extends TestBase
 		super();
 	}
 	@ BeforeMethod
-	public void Seup() throws Throwable
+	public void Seup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -59,7 +59,7 @@ public class WAllergiesTest extends TestBase
 		System.out.println("Alergy textbox is enabled");
 	}
 	@Test(priority=3,enabled= false)
-	public void AddNewAllergiesTest() throws InterruptedException
+	public void AddNewAllergiesTest() 
 	{
 		AllergiesPage.AddnewAllergies();
 		String Actial= Allergies.SaveMessageForNewPaient();
@@ -77,14 +77,14 @@ public class WAllergiesTest extends TestBase
 		
 
 @Test(priority=3,enabled= false)
-public void OptionSelectedOnAllergyCurrentStstusTest() throws Exception
+public void OptionSelectedOnAllergyCurrentStstusTest() 
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();
 	String Expected = "Present";
 	AssertJUnit.assertEquals(Actual, Expected);
 }
 @Test(priority=4,enabled= false)
-public void ExistingPatientDrugAllergyTypeTest() throws Exception
+public void ExistingPatientDrugAllergyTypeTest() 
 {
 	EMRPage= HomePage.SearchusingCalender();	
 	String Actual = Allergies.AllergiesNameOnDashboard();
@@ -93,7 +93,7 @@ public void ExistingPatientDrugAllergyTypeTest() throws Exception
 		
 }
 @Test(priority=1)
-public void AllergySelectionTest() throws Exception
+public void AllergySelectionTest() 
 {
 	Allergies.AllergySelection();
 	

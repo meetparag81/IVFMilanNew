@@ -37,7 +37,7 @@ public class WVitalsTest extends TestBase
 	}
 	
 	@BeforeMethod
-	public void setup() throws Exception
+	public void setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -83,13 +83,13 @@ public class WVitalsTest extends TestBase
 	}
 	
 	@Test(priority=2,groups = {"smoketest" },dataProvider= "getTestData")
-	public void SaveAllVitalsValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) throws Exception
+	public void SaveAllVitalsValuesTest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) 
 	{
 		String Actual = WVP.SaveAllvalues(Weight, Height, BPSystolicval, BPDiastolic, HR, Temperature);
 		
 	}
 	@Test(priority=1,groups = {"smoketest" },dataProvider= "getTestData", enabled = true)
-	public void BMITest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) throws Exception
+	public void BMITest(String Weight,String Height,String BPSystolicval,String BPDiastolic,String HR,String Temperature) 
 	{
 		System.out.println("started");
 		Float Actual =WVP.BMIvalue(Weight, Height);

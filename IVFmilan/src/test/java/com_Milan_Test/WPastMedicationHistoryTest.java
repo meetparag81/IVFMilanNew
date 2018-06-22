@@ -36,7 +36,7 @@ public class WPastMedicationHistoryTest extends TestBase
 	{
 		super();	}
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 	TestBase.initalization();
 	Loginpage= new Loginpage();
@@ -49,7 +49,7 @@ public class WPastMedicationHistoryTest extends TestBase
 	}
 	
 	@Test(priority=1)
-	public void DrugNameTest() throws InterruptedException
+	public void DrugNameTest() 
 	{
 		//PMHP.DrugName();
 		String Actual = PMHP.DrugName();
@@ -58,7 +58,7 @@ public class WPastMedicationHistoryTest extends TestBase
 		System.out.println("testcase DrugNameTest is completed");
 	}
 	@Test(priority=2)
-	public void DrugNameFieldEnableconditionTest() throws InterruptedException
+	public void DrugNameFieldEnableconditionTest() 
 	{
 		PMHP.DrugName();
 		boolean flag = PMHP.DrugNameFieldEnablecondition();
@@ -67,7 +67,7 @@ public class WPastMedicationHistoryTest extends TestBase
 		
 	}
 	@Test(priority=3,enabled=true)
-	public void pastMedicationHistorysetdataTest() throws Exception
+	public void pastMedicationHistorysetdataTest() 
 	{
 		int Actual= PMHP.pastMedicationHistorysetdata();
 		List<WebElement>searchbox1= driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a"));

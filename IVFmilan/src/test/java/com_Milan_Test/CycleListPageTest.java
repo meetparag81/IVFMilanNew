@@ -38,7 +38,7 @@ public class CycleListPageTest extends TestBase
 	}
 	
 	@BeforeMethod()
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage = new Loginpage();
@@ -74,7 +74,7 @@ public class CycleListPageTest extends TestBase
 	}
 	@Test(priority=1,enabled=true)
 	
-	public void ClickonNewCycleTest() throws Exception
+	public void ClickonNewCycleTest() 
 	{
 		boolean flag = CLP.NewCycleButtonEnableCondition();
 		if(flag)
@@ -224,7 +224,7 @@ public class CycleListPageTest extends TestBase
 		System.out.println("SimulationDrugTest is completed");
 	}																																													
 	@Test(priority=11,enabled=true, dependsOnMethods = {"EnabledconditionARTTypeTest"})
-	public void SaveTheCycleTest() throws Exception 
+	public void SaveTheCycleTest()
 	{
 		
 		boolean Save=CLP.SaveEnablecondition();

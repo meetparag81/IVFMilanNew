@@ -29,7 +29,7 @@ public class HomePageTest extends TestBase
 		super();
 	}
 	@BeforeMethod
-	public void Setup() throws Exception
+	public void Setup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -37,7 +37,7 @@ public class HomePageTest extends TestBase
 	}
 	
 	@Test(priority=1,enabled=false)
-	public void DatacreationTest() throws Exception
+	public void DatacreationTest() 
 	{
 		int Actualrows= HomePage.PatientDataCreation();
 		int Expected = reader.getRowCount("HomePage");
@@ -46,7 +46,7 @@ public class HomePageTest extends TestBase
 		
 @ Test(priority=4)
 			
-	public void ClickOnCmrTest() throws Exception 
+	public void ClickOnCmrTest() 
 	{
 		EMRPage= HomePage.ClickonEMR();
 		String Actual= HomePage.EMRPageTitle();
@@ -57,7 +57,7 @@ public class HomePageTest extends TestBase
 	}
 @ Test(priority=3)
 
-public void SearchPatientUsingCalenderTest() throws Exception 
+public void SearchPatientUsingCalenderTest() 
 {
 	HomePage.SearchusingCalender();
 	String Actual=	HomePage.Dahboardtitle();
@@ -66,7 +66,7 @@ public void SearchPatientUsingCalenderTest() throws Exception
 	System.out.println("search patient through Searchbox is completed");
 }
 @Test(priority=2)
-private void SearchPatientUsingPatientTabTest() throws Exception 
+private void SearchPatientUsingPatientTabTest() 
 {
 	HomePage.searchPaient();
 	String Actual=	HomePage.Dahboardtitle();

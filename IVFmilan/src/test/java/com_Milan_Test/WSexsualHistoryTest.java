@@ -35,7 +35,7 @@ public class WSexsualHistoryTest extends TestBase
 		super();
 	}
 		@ BeforeMethod
-	public void Seup() throws Exception
+	public void Seup() 
 	{
 		TestBase.initalization();
 		Loginpage= new Loginpage();
@@ -65,7 +65,7 @@ public class WSexsualHistoryTest extends TestBase
 			System.out.println("InrelationshipsinceYearsTest is passed");			
 		}
 		@Test(priority=2,groups = {"smoketest" },enabled=true)
-		public void testRelationtlists() throws Exception
+		public void testRelationtlists() 
 		{
 			boolean flag1 = SHP.validateRelstionship();
 			AssertJUnit.assertTrue(flag1);
@@ -78,7 +78,7 @@ public class WSexsualHistoryTest extends TestBase
 			AssertJUnit.assertTrue(flag);
 		}
 		@Test(priority=4,groups = {"smoketest" },enabled=true)
-		public void FillSexsuslHistorytest() throws Exception 
+		public void FillSexsuslHistorytest() 
 		{
 			
 		SHP.formfilling();
@@ -104,21 +104,21 @@ public class WSexsualHistoryTest extends TestBase
 		}
 		
 		@Test(priority=7,groups = {"smoketest" },enabled=true)
-		public void DyspareuniatextTest() throws Exception 
+		public void DyspareuniatextTest() 
 		{
 		 boolean Actual = SHP.DyspareuniaText();	
 		 Assert.assertTrue(Actual);
 		}
 		
 		@Test(priority=8,groups = {"smoketest" },enabled=true)
-		public void Lubricationusedtext() throws Exception 
+		public void Lubricationusedtext() 
 		{
 		 boolean Actual = SHP.Lubricationusedtext();	
 		 Assert.assertTrue(Actual);
 		}
 		
 		@Test(priority=9,groups = {"smoketest" },enabled=true)
-		public void Remarktexttest() throws Exception 
+		public void Remarktexttest() 
 		{
 			String Actual = SHP.Remarktext();
 			String Expected = "0";
