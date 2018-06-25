@@ -60,13 +60,19 @@ public class WComplaintsPage extends TestBase
 	}
 	
 	
-	public  int AddPatientComplaints() throws Exception
+	public  int AddPatientComplaints() 
 	{
 		List<WebElement>complaintRows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 		int NoofRows= complaintRows.size();
 		if(NoofRows==0)
 		{
-			Thread.sleep(2000);	
+			try {
+				Thread.sleep(2000);
+			} 
+			catch (InterruptedException e1) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}	
 			try{
 				WebElement ele = Buttoncomplaints;
 			Buttoncomplaints.isEnabled();
@@ -79,7 +85,13 @@ public class WComplaintsPage extends TestBase
 			
 			}	
 			Buttoncomplaints.click();
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} 
+			catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			List<WebElement> complaints = driver.findElements(By.xpath("//div[@class='checkBoxContainer']/div"));
 			for(WebElement comp:complaints)
 			{
@@ -102,7 +114,7 @@ public class WComplaintsPage extends TestBase
 			
 	}
 		
-		public String  ExistingPatientPresentingComplaints() throws Exception
+		public String  ExistingPatientPresentingComplaints() 
 		{
 			List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 			List<WebElement> complaints = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr/td[2]"));
@@ -214,7 +226,7 @@ public class WComplaintsPage extends TestBase
 			
 		
 		
-		public int NumberOfComplaints() throws Exception
+		public int NumberOfComplaints() 
 		{
 			
 			Buttoncomplaints.click();
@@ -233,7 +245,7 @@ public class WComplaintsPage extends TestBase
 		
 		
 		
-		public String SaveTheComplaints() throws Exception
+		public String SaveTheComplaints() 
 		{
 			List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 			List<WebElement> complaints = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody/tr/td[2]"));

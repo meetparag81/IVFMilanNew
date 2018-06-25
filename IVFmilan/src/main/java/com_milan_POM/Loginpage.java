@@ -35,7 +35,7 @@ public class Loginpage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public HomePage Verifylogin(String un, String psw) throws Exception 
+	public HomePage Verifylogin(String un, String psw) 
 	{
 		username.sendKeys(un);
 
@@ -43,7 +43,13 @@ public class Loginpage extends TestBase {
 
 		TestUtil.VisibleOn(driver, clinic, 30);
 				Select drop = new Select(clinic);
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("Element seen within 20 secs");
+		}
 		drop.selectByVisibleText("Lavida Fertility Bangkok");
 		Loginbutton.click();
 		return new HomePage();
@@ -68,16 +74,22 @@ public class Loginpage extends TestBase {
 
 	}
 
-	public String Invalidusername(String un) throws Exception {
+	public String Invalidusername(String un) 
+	{
 		username.clear();
 		username.sendKeys(un);
 		password.click();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		String message = Msgcorrectusername.getText();
 		return message;
 	}
 
-	public String Invaliduserpassword(String un, String psw) throws Exception 
+	public String Invaliduserpassword(String un, String psw) 
 	{
 		username.clear();
 		username.sendKeys(un);
@@ -86,10 +98,20 @@ public class Loginpage extends TestBase {
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		clinic = wait.until(ExpectedConditions.visibilityOf(clinic));
 		Select drop = new Select(clinic);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		drop.selectByVisibleText("Lavida Fertility Bangkok");
 		Loginbutton.click();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		String message = Msgcorrectusername.getText();
 		return message;
 

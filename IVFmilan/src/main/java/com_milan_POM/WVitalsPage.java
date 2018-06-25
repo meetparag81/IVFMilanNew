@@ -122,7 +122,7 @@ double rowdata2,rowdata1;
 		return BPvalues;
 			
 	}
-	public String SaveAllvalues(String weightval,String Heightval,String BPSystolicval, String BPDiastolicval,String HRRangeval,String Tempval ) throws InterruptedException
+	public String SaveAllvalues(String weightval,String Heightval,String BPSystolicval, String BPDiastolicval,String HRRangeval,String Tempval ) 
 	{
 		Weight.clear();
 		Weight.sendKeys(weightval);
@@ -138,7 +138,12 @@ double rowdata2,rowdata1;
 		Temprature.clear();
 		Temprature.sendKeys(Tempval);
 		Save.click();
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 	String message="";//	FlashMessage.getText();
 		
 		
@@ -150,14 +155,19 @@ double rowdata2,rowdata1;
 	
 	
 	
-	public float BMIvalue(String weightval, String Heightval) throws Exception 
+	public float BMIvalue(String weightval, String Heightval) 
 	{
 		Weight.clear();
 		Weight.sendKeys(weightval);
 		Height.clear();
 		Height.sendKeys(Heightval);
 		BMITitle.click();
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		String BMIvalue= BMI.getAttribute("value");
 		float BMI = Float.parseFloat(BMIvalue);
 		return BMI;

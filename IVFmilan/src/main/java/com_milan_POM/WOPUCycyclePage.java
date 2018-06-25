@@ -64,7 +64,7 @@ public class WOPUCycyclePage extends TestBase
 	
 	
 	
-	public int SearchThecycles() throws Exception
+	public int SearchThecycles() 
 	{
 		System.out.println("Cycles button is displayed" +Cycles.isDisplayed()+"Cycles button is enabled"+Cycles.isEnabled());
 		Actions action = new Actions(driver);
@@ -77,9 +77,19 @@ public class WOPUCycyclePage extends TestBase
 		act.click();
 		act.sendKeys(Name);
 		act.build().perform();
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Searchbox.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("thread.sleep value should be reduced ");
+		}
 		Searchbox.sendKeys("f");
 		int i = 1;
 		int rows = 2;
@@ -100,15 +110,25 @@ public class WOPUCycyclePage extends TestBase
 	
 	
 	
-	public  int NoofCycles() throws Exception
+	public  int NoofCycles() 
 	{
 		Actions act = new Actions(driver);
 		act.moveToElement(Cycles).click().perform();
 		String Name = reader.getCellData("Investigation", "Search", 2);
 		Searchbox.sendKeys(Name);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1)
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Searchbox.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1)
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Searchbox.sendKeys("f");
 		int i = 1;
 		int rows = 2;
@@ -126,7 +146,13 @@ public class WOPUCycyclePage extends TestBase
 		{
 			System.out.println("ARTCycle is already available");		
 		}
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
 		Select ArtType1 = new Select(ArtType);
 		List<WebElement>selectoptions=ArtType1.getOptions();
@@ -224,7 +250,7 @@ return count2;
 	
 	}
 		
-	public  String SaveOPUsubtypeICSI() throws Exception 
+	public  String SaveOPUsubtypeICSI() 
 	{
 	List<WebElement> Availrow = driver.findElements(By.xpath("//table/tbody[3]/tr/td[4]"));
 	int Rowssize =Availrow.size();
@@ -248,13 +274,23 @@ return count2;
 		
 		
 	
-	public   String ARTCycleAvailabilityMessageBeforeSave() throws Exception
+	public   String ARTCycleAvailabilityMessageBeforeSave() 
 	{
 			String Name = reader.getCellData("Investigation", "Search", 2);
 			Searchbox.sendKeys(Name);
-			Thread.sleep(1000);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e1) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			Searchbox.sendKeys(Keys.BACK_SPACE);
-			Thread.sleep(1000);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e1)
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			Searchbox.sendKeys("f");
 			int i = 1;
 			int rows = 2;
@@ -270,7 +306,13 @@ return count2;
 			if (Availrowsize>0) 
 			{
 				searchlist.get(i).click();
-				Thread.sleep(1000);
+				try {
+					Thread.sleep(1000);
+				} 
+				catch (InterruptedException e) 
+				{
+					System.out.println("The InterruptedException is occured");
+				}
 				msg = Availabilitymessage.getText();
 			}
 			else
@@ -286,7 +328,7 @@ return count2;
 		
 		
 
-	public  String ClickOnCycle() throws Exception 
+	public  String ClickOnCycle() 
 	{
 		boolean flag = AlreadySavedCycle();
 		if(flag)
@@ -373,7 +415,7 @@ return count2;
 	}
 	
 	
-	public boolean AlreadySavedCycle() throws Exception 
+	public boolean AlreadySavedCycle() 
 	{	
 		
 		Actions act = new Actions(driver);
@@ -438,12 +480,17 @@ return count2;
 	
 	
 	
-	public String MessageforAlreadtyavailableCycle() throws Exception
+	public String MessageforAlreadtyavailableCycle() 
 	{
 		if(AlreadySavedCycle() ==true)
 		{
 			SearchThecycles();
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1)
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			try{
 				Existingcyclemsg.getText();
 			}

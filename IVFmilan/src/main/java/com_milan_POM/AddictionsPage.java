@@ -333,7 +333,7 @@ public class AddictionsPage extends TestBase {
 	}
 
 	public void SaveAllAddictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
-			String Frequency, String Quantity) throws Exception 
+			String Frequency, String Quantity)  
 	{
 
 		List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));

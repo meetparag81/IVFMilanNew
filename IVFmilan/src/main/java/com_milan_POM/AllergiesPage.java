@@ -71,7 +71,7 @@ public class AllergiesPage extends TestBase
 		return DrugName;
 	}
 	
-	public void AllergySelection() throws Exception
+	public void AllergySelection() 
 	{
 		List<WebElement>Selections = driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
 		int Selectionssize = Selections.size();
@@ -86,7 +86,7 @@ public class AllergiesPage extends TestBase
 		}
 	}
 
-	public static void AddnewAllergies() throws InterruptedException
+	public static void AddnewAllergies() 
 	{
 		
 		List<WebElement>Allergyrows= driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));

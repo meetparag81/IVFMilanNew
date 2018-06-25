@@ -475,7 +475,7 @@ public class CycleListPage extends TestBase
 		}
 		
 	}
-	public void SaveTheCycle() throws Exception
+	public void SaveTheCycle() 
 	{
 		
 		NoofProtocol();
@@ -516,7 +516,7 @@ public class CycleListPage extends TestBase
 		
 	}
 	
-	public NewCycleListPage ClickonCyclecode() throws Exception
+	public NewCycleListPage ClickonCyclecode() 
 	{
 		try
 		{

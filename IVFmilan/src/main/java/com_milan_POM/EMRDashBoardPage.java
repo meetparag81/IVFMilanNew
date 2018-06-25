@@ -41,7 +41,8 @@ public class EMRDashBoardPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public WomenHistoryPage clickOnWomenField() throws InterruptedException {
+	public WomenHistoryPage clickOnWomenField() 
+	{
 
 		if (womenfield.isDisplayed()) {
 			TestUtil.VisibleOn(driver, womenfield, 10);
@@ -95,7 +96,8 @@ public class EMRDashBoardPage extends TestBase {
 
 	}
 
-	public MenHistoryPage clickOnMenField() throws InterruptedException {
+	public MenHistoryPage clickOnMenField() 
+	{
 		try {
 			TestUtil.VisibleOn(driver, menfield, 20);
 		} catch (TimeoutException e) {
@@ -130,12 +132,18 @@ public class EMRDashBoardPage extends TestBase {
 
 	}
 
-	public FemaleDiagnosisPage ClickOnDiagnosis() throws Exception {
+	public FemaleDiagnosisPage ClickOnDiagnosis() 
+	{
 		TestUtil.VisibleOn(driver, womenfield, 20);
 		Actions act = new Actions(driver);
 		act.moveToElement(womenfield).click().perform();
 		// TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("Thread.sleep value should be decreased");
+		}
 		FemaleDiagnosis.click();
 		List<WebElement> visitm = driver.findElements(
 				By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
@@ -154,7 +162,7 @@ public class EMRDashBoardPage extends TestBase {
 
 	}
 
-	public WComplaintsPage ClickOnComplaints() throws Exception 
+	public WComplaintsPage ClickOnComplaints()
 	{
 		try {
 			TestUtil.VisibleOn(driver, womenfield, 10);
@@ -163,7 +171,12 @@ public class EMRDashBoardPage extends TestBase {
 		}
 		Actions act = new Actions(driver);
 		act.moveToElement(womenfield).click().perform();
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) 
+		{
+			System.out.println("Thread.sleep value should be decreased");
+		}
 		if(Femalecomplaints.isDisplayed())
 		{
 			Actions act1 = new Actions(driver);
@@ -206,7 +219,7 @@ public class EMRDashBoardPage extends TestBase {
 		return new WComplaintsPage();
 	}
 
-	public WVitalsPage ClickOnVitals() throws Exception 
+	public WVitalsPage ClickOnVitals() 
 	{
 		try 
 		{
@@ -216,7 +229,13 @@ public class EMRDashBoardPage extends TestBase {
 		}
 		Actions act = new Actions(driver);
 		act.moveToElement(womenfield).click().perform();
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("Thread.sleep time should be increased");
+		}
 		Actions act1 = new Actions(driver);
 		act1.moveToElement(WVitals).click().perform();
 		List<WebElement> visitm = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
@@ -237,16 +256,23 @@ public class EMRDashBoardPage extends TestBase {
 		return new WVitalsPage();
 	}
 
-	public WInvestigationPage ClickOnInvestigation() throws Exception {
+	public WInvestigationPage ClickOnInvestigation() 
+	{
 		try {
 			TestUtil.VisibleOn(driver, womenfield, 20);
 		} catch (TimeoutException e) {
-			System.out.println("Element is not seen with in time");
-			throw (e);
+			System.out.println("Element- womenfield is not seen with in 20 sec");
+			
 		}
 		Actions act1 = new Actions(driver);
 		act1.moveToElement(womenfield).click().perform();
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("Element-Investigation is not seen with in 20 sec");
+		}
 		Actions act = new Actions(driver);
 		act.moveToElement(Investigation).click().perform();
 

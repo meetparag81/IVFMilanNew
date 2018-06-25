@@ -58,7 +58,7 @@ public class WPastMedicationHistoryPage extends TestBase
 		return false;
 		
 	}
-	public String DrugName() throws InterruptedException
+	public String DrugName() 
 	{	
 		try
 		{
@@ -80,9 +80,19 @@ public class WPastMedicationHistoryPage extends TestBase
 		
 		System.out.println("searchbox is displayed"+ InputsearchboxGeneric.isDisplayed());
 		InputsearchboxGeneric.sendKeys("ADA");
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e)
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		//InputsearchboxGeneric.sendKeys("A");
 		//TestUtil.VisibleOn(driver, Searchbox, 50);
 				
@@ -98,7 +108,12 @@ public class WPastMedicationHistoryPage extends TestBase
 			break;
 			}		
 		}
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		
 		//String Name= DrugName.getAttribute("value");
 		
@@ -146,7 +161,7 @@ public class WPastMedicationHistoryPage extends TestBase
 		
 	}
 	
-	public int pastMedicationHistorysetdata() throws Exception
+	public int pastMedicationHistorysetdata()
 	{
 		String Search1 = null,Search = null;
 		int rows=2;
@@ -156,9 +171,19 @@ public class WPastMedicationHistoryPage extends TestBase
 		
 		String search= reader.getCellData("SearchBYA", 0, 2);
 		InputsearchboxGeneric.sendKeys("ADA");
-			Thread.sleep(1000);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);
-			Thread.sleep(1000);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			//InputsearchboxGeneric.sendKeys("A");
 			//TestUtil.VisibleOn(driver, Searchbox, 50);
 					

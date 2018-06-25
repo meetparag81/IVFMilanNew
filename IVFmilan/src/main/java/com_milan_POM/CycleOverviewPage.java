@@ -51,27 +51,7 @@ public class CycleOverviewPage extends TestBase
 	}
 	
 	
-	public boolean EnableconditionAddSimulationDrug()
-	{
-		
-		Actions act = new Actions(driver);
-		act.moveToElement(StimulationChart).click().perform();
-		JavascriptExecutor js = (JavascriptExecutor) driver;  
-		js.executeScript("scroll(0, 250);");
-		boolean flag = true;
-		act.moveToElement(Finalize);
-		System.out.println("Finalize checkbox is displayed" + Finalize.isDisplayed()+"Finalize checkbox is enabled" + Finalize.isEnabled() );
-		boolean Flag1=Finalize.isSelected();
-		if(Flag1==true)
-		{
-			 flag= AddSimulation.isEnabled();
-			return flag;
-			
-		}
-		return flag;
 	
-		
-	}
 	
 	public boolean Noofcycle()
 	{
@@ -161,6 +141,17 @@ public class CycleOverviewPage extends TestBase
 	msg= we.getText();
 	
 		return msg;
+		
+	}
+	public StimulationChartPage StimulationChartPageClickOnOverview()
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(StimulationChart).click().perform();
+		
+		return  new StimulationChartPage();
+		
+		
+		
 		
 	}
 	

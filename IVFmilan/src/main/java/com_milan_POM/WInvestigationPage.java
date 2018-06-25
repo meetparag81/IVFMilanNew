@@ -48,15 +48,27 @@ static WebElement existcycles;
 		PageFactory.initElements(driver, this);
 	}
 
-	public int Setsearchvalue() throws Exception 
+	public int Setsearchvalue() 
 	{
 
 		Cycles.click();
 		String Name = reader.getCellData("Investigation", "Search", 2);
 		Search.sendKeys(Name);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Search.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Search.sendKeys("f");
 		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));
 		int size = searchlist.size();
@@ -82,14 +94,24 @@ static WebElement existcycles;
 	}
 	
 	
-	public static void IVFcycleData() throws Exception
+	public static void IVFcycleData() 
 	{
 		Cycles.click();
 		String Name = reader.getCellData("Investigation", "Search", 2);
 		Search.sendKeys(Name);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) 
+		{
+		System.out.println("The InterruptedException is occured");
+		}
 		Search.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Search.sendKeys("f");
 	}
 		
@@ -116,16 +138,26 @@ static WebElement existcycles;
 	
 	
 
-	public static int REFIVFPACKAGEARTCycleCount() throws Exception 
+	public static int REFIVFPACKAGEARTCycleCount() 
 	{
 		System.out.println();
 		//cycletypes();
 		Cycles.click();
 		String Name = reader.getCellData("Investigation", "Search", 2);
 		Search.sendKeys(Name);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Search.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Search.sendKeys("f");	
 		int i = 1; rows=2;
 		List<WebElement> searchlist = driver.findElements(By.xpath("//ul[@class='dropdown-menu ng-isolate-scope']/li"));	
@@ -147,7 +179,12 @@ static WebElement existcycles;
 				System.out.println(errormessage);
 			}
 			
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
 			Select ArtType1 = new Select(ArtType);
 			List<WebElement>selectoptions=ArtType1.getOptions();
@@ -194,7 +231,7 @@ static WebElement existcycles;
 	
 	
 	
-	public  int OUIARTSubTypes() throws Exception
+	public  int OUIARTSubTypes() 
 	{
 		System.out.println();		
 		REFIVFPACKAGEARTCycleCount();
@@ -244,7 +281,7 @@ static WebElement existcycles;
 		
 		
 	}
-	public void OPUCycle() throws Exception
+	public void OPUCycle() 
 	{
 		System.out.println();
 		REFIVFPACKAGEARTCycleCount();

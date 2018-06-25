@@ -79,7 +79,7 @@ public class FemaleDiagnosisPage extends TestBase
 		
 	}
 	
-	public void ClickOnOtherDiagbosisForNewPaitent() throws Exception
+	public void ClickOnOtherDiagbosisForNewPaitent() 
 	{
 		
 		System.out.println();
@@ -90,8 +90,7 @@ public class FemaleDiagnosisPage extends TestBase
 		catch(Exception e)
 		{
 			System.out.println("file is opened");
-			throw(e);
-		}
+			
 		
 		Otherdiagnosis.click();
 
@@ -109,12 +108,20 @@ public class FemaleDiagnosisPage extends TestBase
 		TestUtil.VisibleOn(driver, Save, 30);
 		Save.click();
 		
-		
+		}
 		
 	}
 	public String CodeUpdatedMessage() 
 	{	
-		TestUtil.VisibleOn(driver, FlashMessage, 20);
+		try
+		{
+			TestUtil.VisibleOn(driver, FlashMessage, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element- FlashMessage is not seen within 20 sec");
+		}
+		
 		String Message= FlashMessage.getText();
 		if(Message.contains("Code already exists"))
 		{
@@ -133,13 +140,19 @@ public class FemaleDiagnosisPage extends TestBase
 		return codevalue;
 		
 	}
-	public String ClickonFavoriteIcon() throws Exception
+	public String ClickonFavoriteIcon() 
 	{
 		
 				
 		//System.out.println("Favorite is displayed"+ FavoriteDisLike.isDisplayed()+ "Favorite enable"+ FavoriteDisLike.isEnabled());
 		Otherdiagnosis.click();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) 
+		{
+			System.out.println("The exception is seen" );
+			
+		}
 		List<WebElement>Favorite= driver.findElements(By.xpath("(//table[@class='table table-hover table-striped'])[2]/tbody/tr/td[2]//span[@class='like']"));
 		int Size= Favorite.size();
 		for(int j=1;j<=25;j++)
@@ -149,7 +162,14 @@ public class FemaleDiagnosisPage extends TestBase
 					
 					for( int i=1;i<=Size;i++)
 					{
-						Thread.sleep(3000);
+						try {
+							Thread.sleep(3000);
+						} 
+						catch (InterruptedException e) 
+						{
+							System.out.println("The thread.sleep value should be increased");
+							
+						}
 					//WebElement favorite=driver.findElement(By.xpath("(//table[@class='table table-hover table-striped'])[2]/tbody/tr["+i+"]/td[2]//span[@class='like']"));
 					//favorite.click();
 					//break;
@@ -191,10 +211,16 @@ public class FemaleDiagnosisPage extends TestBase
 		
 	}
 	
-	public String UnFavoriteTheFaviorite() throws Exception
+	public String UnFavoriteTheFaviorite() 
 	{
 		Otherdiagnosis.click();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		}
+		catch (InterruptedException e1) 
+		{
+			System.out.println("The thread.sleep value should be increased");
+		}
 		List<WebElement>favorite1=driver.findElements(By.xpath("(//table[@class='table table-hover table-striped'])[2]/tbody/tr/td[2]//span[@class='dislike']"));
 		int Size= favorite1.size();
 		for(int j=1;j<=25;j++)
@@ -204,7 +230,14 @@ public class FemaleDiagnosisPage extends TestBase
 				
 					for( int i=1;i<Size;i++)
 					{
-						Thread.sleep(2000);
+						try 
+						{
+							Thread.sleep(2000);
+						} 
+						catch (InterruptedException e) 
+						{
+						System.out.println("The thread.sleep value should be increased");	
+						}
 						/*boolean enabled = favorite1.get(i).isEnabled();
 						boolean displayed=favorite1.get(i).isDisplayed();
 						System.out.println("Remove favoriteEnabled condition"+ enabled+ "and displaycondition"+ displayed);
@@ -214,7 +247,12 @@ public class FemaleDiagnosisPage extends TestBase
 							break;
 						}
 					}
-					Thread.sleep(3000);
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) 
+					{
+						System.out.println("The thread.sleep value should be increased");				
+					}
 					String UnFavMessage= favoritemessage.getText();
 					System.out.println(UnFavMessage);
 					return UnFavMessage;
@@ -240,7 +278,7 @@ public class FemaleDiagnosisPage extends TestBase
 		return true;		
 	}
 	
-	public String DeleteFromFavorite() throws Exception
+	public String DeleteFromFavorite() 
 	{
 		String valueforcode = null;
 
@@ -250,7 +288,12 @@ public class FemaleDiagnosisPage extends TestBase
 		
 		for(int i=1;i<=code.size();i++)
 		{
-			Thread.sleep(2000);
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The thread.sleep value should be increased");				
+			}
 			WebElement codename= driver.findElement(By.xpath("(//div[@class='table-responsive table-bordered fixed_header'])[1]//tr["+i+"]/td[4]"));
 			String codename1= codename.getText();
 			reader.setCellData("Diagnosis", "favoritedelete", 2, codename1);
@@ -263,9 +306,19 @@ public class FemaleDiagnosisPage extends TestBase
 			}
 		}		
 		FavouriteDiagnosis.click();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) 
+		{
+			System.out.println("The thread.sleep value should be increased");
+		}
 		SearchFavorite.sendKeys(valueforcode);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1)
+		{
+			System.out.println("The thread.sleep value should be increased");
+		}
 		try
 		{
 		Searchckick.click();
@@ -273,7 +326,7 @@ public class FemaleDiagnosisPage extends TestBase
 		catch(TimeoutException e)
 		{
 			System.out.println("Element is not seen with in the time");
-			throw(e);
+			
 		}
 		Last.click();
 		try
@@ -301,17 +354,27 @@ public class FemaleDiagnosisPage extends TestBase
 		return DeleteMessage.getText();		
 	}
 	
-	public boolean checkboxclick() throws Exception
+	public boolean checkboxclick() 
 	{
 		FavouriteDiagnosis.click();
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The thread.sleep value should be increased");
+		}
 		List<WebElement>checkboxes= driver.findElements(By.xpath("(//table[@class='table table-hover table-striped'])[3]//td[2]/input[@type='checkbox']"));
 		int sizechecboxes= checkboxes.size();
 		for(WebElement  checkbox:checkboxes)
 		{
 			checkbox.click();
 		}
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The thread.sleep value should be increased");
+		}
 		List<WebElement>Types= driver.findElements(By.xpath("(//table[@class='table table-hover table-striped'])[3]//td[5]/select"));
 		for(WebElement Type:Types)
 		{

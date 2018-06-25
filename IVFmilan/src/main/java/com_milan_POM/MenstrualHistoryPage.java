@@ -85,7 +85,7 @@ public class MenstrualHistoryPage extends TestBase
 		return false;
 		
 	}
-	public String GetCycleDurationvalue() throws Exception
+	public String GetCycleDurationvalue() 
 	{
 		
 	WebElement CycleDurationvalue= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='Cycle Duration']//following::input[1]")));

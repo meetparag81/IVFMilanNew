@@ -69,7 +69,8 @@ public class ObstetricHistoryPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public int SaveOutcometypes() throws InterruptedException {
+	public int SaveOutcometypes() 
+	{
 		List<WebElement> tablerows = driver.findElements(By.xpath("//table[@id='ObstetricHistory']/tbody/tr"));
 		int birthoptions = 0;
 		birthoptions = birthoptions + 0;
@@ -122,7 +123,13 @@ public class ObstetricHistoryPage extends TestBase {
 					WebElement yearE = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]")));
 					Select yearE1 = new Select(yearE);
-					Thread.sleep(3000);
+					try {
+						Thread.sleep(3000);
+					} 
+					catch (InterruptedException e) 
+					{
+						System.out.println("The InterruptedException is occured");
+					}
 					// yearE1.selectByIndex(10);
 					WebElement gestationEB = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));
@@ -140,7 +147,13 @@ public class ObstetricHistoryPage extends TestBase {
 					WebElement yearA = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]")));
 					Select yearA1 = new Select(yearA);
-					Thread.sleep(2000);
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) 
+					{
+						System.out.println("The InterruptedException is occured");
+					
+					}
 					yearA1.selectByVisibleText("2018");
 					WebElement gestationA = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));
@@ -158,7 +171,14 @@ public class ObstetricHistoryPage extends TestBase {
 					WebElement yearSB = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]")));
 					Select yearSB1 = new Select(yearSB);
-					Thread.sleep(2000);
+					try 
+					{
+						Thread.sleep(2000);
+					} 
+					catch (InterruptedException e)
+					{
+						System.out.println("The InterruptedException is occured");
+					}
 					yearSB1.selectByVisibleText("2018");
 					WebElement gestationSB = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));
@@ -177,7 +197,13 @@ public class ObstetricHistoryPage extends TestBase {
 					WebElement yearMC = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[3]//select)[1]")));
 					Select yearMC1 = new Select(yearMC);
-					Thread.sleep(2000);
+					try 
+					{
+						Thread.sleep(2000);
+					} catch (InterruptedException e) 
+					{
+						System.out.println("The InterruptedException is occured");
+					}
 					yearMC1.selectByVisibleText("2000");
 					WebElement gestationMC = wait.until(ExpectedConditions.visibilityOfElementLocated(
 							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));

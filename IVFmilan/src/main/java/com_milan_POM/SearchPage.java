@@ -56,7 +56,7 @@ public class SearchPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public EMRDashBoardPage searchPaient() throws Exception 
+	public EMRDashBoardPage searchPaient() 
 	{
 		WebElement Patient1 = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
@@ -67,18 +67,34 @@ public class SearchPage extends TestBase {
 		int Rowcount = reader.getRowCount("HomePage");
 
 		String PatientName = reader.getCellData("HomePage", "PatientName", 7);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e)
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Searchbox1.sendKeys(PatientName);
 		TestUtil.VisibleOn(driver, Searchbox1, 10);
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 
 		System.out.println("totalsearch" + search.size());
 		for (int i = 0; i < search.size(); i++) 
 		{
-			Thread.sleep(1000);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 
 			search.get(i).click();
 			break;
@@ -107,7 +123,8 @@ public class SearchPage extends TestBase {
 		return Title;
 	}
 
-	public EMRDashBoardPage SearchusingCalender() throws Exception {
+	public EMRDashBoardPage SearchusingCalender()
+	{
 		WebElement Calender = wait.until(ExpectedConditions	.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
 		TestUtil.VisibleOn(driver, Calender, 20);
 		Calender.click();
@@ -125,7 +142,12 @@ public class SearchPage extends TestBase {
 
 		}
 		String Paitentname = reader.getCellData("HomePage", 0, 15);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		searchpaient.sendKeys(Paitentname);
 		try
 		{
@@ -134,7 +156,7 @@ public class SearchPage extends TestBase {
 		catch(Exception e)
 		{
 		System.out.println("Element is not seen within time");
-		throw(e);
+		
 		}
 		if(Searchbutton.isDisplayed()&&Searchbutton.isEnabled())
 		{
@@ -144,7 +166,13 @@ public class SearchPage extends TestBase {
 		int k = 1;
 		while (k <= 10) 
 		{
-			Thread.sleep(3000);
+			try {
+				Thread.sleep(3000);
+			} 
+			catch (InterruptedException e1)
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			WebElement Nameofpatient = driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tr[" + k + "]/td[4]"));
 			try
 			{
@@ -156,7 +184,12 @@ public class SearchPage extends TestBase {
 			}
 					
 			String name1 = Nameofpatient.getText();
-			Thread.sleep(4000);
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			if (name1.contains(Paitentname)) 
 			{
 				// Thread.sleep(4000);

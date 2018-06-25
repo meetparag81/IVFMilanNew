@@ -123,22 +123,7 @@ public class CycleOverviewPageTest extends TestBase
 			Assert.assertEquals(act, exp);
 			System.out.println("ValueInARTTypeTest is completed");
 		}
-		@Test(priority=5,enabled=true)
-		public void EnableconditionAddSimulationDrugTest()
-		{
-			boolean flag= COP.EnableconditionAddSimulationDrug();
-			if(flag==true)
-			{
-				assertTrue(flag);
-				System.out.println("EnableconditionAddSimulationDrugTest is true");	
-			}
-			else
-			{
-				assertFalse(flag);
-				System.out.println("EnableconditionAddSimulationDrugTest is false");
-			}
-			
-		}
+		
 		
 		
 		

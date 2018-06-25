@@ -43,7 +43,8 @@ public class HomePage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 
-	public int PatientDataCreation() throws Exception {
+	public int PatientDataCreation() 
+	{
 		int k = 1;
 		int rows = 2;
 		while (k <= 10) {
@@ -54,7 +55,12 @@ public class HomePage extends TestBase {
 			//// driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr["+
 			//// k +"]/td[4]/text()"));
 			
-			Thread.sleep(5000);
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The thread.sleep value should be increased");
+			}
 			List<WebElement> rows2 = driver
 					.findElements(By.xpath("//table[@class='table table-hover table-striped']/tbody/tr/td[4]/text()"));
 			WebElement rows1 = driver.findElement(
@@ -85,7 +91,8 @@ public class HomePage extends TestBase {
 
 	}
 
-	public EMRDashBoardPage ClickonEMR() throws Exception {
+	public EMRDashBoardPage ClickonEMR() 
+	{
 		// System.out.println("========EMR click testcase started======");
 		int i = 1;
 		int j = 1;
@@ -104,18 +111,33 @@ public class HomePage extends TestBase {
 
 		for (i = 1; i <= 125; i++) {
 			if (j <= 10) {
-				Thread.sleep(3000);
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) 
+				{
+					System.out.println("The thread.sleep value should be increased");
+				}
 				WebElement rowcount = driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr[" + j + "]/td[4]"));
 				String name1 = rowcount.getText();
 
 				// System.out.println(name1+ i+ j);
 
 				String PatientName = reader.getCellData("HomePage", "PatientName", 17);
-				Thread.sleep(3000);
+				try {
+					Thread.sleep(3000);
+				} catch (InterruptedException e) 
+				{
+					System.out.println("The thread.sleep value should be increased");
+				}
 				if (name1.contains(PatientName))
 
 				{
-					Thread.sleep(3000);
+					try {
+						Thread.sleep(3000);
+					} catch (InterruptedException e) 
+					{
+						System.out.println("The thread.sleep value should be increased");
+					}
 					driver.findElement(By.xpath("//div[@id='tableToExport']/table/tbody/tr[" + j + "]/td[1]/a[2]")).click();
 					// System.out.println("click on EMR ");
 					i = 122;
@@ -147,8 +169,9 @@ public class HomePage extends TestBase {
 		
 	}
 
-	public EMRDashBoardPage searchPaient() throws Exception 
+	public EMRDashBoardPage searchPaient()
 	{
+	
 		try
 		{			
 		TestUtil.VisibleOn(driver, Paitent, 20);
@@ -187,7 +210,13 @@ for(int i=1;i<radiobuttons;i++)
 		
 		
 	}
-		Thread.sleep(2000);
+		try 
+		{
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) 
+		{
+		System.out.println("Element-Searchbox1 is not ssen within20 secs");	
+		}
 		Searchbox1.sendKeys(PatientName);
 		try
 		{
@@ -198,7 +227,12 @@ for(int i=1;i<radiobuttons;i++)
 			System.out.println("Element not seen with in 20 sec");
 		}
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
 		if(search.size()>0)
@@ -213,9 +247,14 @@ for(int i=1;i<radiobuttons;i++)
 		}
 
 		
-		for (int i =0; i <= search.size(); i++) 
+		for (int i =0; i <= search.size();) 
 		{
-			Thread.sleep(1000);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("Thread.sleep value should be reduced");
+			}
 			String name = search.get(i).getText();
 			if(PatientName.equals(name))
 			{
@@ -262,7 +301,7 @@ for(int i=1;i<radiobuttons;i++)
 		return Title;
 	}
 
-	public EMRDashBoardPage SearchusingCalender() throws Exception 
+	public EMRDashBoardPage SearchusingCalender()  
 	{
 		WebElement Calender = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
 		TestUtil.VisibleOn(driver, Calender, 40);
@@ -281,22 +320,42 @@ for(int i=1;i<radiobuttons;i++)
 
 		}
 		String SendPaitentname = reader.getCellData("HomePage", 0, 8);
-		Thread.sleep(3000);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		searchpaient.sendKeys(SendPaitentname);
 		TestUtil.VisibleOn(driver, Searchbutton, 20);
 		Searchbutton.click();
 		int k = 1;
 		while (k <= 10) 
 		{
-			Thread.sleep(3000);
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			WebElement Nameofpatient = driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tr[" + k + "]/td[4]"));
 			TestUtil.VisibleOn(driver, Nameofpatient, 30);
 			String name1 = Nameofpatient.getText();
-			Thread.sleep(4000);
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("The InterruptedException is occured");
+			}
 			String Paitentname = reader.getCellData("HomePage", 0, 15);
 			if (name1.contains(Paitentname)) 
 			{
-				 Thread.sleep(2000);
+				 try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) 
+				 {
+					System.out.println("The InterruptedException is occured");
+				}
 				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
 				EMR.click();
 				/*System.out.println("click on EMR ");

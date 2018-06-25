@@ -34,7 +34,7 @@ public class WomenHistoryPage extends TestBase
 	}
 	
 	
-	public SexualHistoryPage ClickonSexsuslHistory() throws InterruptedException
+	public SexualHistoryPage ClickonSexsuslHistory() 
 	{
 		System.out.println("========sexsuslHistory click testcase started======");
 		try
@@ -65,7 +65,7 @@ public class WomenHistoryPage extends TestBase
 			 	
 			 		
 	}
-		 public ObstetricHistoryPage ClickonObstetricHistory() throws Exception
+		 public ObstetricHistoryPage ClickonObstetricHistory() 
 			{
 			 System.out.println("========ObstetricHistory click testcase started======");
 			 try
@@ -75,7 +75,7 @@ public class WomenHistoryPage extends TestBase
 			 catch(Exception e)
 			 {
 				 System.out.println("element is not visible withinthe time period");
-				 throw(e);
+				 
 			 }
 			 finally
 			 {
@@ -103,7 +103,7 @@ public class WomenHistoryPage extends TestBase
 		
 	
 			}
-		 public  MedicalHistoryPage ClickonMedicalHistory() throws Throwable
+		 public  MedicalHistoryPage ClickonMedicalHistory() 
 			{
 			 System.out.println("========MedicalHistory click testcase started======");
 			 try
@@ -140,7 +140,7 @@ public class WomenHistoryPage extends TestBase
 	
 			}
 		 
-		 public FamilyHistoryPage ClicOnFamilyHistory() throws InterruptedException
+		 public FamilyHistoryPage ClicOnFamilyHistory() 
 			{
 			 System.out.println("========FamilyHistory click testcase started======");
 			 try
@@ -159,7 +159,7 @@ public class WomenHistoryPage extends TestBase
 			}
 
 
-		public  SurgicalHistoryPage ClickOnSurgicalHistory() throws InterruptedException 
+		public  SurgicalHistoryPage ClickOnSurgicalHistory()  
 		{
 			System.out.println("========SurgicalHistory click testcase started======");
 			try
@@ -175,7 +175,7 @@ public class WomenHistoryPage extends TestBase
 			System.out.println("clicked on SurgicalHistory");
 			return new SurgicalHistoryPage();
 		}
-		public  previousTreatmentHistoryPage ClickOnpreviousTreatmentHistory() throws Exception
+		public  previousTreatmentHistoryPage ClickOnpreviousTreatmentHistory() 
 		{
 			System.out.println("========previousTreatmentHistory click testcase started======");
 			try
@@ -192,7 +192,7 @@ public class WomenHistoryPage extends TestBase
 			return new previousTreatmentHistoryPage();
 			
 		}
-		public  WPastMedicationHistoryPage ClickOnpastMedicationHistory() throws Exception
+		public  WPastMedicationHistoryPage ClickOnpastMedicationHistory() 
 		{
 			System.out.println("========pastMedicationHistory click testcase started======");
 			try
@@ -208,7 +208,7 @@ public class WomenHistoryPage extends TestBase
 			return new WPastMedicationHistoryPage();
 			
 		}
-		public  AllergiesPage ClickOnAllergies() throws Throwable
+		public  AllergiesPage ClickOnAllergies() 
 		{
 			System.out.println("========Alleregies click testcase started======");
 			try
@@ -226,7 +226,7 @@ public class WomenHistoryPage extends TestBase
 			
 		}
 		
-		public  AddictionsPage ClickOnAddictions() throws Exception
+		public  AddictionsPage ClickOnAddictions() 
 		{
 			System.out.println("========Addictions click testcase started======");
 			/*List<WebElement>History= driver.findElements(By.xpath("//label[text()='Consanguinity:']//following::a"));
@@ -252,7 +252,7 @@ public class WomenHistoryPage extends TestBase
 				
 			}
 		
-		public  VaccinationPage ClickOnVaccination() throws Exception
+		public  VaccinationPage ClickOnVaccination() 
 		{
 			System.out.println("========Vaccination click testcase started======");
 			try
@@ -268,7 +268,7 @@ public class WomenHistoryPage extends TestBase
 			return new VaccinationPage();
 			
 		}
-		public  socialHistoryPage ClickOnsocialHistory() throws Exception
+		public  socialHistoryPage ClickOnsocialHistory() 
 		{
 			System.out.println("========Vaccination click testcase started======");
 			try
@@ -284,7 +284,7 @@ public class WomenHistoryPage extends TestBase
 			return new socialHistoryPage();
 		}
 		
-		public  MenstrualHistoryPage ClickOnMenstrualHistory() throws Exception
+		public  MenstrualHistoryPage ClickOnMenstrualHistory() 
 		{
 			System.out.println("========MenstrualHistory click testcase started======");
 			try

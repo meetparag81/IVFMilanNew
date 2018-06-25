@@ -48,7 +48,7 @@ public class SexualHistoryPage extends TestBase
 	
 	
 	
-	public void formfilling() throws Exception
+	public void formfilling() 
 	{
 		System.out.println("WSexsualHistory form fill testcase started");
 		WebElement relasionshipyears= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()= 'In relationship since']//following::select[1]")));
@@ -66,7 +66,12 @@ public class SexualHistoryPage extends TestBase
 		Contraception= wait.until(ExpectedConditions.visibilityOf(Contraception));
 		Select contra= new Select(Contraception);
 		contra.selectByVisibleText("Yes");
-		Thread.sleep(1000);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		/*Select MOC= new Select(MethodofContraception);
 		MOC.selectByVisibleText("5");*/
 		Select ME= new Select(MaleInfertility);
@@ -78,7 +83,12 @@ public class SexualHistoryPage extends TestBase
 		Thread.sleep(2000);
 		Durationyears.selectByVisibleText("2");*/
 		Select MonthsDuration = new Select(Durationmnths);
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("The InterruptedException is occured");
+		}
 		MonthsDuration.selectByVisibleText("6");
 		Select InefertilityType = new Select(InfertilityType);
 		InefertilityType.selectByVisibleText("Primary");
@@ -121,7 +131,7 @@ public class SexualHistoryPage extends TestBase
 
 
 
-	public boolean validateRelstionship() throws Exception
+	public boolean validateRelstionship() 
 {
 		System.out.println("WSexsualHistory form fill testcase started");
 		String years= reader.getCellData("SexualHistory", 0, 8);
@@ -271,7 +281,7 @@ public class SexualHistoryPage extends TestBase
 		Lubricationusedtext.isDisplayed();		
 		return true;		
 	}
-	public String  Remarktext() throws Exception
+	public String  Remarktext() 
 	{
 		String longString = "Q6QYryfgrMIpJ76dgn4RVPZylNFUgpFlSi3j2GYQasyUpI87nzjlBPTsooyvcv3Udk8IGDp4AWfgXbx68Ohw6jbVMMqPzI40F7q7imKWHSuHz18Qj9oqk6wDsDIFvdigS3S8fbF3wTrb25OJCgdpN8MWL2X77Iy95KIgLIbZbk12GU4Cx7hsL6ezsx7WY9JmVLAxP6ooY0z80aPDfiE2QaCgDuYROWz5DFLhYdfAfOGR4C0gvp6QILiiY0";
 		remarktext.sendKeys(longString);
