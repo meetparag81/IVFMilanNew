@@ -5,8 +5,11 @@
     <classes>
       <class name="com_Milan_Test.SimulationChartPageTest">
         <methods>
-          <include name="clickOnAddSimulationTest"/>
+          <include name="EnableconditionAddSimulationDrugTest"/>
           <include name="Setup"/>
+          <include name="InvalidDateTest"/>
+          <include name="SimulationDrugValidationTest"/>
+          <include name="Teardown"/>
         </methods>
       </class> <!-- com_Milan_Test.SimulationChartPageTest -->
     </classes>
