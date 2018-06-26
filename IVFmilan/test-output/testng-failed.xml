@@ -1,34 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [IVFSuite]" parallel="tests">
-  <listeners>
-    <listener class-name="com_Milan_ExtendReport.ExtentReport"/>
-    <listener class-name="com_Milan_Analyzer.MyTransformer"/>
-  </listeners>
-  <test name="IVFTEST(failed)" parallel="tests">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.CycleOverviewPageTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="ValueInARTTypeTest"/>
-          <include name="TearDown"/>
-        </methods>
-      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
-      <class name="com_Milan_Test.WOPUCycyclePageTest">
-        <methods>
-          <include name="DeleteTheSeviceBeforeSaveTest"/>
-          <include name="TearDown"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
-      <class name="com_Milan_Test.WInvestigationPageTest">
-        <methods>
-          <include name="IVFPACKAGEARTCyclecountTest"/>
-          <include name="Teardown"/>
-          <include name="Setup"/>
-          <include name="OUIARTSubTypesTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="SourceofSpermselectionDonorTest"/>
@@ -42,34 +16,6 @@
           <include name="MethodOfSemenCollectionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
-      <class name="com_Milan_Test.WSexsualHistoryTest">
-        <methods>
-          <include name="FillSexsuslHistorytest"/>
-          <include name="DyspareuniatextTest"/>
-          <include name="Seup"/>
-          <include name="Remarktexttest"/>
-          <include name="SexInrelationshipsinceMonthsTest"/>
-          <include name="numberofcharacterexualDysfunctionTest"/>
-          <include name="TryingToConcieveSinceYearTest"/>
-          <include name="Lubricationusedtext"/>
-          <include name="TryingToConcieveSinceMonthTest"/>
-          <include name="Teardown"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
-      <class name="com_Milan_Test.WVitalsTest">
-        <methods>
-          <include name="setup"/>
-          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0 4 4"/>
-          <include name="TearDown"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WVitalsTest -->
-      <class name="com_Milan_Test.WAddictionsTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="Teardown"/>
-          <include name="saveAdictions" invocation-numbers="0"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WAddictionsTest -->
     </classes>
-  </test> <!-- IVFTEST(failed) -->
-</suite> <!-- Failed suite [IVFSuite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
