@@ -90,16 +90,21 @@ public class SimulationChartPageTest extends TestBase
 		}
 	
 	}
-	@Test(priority=2,enabled=false)
-	public void clickOnAddSimulationTest()
+	@Test(priority=2,enabled=true)
+	public void SaveSimulationTest()
 	{
-		SCP.SaveSimulation();
+		String act= SCP.SaveSimulation();
+		String exp = reader.getCellData("Stimulationchart", "Message", 4);
+		Assert.assertEquals(act, exp);
+		System.out.println("SaveSimulationTest is completed");
 	}
 	@Test(priority=3,enabled=true)
 	public void SimulationDrugValidationTest()
 	{
+		int row=2;
 		String act= SCP.SimulationDrugValidation();
-		String exp= reader.getCellData("Stimulationchart", "DrugName", 2);
+		row++;
+		String exp= reader.getCellData("Stimulationchart", "DrugName", row);
 		Assert.assertEquals(act, exp);
 		System.out.println("SimulationDrugValidationTest is completed");
 	}
@@ -109,7 +114,7 @@ public class SimulationChartPageTest extends TestBase
 		String act= SCP.InvalidDate();
 		String exp= reader.getCellData("Stimulationchart", "Message", 3);
 		Assert.assertEquals(act, exp);
-		System.out.println("SimulationDrugValidationTest is completed");
+		System.out.println("InvalidDateTest is completed");
 	}
 	@AfterMethod
 	public void Teardown()
