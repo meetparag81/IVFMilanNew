@@ -127,7 +127,7 @@ public class CycleListPage extends TestBase
 		System.out.println(msg);
 		return msg;
 	}
-	public boolean EnabledconditionARTType() throws Exception
+	public boolean EnabledconditionARTType() 
 	{
 		
 		
@@ -146,7 +146,7 @@ public class CycleListPage extends TestBase
 		return flag;
 		
 	}
-	public String  ARTTypeOption() throws Exception
+	public String  ARTTypeOption() 
 	{
 		// ClickonNewCycle();
 		Select OptionART = new Select(Artselecttype);

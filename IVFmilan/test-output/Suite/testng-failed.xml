@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="Test(failed)">
+    <classes>
+      <class name="com_Milan_Test.CycleListPageTest">
+        <methods>
+          <include name="Teardown"/>
+          <include name="Setup"/>
+          <include name="SourceofSpermselectionTest"/>
+          <include name="MethodofSemenCollectionTest"/>
+          <include name="NoofProtocolandselectionTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.CycleListPageTest -->
+      <class name="com_Milan_Test.WOPUCycyclePageTest">
+        <methods>
+          <include name="TearDown"/>
+          <include name="ClickonCycletabTest"/>
+          <include name="NoofProtocolTest"/>
+          <include name="DeleteARTCycleTest"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
+      <class name="com_Milan_Test.WInvestigationPageTest">
+        <methods>
+          <include name="Teardown"/>
+          <include name="CycleCreationTest"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
+      <class name="com_Milan_Test.WVitalsTest">
+        <methods>
+          <include name="setup"/>
+          <include name="BPSystolicBundryValueTest" invocation-numbers="0"/>
+          <include name="TearDown"/>
+          <include name="SaveAllVitalsValuesTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WVitalsTest -->
+      <class name="com_Milan_Test.WcomplaintsTest">
+        <methods>
+          <include name="NewPatientPresentingComplaintsTest"/>
+          <include name="Setup"/>
+          <include name="NextFollowUpTest"/>
+          <include name="Teardown"/>
+          <include name="SaveTheComplaintsTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
+      <class name="com_Milan_Test.HomePageTest">
+        <methods>
+          <include name="ClickOnCmrTest"/>
+          <include name="Setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.HomePageTest -->
+      <class name="com_Milan_Test.WObstetricHistoryPageTest">
+        <methods>
+          <include name="LiveBirthFullTermconditionTest"/>
+          <include name="LiveBirthAbovePostTermconditionTest"/>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="SaveOutcometypesTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
+      <class name="com_Milan_Test.WAddictionsTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="saveNewAdictions"/>
+          <include name="saveAdictions" invocation-numbers="0 1 2 3 4"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WAddictionsTest -->
+      <class name="com_Milan_Test.EMRDashBoardPageTest">
+        <methods>
+          <include name="Seup"/>
+          <include name="teardown"/>
+          <include name="ClickOnComplaintTest"/>
+          <include name="ClickOnInvestigationTest"/>
+          <include name="ClickOnVitalTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.EMRDashBoardPageTest -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
