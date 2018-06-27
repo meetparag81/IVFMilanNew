@@ -49,8 +49,14 @@ public class WOPUCycyclePageTest extends TestBase
 	}
 	
 	
-	
 	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	public void AddOneServiceAtleastMessageTest()
+	{
+		String act= WOC.AddOneServiceAtleastMessage();
+		String exp = reader.getCellData("Investigation", "Fashmessage", 8);
+		System.out.println("AddOneServiceAtleastTest is completed");
+	}
+	@Test(priority=2,groups = {"smoketest" },enabled=true)
 	public void AleadySavedCycleTest() 
 	{
 		boolean flag= WOC.AlreadySavedCycle();// if there is already available cycle saved this option become true.
@@ -68,36 +74,6 @@ public class WOPUCycyclePageTest extends TestBase
 		}
 		
 	}	
-	@Test(priority=2,groups = {"smoketest" },enabled=true)
-	public void MessageforAlreadtyavailableCycleTest() 
-	{
-		boolean flag1 =WOC.AlreadySavedCycle();// if there is already available cycle saved this option become true.
-		if(flag1==false)
-		{
-			assertFalse(flag1);
-			System.out.println("MessageforAlreadtyavailableCycleTest is completed");
-		}
-		else
-		{
-			boolean flag = true;
-			if(flag==true)
-			{
-				
-				String act= WOC.MessageforAlreadtyavailableCycle();
-				String exp = reader.getCellData("Investigation", "Fashmessage", 7);
-				Assert.assertEquals(act, exp);
-				
-			}
-			else
-			{
-				
-				
-			}
-		}
-		
-		
-		
-	}
 	@Test(priority=3,groups = {"functional" }, enabled=true)
 	public void SaveOPUsubtypeICSITest() throws Exception
 	{
@@ -134,21 +110,77 @@ public class WOPUCycyclePageTest extends TestBase
 	
 	}
 	
+	
 	@Test(priority=4,groups = {"smoketest" },enabled=true)
-	public void ARTCycleAvailabilityMessageBeforeSaveTest() throws Exception 
+	public void MessageforAlreadtyavailableCycleTest() 
 	{
-		boolean flag1 =WOC.AlreadySavedCycle();// if ther is already available cycle saved this option become true.
+		boolean flag1 =WOC.AlreadySavedCycle();// if there is already available cycle saved this option become true.
+		boolean flag2 = WOC.Existingcycle();
+		if(flag1==true&&flag2==true)
+		{
+			String act= WOC.MessageforAlreadtyavailableCyclebothtrue(); 
+			String exp = reader.getCellData("Investigation", "Fashmessage", 4);
+			Assert.assertEquals(act, exp);
+			
+			System.out.println("MessageforAlreadtyavailableCycleTest is completed");
+		}
+		else if(flag1==false&&flag2==true)
+		{
+		String act= WOC.MessageforAlreadtyavailableCyclebothtrue();
+		String exp = reader.getCellData("Investigation", "Fashmessage",4);
+		Assert.assertEquals(act, exp);
+		System.out.println("MessageforAlreadtyavailableCycleTest is completed");
+		
+		}
+	
+	}
+	
+	@Test(priority=5,groups = {"smoketest" },enabled=true)
+	public void ARTCycleAvailabilityMessageBeforeSaveTheCycleTest() throws Exception 
+	{
+		boolean flag1= WOC.AlreadySavedCycle();
+		boolean flag2=WOC.Existingcycle();
+		if(flag1==false&& flag2==false)
+		{
+			String act= WOC.MessageForAvaibility();
+			String exp = reader.getCellData("Investigation", "Fashmessage", 7);
+				Assert.assertEquals(act, exp);
+		System.out.println("ARTCycleAvailabilityMessage is completed");
+		}
+		else if(flag1==true&&flag2==true)
+		{
+			String act= WOC.MessageForAvaibility();
+			String exp = reader.getCellData("Investigation", "Fashmessage", 4);
+				Assert.assertEquals(act, exp);
+		}
+		else if(flag1==false&&flag2==true)
+		{
+			String act= WOC.MessageForAvaibility();
+			String exp = reader.getCellData("Investigation", "Fashmessage", 7);
+				Assert.assertEquals(act, exp);
+				System.out.println("ARTCycleAvailabilityMessage is completed");
+			
+		}
+		else if(flag1==true&&flag2==false)
+		{
+			String act= WOC.MessageForAvaibility();
+			String exp = reader.getCellData("Investigation", "Fashmessage", 4);
+				Assert.assertEquals(act, exp);
+		}
+		
+		
+		/*boolean flag1 =WOC.AlreadySavedCycle();// if ther is already available cycle saved this option become true.
 		if(flag1==true)
 		{
-			String act = WOC.MessageforAlreadtyavailableCycle();
+			String act = WOC.MessageforAlreadtyavailableCyclebothtrue();
 			String exp = reader.getCellData("Investigation","Fashmessage",7 );
 					Assert.assertEquals(act, exp);
 			System.out.println("ARTCycleAvailabilityMessageBeforeSaveTest is completed");
 		}
 		else
 		{
-			boolean flag =WOC.Existingcycle();
-			if(flag)
+			boolean flag =WOC.Existingcycle();// used to check the  already saved package.
+ 			if(flag)
 			{
 			String Actual = WOC.ARTCycleAvailabilityMessageBeforeSave();
 			String Expected = reader.getCellData("Investigation","Fashmessage", 4);
@@ -158,14 +190,14 @@ public class WOPUCycyclePageTest extends TestBase
 			else
 			{
 				String act = WOC.ARTCycleAvailabilityMessageBeforeSave();	
-				String exp = reader.getCellData("Investigation","Fashmessage", 5);
+				String exp = reader.getCellData("Investigation","Fashmessage", 10);
 				Assert.assertEquals(act, exp);
-			}
-			System.out.println("ARTCycleAvailabilityMessage is completed");
+			}*/
+			
 		}
 		
 		
-	}
+	
 	
 	
 	@Test(priority=5,groups = {"smoketest" },enabled=true)
@@ -226,7 +258,8 @@ public class WOPUCycyclePageTest extends TestBase
 		{
 			int Actual= WOC.NoofCycles();
 			int Expected = 7;
-			Assert.assertEquals(Actual, Expected);		
+			Assert.assertEquals(Actual, Expected);
+			System.out.println("NoofCyclesTestis completed");
 		}
 		
 		

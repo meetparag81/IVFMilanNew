@@ -51,6 +51,7 @@ public class WOPUCycyclePage extends TestBase
 	@FindBy(xpath="(//input[@class='ng-pristine ng-untouched ng-valid ng-empty'])[2]")WebElement checboxpreviousprocedure;
 	@FindBy(xpath="//button[@id='btnAddPrePro'][@value='Save']")WebElement Add;
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement msgSaveafteradd;
+	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']") WebElement Addservice;
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	 String msg;
 	 int count2;
@@ -209,42 +210,7 @@ return count2;
 				//flag1 = true;
 				break;
 			}
-		/*List<WebElement> Subtypes = ARTSubtype1.getOptions();
-		int subtypesize1 = Subtypes.size();
-		int rows2 = 4;
-		boolean flag1 = false;
-		for (int j = 1; j < subtypesize1; j++) 
-		{
-			if (flag1 == false) 
-			{
-
-				String subtypenames = Subtypes.get(j).getText();
-				String subnames = reader.getCellData("Investigation", "OPU", rows2);
-
-				if (subtypenames.equals(subnames)) 
-				{
-					ARTSubtype1.selectByVisibleText(subtypenames);
-					Calender.click();
-					List<WebElement> dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//td"));
-					for (int k = 0; k <= dates.size(); k++) 
-					{
-						String datevalue = dates.get(k).getText();
-						if (datevalue.equals("04")) 
-						{
-							dates.get(k).click();
-							//flag1 = true;
-							break;
-
-						}
-
-					}
-
-				} 
-				else 
-				{
-					System.out.println("subtype is not matched");
-				}
-			}*/
+		
 		}
 		
 	
@@ -480,9 +446,33 @@ return count2;
 	
 	
 	
-	public String MessageforAlreadtyavailableCycle() 
+	public String MessageforAlreadtyavailableCyclebothtrue() 
 	{
-		if(AlreadySavedCycle() ==true)
+		boolean flag1= AlreadySavedCycle();
+		boolean flag2= Existingcycle();
+		if(flag1==true&&flag2==true)
+		{
+			SearchThecycles();
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1)
+			{
+				System.out.println("The InterruptedException is occured");
+			}
+			try{
+				Existingcyclemsg.getText();
+			}
+			catch( Exception e)
+			{
+				System.out.println("Element-Existingcyclemsg is not found");
+			}
+			finally
+			{
+				msg = "Close existing cycle first.";
+			}
+			
+		}
+		else if(flag2==true&&flag1 ==false)
 		{
 			SearchThecycles();
 			try {
@@ -498,23 +488,130 @@ return count2;
 			{
 				System.out.println("Element is not found");
 			}
-			finally
-			{
-				msg = "Close existing cycle first.";
-			}
+			msg = "Close existing cycle first.";
 			
 		}
-		else
-		{
 			
-			msg= "cyclenotfound";
-		}
-		
-		
-		
 		return msg;
 		
 	}
+	
+	public String MessageForAvaibility()
+	{
+		boolean flag1= AlreadySavedCycle();
+		boolean flag2= Existingcycle();
+		if(flag1==false&& flag2==false)
+		{
+			Save.click();
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1)
+			{
+				System.out.println("The InterruptedException is occured");
+			}
+			try{
+				msg = Addservice.getText();
+			}
+			catch( Exception e)
+			{
+				System.out.println("Element-Alreadyexistflashmsg is not seen within 20 sec");
+			}
+			msg = "Add atleast 1 service.";
+			
+		
+		}
+		else if(flag1==true&&flag2==true)
+		{
+			SearchThecycles();
+			try 
+			{
+				Thread.sleep(2000);
+			} 
+			catch (InterruptedException e1)
+			{
+				System.out.println("Element-Alreadyexistflashmsg is not seen within 20 sec");
+			}
+			try
+			{
+				Existingcyclemsg.getText();
+			}
+			catch( Exception e)
+			{
+				System.out.println("Element-Existingcyclemsg is not found");
+			}
+			msg = "Close existing cycle first.";
+			
+			
+		}
+		else if(flag1==false&&flag2==true)
+		{
+			SearchThecycles();
+			try 
+			{
+				Thread.sleep(2000);
+			} 
+			catch (InterruptedException e1)
+			{
+				System.out.println("Element-Alreadyexistflashmsg is not seen within 20 sec");
+			}
+			try
+			{
+				Alreadyexistflashmsg.getText();
+			}
+			catch( Exception e)
+			{
+				System.out.println("Element-Alreadyexistflashmsg is not found");
+			}
+			msg = "You can add only one cycle for same visit.";
+			
+		}
+		else if(flag1==true&&flag2==false)
+		{
+			SearchThecycles();
+			try 
+			{
+				Thread.sleep(2000);
+			} 
+			catch (InterruptedException e1)
+			{
+				System.out.println("Element-Alreadyexistflashmsg is not seen within 20 sec");
+			}
+			try
+			{
+				Existingcyclemsg.getText();
+			}
+			catch( Exception e)
+			{
+				System.out.println("Element-Existingcyclemsg is not found");
+			}
+			msg = "Close existing cycle first.";
+		}
+		return msg;
+		
+	}
+	public String AddOneServiceAtleastMessage()
+	{
+		Actions act = new Actions(driver);
+		act.moveToElement(Cycles).click().perform();
+		Save.click();
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e1)
+			{
+				System.out.println("The InterruptedException is occured");
+			}
+			try{
+				msg = Addservice.getText();
+			}
+			catch( Exception e)
+			{
+				System.out.println("Element-Alreadyexistflashmsg is not seen within 20 sec");
+			}
+			msg = "Add atleast 1 service.";
+		return msg;
+		
+	}
+	
 
 		
 	

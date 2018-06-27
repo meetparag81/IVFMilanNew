@@ -47,20 +47,7 @@ public class WomenHistoryPage extends TestBase
 		}
 		SexualHistory.click();
 		System.out.println("clicked on Sexual history");
-		/*List<WebElement> history = driver.findElements(By.xpath("//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li"));
-		//System.out.println("History size is" +history.size());
-		//System.out.println ("History link name is"+ history.get(1).getText());
 		
-		 for(int i=0;i< history.size();i++)
-		 {
-			// System.out.println("history names are"+ history.get(i).getText());
-		 if(history.get(i).getText().contains("Sexual History"))
-				 {
-			 		Thread.sleep(2000);
-			 		history.get(i).click();
-			 		System.out.println("clicked on Sexual history");
-				 }*/
-		 
 		 return  new SexualHistoryPage();
 			 	
 			 		
@@ -83,21 +70,7 @@ public class WomenHistoryPage extends TestBase
 			 }
 			 ObstetricHistory.click();
 			 System.out.println("clicked on Obstetric History");
-				/*List<WebElement> history = driver.findElements(By.xpath("//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li"));
-				System.out.println("History size is" +history.size());
-				System.out.println ("History link name is"+ history.get(1).getText());
 				
-				 for(int i=0;i< history.size();i++)
-				 {
-					// System.out.println("history names are"+ history.get(i).getText());
-				 if(history.get(i).getText().contains("Obstetric History"))
-						 {
-					 		history.get(i).click();
-					 					 	
-					 		
-						 }	 
-		
-				 }*/
 				 return  new ObstetricHistoryPage();
 		 
 		
@@ -118,21 +91,7 @@ public class WomenHistoryPage extends TestBase
 			 medicalHistory.click();
 			 System.out.println("clicked on MedicalHistory");
 			 
-				/*List<WebElement> history = driver.findElements(By.xpath("//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li"));
-				//System.out.println("History size is" +history.size());
-				System.out.println ("History link name is"+ history.get(1).getText());
 				
-				 for(int i=0;i< history.size();i++)
-				 {
-					// System.out.println("history names are"+ history.get(i).getText());
-				 if(history.get(i).getText().contains("MedicalHistory"))
-						 {
-					 history.get(i).click();
-					 			 	
-					 		
-						 }	 
-		
-				 }*/
 				return new MedicalHistoryPage() ;
 				   
 		 
@@ -229,14 +188,7 @@ public class WomenHistoryPage extends TestBase
 		public  AddictionsPage ClickOnAddictions() 
 		{
 			System.out.println("========Addictions click testcase started======");
-			/*List<WebElement>History= driver.findElements(By.xpath("//label[text()='Consanguinity:']//following::a"));
-			for(int i=0;i<History.size();i++)
-			{
-				String Historyname= History.get(i).getText();
-				if(Historyname.equals(" Addictions"))
-				{
-					History.get(i).click();
-				}*/
+			
 			try
 			{
 			TestUtil.VisibleOn(driver, addictions, 30);

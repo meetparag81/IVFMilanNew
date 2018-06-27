@@ -135,7 +135,7 @@ public class CycleOverviewPage extends TestBase
 	}
 	public  String ValueInARTType() throws InterruptedException
 	{
-		Select ARTtype = new Select(ARTType);
+	Select ARTtype = new Select(ARTType);
 	WebElement we=	ARTtype.getFirstSelectedOption();
 	Thread.sleep(4000);
 	msg= we.getText();

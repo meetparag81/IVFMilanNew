@@ -19,47 +19,70 @@
           <include name="DeleteTheSeviceBeforeSaveTest"/>
           <include name="TearDown"/>
           <include name="Setup"/>
+          <include name="ARTCycleAvailabilityMessageBeforeSaveTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
-      <class name="com_Milan_Test.WInvestigationPageTest">
+      <class name="com_Milan_Test.HomePageTest">
         <methods>
-          <include name="IVFPACKAGEARTCyclecountTest"/>
-          <include name="Teardown"/>
+          <include name="ClickOnCmrTest"/>
           <include name="Setup"/>
-          <include name="OUIARTSubTypesTest"/>
+          <include name="teardown"/>
         </methods>
-      </class> <!-- com_Milan_Test.WInvestigationPageTest -->
+      </class> <!-- com_Milan_Test.HomePageTest -->
+      <class name="com_Milan_Test.WcomplaintsTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="SaveTheComplaintsTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
+      <class name="com_Milan_Test.WomenHistoryPageTest">
+        <methods>
+          <include name="setup"/>
+          <include name="Teardown"/>
+          <include name="AllergiesTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WomenHistoryPageTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="SourceofSpermselectionDonorTest"/>
+          <include name="CycleListTitleTest"/>
           <include name="Teardown"/>
           <include name="EnabledconditionARTTypeTest"/>
           <include name="SimulationDrugTest"/>
           <include name="ProtocolandselectionTest"/>
           <include name="Setup"/>
           <include name="SaveTheCycleTest"/>
+          <include name="NewCycleButtonEnableConditionTest"/>
           <include name="SourceofspermPartnerTest"/>
           <include name="MethodOfSemenCollectionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
-      <class name="com_Milan_Test.WSexsualHistoryTest">
+      <class name="com_Milan_Test.WObstetricHistoryPageTest">
         <methods>
-          <include name="FillSexsuslHistorytest"/>
-          <include name="DyspareuniatextTest"/>
-          <include name="Seup"/>
-          <include name="Remarktexttest"/>
-          <include name="SexInrelationshipsinceMonthsTest"/>
-          <include name="numberofcharacterexualDysfunctionTest"/>
-          <include name="TryingToConcieveSinceYearTest"/>
-          <include name="Lubricationusedtext"/>
-          <include name="TryingToConcieveSinceMonthTest"/>
+          <include name="DeliveryTypeEnableconditionTest"/>
+          <include name="RowGridEnableTest"/>
+          <include name="EctopiccEnableCondititionTest"/>
+          <include name="LiveBirthAbovePostTermconditionTest"/>
+          <include name="ComplicationsEnableCondititionTest"/>
+          <include name="LiveBirthEnableTest"/>
+          <include name="LiveBirthPretermconditionTest"/>
+          <include name="StillBornEnableTest"/>
+          <include name="ValueInLivebirthoptionTest"/>
+          <include name="CongenitalAnamolyEnableCondititionTest"/>
+          <include name="AbortionEnableCondititionTest"/>
+          <include name="LiveBirthFullTermconditionTest"/>
+          <include name="Setup"/>
+          <include name="ValueInEctopicTest"/>
+          <include name="DeliveryEnableCondititionTest"/>
           <include name="Teardown"/>
+          <include name="SaveOutcometypesTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
+      </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
       <class name="com_Milan_Test.WVitalsTest">
         <methods>
           <include name="setup"/>
-          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0 4 4"/>
+          <include name="BPSystolicBundryValueTest" invocation-numbers="0 0 0 0 3 4 4"/>
           <include name="TearDown"/>
         </methods>
       </class> <!-- com_Milan_Test.WVitalsTest -->

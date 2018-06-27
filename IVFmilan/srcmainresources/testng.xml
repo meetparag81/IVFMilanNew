@@ -7,7 +7,7 @@
 	</listeners>
 <test name="IVFTEST">	
 		<classes>
-	  <class name="com_Milan_Test.SearchPageTest"/>
+	 <class name="com_Milan_Test.SearchPageTest"/>
       <class name="com_Milan_Test.WOPUCycyclePageTest"/>
       <class name="com_Milan_Test.LoginPageTest"/>
       <class name="com_Milan_Test.WInvestigationPageTest"/>
@@ -23,6 +23,7 @@
       <class name="com_Milan_Test.CycleOverviewPageTest"/>
       <class name="com_Milan_Test.WAddictionsTest"/>
       <class name="com_Milan_Test.EMRDashBoardPageTest"/>
+      <class name="com_Milan_Test.SimulationChartPageTest"/>
       <class name="com_Milan_Test.WSexsualHistoryTest"/>
       <class name="com_Milan_Test.HomePageTest"/>
 		</classes>

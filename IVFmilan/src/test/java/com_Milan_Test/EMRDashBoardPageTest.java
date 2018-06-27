@@ -63,7 +63,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 		
 	}
-	@Test(priority=1,groups = {"smokeTest" },enabled=true)
+	@Test(priority=1,groups = {"smoketest" },enabled=true)
 	public void ClickonWoomenPaientFieldTest() throws InterruptedException
 	{
 		WHP= EMRPage.clickOnWomenField();
