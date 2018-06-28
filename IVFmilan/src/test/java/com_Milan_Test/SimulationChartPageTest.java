@@ -51,17 +51,31 @@ public class SimulationChartPageTest extends TestBase
 		 boolean flag1= WOC.Existingcycle();
 			 if(flag1==true)
 			 {
-				 WOC.SaveOPUsubtypeICSI();
+				 System.out.println("cycle already exist");
 
 			 }
 			 else
 			 {
-				 System.out.println("cycle already exist");
+				 WOC.SaveOPUsubtypeICSI();
+				 
 			 }
 		}		
 		CLP= WOC.ClickonCycleOption();
+		boolean flag1 = CLP.NewCycleButtonEnableCondition();
+		boolean flag2 = CLP.CycleCodeAvaibility();
+		if(flag1==false&&flag2==true)
+		{
+			COP = CLP.ClickOnCycleCode();
+			
+		}
+		else
+		{
+			CLP.ClickonNewCycle();
+			CLP.SaveTheCycle();
+			COP = CLP.ClickOnCycleCode();
+			
+		}
 		
-		COP = CLP.ClickOnCycleCode();
 		SCP =COP.StimulationChartPageClickOnOverview();
 		
 		
@@ -73,7 +87,7 @@ public class SimulationChartPageTest extends TestBase
 		SCP.AddStimulationdrug();
 	}
 	
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled=false)
 	public void EnableconditionAddSimulationDrugTest()
 	{
 		boolean flag= SCP.EnableconditionAddSimulationDrug();
@@ -90,7 +104,7 @@ public class SimulationChartPageTest extends TestBase
 		}
 	
 	}
-	@Test(priority=2,enabled=true)
+	@Test(priority=3,enabled=true)
 	public void SaveSimulationTest()
 	{
 		String act= SCP.SaveSimulation();
@@ -98,7 +112,7 @@ public class SimulationChartPageTest extends TestBase
 		Assert.assertEquals(act, exp);
 		System.out.println("SaveSimulationTest is completed");
 	}
-	@Test(priority=3,enabled=true)
+	@Test(priority=4,enabled=true)
 	public void SimulationDrugValidationTest()
 	{
 		int row=2;
@@ -108,7 +122,7 @@ public class SimulationChartPageTest extends TestBase
 		Assert.assertEquals(act, exp);
 		System.out.println("SimulationDrugValidationTest is completed");
 	}
-	@Test(priority=4,enabled=true)
+	@Test(priority=5,enabled=true)
 	public void InvalidDateTest()
 	{
 		String act= SCP.InvalidDate();

@@ -1,129 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="11" passed="10">
+<testng-results skipped="0" failed="1" ignored="10" total="11" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="976071" started-at="2018-06-27T13:24:46Z" finished-at="2018-06-27T13:41:02Z">
+  <suite name="Default suite" duration-ms="78524" started-at="2018-06-28T16:57:41Z" finished-at="2018-06-28T16:58:59Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="976071" started-at="2018-06-27T13:24:46Z" finished-at="2018-06-27T13:41:02Z">
+    <test name="Default test" duration-ms="78524" started-at="2018-06-28T16:57:41Z" finished-at="2018-06-28T16:58:59Z">
       <class name="com_Milan_Test.CycleListPageTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="211783" started-at="2018-06-27T18:54:46Z" finished-at="2018-06-27T18:58:17Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@2b4bac49]" name="Setup" is-config="true" duration-ms="77130" started-at="2018-06-28T22:27:41Z" finished-at="2018-06-28T22:28:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ClickonNewCycleTest()[pri:1, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="ClickonNewCycleTest" duration-ms="5842" started-at="2018-06-27T18:58:17Z" finished-at="2018-06-27T18:58:23Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ClickonNewCycleTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="767" started-at="2018-06-27T18:58:23Z" finished-at="2018-06-27T18:58:24Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="73367" started-at="2018-06-27T18:58:24Z" finished-at="2018-06-27T18:59:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="CycleListTitleTest()[pri:2, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="CycleListTitleTest" duration-ms="571" started-at="2018-06-27T18:59:37Z" finished-at="2018-06-27T18:59:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CycleListTitleTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="828" started-at="2018-06-27T18:59:38Z" finished-at="2018-06-27T18:59:39Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="73707" started-at="2018-06-27T18:59:39Z" finished-at="2018-06-27T19:00:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="NewCycleButtonEnableConditionTest()[pri:3, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="NewCycleButtonEnableConditionTest" duration-ms="2069" started-at="2018-06-27T19:00:53Z" finished-at="2018-06-27T19:00:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- NewCycleButtonEnableConditionTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="709" started-at="2018-06-27T19:00:55Z" finished-at="2018-06-27T19:00:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="73014" started-at="2018-06-27T19:00:55Z" finished-at="2018-06-27T19:02:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="EnabledconditionARTTypeTest()[pri:4, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="EnabledconditionARTTypeTest" duration-ms="7038" started-at="2018-06-27T19:02:08Z" finished-at="2018-06-27T19:02:15Z">
+        <test-method status="FAIL" signature="EnabledconditionARTTypeTest()[pri:4, instance:com_Milan_Test.CycleListPageTest@2b4bac49]" name="EnabledconditionARTTypeTest" duration-ms="215" started-at="2018-06-28T22:28:58Z" finished-at="2018-06-28T22:28:58Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:93)
+	at org.testng.Assert.failNotEquals(Assert.java:512)
+	at org.testng.Assert.assertTrue(Assert.java:41)
+	at org.testng.Assert.assertTrue(Assert.java:51)
+	at com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest(CycleListPageTest.java:154)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:661)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:869)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1193)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- EnabledconditionARTTypeTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="734" started-at="2018-06-27T19:02:15Z" finished-at="2018-06-27T19:02:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="71282" started-at="2018-06-27T19:02:16Z" finished-at="2018-06-27T19:03:27Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ProtocolandselectionTest()[pri:6, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="ProtocolandselectionTest" duration-ms="8520" started-at="2018-06-27T19:03:27Z" depends-on-methods="com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest" finished-at="2018-06-27T19:03:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ProtocolandselectionTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="730" started-at="2018-06-27T19:03:36Z" finished-at="2018-06-27T19:03:37Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="73457" started-at="2018-06-27T19:03:37Z" finished-at="2018-06-27T19:04:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="MethodOfSemenCollectionTest()[pri:7, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="MethodOfSemenCollectionTest" duration-ms="5914" started-at="2018-06-27T19:04:50Z" depends-on-methods="com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest" finished-at="2018-06-27T19:04:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- MethodOfSemenCollectionTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="859" started-at="2018-06-27T19:04:56Z" finished-at="2018-06-27T19:04:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="73531" started-at="2018-06-27T19:04:57Z" finished-at="2018-06-27T19:06:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="SourceofspermPartnerTest()[pri:8, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="SourceofspermPartnerTest" duration-ms="5664" started-at="2018-06-27T19:06:10Z" depends-on-methods="com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest" finished-at="2018-06-27T19:06:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SourceofspermPartnerTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="753" started-at="2018-06-27T19:06:16Z" finished-at="2018-06-27T19:06:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="72692" started-at="2018-06-27T19:06:17Z" finished-at="2018-06-27T19:07:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="SourceofSpermselectionDonorTest()[pri:9, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="SourceofSpermselectionDonorTest" duration-ms="5773" started-at="2018-06-27T19:07:30Z" depends-on-methods="com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest" finished-at="2018-06-27T19:07:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SourceofSpermselectionDonorTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="726" started-at="2018-06-27T19:07:35Z" finished-at="2018-06-27T19:07:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="71312" started-at="2018-06-27T19:07:36Z" finished-at="2018-06-27T19:08:47Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="SimulationDrugTest()[pri:10, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="SimulationDrugTest" duration-ms="6967" started-at="2018-06-27T19:08:47Z" depends-on-methods="com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest" finished-at="2018-06-27T19:08:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SimulationDrugTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="755" started-at="2018-06-27T19:08:54Z" finished-at="2018-06-27T19:08:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Setup" is-config="true" duration-ms="74200" started-at="2018-06-27T19:08:55Z" finished-at="2018-06-27T19:10:09Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="SaveTheCycleTest()[pri:11, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="SaveTheCycleTest" duration-ms="51683" started-at="2018-06-27T19:10:09Z" depends-on-methods="com_Milan_Test.CycleListPageTest.EnabledconditionARTTypeTest" finished-at="2018-06-27T19:11:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- SaveTheCycleTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@fa36558]" name="Teardown" is-config="true" duration-ms="761" started-at="2018-06-27T19:11:01Z" finished-at="2018-06-27T19:11:02Z">
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@2b4bac49]" name="Teardown" is-config="true" duration-ms="749" started-at="2018-06-28T22:28:59Z" finished-at="2018-06-28T22:28:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Teardown -->

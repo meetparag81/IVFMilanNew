@@ -32,14 +32,14 @@ public class CycleListPage extends TestBase
 	private@FindBy(xpath="//textarea[@name='txtRemark']")WebElement Remarks;
 	private@FindBy(xpath="//button[@class='btn btn-primary']")WebElement Save;
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
-	private @FindBy(xpath="//a[@class='txt_bold ng-binding']")WebElement CycleCode;
 	private @FindBy(xpath="//i[@class='fa fa-calendar']")WebElement LMPcalender;
-	private @FindBy(xpath="//a[@class='txt_bold ng-binding']")WebElement Cyclecode;
+	private @FindBy(xpath="//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']")WebElement Cyclecode;
 	
 	
 	String msg;
 	String Name;
 	String Name1;
+	boolean flag;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	CycleListPage()
 	{
@@ -64,6 +64,25 @@ public class CycleListPage extends TestBase
 		return flag1;
 		
 	}
+	
+	public boolean CycleCodeAvaibility()
+	{
+		try
+		{
+			System.out.println();
+			flag= Cyclecode.isDisplayed();
+		}
+		catch(Exception e)
+		{
+			System.out.println("cyclecode- isnot displayed");
+		}
+		return flag;		
+		 
+	}
+	
+	
+	
+	
 	public String ClickonNewCycle()  
 	{
 		try {
@@ -520,13 +539,13 @@ public class CycleListPage extends TestBase
 	{
 		try
 		{
-		TestUtil.VisibleOn(driver, CycleCode, 20);
+		TestUtil.VisibleOn(driver, Cyclecode, 20);
 		}
 		catch(TimeoutException e)
 		{
 			System.out.println("Element-cyclecode is not seen within 20 sec");
 		}
-		CycleCode.click();
+		Cyclecode.click();
 		
 		
 		

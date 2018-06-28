@@ -30,6 +30,7 @@ public class WOPUCycyclePageTest extends TestBase
 	EMRDashBoardPage EMRPage;
 	WInvestigationPage Investigation;
 	WOPUCycyclePage WOC;
+	CycleListPage CLP;
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	 String msg;
 	WOPUCycyclePageTest()
@@ -169,30 +170,7 @@ public class WOPUCycyclePageTest extends TestBase
 		}
 		
 		
-		/*boolean flag1 =WOC.AlreadySavedCycle();// if ther is already available cycle saved this option become true.
-		if(flag1==true)
-		{
-			String act = WOC.MessageforAlreadtyavailableCyclebothtrue();
-			String exp = reader.getCellData("Investigation","Fashmessage",7 );
-					Assert.assertEquals(act, exp);
-			System.out.println("ARTCycleAvailabilityMessageBeforeSaveTest is completed");
-		}
-		else
-		{
-			boolean flag =WOC.Existingcycle();// used to check the  already saved package.
- 			if(flag)
-			{
-			String Actual = WOC.ARTCycleAvailabilityMessageBeforeSave();
-			String Expected = reader.getCellData("Investigation","Fashmessage", 4);
-			Assert.assertEquals(Actual, Expected);
-			System.out.println("ARTCycleAvailabilityMessageTest completed");
-			}
-			else
-			{
-				String act = WOC.ARTCycleAvailabilityMessageBeforeSave();	
-				String exp = reader.getCellData("Investigation","Fashmessage", 10);
-				Assert.assertEquals(act, exp);
-			}*/
+		
 			
 		}
 		
@@ -200,44 +178,32 @@ public class WOPUCycyclePageTest extends TestBase
 	
 	
 	
-	@Test(priority=5,groups = {"smoketest" },enabled=true)
+	@Test(priority=6,groups = {"smoketest" },enabled=true)
 	public void SearchcycleTest() throws Exception
 	{
-		
-		
 		int sct= WOC.SearchThecycles();	
 		int exp= 7;
 	}
 	
-	@Test(priority=6,groups = {"functional" },enabled=true)
-	public void DeleteTheSeviceBeforeSaveTest() throws Exception
+	@Test(priority=7,groups = {"functional" },enabled=true)
+	public void DeleteTheSeviceBeforeSaveThecycleTest() throws Exception
 	{
-		boolean flag1 =WOC.AlreadySavedCycle();// if ther is already available cycle saved this option become true.
-		if(flag1==true)
+		boolean flag1 =WOC.Existingcycle();
+		boolean flag2 = WOC.CycleAvailability();
+		if(flag1==true&&flag2==true)
 		{
-			WOC.AddExistionService();
-			boolean flag= WOC.DeleteTheservice();
-			assertTrue(flag);
-			System.out.println("DeleteTheSeviceBeforeSaveTest is completed");
-			
+			String act=WOC.DeleteThePackage();
+			String exp = reader.getCellData("Investigation", "Fashmessage", 9);
+		
+		System.out.println("DeleteTheSeviceBeforeSaveThecycleTest is completed");
 		}
-		else
+		else if(flag1==true&&flag2==false)
 		{
-			boolean flag =WOC.Existingcycle();
-			if(flag)
-			{
-		String Actual=	WOC.DeleteTheSeviceBeforeSave();
-		String Expected = reader.getCellData("Investigation", "Fashmessage", 3);
-		Assert.assertEquals(Actual, Expected);
-		System.out.println("cycle is deleted sucessfully");
-			}
-			else
-			{
-				String Actual = WOC.DeleteTheSeviceBeforeSave();
-				 String Expected = reader.getCellData("Investigation", "Fashmessage", 5);
-				 Assert.assertEquals(Actual, Expected);
-				 System.out.println("cycle is not available");
-			}
+			String act=WOC.DeleteThePackage();
+			String exp = reader.getCellData("Investigation", "Fashmessage", 3);
+			
+			System.out.println("DeleteTheSeviceBeforeSaveThecycleTest is completed");
+			
 		}
 		
 	}
@@ -245,7 +211,7 @@ public class WOPUCycyclePageTest extends TestBase
 	
 	
 	
-	@Test(priority=7,groups = {"functional" }, enabled=true)
+	@Test(priority=8,groups = {"functional" }, enabled=true)
 	public void NoofCyclesTest() throws Exception 
 	{
 		boolean flag1 =WOC.AlreadySavedCycle();// if ther is already available cycle saved this option become true.
@@ -272,7 +238,7 @@ public class WOPUCycyclePageTest extends TestBase
 		{
 			
 			String Actual= WOC.ClickOnCycle();
-			String Expected = reader.getCellData("Investigation", "Fashmessage", 9);
+			String Expected = reader.getCellData("Investigation", "Fashmessage", 11);
 			Assert.assertEquals(Actual, Expected);
 			System.out.println("ClickonCycletabTest is completed");
 			
@@ -280,7 +246,7 @@ public class WOPUCycyclePageTest extends TestBase
 		else
 		{
 		String Actual= WOC.ClickOnCycle();
-		String Expected = reader.getCellData("Investigation", "Fashmessage", 9);
+		String Expected = reader.getCellData("Investigation", "Fashmessage", 11);
 		Assert.assertEquals(Actual, Expected);
 		}
 	

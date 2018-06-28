@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.TimeoutException;
@@ -90,18 +91,23 @@ public class StimulationChartPage extends TestBase {
 			List<WebElement> we = DN.getOptions();
 			String name = we.get(i).getText();
 			act.moveToElement(calender).click().perform();
-			List<WebElement> Dates = driver
-					.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td"));
-			for (int j = 1; j <= Dates.size(); j++) 
+			List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td"));
+			for (int j = 0; j <= Dates.size(); j++) 
 			{
 				String Datetext = Dates.get(j).getText();
 				String date = reader.getCellData("CycleList", "Date", 2);
 				String arr[] = date.split("/");
 				String day = arr[0];
-				if (Datetext.equals(day)) 
+				System.out.println("Date node is" +Dates.get(j).isEnabled());
+				boolean flag = Dates.get(j).isEnabled();
+				
+				if (Datetext.equals(day)&&flag==true) 
 				{
-					Dates.get(j).click();
+					WebElement we1 = Dates.get(j);
+					Actions act1 = new Actions(driver);
+					Dates.get(32).click();
 					break;
+				
 				}
 			}
 			act.moveToElement(HH).click();
@@ -164,7 +170,8 @@ public class StimulationChartPage extends TestBase {
 		if (size <= 0) 
 		{
 			flag2 = false;
-		} else {
+		} else 
+		{
 			flag2 = true;
 		}
 		return flag2;
@@ -227,6 +234,7 @@ public class StimulationChartPage extends TestBase {
 			String day = arr1[0];
 			if (Datetext.equals(day)) 
 			{
+				
 				Dates.get(i).click();
 				break;
 			}
@@ -253,7 +261,8 @@ public class StimulationChartPage extends TestBase {
 		
 	}
 
-	public LinkedList<String> AddStimulationdrug() {
+	public LinkedList<String> AddStimulationdrug() 
+	{
 
 		Actions act = new Actions(driver);
 		act.moveToElement(AddSimulation).click().perform();
@@ -282,11 +291,13 @@ public class StimulationChartPage extends TestBase {
 
 	}
 
-	public boolean SimulationDrugAvailability() {
+	public boolean SimulationDrugAvailability()
+	{
 		String simulationdrug = SimulationDrugValidation();
 		String name = reader.getCellData("Stimulationchart", "DrugName", 3);
 		boolean flag = false;
-		if (simulationdrug.equals(name)) {
+		if (simulationdrug.equals(name)) 
+		{
 			flag = true;
 		} else {
 			flag = false;

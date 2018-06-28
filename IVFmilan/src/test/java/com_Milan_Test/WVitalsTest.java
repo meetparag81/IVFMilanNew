@@ -28,6 +28,7 @@ public class WVitalsTest extends TestBase
 	EMRDashBoardPage EMRPage;
 	WVitalsPage WVP;
 	Exls_Reader reader;
+	float BPvalues1;
 	
 	
 
@@ -63,7 +64,15 @@ public class WVitalsTest extends TestBase
 	driver.findElement(By.xpath("(//input[@type='text'])[5]")).sendKeys(value);
 	String BPvalues= driver.findElement(By.xpath("(//input[@type='text'])[5]")).getAttribute("value");*/
 	 String BPvalues=WVP.BPSystolic(BPSystolicval);
-	float BPvalues1= Float.parseFloat(BPvalues);
+	 try
+	 {
+	 BPvalues1= Float.parseFloat(BPvalues);
+	 }
+	 catch(NumberFormatException e)
+	 {
+		 System.out.println("String is not converted intofloat");
+	 }
+	 
 	System.out.println("Values are"+BPvalues1);
 	if(BPvalues1==90.0 || BPvalues1==120.0||BPvalues1==100)
 	{

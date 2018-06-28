@@ -5,15 +5,9 @@
     <classes>
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
-          <include name="SourceofSpermselectionDonorTest"/>
           <include name="Teardown"/>
           <include name="EnabledconditionARTTypeTest"/>
-          <include name="SimulationDrugTest"/>
-          <include name="ProtocolandselectionTest"/>
           <include name="Setup"/>
-          <include name="SaveTheCycleTest"/>
-          <include name="SourceofspermPartnerTest"/>
-          <include name="MethodOfSemenCollectionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
     </classes>

@@ -137,8 +137,24 @@ public class CycleOverviewPage extends TestBase
 	{
 	Select ARTtype = new Select(ARTType);
 	WebElement we=	ARTtype.getFirstSelectedOption();
-	Thread.sleep(4000);
+	try
+	{
+	Thread.sleep(2000);
+	}
+	catch(InterruptedException e)
+	{
+	System.out.println("Interrupted exception seen");
+	}		
+	try
+	{
 	msg= we.getText();
+	}
+	catch(Exception e)
+	{
+		System.out.println("Element- Message for ValueInARTType is not seen within the 20 secs");
+	}
+	
+	
 	
 		return msg;
 		

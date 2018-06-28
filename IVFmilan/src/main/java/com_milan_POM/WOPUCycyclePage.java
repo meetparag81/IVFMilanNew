@@ -5,6 +5,7 @@ import static org.testng.Assert.assertFalse;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
@@ -52,9 +53,12 @@ public class WOPUCycyclePage extends TestBase
 	@FindBy(xpath="//button[@id='btnAddPrePro'][@value='Save']")WebElement Add;
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement msgSaveafteradd;
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']") WebElement Addservice;
+	@FindBy(xpath="//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a") WebElement cyclecode;
+	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']")WebElement msgagainstcycle;
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	 String msg;
 	 int count2;
+	 boolean flag;
 	//WOPUCycyclePage WOC = new WOPUCycyclePage();
 	 
 
@@ -319,7 +323,35 @@ return count2;
 		Actions act = new Actions(driver);
 		act.moveToElement(Cycleoption).click().perform();
 		return new CycleListPage();
+	}
+	
+	
+	
+	public boolean CycleAvailability()
+	{
+		ClickonCycleOption();	
+	 flag= cyclecode.isDisplayed();
+	if(flag==true)
+	{
+		flag= true;
+		EMRDashBoardPage EMRPage = new EMRDashBoardPage();
+		 EMRPage.ClickOnInvestigation();
+		 Actions act = new Actions(driver);
+		 act.moveToElement(Cycles).click().perform();
 		
+	}
+	else
+	{
+		 flag= cyclecode.isDisplayed();
+		EMRDashBoardPage EMRPage = new EMRDashBoardPage();
+		 EMRPage.ClickOnInvestigation();
+		 Actions act = new Actions(driver);
+		 act.moveToElement(Cycles).click().perform();
+	}
+		
+		
+		
+		return flag;
 		
 	}
 	
@@ -353,6 +385,50 @@ return count2;
 		
 		
 		return flag;
+		
+	}
+	
+	public String DeleteThePackage()
+	{
+		boolean existingpackage =Existingcycle();// if ther is already available cycle saved this option become true.
+		boolean cycleavaiability = CycleAvailability();
+		if(existingpackage==true&&cycleavaiability==true)
+		{
+			Delete.click();
+			Deletetext.sendKeys("NA");
+			SaveDeletediailog.click();
+					
+			try 
+			{
+				Thread.sleep(2000);
+			} catch (InterruptedException e1)
+			{
+				System.out.println("The InterruptedException is occured");
+			}
+			try{
+				msg = msgagainstcycle.getText();
+			}
+			catch( Exception e)
+			{
+				System.out.println("Element-Alreadyexistflashmsg is not seen within 20 sec");
+			}
+			msg = "Cycle is created against this package,You can not delete package.";
+		
+		}
+		else if(existingpackage==true&&cycleavaiability==false)
+		{
+			Delete.click();
+			Deletetext.sendKeys("NA");
+			SaveDeletediailog.click();
+			msg= DeleteMessage.getText();
+			
+		}
+		return msg;
+		
+		
+		
+		
+		
 		
 	}
 	
@@ -428,18 +504,11 @@ return count2;
 	}
 	public boolean DeleteTheservice()
 	{
-		System.out.println();
+		Delete.click();
+		
+		
 		boolean flag=true;
-				if(flag=true)
-				{
-					Delete.click();
-					flag= true;
-				}
-				else
-				{
-					flag=false;
-							
-				}
+				
 		
 		return flag;
 	}
@@ -459,7 +528,8 @@ return count2;
 			{
 				System.out.println("The InterruptedException is occured");
 			}
-			try{
+			try
+			{
 				Existingcyclemsg.getText();
 			}
 			catch( Exception e)

@@ -247,7 +247,7 @@ for(int i=1;i<radiobuttons;i++)
 		}
 
 		
-		for (int i =0; i <= search.size();) 
+		for (int i =0; i < search.size();) 
 		{
 			try {
 				Thread.sleep(1000);
