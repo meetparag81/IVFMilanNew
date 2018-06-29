@@ -9,14 +9,7 @@ public class RetryAnalyzer implements IRetryAnalyzer
 {
 	int counter = 0;
 	int retrylimit=1;
-	
-	 
-	
-	
-	
-
-	@Override
-	public boolean retry(ITestResult result) 
+	public boolean retry(ITestResult arg0)
 	{
 		if(counter < retrylimit)
 		{
@@ -24,8 +17,12 @@ public class RetryAnalyzer implements IRetryAnalyzer
 			return true;
 		}
 		return false;
-
-		
 	}
+	
+	 
+	
+	
+	
 
+	
 }

@@ -21,10 +21,9 @@ import com.relevantcodes.extentreports.LogStatus;
 
 public class ExtentReport implements IReporter
 {
-	ExtentReports extent;
+ExtentReports extent;
 
 	
-	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory)
 	{
 		extent = new ExtentReports(outputDirectory +File.separator +"IVF1_Extent.html",true);
@@ -87,4 +86,5 @@ public class ExtentReport implements IReporter
 		
 	}
 
+	
 }

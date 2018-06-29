@@ -157,6 +157,10 @@ public class StimulationChartPage extends TestBase {
 		{
 			Thread.sleep(2000);
 		}
+		catch(InterruptedException e)
+		{
+			System.out.println("InterruptedException is seen");
+		}
 		msg = drugName.getText();
 
 		return msg;
