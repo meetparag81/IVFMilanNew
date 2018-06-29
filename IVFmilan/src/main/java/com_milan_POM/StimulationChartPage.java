@@ -153,7 +153,10 @@ public class StimulationChartPage extends TestBase {
 		int k=37+i;
 		WebElement drugName = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[38]/td[1]"));
 		
-		
+		try
+		{
+			Thread.sleep(2000);
+		}
 		msg = drugName.getText();
 
 		return msg;
