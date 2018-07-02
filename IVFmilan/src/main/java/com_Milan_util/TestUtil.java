@@ -2,7 +2,10 @@ package com_Milan_util;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.AnnotatedArrayType;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -87,9 +90,63 @@ public static long PAGE_LOAD_TIMEOUT = 20;
 	        //Returns the captured file path
 	return destination;
 		}
-	
+	public static String getMonthForInt(int num) 
+	{
+        String month = "wrong";
+        DateFormatSymbols dfs = new DateFormatSymbols();
+        String[] months = dfs.getMonths();
+        if (num >= 0 && num <= 11 ) 
+        {
+            month = months[num];
+        }
+        return month;	
 		
 	}
+	public static String Date()
+	{
+		Date date1 = new Date();  
+	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+	    formatter = new SimpleDateFormat("dd,MMMM,yyyy,zzzz"); 
+	    String strDate = formatter.format(date1);  
+		strDate = formatter.format(date1); 
+		
+		
+		return strDate;
+		
+	}
+	
+	public static void IntDate()
+	{
+		LocalDateTime now = LocalDateTime.now();
+		int year = now.getYear();
+		int month = now.getMonthValue();
+		int day = now.getDayOfMonth();
+		int hour = now.getHour();
+		int minute = now.getMinute();
+		int second = now.getSecond();
+	}
+	public static String CurrentDate()
+	{
+		Date date = new Date();  
+	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+	    formatter = new SimpleDateFormat("dd-MMM-yyyy"); 
+	    String strDate = formatter.format(date);  
+		return strDate;  
+	}
+	
+	
+		  
+		   
+		   
+		     
+		    
+		  
+	
+	
+	
+	
+	
+}
 	
 	
 	

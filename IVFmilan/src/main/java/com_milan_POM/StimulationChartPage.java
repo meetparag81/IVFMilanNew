@@ -1,5 +1,6 @@
 package com_milan_POM;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -86,28 +87,42 @@ public class StimulationChartPage extends TestBase {
 			act.moveToElement(DrugName);
 			Select DN = new Select(DrugName);
 			names = reader.getCellData("Stimulationchart", "DrugName", rows);
+			try
+			{
 			DN.selectByVisibleText(names);
+			}
+			catch(Exception e)
+			{
+				System.out.println("ElementNotVisibleException seen");
+			}
 			rows++;
 			List<WebElement> we = DN.getOptions();
 			String name = we.get(i).getText();
 			act.moveToElement(calender).click().perform();
-			List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td"));
-			for (int j = 0; j <= Dates.size(); j++) 
+			TestUtil.Date();
+			List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
+			int rows1=2;
+			for(int i =1;i<=Dates.size();i++)
 			{
-				String Datetext = Dates.get(j).getText();
-				String date = reader.getCellData("CycleList", "Date", 2);
-				String arr[] = date.split("/");
-				String day = arr[0];
-				System.out.println("Date node is" +Dates.get(j).isEnabled());
-				boolean flag = Dates.get(j).isEnabled();
+				String Datetext= Dates.get(i).getText();
+				WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+				String text= Monthtextele.getText();
+				String Arr[]=text.split(" ");
+				String Monthtext = Arr[0]; 
 				
-				if (Datetext.equals(day)&&flag==true) 
+				String CyrrentDate=TestUtil.Date();
+				String[] Arr1= CyrrentDate.split(",");
+				String day= Arr1[0];
+				String Month = Arr1[1];
+				
+			
+				boolean flag1= Dates.get(i).isEnabled();
+				rows1++;
+				
+				if(day.equals(Datetext)&&flag1==true&&Monthtext.equals(Month))
 				{
-					WebElement we1 = Dates.get(j);
-					Actions act1 = new Actions(driver);
-					Dates.get(32).click();
+					Dates.get(i).click();
 					break;
-				
 				}
 			}
 			act.moveToElement(HH).click();
@@ -152,10 +167,10 @@ public class StimulationChartPage extends TestBase {
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		int k=37+i;
 		WebElement drugName = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[38]/td[1]"));
-		
+		act.moveToElement(drugName);
 		try
 		{
-			Thread.sleep(2000);
+		Thread.sleep(2000);
 		}
 		catch(InterruptedException e)
 		{
@@ -207,9 +222,19 @@ public class StimulationChartPage extends TestBase {
 	{
 		Actions act = new Actions(driver);
 		 //act.moveToElement(Endometrium).click().perform();
-		WebElement element = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr/td[contains (text(), 'Remarks')]//preceding::button[@class='btn btn_edit inline-block m-l-10']"));
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-		element.click();
+		WebElement Triggerbutton = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr/td[contains (text(), 'Remarks')]//preceding::button[@class='btn btn_edit inline-block m-l-10']"));
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Triggerbutton);
+		try
+		{
+			TestUtil.VisibleOn(driver, Triggerbutton, 2000);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element- remarks is not seen within 20 sec");
+		}
+		
+		act.moveToElement(Triggerbutton).click().perform();
+		
 		Select drugNameT = new Select(drugNametrigger);
 		List<WebElement> DrugeleT = drugNameT.getOptions();
 		int size = DrugeleT.size();
@@ -231,15 +256,20 @@ public class StimulationChartPage extends TestBase {
 
 		}
 		calendertrigger.click();
-		List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td"));
+		List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
 		for (int i = 1; i <= Dates.size(); i++) 
 		{
 			String date1 = reader.getCellData("CycleList", "Date", 2);
 			String arr[] = date1.split("/");
 			String Datetext = Dates.get(i).getText();
+			boolean flag =  Dates.get(i).isEnabled();
 			String arr1[] = date1.split("/");
 			String day = arr1[0];
-			if (Datetext.equals(day)) 
+			String Month = arr1[1];
+			String year = arr1[2];
+			ArrayList<WebElement> date = new ArrayList<>();
+			
+			if (Datetext.equals(day)&& flag==true) 
 			{
 				
 				Dates.get(i).click();

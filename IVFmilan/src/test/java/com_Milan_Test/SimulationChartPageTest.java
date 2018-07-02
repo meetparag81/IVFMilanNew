@@ -71,7 +71,7 @@ public class SimulationChartPageTest extends TestBase
 		else
 		{
 			CLP.ClickonNewCycle();
-			CLP.SaveTheCycle();
+			CLP.NewPatientSaveTheCycle();
 			COP = CLP.ClickOnCycleCode();
 			
 		}
@@ -81,13 +81,13 @@ public class SimulationChartPageTest extends TestBase
 		
 	}
 	
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	public void AddDrugNames()
 	{
 		SCP.AddStimulationdrug();
 	}
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void EnableconditionAddSimulationDrugTest()
 	{
 		boolean flag= SCP.EnableconditionAddSimulationDrug();

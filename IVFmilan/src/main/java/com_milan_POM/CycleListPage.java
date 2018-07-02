@@ -1,5 +1,10 @@
 package com_milan_POM;
 
+import java.text.DateFormat;
+import java.text.DateFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,13 +33,15 @@ public class CycleListPage extends TestBase
 	private @FindBy(xpath="(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[2]")WebElement Donor;
 	private @FindBy(xpath ="(//span[@class='multiSelect inlineBlock']/button)[1]")WebElement Indication;
 	private @FindBy(xpath="//label[contains(text(),'Stimulation Drug')]/following::button[1]")WebElement SimulationDrug;
+	private @FindBy(xpath="//label[contains(text(),'Stimulation Drug')]/following::button[1]/text()")WebElement SimulationDrugtext; 
 	private@FindBy(xpath="//textarea[@name='txtCyWarning']")WebElement CycleWarnings;
 	private@FindBy(xpath="//textarea[@name='txtRemark']")WebElement Remarks;
-	private@FindBy(xpath="//button[@class='btn btn-primary']")WebElement Save;
+	private@FindBy(xpath="//button[text()='Save']")WebElement Save;
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
 	private @FindBy(xpath="//i[@class='fa fa-calendar']")WebElement LMPcalender;
 	private @FindBy(xpath="//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']")WebElement Cyclecode;
-	
+	private @FindBy(xpath="//input[@name='LMPDate']")WebElement LMPdate;
+	CycleListPage CLP;
 	
 	String msg;
 	String Name;
@@ -281,7 +288,7 @@ public class CycleListPage extends TestBase
 		List<WebElement>Sourceofsperms=driver.findElements(By.xpath("//label[text()='Source of Sperm']//following-sibling::div/select/option"));
 		
 		int count=0;
-		for(int i=0;i<=Sourceofsperms.size();i++)
+		for(int i=0;i<Sourceofsperms.size();i++)
 		{
 			count++;
 			if(count==2)
@@ -311,12 +318,10 @@ public class CycleListPage extends TestBase
 		}
 		return Name;
 	}
-		
-		
-			
-				
 	
 	
+	
+		
 	public String SourceofSpermselectionDonor() 
 	{
 		//ClickonNewCycle();
@@ -434,7 +439,7 @@ public class CycleListPage extends TestBase
 		int Size= Drugs.size();
 		int count=0;
 		int rows=2;
-		for(int i=0;i<=Size;i++)
+		for(int i=0;i<Size;i++)
 		{
 			String drugName=reader.getCellData("CycleList", "Stimulation Drug", 20);
 			Name= Drugs.get(i).getText();
@@ -446,22 +451,20 @@ public class CycleListPage extends TestBase
 			
 		 
 		
-		/* if(count<=1542)
-		 {
-			 Name= Drugs.get(i).getText();
-				reader.setCellData("CycleList", "Stimulation Drug", rows, Name);
-				 rows++;
-					count++;
-				if(count==1542)
-				{
-					break;
-				}*/
-		 }
+		
+		
+		}
 		return Name;
 		 
 			
 				
 		}
+	public String SimulationDrugText()
+	{
+		
+		return SimulationDrugtext.getText();
+		
+	}
 		
 	
 	public void InputvalueInTextBoxes()
@@ -475,41 +478,134 @@ public class CycleListPage extends TestBase
 		CycleWarnings.sendKeys(warning);
 		
 	}
-	public void LMPDate()
+	
+	public String LMPDateForSave()
 	{
-		LMPcalender.click();
-		List<WebElement>Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td"));
-		for(int i =1;i<=Dates.size();i++)
+		try
 		{
-			String Datetext= Dates.get(i).getText();
-			String date= reader.getCellData("CycleList", "Date", 2);
-			String arr[] = date.split("/");
-			String day = arr[0];
-			if(Datetext.equals(day))
+		TestUtil.VisibleOn(driver, LMPdate, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element-LMPdate is not seen with in 20 seconds");
+		}
+		msg=LMPdate.getAttribute("value");
+		try 
+		{
+			Thread.sleep(2000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("InterruptedException is seen");
+			
+		}
+		reader.setCellData("CycleList", "LMPDate", 2, msg);
+		return msg;
+		
+		}
+		 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	public String LMPDate()
+	{
+		
+			LMPcalender.click();
+			List<WebElement>Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
+			int rows=2;
+			for(int i =1;i<=Dates.size();i++)
 			{
-				Dates.get(i).click();
+				String Datetext= Dates.get(i).getText();
+				WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+				String text= Monthtextele.getText();
+				String Arr[]=text.split(" ");
+				String Monthtext = Arr[0]; 
 				
-				break;
-			}
+				String CyrrentDate=TestUtil.Date();
+				String[] Arr1= CyrrentDate.split(",");
+				String day= Arr1[0];
+				String Month = Arr1[1];
+				
+			
+				boolean flag1= Dates.get(i).isEnabled();
+				rows++;
+				
+				if(day.equals(Datetext)&&flag1==true&&Monthtext.equals(Month))
+				{
+					Dates.get(i).click();
+					break;
+				}
+				
+				/*WebElement Rightclick = driver.findElement(By.xpath("(//table[@class='uib-daypicker']//th/button/i[@class='glyphicon glyphicon-chevron-right']"));
+					Actions act = new Actions(driver);
+					act.moveToElement(Rightclick).click().perform();
+					if(Monthtext.equals(Month))
+					{
+						Dates.get(i).click();
+						break;
+					}
+					else
+					{
+						WebElement Leftclick = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button/i[@class='glyphicon glyphicon-chevron-left']"));
+						act.moveToElement(Leftclick).click().perform();
+						
+						if(Monthtext.equals(Month))
+						{
+							Dates.get(i).click();
+							break;
+						}
+						
+					}
+					*/
+				}
+				return msg=LMPdate.getAttribute("value");
+			
 		}
 		
-	}
+		
+		
+		
+		
+		
+		
+	
 	public void SaveTheCycle() 
 	{
-		
-		NoofProtocol();
-		LMPDate();
-		InputvalueInTextBoxes();
-		IndicationtypeSelection();
-		SourceofspermPartner();
-		MethodofSemenCollection();
-		SimulationDrug();
-		//SourceofSpermselectionDonor();
-		
-		Save.click();
-				
-				
+		Actions act = new Actions(driver);
+		act.moveToElement(Save).click().perform();
+	
 	}
+	public void NewPatientSaveTheCycle()
+		{
+			ClickonNewCycle();
+			NoofProtocol();
+			LMPDate();
+			InputvalueInTextBoxes();
+			IndicationtypeSelection();
+			SourceofspermPartner();
+			MethodofSemenCollection();
+			SimulationDrug();
+			//SourceofSpermselectionDonor();
+			
+			Actions act = new Actions(driver);
+			act.moveToElement(Save).click().perform();
+			
+		
+		}
+		
+		
+		
+				
+				
+	
 	public boolean SaveEnablecondition()
 	{
 		boolean save= Save.isEnabled();
@@ -523,6 +619,16 @@ public class CycleListPage extends TestBase
 		
 		if(save==true)
 		{
+			try
+			{
+				Thread.sleep(3000);	
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("InterruptedException is occured");
+			}
+			Actions act = new Actions(driver);
+			act.moveToElement(SaveMessage);
 			msg= SaveMessage.getText();
 		}
 		else

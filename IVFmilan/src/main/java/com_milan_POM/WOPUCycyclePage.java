@@ -55,6 +55,7 @@ public class WOPUCycyclePage extends TestBase
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']") WebElement Addservice;
 	@FindBy(xpath="//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a") WebElement cyclecode;
 	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']")WebElement msgagainstcycle;
+	@FindBy (xpath="//input[@name='dtplannedDate']")WebElement Calenderinput;
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	 String msg;
 	 int count2;
@@ -203,19 +204,34 @@ return count2;
 		Select ARTSubtype1 = new Select(ARTSubtype);
 		String subnames = reader.getCellData("Investigation", "OPU", 4);
 		ARTSubtype1.selectByVisibleText(subnames);
+		String date1 = reader.getCellData("Stimulationchart", "OPUDate", 2);
+		
+		/*Actions act = new  Actions(driver);
+		act.moveToElement(Calenderinput).click().perform();
+		Calenderinput.click();
+		Calenderinput.sendKeys("29-jun-2018");
+		Calenderinput.sendKeys(Keys.TAB);*/
 		Calender.click();
-		List<WebElement> dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//td"));
-		for (int k = 0; k <= dates.size(); k++) 
+		List<WebElement> dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//td/button"));
+		for (int i = 1; i < dates.size(); i++) 
 		{
-			String datevalue = dates.get(k).getText();
-			if (datevalue.equals("04")) 
-			{
-				dates.get(k).click();
-				//flag1 = true;
-				break;
+			String date2 = reader.getCellData("CycleList", "Date", 2);
+			
+			
+			String Datetext = dates.get(i).getText();
+			boolean flag =  dates.get(i).isEnabled();
+			String arr[] = date1.split("-");
+			String day = arr[0];
+			if (Datetext.equals("09"))
+					{
+					dates.get(i).click();
+					break;
+					}
+				
+				
+				
 			}
 		
-		}
 		
 	
 	}
@@ -333,7 +349,7 @@ return count2;
 	 flag= cyclecode.isDisplayed();
 	if(flag==true)
 	{
-		flag= true;
+		
 		EMRDashBoardPage EMRPage = new EMRDashBoardPage();
 		 EMRPage.ClickOnInvestigation();
 		 Actions act = new Actions(driver);
