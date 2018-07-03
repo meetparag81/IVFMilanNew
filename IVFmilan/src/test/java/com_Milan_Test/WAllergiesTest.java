@@ -50,7 +50,7 @@ public class WAllergiesTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		Allergies= WHP.ClickOnAllergies();	
 	}
-	@Test(priority=2,enabled= false)
+	@Test(priority=1,enabled= true)
 	public void FoodAllergyvalidationTest()
 	{
 		
@@ -58,7 +58,7 @@ public class WAllergiesTest extends TestBase
 		Assert.assertTrue(flag);
 		System.out.println("Alergy textbox is enabled");
 	}
-	@Test(priority=3,enabled= false)
+	@Test(priority=2,enabled= true)
 	public void AddNewAllergiesTest() 
 	{
 		AllergiesPage.AddnewAllergies();
@@ -67,7 +67,7 @@ public class WAllergiesTest extends TestBase
 		
 	}
 	
-	@Test(priority=2,enabled= true)
+	@Test(priority=3,enabled= true)
 	public void SaveMessage()
 	{
 	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();
@@ -76,26 +76,45 @@ public class WAllergiesTest extends TestBase
 	}
 		
 
-@Test(priority=3,enabled= true)
+@Test(priority=4,enabled= true)
 public void OptionSelectedOnAllergyCurrentStstusTest() 
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();
 	String Expected = "Present";
-	AssertJUnit.assertEquals(Actual, Expected);
+	Assert.assertEquals(Actual, Expected);
+	System.out.println("OptionSelectedOnAllergyCurrentStstusTest is completed");
 }
-@Test(priority=4,enabled= true)
+@Test(priority=5,enabled= true)
 public void ExistingPatientDrugAllergyTypeTest() 
 {
-	EMRPage= HomePage.SearchusingCalender();	
+		
 	String Actual = Allergies.AllergiesNameOnDashboard();
-			String Expected="17 BETAESTRADIOL";
+			String Expected=reader.getCellData("Allergies", "Message", 4);
+					 
 			System.out.println();
 		
 }
-@Test(priority=1)
+@Test(priority=6,enabled= true)
 public void AllergySelectionTest() 
 {
-	Allergies.AllergySelection();
+	boolean flag=Allergies.size();
+	if(flag==true)
+	{
+		Allergies.AllergySelection();
+		String act = Allergies.SaveMessage();
+		String exp = reader.getCellData("Allergies", "Message", 2);
+		System.out.println("AllergySelectionTest is completed");
+		
+	}
+	else
+	{
+		String act = Allergies.SaveMessage();
+		String exp = reader.getCellData("Allergies", "Message", 3);
+		System.out.println("AllergySelectionTest is completed");
+		
+	}
+	
+	
 	
 }
 	

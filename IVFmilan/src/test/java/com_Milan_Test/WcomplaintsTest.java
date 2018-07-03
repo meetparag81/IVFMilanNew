@@ -73,7 +73,7 @@ public class WcomplaintsTest extends TestBase
 	{
 	boolean flag=WCP.NextFollowUp();
 	
-	Assert.assertFalse(flag);
+	Assert.assertTrue(flag);
 	System.out.println("Can't select past date");
 		
 	}

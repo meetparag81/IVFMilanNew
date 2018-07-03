@@ -44,14 +44,23 @@ public class EMRDashBoardPage extends TestBase {
 	public WomenHistoryPage clickOnWomenField() 
 	{
 
-		if (womenfield.isDisplayed()) {
-			TestUtil.VisibleOn(driver, womenfield, 10);
+		if (womenfield.isDisplayed()) 
+		{
+			try
+			{
+				TestUtil.VisibleOn(driver, womenfield, 10);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Element- womenfield is not seen within10 sec");
+			}
 			Actions act = new Actions(driver);
 			act.moveToElement(womenfield).click().perform();
-			// womenfield.click();
+						// womenfield.click();
 			try {
 				TestUtil.VisibleOn(driver, Historylinkwomen, 20);
-			} catch (TimeoutException e) {
+			} catch (TimeoutException e) 
+			{
 				System.out.println("element is not seen within the time");
 			}
 
@@ -88,6 +97,13 @@ public class EMRDashBoardPage extends TestBase {
 		return new WomenHistoryPage();
 
 	}
+	
+	public void ClickWomenField()
+		{
+		TestUtil.VisibleOn(driver, womenfield, 10);
+		Actions act = new Actions(driver);
+		act.moveToElement(womenfield).click().perform();
+		}
 
 	public String TitleHistoryPage() {
 		TestUtil.VisibleOn(driver, TitleHistory, 20);

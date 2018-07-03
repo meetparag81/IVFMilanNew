@@ -3,6 +3,7 @@ package com_milan_POM;
 import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -169,7 +170,7 @@ public class WomenHistoryPage extends TestBase
 		}
 		public  AllergiesPage ClickOnAllergies() 
 		{
-			System.out.println("========Alleregies click testcase started======");
+			
 			try
 			{
 				TestUtil.VisibleOn(driver, allergies, 20);	
@@ -178,8 +179,8 @@ public class WomenHistoryPage extends TestBase
 			{
 				System.out.println("Element- allergies is not seen with in 20 sec");
 			}
-			
-			allergies.click();
+			Actions act = new Actions(driver);
+			act.moveToElement(allergies).click().perform();
 			System.out.println("clicked on Allergies");
 			return new AllergiesPage();
 			

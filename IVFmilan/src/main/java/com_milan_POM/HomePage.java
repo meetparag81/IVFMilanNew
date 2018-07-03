@@ -34,11 +34,10 @@ public class HomePage extends TestBase {
 	private @FindBy(xpath = "//span[text()='Queue Management']//following::input[2]") WebElement searchpaient;
 	private @FindBy(xpath = "//button[text()='Search'][@ class='btn btn-primary']") WebElement Searchbutton;
 	private @FindBy(xpath="//li[@class='navCycles ng-scope active']")WebElement Queue;
-	WebDriverWait wait = new WebDriverWait(driver, 50);
-	Exls_Reader reader = new Exls_Reader(
-			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+		Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 
-	public HomePage() {
+	public HomePage() 
+	{
 
 		PageFactory.initElements(driver, this);
 	}
@@ -79,7 +78,15 @@ public class HomePage extends TestBase {
 	public String EMRPageTitle()
 
 	{
-		title = wait.until(ExpectedConditions.visibilityOf(title));
+		title = driver.findElement(By.xpath("//h5[text()='Prescription']"));
+		try
+		{
+			TestUtil.VisibleOn(driver, title, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-title is not seen within 20 sec");
+		}
 		return Title.getText();
 	}
 
@@ -99,14 +106,26 @@ public class HomePage extends TestBase {
 		int size = 0;
 
 		try {
-			wait.until(ExpectedConditions.visibilityOf(SizeOfPaitent));
-			String s = SizeOfPaitent.getText();
-			size = Integer.parseInt(s);
-			System.out.println("Patient size is" + size);
-		} catch (NumberFormatException e) {
+			TestUtil.VisibleOn(driver, SizeOfPaitent, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-SizeOfPaitent is not seen with in 20 sec");
+		}
+		String s = SizeOfPaitent.getText();
+		try
+		{
+		size = Integer.parseInt(s);
+		}
+		catch (NumberFormatException e) 
+		{
 			 System.out.println("String is not converted into integer number");
-		} finally {
-			// System. out. println( "finally block executed") ;
+		System.out.println("Patient size is" + size);
+		
+		} 
+		finally
+		{
+			
 		}
 
 		for (i = 1; i <= 125; i++) {
@@ -303,10 +322,18 @@ for(int i=1;i<radiobuttons;i++)
 
 	public EMRDashBoardPage SearchusingCalender()  
 	{
-		WebElement Calender = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
+		WebElement Calender = driver.findElement(By.xpath("//span[text()='Queue Management']//following::i[3]"));
 		TestUtil.VisibleOn(driver, Calender, 40);
 		Calender.click();
-		List<WebElement> dates = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
+		List<WebElement> dates = driver.findElements(By.xpath("//table[@role='grid']//tbody//td"));
+		try
+		{
+			TestUtil.VisibleElementsOn(driver, dates, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-Dates is not seen within 20 sec");
+		}
 
 		int Total_nodes = dates.size();
 		for (int i = 0; i < Total_nodes; i++) 
@@ -356,7 +383,15 @@ for(int i=1;i<radiobuttons;i++)
 				 {
 					System.out.println("The InterruptedException is occured");
 				}
-				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
+				WebElement EMR = driver.findElement(By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]")));
+				try
+				{
+					TestUtil.VisibleOn(driver, EMR, 20);
+				}
+				catch(Exception e)
+				{
+					System.out.println("Element-EMR is not seen within 20 sec");
+				}
 				EMR.click();
 				/*System.out.println("click on EMR ");
 

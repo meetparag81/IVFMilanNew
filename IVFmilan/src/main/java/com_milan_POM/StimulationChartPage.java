@@ -102,7 +102,7 @@ public class StimulationChartPage extends TestBase {
 			TestUtil.Date();
 			List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
 			int rows1=2;
-			for(int i =1;i<=Dates.size();i++)
+			for(int i =1;i<Dates.size();i++)
 			{
 				String Datetext= Dates.get(i).getText();
 				WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
