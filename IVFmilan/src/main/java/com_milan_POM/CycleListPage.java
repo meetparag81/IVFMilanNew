@@ -595,9 +595,15 @@ public class CycleListPage extends TestBase
 			SimulationDrug();
 			//SourceofSpermselectionDonor();
 			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("InterruptedException is seen");
+				
+			}
 			Actions act = new Actions(driver);
 			act.moveToElement(Save).click().perform();
-			
 		
 		}
 		

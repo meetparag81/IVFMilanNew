@@ -67,7 +67,7 @@ public class WAllergiesTest extends TestBase
 		
 	}
 	
-	@Test(priority=2,enabled= false)
+	@Test(priority=2,enabled= true)
 	public void SaveMessage()
 	{
 	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();
@@ -76,14 +76,14 @@ public class WAllergiesTest extends TestBase
 	}
 		
 
-@Test(priority=3,enabled= false)
+@Test(priority=3,enabled= true)
 public void OptionSelectedOnAllergyCurrentStstusTest() 
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();
 	String Expected = "Present";
 	AssertJUnit.assertEquals(Actual, Expected);
 }
-@Test(priority=4,enabled= false)
+@Test(priority=4,enabled= true)
 public void ExistingPatientDrugAllergyTypeTest() 
 {
 	EMRPage= HomePage.SearchusingCalender();	

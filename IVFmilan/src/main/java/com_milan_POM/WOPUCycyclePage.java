@@ -345,8 +345,20 @@ return count2;
 	
 	public boolean CycleAvailability()
 	{
-		ClickonCycleOption();	
-	 flag= cyclecode.isDisplayed();
+		
+		ClickonCycleOption();
+		List<WebElement>cyclecode1 =  driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a"));
+		int size = cyclecode1.size();
+		boolean flag=false;
+		if(size<0)
+		{
+			flag=true;
+		}
+		else
+		{
+			flag= false;
+		}
+
 	if(flag==true)
 	{
 		
@@ -406,7 +418,7 @@ return count2;
 	
 	public String DeleteThePackage()
 	{
-		boolean existingpackage =Existingcycle();// if ther is already available cycle saved this option become true.
+		boolean existingpackage =Existingcycle();// if there is already available cycle saved this option become true.
 		boolean cycleavaiability = CycleAvailability();
 		if(existingpackage==true&&cycleavaiability==true)
 		{
