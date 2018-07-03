@@ -80,7 +80,10 @@ public static long PAGE_LOAD_TIMEOUT = 20;
 	public static String getScreenshot(WebDriver driver, String screenshotName) throws Exception 
 		{
 	        //below line is just to append the date format with the screenshot name to avoid duplicate names 
-	        String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+	    formatter = new SimpleDateFormat("dd,MM,yyyy"); 
+	    String dateName = new SimpleDateFormat("dd,MM,yyyy").format(new Date());
+	   //     String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 	TakesScreenshot ts = (TakesScreenshot) driver;
 	File source = ts.getScreenshotAs(OutputType.FILE);
 	        //after execution, you could see a folder "FailedTestsScreenshots" under src folder
@@ -93,8 +96,7 @@ public static long PAGE_LOAD_TIMEOUT = 20;
 	public static String getMonthForInt(int num) 
 	{
         String month = "wrong";
-        DateFormatSymbols dfs = new DateFormatSymbols();
-        String[] months = dfs.getMonths();
+        DateFormatSymbols dfs = new DateFormatSymbols();        String[] months = dfs.getMonths();
         if (num >= 0 && num <= 11 ) 
         {
             month = months[num];

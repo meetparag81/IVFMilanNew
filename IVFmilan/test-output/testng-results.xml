@@ -2,7 +2,7 @@
 <testng-results skipped="0" failed="1" ignored="0" total="3" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="99681" started-at="2018-07-03T06:27:42Z" finished-at="2018-07-03T06:29:21Z">
+  <suite name="Default suite" duration-ms="91076" started-at="2018-07-03T06:56:04Z" finished-at="2018-07-03T06:57:35Z">
     <groups>
       <group name="functional">
         <method signature="WcomplaintsTest.SaveTheComplaintsTest()[pri:2, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="SaveTheComplaintsTest" class="com_Milan_Test.WcomplaintsTest"/>
@@ -12,37 +12,37 @@
         <method signature="WcomplaintsTest.NumberOfComplaintsTest()[pri:1, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="NumberOfComplaintsTest" class="com_Milan_Test.WcomplaintsTest"/>
       </group> <!-- smoketest -->
     </groups>
-    <test name="Default test" duration-ms="99681" started-at="2018-07-03T06:27:42Z" finished-at="2018-07-03T06:29:21Z">
+    <test name="Default test" duration-ms="91076" started-at="2018-07-03T06:56:04Z" finished-at="2018-07-03T06:57:35Z">
       <class name="com_Milan_Test.WcomplaintsTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Setup" is-config="true" duration-ms="23509" started-at="2018-07-03T11:57:42Z" finished-at="2018-07-03T11:58:05Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Setup" is-config="true" duration-ms="27927" started-at="2018-07-03T12:26:04Z" finished-at="2018-07-03T12:26:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="NumberOfComplaintsTest()[pri:1, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="NumberOfComplaintsTest" duration-ms="300" started-at="2018-07-03T11:58:05Z" finished-at="2018-07-03T11:58:06Z">
+        <test-method status="PASS" signature="NumberOfComplaintsTest()[pri:1, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="NumberOfComplaintsTest" duration-ms="228" started-at="2018-07-03T12:26:32Z" finished-at="2018-07-03T12:26:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NumberOfComplaintsTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Teardown" is-config="true" duration-ms="722" started-at="2018-07-03T11:58:06Z" finished-at="2018-07-03T11:58:06Z">
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Teardown" is-config="true" duration-ms="719" started-at="2018-07-03T12:26:32Z" finished-at="2018-07-03T12:26:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Setup" is-config="true" duration-ms="24902" started-at="2018-07-03T11:58:06Z" finished-at="2018-07-03T11:58:31Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Setup" is-config="true" duration-ms="26838" started-at="2018-07-03T12:26:33Z" finished-at="2018-07-03T12:27:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="SaveTheComplaintsTest()[pri:2, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="SaveTheComplaintsTest" duration-ms="7059" started-at="2018-07-03T11:58:31Z" finished-at="2018-07-03T11:58:38Z">
+        <test-method status="PASS" signature="SaveTheComplaintsTest()[pri:2, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="SaveTheComplaintsTest" duration-ms="7056" started-at="2018-07-03T12:27:00Z" finished-at="2018-07-03T12:27:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SaveTheComplaintsTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Teardown" is-config="true" duration-ms="734" started-at="2018-07-03T11:58:38Z" finished-at="2018-07-03T11:58:39Z">
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Teardown" is-config="true" duration-ms="719" started-at="2018-07-03T12:27:07Z" finished-at="2018-07-03T12:27:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Teardown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Setup" is-config="true" duration-ms="40753" started-at="2018-07-03T11:58:39Z" finished-at="2018-07-03T11:59:20Z">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Setup" is-config="true" duration-ms="25905" started-at="2018-07-03T12:27:07Z" finished-at="2018-07-03T12:27:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="FAIL" signature="NextFollowUpTest()[pri:3, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="NextFollowUpTest" duration-ms="541" started-at="2018-07-03T11:59:20Z" finished-at="2018-07-03T11:59:20Z">
+        <test-method status="FAIL" signature="NextFollowUpTest()[pri:3, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="NextFollowUpTest" duration-ms="522" started-at="2018-07-03T12:27:33Z" finished-at="2018-07-03T12:27:34Z">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[expected [false] but found [true]]]>
@@ -85,7 +85,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- NextFollowUpTest -->
-        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Teardown" is-config="true" duration-ms="719" started-at="2018-07-03T11:59:21Z" finished-at="2018-07-03T11:59:21Z">
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WcomplaintsTest@50caa560]" name="Teardown" is-config="true" duration-ms="735" started-at="2018-07-03T12:27:34Z" finished-at="2018-07-03T12:27:35Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Teardown -->

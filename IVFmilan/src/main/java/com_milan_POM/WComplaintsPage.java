@@ -400,23 +400,30 @@ public class WComplaintsPage extends TestBase
 			}
 			calender.click();
 			List<WebElement>Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']/tbody//td/button"));
-			int datesize= Dates.size();
-			boolean enabledcondition = false;
-			for(int i=1;i<=datesize;i++)
+			boolean flag1 = false;
+			for(int i =1;i<=Dates.size();i++)
 			{
-				if(Dates.get(i).getText().contains("03"))
-				{
-				boolean dateenabled= Dates.get(i).isEnabled();
-				//System.out.println("Previous date is enabled"+dateenabled);
-					 enabledcondition=dateenabled;
-						 break;
-					
-					
-				}
+				String Datetext= Dates.get(i).getText();
+				WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+				String text= Monthtextele.getText();
+				String Arr[]=text.split(" ");
+				String Monthtext = Arr[0]; 
 				
+				String CyrrentDate=TestUtil.Date();
+				String[] Arr1= CyrrentDate.split(",");
+				String day= Arr1[0];
+				String Month = Arr1[1];
+				
+				if(day.equals(Datetext)&&Monthtext.equals(Month))
+				{
+				 flag1= Dates.get(i).isEnabled();
+				break;
+				}
+			
 						
 			}
-			return enabledcondition;
+			return flag1;
+			 
 					
 			
 			
