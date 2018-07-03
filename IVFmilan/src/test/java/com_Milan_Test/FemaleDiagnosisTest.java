@@ -95,7 +95,7 @@ public class FemaleDiagnosisTest extends TestBase
 		boolean flag= FDP.TypeSelectionboxEnablecondition();
 		assertTrue(flag);
 	}
-	@Test(priority=6,groups = {"smoketest" },enabled=false)
+	@Test(priority=6,groups = {"smoketest" },enabled=true)
 	public void DeleteFromFavoriteTest() 
 	{
 		
