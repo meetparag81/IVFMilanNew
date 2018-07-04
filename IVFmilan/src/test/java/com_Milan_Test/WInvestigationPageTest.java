@@ -15,6 +15,7 @@ import com_milan_POM.HomePage;
 import com_milan_POM.Loginpage;
 import com_milan_POM.SearchPage;
 import com_milan_POM.WInvestigationPage;
+import com_milan_POM.WOPUCycyclePage;
 import com_milan_POM.WomenHistoryPage;
 
 public class WInvestigationPageTest extends TestBase 
@@ -26,10 +27,12 @@ public class WInvestigationPageTest extends TestBase
 	AddictionsPage Addictions;
 	SearchPage SearchPage;
 	WInvestigationPage Investigation;
+	WOPUCycyclePage WOC;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	int exp, Expected;
 
-	public WInvestigationPageTest() {
+	public WInvestigationPageTest() 
+	{
 		super();
 	}
 
@@ -43,45 +46,41 @@ public class WInvestigationPageTest extends TestBase
 		// EMRPage= HomePage.ClickonEMR();
 		// EMRPage=HomePage.SearchusingCalender();
 		Investigation = EMRPage.ClickOnInvestigation();
+		Investigation.ClickOnProcedures();
+		
+		
+	}
+	
+	//@Test(priority=1)
+	
+	
+	//@Test(priority=2)
+	public void DeleteFavoriteTest()
+	{
+		
+		boolean flag = Investigation.ExisingProcedure();
+		if(flag== true)
+		{
+		String act = Investigation.DeleteProcedure();
+		String exp = reader.getCellData("InvestigationList", "Result", 6);
+		Assert.assertEquals(act, exp);
+		System.out.println("DeleteFavoriteTest is completed");
+		}
+		else
+		{
+			String act = Investigation.DeleteProcedure();
+			String exp = reader.getCellData("InvestigationList", "Result", 5);
+			Assert.assertEquals(act, exp);
+			System.out.println("DeleteFavoriteTest is completed");
+			
+			
+		}
+		
+		
+	}
+	
 
-	}
-
-	@Test(priority=1,groups = {"smoketest" },enabled=false)
-	public void CycleCreationTest() 
-	{
-		int Actual = Investigation.Setsearchvalue();
-		int Expected = reader.getRowCount("Investigation");
-		Assert.assertEquals(Actual, Expected);
-	}
 	
-	
-	@Test(priority=2,groups = {"smoketest" },enabled=true)
-	public void IVFPACKAGEARTCyclecountTest() 
-	{
-	int Actual =WInvestigationPage.REFIVFPACKAGEARTCycleCount();
-	int expected = 7;
-	
-	Assert.assertEquals(Actual, expected);	
-	System.out.println("IVFPACKAGEARTCyclecountTest is completed");
-	}
-	@Test(priority=3,groups = {"smoketest" },enabled=true)
-	public void OUIARTSubTypesTest() 
-	{
-		int Actual =Investigation.OUIARTSubTypes();
-		int expected = 4;
-		
-		Assert.assertEquals(Actual, expected);	
-		
-	}
-	
-	@Test(priority=4,groups = {"smoketest" },enabled=false)
-	public void OPUCycleTest() 
-	{
-		Investigation.OPUCycle();
-		String Actual =Investigation.SaveMessage();
-		String Expected = reader.getCellData("Investigation", "Fash message", 2);
-		
-	}
 	
 	
 	@AfterMethod

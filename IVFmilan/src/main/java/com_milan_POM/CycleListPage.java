@@ -621,6 +621,8 @@ public class CycleListPage extends TestBase
 	
 	public String SaveMessage()
 	{
+		Actions act = new Actions(driver);
+		act.moveToElement(Save);
 		boolean save= Save.isEnabled();
 		
 		if(save==true)
@@ -633,8 +635,8 @@ public class CycleListPage extends TestBase
 			{
 				System.out.println("InterruptedException is occured");
 			}
-			Actions act = new Actions(driver);
-			act.moveToElement(SaveMessage);
+			Actions act1 = new Actions(driver);
+			act1.moveToElement(SaveMessage);
 			msg= SaveMessage.getText();
 		}
 		else

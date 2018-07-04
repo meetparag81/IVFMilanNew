@@ -50,7 +50,7 @@ public class WAllergiesTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		Allergies= WHP.ClickOnAllergies();	
 	}
-	@Test(priority=1,enabled= true)
+	@Test(priority=1,enabled= false)
 	public void FoodAllergyvalidationTest()
 	{
 		
@@ -58,7 +58,7 @@ public class WAllergiesTest extends TestBase
 		Assert.assertTrue(flag);
 		System.out.println("Alergy textbox is enabled");
 	}
-	@Test(priority=2,enabled= true)
+	@Test(priority=2,enabled= false)
 	public void AddNewAllergiesTest() 
 	{
 		AllergiesPage.AddnewAllergies();
@@ -67,7 +67,7 @@ public class WAllergiesTest extends TestBase
 		
 	}
 	
-	@Test(priority=3,enabled= true)
+	@Test(priority=3,enabled= false)
 	public void SaveMessage()
 	{
 	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();

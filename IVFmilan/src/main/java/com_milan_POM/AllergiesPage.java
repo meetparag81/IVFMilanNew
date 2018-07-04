@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -28,7 +29,7 @@ public class AllergiesPage extends TestBase
 	static WebElement Save;
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
 	private @FindBy(xpath="//button[@class='btn btn-default']") WebElement Cancel;
-	 private @FindBy(xpath="//button[@class='btn btn-primary ng-binding']") WebElement Update;
+	 private @FindBy(xpath="//button[@class='toast-msg ng-binding ng-scope") WebElement UpdateMessage;
 	 int rows;
 	 String msg;
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
@@ -127,7 +128,7 @@ public class AllergiesPage extends TestBase
 				}
 				
 				Addrows.click();
-				 WebElement allergy= driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]"));
+				 WebElement allergy= driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]"));
 				try
 				{
 					TestUtil.VisibleOn(driver, allergy, 20);
@@ -323,10 +324,14 @@ public class AllergiesPage extends TestBase
 		boolean flag= size();
 		if(flag==true)
 		{
-			msg= Update.getText();
+			Actions act = new Actions(driver);
+			act.moveToElement(UpdateMessage);
+			msg= UpdateMessage.getText();
 		}
 		else
 		{
+			Actions act = new Actions(driver);
+			act.moveToElement(SaveMessage);
 			msg = SaveMessage.getText();
 		}
 		return msg;

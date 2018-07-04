@@ -28,24 +28,16 @@ public class WOPUCycyclePage extends TestBase
 	@FindBy(xpath = "//li[text()='Cycles']")WebElement Cycles;
 	@FindBy(xpath = "//h5[text() ='Procedures']//following::input[@id='txtServiceName']") WebElement Searchbox;
 	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']") static WebElement saveflashmessage;
-	@FindBy(xpath = "//i[@class='fa fa-calendar']")
-	 WebElement Calender;
-	@FindBy(xpath = "(//button[@class='btn btn-primary'])[3]")
-	 WebElement Save;
+	@FindBy(xpath = "//i[@class='fa fa-calendar']")WebElement Calender;
+	@FindBy(xpath = "(//button[@class='btn btn-primary'])[3]")WebElement Save;
 	@FindBy(xpath = "//a[@class='active_white_color']")WebElement Cycleoption;
-	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']")
-	 WebElement Availabilitymessage;
-	@FindBy(xpath="//table/tbody[3]/tr/td[1]/span[@class='btn_delete']")
-	 WebElement Delete;
-	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")
-	 WebElement DeleteMessage;
-	@FindBy(xpath="//h4[text()='Reason']//following::textarea")
-	 WebElement Deletetext;
-	@FindBy(xpath="(//h4[text()='Reason']//following::button[text()=' Save'])[1]")
-	 WebElement SaveDeletediailog;
+	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']")WebElement Availabilitymessage;
+	@FindBy(xpath="//table/tbody[3]/tr/td[1]/span[@class='btn_delete']")WebElement Delete;
+	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement DeleteMessage;
+	@FindBy(xpath="//h4[text()='Reason']//following::textarea")WebElement Deletetext;
+	@FindBy(xpath="(//h4[text()='Reason']//following::button[text()=' Save'])[1]")WebElement SaveDeletediailog;
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement AddserviceMessage;
-	@FindBy(xpath="(//button[@class='btn btn-default'])[2]")
-	 WebElement Cancel;
+	@FindBy(xpath="(//button[@class='btn btn-default'])[2]")WebElement Cancel;
 	@ FindBy(xpath="//span[text()='Cycle List']")WebElement CyclelistTitle;
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement Existingcyclemsg;
 	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement Alreadyexistflashmsg;
@@ -343,10 +335,9 @@ return count2;
 	
 	
 	
-	public boolean CycleAvailability()
+	
+	public boolean CycleCodeAvaibility()
 	{
-		
-		ClickonCycleOption();
 		List<WebElement>cyclecode1 =  driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a"));
 		int size = cyclecode1.size();
 		boolean flag=false;
@@ -358,6 +349,16 @@ return count2;
 		{
 			flag= false;
 		}
+		return flag;
+	}
+	
+	
+	
+	public boolean CycleAvailability()
+	{
+		
+		ClickonCycleOption();
+		boolean flag = CycleCodeAvaibility();
 
 	if(flag==true)
 	{
@@ -370,7 +371,8 @@ return count2;
 	}
 	else
 	{
-		 flag= cyclecode.isDisplayed();
+		
+		// flag= cyclecode.isDisplayed();
 		EMRDashBoardPage EMRPage = new EMRDashBoardPage();
 		 EMRPage.ClickOnInvestigation();
 		 Actions act = new Actions(driver);
