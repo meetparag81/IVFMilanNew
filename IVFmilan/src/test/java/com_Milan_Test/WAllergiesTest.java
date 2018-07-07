@@ -44,13 +44,10 @@ public class WAllergiesTest extends TestBase
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage = HomePage.searchPaient();
-		//EMRPage= HomePage.ClickonEMR();
-		//SearchPage SP = new SearchPage();
-		//EMRPage= HomePage.SearchusingCalender();
 		WHP= EMRPage.clickOnWomenField();
 		Allergies= WHP.ClickOnAllergies();	
 	}
-	@Test(priority=1,enabled= false)
+	@Test(priority=1,enabled= true)
 	public void FoodAllergyvalidationTest()
 	{
 		
@@ -58,16 +55,16 @@ public class WAllergiesTest extends TestBase
 		Assert.assertTrue(flag);
 		System.out.println("Alergy textbox is enabled");
 	}
-	@Test(priority=2,enabled= false)
+	@Test(priority=2,enabled= true)
 	public void AddNewAllergiesTest() 
 	{
-		AllergiesPage.AddnewAllergies();
+		Allergies.AddnewAllergies();
 		String Actial= Allergies.SaveMessageForNewPaient();
 		String expected = reader.getCellData("Allergies", "Message", 2);
 		
 	}
 	
-	@Test(priority=3,enabled= false)
+	@Test(priority=3,enabled= true)
 	public void SaveMessage()
 	{
 	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();
@@ -97,22 +94,62 @@ public void ExistingPatientDrugAllergyTypeTest()
 @Test(priority=6,enabled= true)
 public void AllergySelectionTest() 
 {
-	boolean flag=Allergies.size();
-	if(flag==true)
+	boolean flag1;
+	 flag1 = Allergies.size();
+	 boolean flag2;
+	 flag2=Allergies.SavebuttonText();	 
+	if(flag1==true&& flag2==true)// existing patienttrue and update button is true
+	
 	{
-		Allergies.AllergySelection();
-		String act = Allergies.SaveMessage();
-		String exp = reader.getCellData("Allergies", "Message", 2);
-		System.out.println("AllergySelectionTest is completed");
-		
-	}
-	else
-	{
-		String act = Allergies.SaveMessage();
+		String act= Allergies.AllergySelection();
 		String exp = reader.getCellData("Allergies", "Message", 3);
+		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 		
 	}
+	else if(flag1==false&& flag2==false)// new patienttrue and Update  button is not true
+	{
+		String act= Allergies.AllergySelection();
+		String exp = reader.getCellData("Allergies", "Message", 3);
+		Assert.assertEquals(act, exp);
+		System.out.println("AllergySelectionTest is completed");
+	
+		
+	}
+	else if(flag1==false&& flag2==true)// new patient true but update button is true
+	{
+		String act= Allergies.AllergySelection();
+		String exp = reader.getCellData("Allergies", "Message", 3);
+		Assert.assertEquals(act, exp);
+		System.out.println("AllergySelectionTest is completed");
+		
+		
+	}
+	else if(flag1== true && flag2==false)// existing patient true but update button is not true
+	{
+		String act= Allergies.AllergySelection();
+		String exp = reader.getCellData("Allergies", "Message", 3);
+		Assert.assertEquals(act, exp);
+		System.out.println("AllergySelectionTest is completed");
+				
+	}
+	else if(flag1== true && flag2==true)// existing patient true and update button is  true
+	{
+		String act= Allergies.AllergySelection();
+		String exp = reader.getCellData("Allergies", "Message", 2);
+		Assert.assertEquals(act, exp);
+		System.out.println("AllergySelectionTest is completed");
+		
+	}
+	
+	
+	
+		String act =Allergies.AllergySelection();
+		String exp = reader.getCellData("Allergies", "Message", 2);
+		Assert.assertEquals(act, exp);
+		System.out.println("AllergySelectionTest is completed");
+		
+	
 	
 	
 	

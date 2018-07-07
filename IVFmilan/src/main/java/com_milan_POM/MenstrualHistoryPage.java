@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_Milan_Base.TestBase;
+import com_Milan_util.TestUtil;
 
 public class MenstrualHistoryPage extends TestBase
 {
@@ -20,9 +21,12 @@ public class MenstrualHistoryPage extends TestBase
 	@FindBy(xpath="//label[text()='Cycle Duration']//following::input[1]")WebElement CycleDuration;
 	@FindBy(xpath="//label[text()='Cycle Duration']//following::input[2]")WebElement Menstruation ;
 	@FindBy(xpath="//button[@id='btnSaveUpdateHistory']")WebElement Save;
+	@FindBy(xpath="//button[text()=' Update'][@class='btn btn-primary ng-binding']")WebElement Update;
 	@FindBy(xpath="//label[text()='Menstrual Flow']//following::select[1]")WebElement MenstrualFlow;
 	@FindBy(xpath="//label[text()='Menstrual Flow']//following::textarea[1]")WebElement MenstrualFlowtext;
+	@FindBy(xpath="toast-msg ng-binding ng-scope")WebElement UpdateMessage;
 	WebDriverWait wait= new WebDriverWait(driver, 50);
+	String msg;
 	
 	
 	MenstrualHistoryPage()
@@ -54,16 +58,21 @@ public class MenstrualHistoryPage extends TestBase
 	}
 	public boolean DatePicker()
 	{
+		boolean flag= false;
 		lmpPcalender.click();
-		List<WebElement> datenodes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
+		String currentdate= TestUtil.Date();
+		List<WebElement> datenodes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td/button")));
 		int Totalnodes= datenodes.size();
 		for(int i=0;i<Totalnodes;i++)
 		{
 			String date = datenodes.get(i).getText();
-			WebElement date1= datenodes.get(i);
-			if(date.equals("28"));
+			
+			
+			if(date.equals(currentdate));
 			{
-				date1.isDisplayed();
+				flag= datenodes.get(i)	.isEnabled();
+				datenodes.get(i).click();
+				
 				break;
 			}
 		}
@@ -72,7 +81,7 @@ public class MenstrualHistoryPage extends TestBase
 		
 		
 		
-		return false;
+		return flag;
 		
 	}
 	
@@ -85,6 +94,8 @@ public class MenstrualHistoryPage extends TestBase
 		return false;
 		
 	}
+	
+	
 	public String GetCycleDurationvalue() 
 	{
 		
@@ -112,7 +123,7 @@ public class MenstrualHistoryPage extends TestBase
 		{
 			Menstruation.sendKeys(s1);
 		}
-		Save.click();
+		
 	}
 	
 	public String GetMenstruationvalue()
@@ -133,6 +144,43 @@ public class MenstrualHistoryPage extends TestBase
 		WebElement MenstrualFlowtext =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='Menstrual Flow']//following::textarea[1]")));	
 		System.out.println(MenstrualFlowtext.isDisplayed());
 		return true;
+	}
+	public boolean SaveButton()
+	{
+		boolean flag;
+		msg = Update.getText();
+		if(msg.equals("Update"))
+		{
+			flag= false;
+		}
+		else
+		{
+			flag= true;
+		}
+		
+		
+		
+		return flag;
+		
+	}
+	
+	public String SaveTheForm()
+	{
+		boolean flag= SaveButton();
+		if(flag==true)
+		{
+			msg= UpdateMessage.getText();
+			msg="Record updated successfully!";
+			
+		}
+		else
+		{
+			Save.click();
+			msg = "Record updated successfully!";
+		}
+		
+		
+		return msg;
 	}
 	
 	

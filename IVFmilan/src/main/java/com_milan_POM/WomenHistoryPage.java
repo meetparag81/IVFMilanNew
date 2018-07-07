@@ -173,14 +173,14 @@ public class WomenHistoryPage extends TestBase
 			
 			try
 			{
-				TestUtil.VisibleOn(driver, allergies, 20);	
+				TestUtil.VisibleOn(driver, allergies, 20);
+				TestUtil.ActionForMovetoElement(allergies);
 			}
 			catch(TimeoutException e)
 			{
 				System.out.println("Element- allergies is not seen with in 20 sec");
-			}
-			Actions act = new Actions(driver);
-			act.moveToElement(allergies).click().perform();
+			}			
+			allergies.click();
 			System.out.println("clicked on Allergies");
 			return new AllergiesPage();
 			
@@ -193,6 +193,7 @@ public class WomenHistoryPage extends TestBase
 			try
 			{
 			TestUtil.VisibleOn(driver, addictions, 30);
+			TestUtil.ActionForMovetoElement(addictions);
 			}
 			catch(Exception e)
 			{
@@ -248,6 +249,8 @@ public class WomenHistoryPage extends TestBase
 			{
 				System.out.println("Element- MenstrualHistory is not seen with in 20 seconds");
 			}
+			
+			TestUtil.ActionForMovetoElement(MenstrualHistory);
 			
 			MenstrualHistory.click();
 			System.out.println("clicked on MenstrualHistoryPage");

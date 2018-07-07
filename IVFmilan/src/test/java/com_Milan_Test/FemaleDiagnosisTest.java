@@ -95,11 +95,11 @@ public class FemaleDiagnosisTest extends TestBase
 		boolean flag= FDP.TypeSelectionboxEnablecondition();
 		assertTrue(flag);
 	}
-	@Test(priority=6,groups = {"smoketest" },enabled=true)
+	@Test(priority=6,groups = {"smoketest" },enabled=false)
 	public void DeleteFromFavoriteTest() 
 	{
 		
-	String Actual=	FDP.DeleteFromFavorite();
+	String Actual=	FDP.DeleteFromFavorite();// need to verify
 	System.out.println(Actual);
 	String Expected = reader.getCellData("Diagnosis", "Expected Result", 2);
 	System.out.println("Favorite is deleted from favorite section");

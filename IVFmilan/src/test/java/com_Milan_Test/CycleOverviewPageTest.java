@@ -84,7 +84,17 @@ public class CycleOverviewPageTest extends TestBase
 		{
 			System.out.println("User has already saved cycle");
 		}
+		boolean flag2= CLP.CycleCodeAvaibility();
+		if(flag2==true)
+		{
 		COP = CLP.ClickOnCycleCode();
+		}
+		else
+		{
+			CLP.ClickonNewCycle();
+			CLP.ClickonCyclecode();
+		}
+		
 	}
 	
 	

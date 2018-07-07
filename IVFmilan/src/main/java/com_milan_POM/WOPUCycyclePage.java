@@ -489,9 +489,16 @@ return count2;
 	
 	public boolean AlreadySavedCycle() 
 	{	
-		
-		Actions act = new Actions(driver);
-		act.moveToElement(Cycles).click().perform();
+		try
+		{
+			TestUtil.VisibleOn(driver, Cycles, 30);
+		TestUtil.ActionForMovetoElement(Cycles);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-Cycles is not seen within 30 sec");
+		}
+		Cycles.click();
 		List<WebElement>rows = driver.findElements(By.xpath("//h5[text()='Previous Procedures']//following::table[1]//tbody//tr"));
 		int rowsize= rows.size();
 		boolean flag= false;

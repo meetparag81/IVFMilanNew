@@ -54,7 +54,7 @@ public class WMenstrualHistoryTest extends TestBase
 				
 	}
 	
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled= true)
 	public  void MenarcheRangeEndTest() 
 	{
 		
@@ -63,17 +63,17 @@ public class WMenstrualHistoryTest extends TestBase
 		Assert.assertEquals(Actual, Expected, "Last range value is incorrect");
 		System.out.println("MenarcheRangeEndTest completed");
 	}
-	@Test(priority=3,enabled=true)
+	@Test(priority=3,enabled= true)
 	public  void LMPcalenderdateSelectionTest() 
 	{
 		boolean flag1=MHP.DatePicker();
 		
-		Assert.assertEquals(false, flag1);
+		Assert.assertTrue(flag1);
 		System.out.println("LMPcalenderdateSelectionTest completed");
 	}
 	
 	
-	@Test(priority=4,enabled=true)
+	@Test(priority=4,enabled= true)
 	public  void AmenorrheaTypeTest() 
 	{
 		boolean flag2=MHP.AmenorrheaType();
@@ -81,13 +81,13 @@ public class WMenstrualHistoryTest extends TestBase
 		Assert.assertEquals(false, flag2);
 		System.out.println("AmenorrheaTypeTest completed");
 	}
-	@Test(priority=6)
+	@Test(priority=5,enabled=true)
 	public void SavevaluesTest()
 	{
 		MHP.Savevaluesindurations();
 	}
 	
-	@Test(priority=5)
+	@Test(priority=6,enabled= true)
 	public  void CycleDurationTest() 
 	{
 		String Actual = MHP.GetCycleDurationvalue();
@@ -95,7 +95,7 @@ public class WMenstrualHistoryTest extends TestBase
 		Assert.assertEquals(Actual, Expected);
 		System.out.println("CycleDurationTest completed");
 	}
-	@Test(priority=7)
+	@Test(priority=7,enabled=true)
 	public  void MenstruationTest1() 
 	{
 		String Actual = MHP.GetMenstruationvalue();
@@ -104,13 +104,14 @@ public class WMenstrualHistoryTest extends TestBase
 		System.out.println("CycleDurationTest completed");
 	}
 	
-	@Test (priority=8)
+	@Test (priority=8,enabled= true)
 	public void MenstrualFlowtextTest()
 	{
 		Boolean flag=MHP.MenstrualFlowText();
 		Assert.assertTrue(flag);
 		System.out.println("MenstrualFlowTesttest is passed");
 	}
+	
 	
 		
 	

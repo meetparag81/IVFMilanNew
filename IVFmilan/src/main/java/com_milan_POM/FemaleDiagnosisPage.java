@@ -292,7 +292,7 @@ public class FemaleDiagnosisPage extends TestBase
 				Thread.sleep(2000);
 			} catch (InterruptedException e) 
 			{
-				System.out.println("The thread.sleep value should be increased");				
+				System.out.println("InterruptedException is seen");				
 			}
 			WebElement codename= driver.findElement(By.xpath("(//div[@class='table-responsive table-bordered fixed_header'])[1]//tr["+i+"]/td[4]"));
 			String codename1= codename.getText();

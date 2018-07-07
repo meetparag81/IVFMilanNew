@@ -16,6 +16,7 @@ import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -77,6 +78,14 @@ public static long PAGE_LOAD_TIMEOUT = 20;
 		}	
 
 	}
+	public static  void ActionForMovetoElement(WebElement element )
+	{
+		
+		Actions act1 = new Actions(driver);
+		act1.moveToElement(element);
+		
+	}
+	
 	public static String getScreenshot(WebDriver driver, String screenshotName) throws Exception 
 		{
 	        //below line is just to append the date format with the screenshot name to avoid duplicate names 

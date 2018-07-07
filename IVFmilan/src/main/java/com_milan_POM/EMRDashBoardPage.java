@@ -54,45 +54,44 @@ public class EMRDashBoardPage extends TestBase {
 			{
 				System.out.println("Element- womenfield is not seen within10 sec");
 			}
-			Actions act = new Actions(driver);
-			act.moveToElement(womenfield).click().perform();
-						// womenfield.click();
+			 TestUtil.ActionForMovetoElement(womenfield);
+			 womenfield.click();
+					
 			try {
-				TestUtil.VisibleOn(driver, Historylinkwomen, 20);
-			} catch (TimeoutException e) 
+				TestUtil.VisibleOn(driver, Historylinkwomen, 10);
+				TestUtil.ActionForMovetoElement(Historylinkwomen);
+			} 
+			catch (TimeoutException e) 
 			{
 				System.out.println("element is not seen within the time");
 			}
+			Historylinkwomen.click();
 
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
-
-			// jse.executeScript("arguments[0].scrollIntoView()",
-			// Historylinkwomen);
-			Actions act1 = new Actions(driver);
-			act1.moveToElement(Historylinkwomen).click().perform();
-
-			// System.out.println("Womenfieldis displayed");
-			List<WebElement> visitw = driver.findElements(By
-					.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
-			if (visitw.size() != 0) {
-				// System.out.println("Visitcount" + visitw.size());
-				// Thread.sleep(3000);
+			List<WebElement> visitw = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+			if (visitw.size() != 0) 
+			{				
+				try
+				{
 				TestUtil.VisibleElementsOn(driver, visitw, 30);
+				}
+				catch(TimeoutException e)
+				{
+					System.out.println("Element-visitw is not seen within 30 sec");
+				}
 				visitw.get(0).click();
-				System.out.println("Women visit cliked");
-			} else {
+				//System.out.println("Women visit cliked");
+			}
+			else 
+			{
 
 				System.out.println("Visit  not available");
 
 			}
-			/*
-			 * TestUtil.VisibleOn(driver, visitw,30); Historylinkwomen.click();
-			 * TestUtil.VisibleOn(driver, womenfield, 30); visitw.click();
-			 */
-			// visitwomen.click();
-			// System.out.println("Women visit cliked");
-		} else {
-			System.out.println("WomenHistory not foung");
+			
+		} 
+		else 
+		{
+			System.out.println("WomenField isnot foung");
 		}
 		return new WomenHistoryPage();
 

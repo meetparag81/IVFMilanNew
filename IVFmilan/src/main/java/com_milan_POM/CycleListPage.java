@@ -56,12 +56,10 @@ public class CycleListPage extends TestBase
 	
 	public boolean NewCycleButtonEnableCondition()
 	{
-		 
-		Actions act = new Actions(driver);
-		act.moveToElement(Newcyclebutton);
 		try
 		{
-			TestUtil.VisibleOn(driver, Newcyclebutton, 30);
+		 TestUtil.VisibleOn(driver, Newcyclebutton, 30);
+		 TestUtil.ActionForMovetoElement(Newcyclebutton);
 		}
 		catch(TimeoutException e)
 		{
@@ -74,9 +72,19 @@ public class CycleListPage extends TestBase
 	
 	public boolean CycleCodeAvaibility()
 	{
+		boolean flag1;
+		List<WebElement>cNoofcycles = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
+		int codesize= cNoofcycles.size();
 		try
 		{
-			System.out.println();
+			if (codesize>0&&flag==true)
+			{
+				 flag1= true;
+			}
+			else
+			{
+				flag1= false;
+			}
 			flag= Cyclecode.isDisplayed();
 		}
 		catch(Exception e)
@@ -88,20 +96,19 @@ public class CycleListPage extends TestBase
 	}
 	
 	
-	
-	
 	public String ClickonNewCycle()  
 	{
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) 
 		{
+			System.out.println("InterruptedException is seen");
 		}
 		boolean flag= NewCycleButtonEnableCondition();
-		if(NewCycleButtonEnableCondition()==true)
+		if(flag==true)
 		{
-			Actions act = new Actions(driver);
-			act.moveToElement(Newcyclebutton).click().perform();
+			TestUtil.ActionForMovetoElement(Newcyclebutton);
+			Newcyclebutton.click();
 		//Newcyclebutton.click();
 			try {
 				Thread.sleep(2000);
@@ -579,7 +586,15 @@ public class CycleListPage extends TestBase
 	
 	public void SaveTheCycle() 
 	{
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("InterruptedException is seen");
+			
+		}
 		Actions act = new Actions(driver);
+		
 		act.moveToElement(Save).click().perform();
 	
 	}
@@ -668,8 +683,17 @@ public class CycleListPage extends TestBase
 	}
 	public CycleOverviewPage ClickOnCycleCode()
 	{
-		Actions act = new Actions(driver);
-		act.moveToElement(Cyclecode).click().perform();
+		try
+		{
+		TestUtil.VisibleOn(driver, Cyclecode, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Elemet-Cyclecode is not seen within 20 sec");
+		}
+		TestUtil.ActionForMovetoElement(Cyclecode);
+		Cyclecode.click();
+		
 		return new CycleOverviewPage();
 		
 	}

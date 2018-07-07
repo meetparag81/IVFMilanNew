@@ -34,7 +34,8 @@ public class HomePage extends TestBase {
 	private @FindBy(xpath = "//span[text()='Queue Management']//following::input[2]") WebElement searchpaient;
 	private @FindBy(xpath = "//button[text()='Search'][@ class='btn btn-primary']") WebElement Searchbutton;
 	private @FindBy(xpath="//li[@class='navCycles ng-scope active']")WebElement Queue;
-		Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	boolean flag;	
 
 	public HomePage() 
 	{
@@ -288,7 +289,15 @@ for(int i=1;i<radiobuttons;i++)
 			 }
 		
 		}
-		if(checkbox.isDisplayed())
+		try
+		{
+			 flag=checkbox.isDisplayed();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Elemeny- checkbox is not displayed");
+		}
+		if(flag==true)
 		{
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
 		try
@@ -299,8 +308,8 @@ for(int i=1;i<radiobuttons;i++)
 		{
 			System.out.println("element not seen within20 seconds");
 		}
-		Actions act = new Actions(driver);
-		act.moveToElement(checkbox).click().perform();
+		TestUtil.ActionForMovetoElement(checkbox);
+		checkbox.click();
 		
 		}
 		else

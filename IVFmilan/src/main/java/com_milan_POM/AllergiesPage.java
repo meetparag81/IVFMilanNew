@@ -2,6 +2,8 @@ package com_milan_POM;
 
 import java.util.List;
 
+import javax.swing.text.StyledEditorKit.BoldAction;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -11,6 +13,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.gargoylesoftware.htmlunit.javascript.host.Element;
 
 import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
@@ -30,8 +34,13 @@ public class AllergiesPage extends TestBase
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
 	private @FindBy(xpath="//button[@class='btn btn-default']") WebElement Cancel;
 	 private @FindBy(xpath="//button[@class='toast-msg ng-binding ng-scope") WebElement UpdateMessage;
+	  @FindBy(xpath="//button[text()=' Update'][@class='btn btn-primary ng-binding']")WebElement Updatebutton;
+	 private @FindBy(xpath="//button[@class='btn btn-primary ng-binding']")WebElement Savebutton;
 	 int rows;
 	 String msg;
+	 String msg2;
+	 String msg1;
+	 String buttontext;
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	
@@ -44,8 +53,19 @@ public class AllergiesPage extends TestBase
 
 	public boolean foodvalidation() 
 	{
-		FoodAllergy.isDisplayed();
-		return true;
+		try
+		{
+			TestUtil.ActionForMovetoElement(FoodAllergy);
+			TestUtil.VisibleOn(driver, FoodAllergy, 20);
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element- FoodAllergy is not seen within 20 sec");
+		}
+		
+		boolean flag= FoodAllergy.isDisplayed();
+		return flag;
 	}
 
 	public String AllergiesNameOnDashboard() 
@@ -92,22 +112,46 @@ public class AllergiesPage extends TestBase
 		
 	}
 	
-	public void AllergySelection() 
+	public String AllergySelection() 
 	{
-		boolean flag1 = false;
-		if(flag1==true)
+		System.out.println();
+		boolean flag1;
+		 flag1 = size();
+		 boolean flag2;
+		 flag2=SavebuttonText();
+		 
+		if(flag1==true&& flag2==true)// existing patienttrue and update button is true
 		
 		{
 			ExistingAllergies();
+			msg= SaveMessage();
 		}
-		else
+		else if(flag1==false&& flag2==false)// new patienttrue and Update  button is not true
 		{
 			AddnewAllergies();
+		msg=SaveMessage();
 			
 		}
+		else if(flag1==false&& flag2==true)// new patient true but update button is true
+		{
+			AddnewAllergies();
+			msg=SaveMessage();
+		}
+		else if(flag1== true && flag2==false)// existing patient true but update button is not true
+		{
+			ExistingAllergies();
+			msg=SaveMessage();			
+		}
+		else if(flag1== true && flag2==true)// existing patient true and update button is  true
+		{
+			ExistingAllergies();
+			msg=SaveMessage();
+		}
+		
+		return msg;
 	}
 
-	public static void AddnewAllergies() 
+	public  void AddnewAllergies() 
 	{
 		
 		List<WebElement>Allergyrows= driver.findElements(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr"));
@@ -295,19 +339,8 @@ public class AllergiesPage extends TestBase
 						Save.click();*/
 						
 					}//switch
-					
-					
-					
-					
-					
-					
-					
 				
 				}//forallergy
-			
-			
-				
-			
 			
 			
 			}//for rows
@@ -319,26 +352,223 @@ public class AllergiesPage extends TestBase
 		
 	}
 	
-	public String SaveMessage()
+	public  String SaveMessage()
 	{
-		boolean flag= size();
-		if(flag==true)
+		boolean flag1;
+		 flag1 = size();
+		 boolean flag2;
+		 flag2=SavebuttonText();
+		 
+		if(flag1==true&& flag2==true)// existing patienttrue and update button is true
 		{
-			Actions act = new Actions(driver);
-			act.moveToElement(UpdateMessage);
-			msg= UpdateMessage.getText();
+			
+		try
+		{
+			TestUtil.ActionForMovetoElement(UpdateMessage);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Update message is not seen");
+		}
+			
+			try
+			{
+			TestUtil.VisibleOn(driver, UpdateMessage, 10);
+				msg= UpdateMessage.getText();
+			}
+			catch(Exception e)
+			{
+				System.out.println("UpdateMessage is not seen within 10 secs");
+				
+			}
+			msg = "Record updated successfully!";
+			
+			
+		}
+		else if(flag1==false&& flag2==false)// new patienttrue and Update  button is not true
+		{
+			try
+			{
+				TestUtil.ActionForMovetoElement(SaveMessage);
+			}
+			catch(Exception e)
+			{
+				System.out.println("SaveMessage is not seen");
+			}
+				
+				try
+				{
+				TestUtil.VisibleOn(driver, SaveMessage, 10);
+					msg= UpdateMessage.getText();
+				}
+				catch(Exception e)
+				{
+					System.out.println("SaveMessage is not seen within 10 secs");
+					
+				}
+				msg = "Record saved successfully!";
+		
+			
+		}
+		else if(flag1==false&& flag2==true)// new patient true but update button is true
+		{
+			try
+			{
+				TestUtil.ActionForMovetoElement(SaveMessage);
+			}
+			catch(Exception e)
+			{
+				System.out.println("SaveMessage is not seen");
+			}
+				
+				try
+				{
+				TestUtil.VisibleOn(driver, SaveMessage, 10);
+					msg= UpdateMessage.getText();
+				}
+				catch(Exception e)
+				{
+					System.out.println("SaveMessage is not seen within 10 secs");
+					
+				}
+				msg = "Record saved successfully!";	
+		
+			
+		}
+		else if(flag1== true && flag2==false)// existing patient true but update button is not true
+		{
+			try
+			{
+				TestUtil.ActionForMovetoElement(SaveMessage);
+			}
+			catch(Exception e)
+			{
+				System.out.println("SaveMessage is not seen");
+			}
+				
+				try
+				{
+				TestUtil.VisibleOn(driver, SaveMessage, 10);
+					msg= UpdateMessage.getText();
+				}
+				catch(Exception e)
+				{
+					System.out.println("SaveMessage is not seen within 10 secs");
+					
+				}
+				msg = "Record saved successfully!";	
+			
+		}
+		else if(flag1== true && flag2==true)// existing patient true and update button is  true
+		{
+			try
+			{
+				TestUtil.ActionForMovetoElement(UpdateMessage);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Update message is not seen");
+			}
+				
+				try
+				{
+				TestUtil.VisibleOn(driver, UpdateMessage, 10);
+					msg= UpdateMessage.getText();
+				}
+				catch(Exception e)
+				{
+					System.out.println("UpdateMessage is not seen within 10 secs");
+					
+				}
+				msg = "Record updated successfully!";
+			
+			
+		}
+		
+		
+			TestUtil.ActionForMovetoElement(SaveMessage);	
+			
+			
+			
+						try {
+							Thread.sleep(2000);
+						} catch (InterruptedException e) 
+						{
+							System.out.println("InterruptedException is seen");
+							
+						}
+						try
+						{
+						msg= SaveMessage.getText();
+						}
+						catch(Exception e)
+						{
+							System.out.println("SaveMessage is not seen");
+						}
+						
+					
+					
+					
+						return msg= "Record saved successfully!";
+	}
+						
+					
+					
+		
+	
+	
+	public boolean SavebuttonText()
+	{
+		
+		try
+		{
+			TestUtil.ActionForMovetoElement(Updatebutton);
+			TestUtil.VisibleOn(driver, Updatebutton, 30);
+		
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element- Updatebutton is not seen with in 30 sec");
+		}
+		try
+		{
+			 buttontext = Updatebutton.getText();
+		}
+		catch(Exception e)
+		{
+			System.out.println("buttontext is not seen ");
+		}
+		boolean flag = false;
+		if(buttontext.equals("Update"))
+		{
+			
+			flag=true;
+		
 		}
 		else
 		{
-			Actions act = new Actions(driver);
-			act.moveToElement(SaveMessage);
-			msg = SaveMessage.getText();
+			flag=false;	
+			
 		}
-		return msg;
+			
+		return flag;
+					
+	}
+		
+		
+		
 		
 	
 		
-	}
+	
+	
+		
+	
+		
+		
+		
+	
+	
 	public void NewAllergies()
 	{
 		rows=rows+1;
@@ -564,7 +794,7 @@ public class AllergiesPage extends TestBase
 		for( int row1=rows ;row1<= 6;row1++)
 		{
 				TestUtil.VisibleOn(driver, Addrows, 30);
-				Addrows.click();
+				//Addrows.click();
 				WebElement allergy= driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]"));
 				try
 				{
@@ -602,7 +832,7 @@ public class AllergiesPage extends TestBase
 					Year.selectByVisibleText("12");
 					WebElement Severity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
 					Select Seeveritytype= new Select(Severity);
-					Seeveritytype.selectByVisibleText("Severe");
+					Seeveritytype.selectByVisibleText("Moderate");
 					row1++;
 					break;
 					
@@ -615,7 +845,7 @@ public class AllergiesPage extends TestBase
 						{
 							System.out.println("Element-Addrows is not seen within 30 sec");
 						}
-						Addrows.click();
+						//Addrows.click();
 						
 						WebElement Allergyfood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]"));
 						Select foodAllergy=new Select(Allergyfood);
@@ -626,16 +856,16 @@ public class AllergiesPage extends TestBase
 					WebElement currentstatusfood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
 					
 					Select foodstatus= new Select(currentstatusfood);
-					foodstatus.selectByVisibleText("Absent");
+					foodstatus.selectByVisibleText("Present");
 					WebElement SinceMFood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
 					Select FromMonthFood = new Select(SinceMFood);
-					FromMonthFood.selectByVisibleText("1");
+					FromMonthFood.selectByVisibleText("2");
 					WebElement SinceYFood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
 					Select FromYearFood = new Select(SinceYFood);
-					FromYearFood.selectByVisibleText("1");
+					FromYearFood.selectByVisibleText("5");
 					WebElement FoodSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
 					Select SeverityFood = new Select(FoodSeverity);
-					SeverityFood.selectByVisibleText("Mild");
+					SeverityFood.selectByVisibleText("Severe");
 					row1++;
 					break;
 					case"Skin Allergy":
@@ -654,16 +884,16 @@ public class AllergiesPage extends TestBase
 						skinAllergyinput.sendKeys("SkinAllergy");
 						WebElement currentstatusskin = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
 						Select skinstatusM = new Select(currentstatusskin);
-						skinstatusM.selectByVisibleText("Present");
+						skinstatusM.selectByVisibleText("Absent");
 						WebElement SinceMskin = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
 						Select FromMonthSkin = new Select(SinceMskin);
-						FromMonthSkin.selectByVisibleText("6");
+						FromMonthSkin.selectByVisibleText("2");
 						WebElement SinceYSkin = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
 						Select FromYearSkin = new Select(SinceYSkin);
-						FromYearSkin.selectByVisibleText("4");
+						FromYearSkin.selectByVisibleText("1");
 						WebElement SkinSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
 						Select SeveritySkin = new Select(SkinSeverity);
-						SeveritySkin.selectByVisibleText("Moderate");
+						SeveritySkin.selectByVisibleText("Mild");
 						row1++;
 						break;
 					case"Smoke Allergy":
@@ -685,13 +915,13 @@ public class AllergiesPage extends TestBase
 						smokestatusM.selectByVisibleText("Present");
 						WebElement SinceMSmoke = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
 						Select FromMonthSmoke = new Select(SinceMSmoke);
-						FromMonthSmoke.selectByVisibleText("6");
+						FromMonthSmoke.selectByVisibleText("10");
 						WebElement SinceYSmoke = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
 						Select FromYearSmoke = new Select(SinceYSmoke);
-						FromYearSmoke.selectByVisibleText("4");	
+						FromYearSmoke.selectByVisibleText("9");	
 						WebElement SmokeSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
 						Select SeveritySmoke = new Select(SmokeSeverity);
-						SeveritySmoke.selectByVisibleText("Mild");
+						SeveritySmoke.selectByVisibleText("Severe");
 						row1++;
 						break;
 					case"Latex Allergy":
@@ -711,13 +941,13 @@ public class AllergiesPage extends TestBase
 						LatexstatusM.selectByVisibleText("Present");
 						WebElement SinceMLatex = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
 						Select FromMonthLatex = new Select(SinceMLatex);
-						FromMonthLatex.selectByVisibleText("3");
+						FromMonthLatex.selectByVisibleText("7");
 						WebElement SinceYLatex = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
 						Select FromYearLatex = new Select(SinceYLatex);
-						FromYearLatex.selectByVisibleText("4");	
+						FromYearLatex.selectByVisibleText("5");	
 						WebElement LatexSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
 						Select SeverityLatex = new Select(LatexSeverity);
-						SeverityLatex.selectByVisibleText("Mild");
+						SeverityLatex.selectByVisibleText("Moderate");
 						row1++;
 						break;
 					case"Dust Allergy":
@@ -737,10 +967,10 @@ public class AllergiesPage extends TestBase
 						DuststatusM.selectByVisibleText("Present");
 						WebElement SinceMDust = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[4]"));
 						Select FromMonthDust = new Select(SinceMDust);
-						FromMonthDust.selectByVisibleText("3");
+						FromMonthDust.selectByVisibleText("1");
 						WebElement SinceYDust = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[5]"));
 						Select FromYearDust = new Select(SinceYDust);
-						FromYearDust.selectByVisibleText("4");	
+						FromYearDust.selectByVisibleText("2");	
 						WebElement DustSeverity = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[6]"));
 						Select SeverityDust = new Select(DustSeverity);
 						SeverityDust.selectByVisibleText("Mild");
@@ -749,10 +979,18 @@ public class AllergiesPage extends TestBase
 						Save.click();*/
 						
 					}//switch
+					
+					
+		
+	}//names
+			
+		
+}//rows
+		Updatebutton.click();
 		
 	}
-		
-}
-	}
+	
+	
+	
 	}
 
