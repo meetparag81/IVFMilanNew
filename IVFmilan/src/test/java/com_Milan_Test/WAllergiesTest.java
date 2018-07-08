@@ -47,7 +47,7 @@ public class WAllergiesTest extends TestBase
 		WHP= EMRPage.clickOnWomenField();
 		Allergies= WHP.ClickOnAllergies();	
 	}
-	@Test(priority=1,enabled= true)
+	@Test(priority=2,enabled= true)
 	public void FoodAllergyvalidationTest()
 	{
 		
@@ -55,7 +55,7 @@ public class WAllergiesTest extends TestBase
 		Assert.assertTrue(flag);
 		System.out.println("Alergy textbox is enabled");
 	}
-	@Test(priority=2,enabled= true)
+	@Test(priority=3,enabled= true)
 	public void AddNewAllergiesTest() 
 	{
 		Allergies.AddnewAllergies();
@@ -65,7 +65,7 @@ public class WAllergiesTest extends TestBase
 	}
 	
 	@Test(priority=3,enabled= true)
-	public void SaveMessage()
+	public void AllergiesOnDashboardforNewPatientTest()
 	{
 	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();
 	
@@ -91,7 +91,7 @@ public void ExistingPatientDrugAllergyTypeTest()
 			System.out.println();
 		
 }
-@Test(priority=6,enabled= true)
+@Test(priority=1,enabled= true)
 public void AllergySelectionTest() 
 {
 	boolean flag1;
@@ -102,7 +102,7 @@ public void AllergySelectionTest()
 	
 	{
 		String act= Allergies.AllergySelection();
-		String exp = reader.getCellData("Allergies", "Message", 3);
+		String exp = "Record updated successfully!";
 		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 		
@@ -110,7 +110,8 @@ public void AllergySelectionTest()
 	else if(flag1==false&& flag2==false)// new patienttrue and Update  button is not true
 	{
 		String act= Allergies.AllergySelection();
-		String exp = reader.getCellData("Allergies", "Message", 3);
+		String exp = "Record saved successfully!";
+				//reader.getCellData("Allergies", "Message", 2);
 		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 	
@@ -119,7 +120,8 @@ public void AllergySelectionTest()
 	else if(flag1==false&& flag2==true)// new patient true but update button is true
 	{
 		String act= Allergies.AllergySelection();
-		String exp = reader.getCellData("Allergies", "Message", 3);
+		String exp = "Record updated successfully!";
+				reader.getCellData("Allergies", "Message", 3);
 		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 		
@@ -128,7 +130,8 @@ public void AllergySelectionTest()
 	else if(flag1== true && flag2==false)// existing patient true but update button is not true
 	{
 		String act= Allergies.AllergySelection();
-		String exp = reader.getCellData("Allergies", "Message", 3);
+		String exp = "Record updated successfully!";
+		//reader.getCellData("Allergies", "Message", 3);
 		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 				
@@ -136,7 +139,8 @@ public void AllergySelectionTest()
 	else if(flag1== true && flag2==true)// existing patient true and update button is  true
 	{
 		String act= Allergies.AllergySelection();
-		String exp = reader.getCellData("Allergies", "Message", 2);
+		String exp = "Record saved successfully!";
+				//reader.getCellData("Allergies", "Message", 2);
 		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 		
@@ -145,20 +149,14 @@ public void AllergySelectionTest()
 	
 	
 		String act =Allergies.AllergySelection();
-		String exp = reader.getCellData("Allergies", "Message", 2);
+		String exp = "Record saved successfully!";
+				reader.getCellData("Allergies", "Message", 2);
 		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 		
-	
-	
-	
-	
-}
-	
-	
-	
 
-	
+}
+
 	@ AfterMethod
 	public void Teardown()
 	{

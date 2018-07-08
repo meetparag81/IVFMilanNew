@@ -50,47 +50,45 @@ public class WomenHistoryPageTest extends TestBase
 		TestBase.initalization();
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		//EMRPage= HomePage.ClickonEMR();
-		//EMRPage= HomePage.SearchusingCalender();
 		EMRPage= HomePage.searchPaient();
 		WHP= EMRPage.clickOnWomenField();	
 	}
 	
-	@Test(priority=1)
+	@Test(priority=1,enabled=false)
 	public void SexualHistoryTest() 
 	{
 		SHP= WHP.ClickonSexsuslHistory();
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,enabled=false)
 	public void ObstetricHistoryTest() 
 	{
 		OHP= WHP.ClickonObstetricHistory();
 	}
-	@Test(priority=3)
+	@Test(priority=3,enabled=false)
 	public void MedicalHistoryTest() throws Throwable
 	{
 		WHP.ClickonMedicalHistory();
 	}
 	
-	@Test(priority=4)
+	@Test(priority=4,enabled=false)
 	public void FamilyHistoryTest () 
 	{
 		WHP.ClicOnFamilyHistory();
 	}
 	
-	@Test(priority=5)
+	@Test(priority=5,enabled=false)
 	public void SurgicalHistoryTest () 
 	{
 		WHP.ClickOnSurgicalHistory();
 	}
 	
-	@Test(priority=6)
+	@Test(priority=6,enabled=false)
 	public void PreviousTreatmentHistoryTest() 
 	{
 		PTHP= WHP.ClickOnpreviousTreatmentHistory();
 	}
-	@Test(priority=7)
+	@Test(priority=7,enabled=false)
 	public void pastMedicationHistoryTest() 
 	{
 		PMH= WHP.ClickOnpastMedicationHistory();
@@ -107,13 +105,11 @@ public class WomenHistoryPageTest extends TestBase
 	{
 		Addictions= WHP.ClickOnAddictions();
 	}
-	@Test(priority=9)
+	@Test(priority=10)
 	public void VaccinationTest() throws Exception
 	{
 		Vaccination = WHP.ClickOnVaccination();
-	}
-	
-	@Test(priority=10)
+	}@Test(priority=10)
 	public void socialHistoryTest() 
 	{
 		socialHistory = WHP.ClickOnsocialHistory();

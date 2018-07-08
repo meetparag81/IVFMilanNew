@@ -1,6 +1,7 @@
 package com_milan_POM;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeoutException;
 
@@ -76,13 +77,14 @@ public class AddictionsPage extends TestBase {
 	// Exls_Reader reader = null;
 	static int count1 = 0;
 	String names;
-	static String Message;
+	String Message;
+	String msg;
 
 	AddictionsPage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean CurrentStatusEnableForSmoke() 
+	public boolean CurrentStatusDisplayForSmoke() 
 	{
 		try
 		{
@@ -92,7 +94,8 @@ public class AddictionsPage extends TestBase {
 		{
 			System.out.println("Element not seen within 20 seconds");
 		}
-		if (smoke.isDisplayed()) {
+		if (smoke.isDisplayed()) 
+		{
 			smoke.click();
 		}
 		currentstatusSmoke.isDisplayed();
@@ -100,7 +103,7 @@ public class AddictionsPage extends TestBase {
 
 	}
 
-	public boolean CurrentStatusEnableConditionForAlcohol() 
+	public boolean CurrentStatusDisplayConditionForAlcohol() 
 	{
 		try{
 		TestUtil.ClickOn(driver, Alkohol, 20);
@@ -118,7 +121,7 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean CurrentStatusEnableConditionForTobaco() 
+	public boolean CurrentStatusDisplayConditionForTobaco() 
 	{
 		try
 		{
@@ -137,7 +140,7 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean CurrentStatusEnableConditionForDrugAdiction() 
+	public boolean CurrentStatusDisplayConditionForDrugAdiction() 
 	{
 		try
 		{
@@ -150,14 +153,15 @@ public class AddictionsPage extends TestBase {
 		}
 		
 		
-		if (DrugAdiction.isDisplayed()) {
+		if (DrugAdiction.isDisplayed()) 
+		{
 			DrugAdiction.click();
 		}
 		currentstatusDrugAdiction.isDisplayed();
 		return true;
 	}
 
-	public boolean CurrentStatusEnableConditionForCaffeineAddiction() 
+	public boolean CurrentStatusDisplayConditionForCaffeineAddiction() 
 	{
 		try
 		{
@@ -177,7 +181,7 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean EnableConditionForSinceWhenDrugAdiction() 
+	public boolean DisplayConditionForSinceWhenDrugAdiction() 
 	{
 		try
 		{
@@ -196,7 +200,7 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean EnableConditionSinceWhenForAlkohol() 
+	public boolean DisplayConditionSinceWhenForAlkohol() 
 	{
 		
 		
@@ -207,7 +211,7 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean EnableConditionSinceWhenForTobaco() 
+	public boolean DisplayConditionSinceWhenForTobaco() 
 	{
 		try
 		{
@@ -228,7 +232,7 @@ public class AddictionsPage extends TestBase {
 		return true;
 	}
 
-	public boolean EnableConditionSinceWhenForSmoke() 
+	public boolean DisplayConditionSinceWhenForSmoke() 
 	{
 		try
 		{
@@ -331,8 +335,31 @@ public class AddictionsPage extends TestBase {
 
 		return mydata;
 	}
+	
+	public boolean CheckboxIsClickable()
+	{
+	boolean flag= false;
+	int count = 0;
+	List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
 
-	public void SaveAllAddictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
+	Iterator<WebElement>we = checkbox.iterator();
+	WebElement checkbox1= we.next();
+	checkbox1.isSelected();
+	count++;
+	if(count==5)
+	{
+		flag= false;
+	}
+	else
+	{
+		flag= true;
+	}
+	return flag;
+		
+	}
+	
+
+	public String SaveAllAddictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
 			String Frequency, String Quantity)  
 	{
 
@@ -347,23 +374,24 @@ public class AddictionsPage extends TestBase {
 				
 				if (checkbox1.isSelected() == false) 
 				{
-					NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
-					Save.click();
+					msg= NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+					//Save.click();
 					break;
 
 				}
 				else
 				{
-					ExistingAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+					msg= ExistingAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 					break;
 					
 				}
 				
 			}
+			return msg;
 			
 	}
 	
-	public  void NewAddictions(String Addiction1, String CurrentStatus1, String SinceMonth1, String SinceYear1,
+	public  String NewAddictions(String Addiction1, String CurrentStatus1, String SinceMonth1, String SinceYear1,
 			String Frequency1, String Quantity1) 
 	{
 		List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
@@ -405,7 +433,8 @@ public class AddictionsPage extends TestBase {
 
 					WebElement checkboxA = driver.findElement(By.xpath(	"//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
 					boolean a = checkboxA.isSelected();
-					if (a == false) {
+					if (a == false) 
+					{
 
 						checkboxA.click();
 					} else {
@@ -534,20 +563,20 @@ public class AddictionsPage extends TestBase {
 			} finally 
 			{
 				System.out.println("Save the form");
-				Save.click();
+				//Save.click();
 			}	
 		}//while
 		
 		
-		//Save.click();
-		/*String Message = NewSaveflashmsg.getText();
-
-		System.out.println(Message);*/
+		Save.click();
+		 return Message = NewSaveflashmsg.getText();
+		 
+		
 		
 	}
 	
 		
-		public  void ExistingAddictions(String Addiction2, String CurrentStatus2, String SinceMonth2, String SinceYear2,String Frequency2, String Quantity2)
+		public  String ExistingAddictions(String Addiction2, String CurrentStatus2, String SinceMonth2, String SinceYear2,String Frequency2, String Quantity2)
 		{
 			count1++;
 		int count = 0;
@@ -619,15 +648,12 @@ public class AddictionsPage extends TestBase {
 							count1++;
 							WebElement Alkohol = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[2]//select[1]"));
 							Select AddictionAlkohol = new Select(Alkohol);
-							//AddictionAlkohol.deselectByVisibleText(CurrentStatus2);
+							//
 							AddictionAlkohol.selectByVisibleText(CurrentStatus2);
 							WebElement MonthA = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[3]//select[1]"));
 							Select SinceMonthA = new Select(MonthA);
-							//SinceMonthA.deselectByVisibleText(SinceMonth2);
 							SinceMonthA.selectByVisibleText(SinceMonth2);
-							
 							WebElement YearAlkohol = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[3]//select[1])[2]"));
-													
 							Select SinceYearA = new Select(YearAlkohol);
 							SinceYearA.selectByVisibleText(SinceYear2);
 							WebElement frequencyA = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
@@ -769,11 +795,9 @@ public class AddictionsPage extends TestBase {
 					}//while
 
 				Save.click();
-				
-				
-				String Message = UpdateFlashMessage.getText();
+				 return Message = UpdateFlashMessage.getText();
 
-				System.out.println(Message);
+				
 				
 					
 				

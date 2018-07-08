@@ -498,7 +498,8 @@ return count2;
 		{
 			System.out.println("Element-Cycles is not seen within 30 sec");
 		}
-		Cycles.click();
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].click();", Cycles);
 		List<WebElement>rows = driver.findElements(By.xpath("//h5[text()='Previous Procedures']//following::table[1]//tbody//tr"));
 		int rowsize= rows.size();
 		boolean flag= false;

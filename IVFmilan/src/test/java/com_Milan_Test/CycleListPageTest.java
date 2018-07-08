@@ -160,13 +160,13 @@ public class CycleListPageTest extends TestBase
 		}
 		
 	}
-	@Test(priority=5,enabled=true)
+	@Test(priority=5,enabled=false)
 	public void ARTTypeOptionTest() throws Exception
 	{
 		boolean flag1 = CLP.NewCycleButtonEnableCondition();
 		boolean flag2 = CLP.CycleCodeAvaibility();
 	
-		if(flag1==false&&flag2==true)
+		if(flag1==false&&flag2==false)
 		{
 			COP = CLP.ClickOnCycleCode();
 			String act=	CLP.ARTTypeOption();

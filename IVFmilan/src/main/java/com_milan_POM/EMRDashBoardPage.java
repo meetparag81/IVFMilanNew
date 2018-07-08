@@ -65,7 +65,9 @@ public class EMRDashBoardPage extends TestBase {
 			{
 				System.out.println("element is not seen within the time");
 			}
-			Historylinkwomen.click();
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("arguments[0].click();", Historylinkwomen);
+			//Historylinkwomen.click();
 
 			List<WebElement> visitw = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if (visitw.size() != 0) 
@@ -104,7 +106,8 @@ public class EMRDashBoardPage extends TestBase {
 		act.moveToElement(womenfield).click().perform();
 		}
 
-	public String TitleHistoryPage() {
+	public String TitleHistoryPage() 
+	{
 		TestUtil.VisibleOn(driver, TitleHistory, 20);
 		String Title = TitleHistory.getText();
 		return Title;
@@ -126,15 +129,16 @@ public class EMRDashBoardPage extends TestBase {
 
 			jse.executeScript("arguments[0].scrollIntoView()", Historylinkmen);
 			Historylinkmen.click();
-			// System.out.println(" Clicked onMen History");
-			List<WebElement> visitm = driver.findElements(By
-					.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
-			if (visitm.size() != 0) {
+			List<WebElement> visitm = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+			if (visitm.size() != 0) 
+			{
 				// System.out.println("Visitcount" + visitm.size());
 				TestUtil.VisibleElementsOn(driver, visitm, 30);
 				visitm.get(0).click();
 				System.out.println("Men visit cliked");
-			} else {
+			} 
+			else 
+			{
 
 				return new MenHistoryPage();
 
@@ -160,15 +164,17 @@ public class EMRDashBoardPage extends TestBase {
 			System.out.println("Thread.sleep value should be decreased");
 		}
 		FemaleDiagnosis.click();
-		List<WebElement> visitm = driver.findElements(
-				By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
-		if (visitm.size() != 0) {
+		List<WebElement> visitm = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
+		if (visitm.size() != 0) 
+		{
 			// System.out.println("Visitcount" + visitm.size());
 			TestUtil.VisibleElementsOn(driver, visitm, 30);
 			visitm.get(0).click();
 			System.out.println("Dignosis visit cliked");
 
-		} else {
+		}
+		else 
+		{
 
 			System.out.println("diagnosis is not available");
 

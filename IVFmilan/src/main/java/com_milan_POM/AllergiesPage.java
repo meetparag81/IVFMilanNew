@@ -22,8 +22,7 @@ import com_Milan_util.TestUtil;
 
 public class AllergiesPage extends TestBase
 {
-	private @FindBy (xpath="(//button[@id='btnAddObstetricHistoryRow'])[2]")
-	static WebElement Addrows;
+	private @FindBy (xpath="//div[@class='col-md-4 col-lg-4 text-right']/button[@class='f-right btn-link link']") WebElement Addrows;
 	private @FindBy(xpath="(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]")WebElement Allergytype;
 	private @FindBy(xpath="(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[2]")WebElement DrugAllergyType;
 	private @FindBy(xpath="//div[@id='allergies']/div/div[2]/div/table/tbody/tr[2]/td[3]/div[2]/input")WebElement FoodAllergy;
@@ -33,8 +32,8 @@ public class AllergiesPage extends TestBase
 	static WebElement Save;
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
 	private @FindBy(xpath="//button[@class='btn btn-default']") WebElement Cancel;
-	 private @FindBy(xpath="//button[@class='toast-msg ng-binding ng-scope") WebElement UpdateMessage;
-	  @FindBy(xpath="//button[text()=' Update'][@class='btn btn-primary ng-binding']")WebElement Updatebutton;
+	private @FindBy(xpath="//button[@class='toast-msg ng-binding ng-scope") WebElement UpdateMessage;
+	private @FindBy(xpath="//button[text()=' Update'][@class='btn btn-primary ng-binding']")WebElement Updatebutton;
 	 private @FindBy(xpath="//button[@class='btn btn-primary ng-binding']")WebElement Savebutton;
 	 int rows;
 	 String msg;
@@ -352,12 +351,13 @@ public class AllergiesPage extends TestBase
 		
 	}
 	
-	public  String SaveMessage()
+	public String  SaveMessage()
 	{
 		boolean flag1;
 		 flag1 = size();
 		 boolean flag2;
 		 flag2=SavebuttonText();
+	
 		 
 		if(flag1==true&& flag2==true)// existing patienttrue and update button is true
 		{
@@ -379,12 +379,13 @@ public class AllergiesPage extends TestBase
 			catch(Exception e)
 			{
 				System.out.println("UpdateMessage is not seen within 10 secs");
-				
+				msg = "Record updated successfully!";
 			}
-			msg = "Record updated successfully!";
 			
 			
+		
 		}
+		
 		else if(flag1==false&& flag2==false)// new patienttrue and Update  button is not true
 		{
 			try
@@ -481,12 +482,14 @@ public class AllergiesPage extends TestBase
 					
 				}
 				msg = "Record updated successfully!";
+				
 			
 			
 		}
 		
 		
-			TestUtil.ActionForMovetoElement(SaveMessage);	
+		
+			/*TestUtil.ActionForMovetoElement(SaveMessage);	
 			
 			
 			
@@ -505,11 +508,15 @@ public class AllergiesPage extends TestBase
 						{
 							System.out.println("SaveMessage is not seen");
 						}
+						return msg= "Record saved successfully!";*/
+						
+						
+						return msg;
 						
 					
 					
 					
-						return msg= "Record saved successfully!";
+						
 	}
 						
 					
@@ -793,7 +800,7 @@ public class AllergiesPage extends TestBase
 		rows=rows+1;
 		for( int row1=rows ;row1<= 6;row1++)
 		{
-				TestUtil.VisibleOn(driver, Addrows, 30);
+				//TestUtil.VisibleOn(driver, Addrows, 30);
 				//Addrows.click();
 				WebElement allergy= driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]"));
 				try

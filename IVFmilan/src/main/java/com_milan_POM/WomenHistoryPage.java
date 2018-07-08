@@ -1,5 +1,6 @@
 package com_milan_POM;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 
 import org.openqa.selenium.WebElement;
@@ -37,7 +38,6 @@ public class WomenHistoryPage extends TestBase
 	
 	public SexualHistoryPage ClickonSexsuslHistory() 
 	{
-		System.out.println("========sexsuslHistory click testcase started======");
 		try
 		{
 		TestUtil.VisibleOn(driver, SexualHistory, 20);
@@ -55,7 +55,6 @@ public class WomenHistoryPage extends TestBase
 	}
 		 public ObstetricHistoryPage ClickonObstetricHistory() 
 			{
-			 System.out.println("========ObstetricHistory click testcase started======");
 			 try
 			 {
 			 TestUtil.VisibleOn(driver, ObstetricHistory, 20);
@@ -69,18 +68,16 @@ public class WomenHistoryPage extends TestBase
 			 {
 				 System.out.println("Finally block executed");
 			 }
-			 ObstetricHistory.click();
-			 System.out.println("clicked on Obstetric History");
-				
-				 return  new ObstetricHistoryPage();
+			 JavascriptExecutor jse = (JavascriptExecutor) driver;
+				jse.executeScript("arguments[0].click();", ObstetricHistory);
+			 return  new ObstetricHistoryPage();
 		 
 		
 	
 			}
 		 public  MedicalHistoryPage ClickonMedicalHistory() 
 			{
-			 System.out.println("========MedicalHistory click testcase started======");
-			 try
+			try
 			 {
 				 TestUtil.VisibleOn(driver, medicalHistory, 20); 
 			 }
@@ -102,7 +99,6 @@ public class WomenHistoryPage extends TestBase
 		 
 		 public FamilyHistoryPage ClicOnFamilyHistory() 
 			{
-			 System.out.println("========FamilyHistory click testcase started======");
 			 try
 			 {
 				 TestUtil.VisibleOn(driver, familyHistory, 20);
@@ -121,7 +117,7 @@ public class WomenHistoryPage extends TestBase
 
 		public  SurgicalHistoryPage ClickOnSurgicalHistory()  
 		{
-			System.out.println("========SurgicalHistory click testcase started======");
+			
 			try
 			{
 				TestUtil.VisibleOn(driver, SurgicalHistory, 20);
@@ -137,7 +133,7 @@ public class WomenHistoryPage extends TestBase
 		}
 		public  previousTreatmentHistoryPage ClickOnpreviousTreatmentHistory() 
 		{
-			System.out.println("========previousTreatmentHistory click testcase started======");
+
 			try
 			{
 			TestUtil.VisibleOn(driver, previousTreatmentHistory, 20);
@@ -154,7 +150,7 @@ public class WomenHistoryPage extends TestBase
 		}
 		public  WPastMedicationHistoryPage ClickOnpastMedicationHistory() 
 		{
-			System.out.println("========pastMedicationHistory click testcase started======");
+			
 			try
 			{
 			TestUtil.VisibleOn(driver, pastMedicationHistory, 20);
@@ -175,22 +171,21 @@ public class WomenHistoryPage extends TestBase
 			{
 				TestUtil.VisibleOn(driver, allergies, 20);
 				TestUtil.ActionForMovetoElement(allergies);
+				
 			}
 			catch(TimeoutException e)
 			{
 				System.out.println("Element- allergies is not seen with in 20 sec");
-			}			
+			}
 			allergies.click();
-			System.out.println("clicked on Allergies");
+			/*JavascriptExecutor jse = (JavascriptExecutor) driver;
+			jse.executeScript("arguments[0].click();", allergies);*/
 			return new AllergiesPage();
-			
 		}
 		
 		public  AddictionsPage ClickOnAddictions() 
 		{
-			System.out.println("========Addictions click testcase started======");
-			
-			try
+		try
 			{
 			TestUtil.VisibleOn(driver, addictions, 30);
 			TestUtil.ActionForMovetoElement(addictions);

@@ -10,6 +10,7 @@ import java.util.List;
 
 import org.apache.xmlbeans.impl.values.XmlValueDisconnectedException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -47,6 +48,7 @@ public class CycleListPage extends TestBase
 	String Name;
 	String Name1;
 	boolean flag;
+	String OptionName;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	CycleListPage()
 	{
@@ -181,61 +183,150 @@ public class CycleListPage extends TestBase
 	}
 	public String  ARTTypeOption() 
 	{
+		boolean flag1 = NewCycleButtonEnableCondition();
+		boolean flag2 = CycleCodeAvaibility();
+		if(flag1==false&&flag2==false)
+		{
 		// ClickonNewCycle();
-		Select OptionART = new Select(Artselecttype);
+	Select OptionART = new Select(Artselecttype);
 	WebElement option =	OptionART.getFirstSelectedOption();
-	String OptionName = option.getText();
+	try
+	{
+		Thread.sleep(2000);
+	}
+	catch(InterruptedException e)
+	{
+	System.out.println("InterruptedException is seen");
+	}
+	JavascriptExecutor jse = (JavascriptExecutor) driver;
+	String OptionName =  (String) jse.executeScript("angular.element($('#Artselecttype')).text()");
 	reader.setCellData("CycleList", "ARTtype", 2, OptionName);
+		return OptionName;
+		}
+		else
+		{
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch(InterruptedException e)
+			{
+			System.out.println("InterruptedException is seen");
+			}
+			JavascriptExecutor jse = (JavascriptExecutor) driver;
+			String OptionName =  (String) jse.executeScript("angular.element($('#Artselecttype')).text()");
+			
+			
+		}
 		return OptionName;
 		
 	}
 	
 	public String NoofProtocol()
 	{
-		try
+		boolean flag1 = NewCycleButtonEnableCondition();
+		boolean flag2 = CycleCodeAvaibility();
+	
+		if(flag1==false&&flag2==true)
 		{
-			Thread.sleep(2000);
-		}
-		catch(InterruptedException e)
-		{
-			System.out.println("Interrupted exception seen");
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("Interrupted exception seen");
+			}
+			
+			String NameofProtocol = null;
+			Select Protocolopt= new Select(Protocol);
+			List<WebElement>NoofProtocol =  Protocolopt.getOptions();
+			int SizeofProtocol= NoofProtocol.size();
+			int row= 1;
+			int rows=row;
+			int count=0;
+			rows=row+1;
+			for(int i=0;i<SizeofProtocol;i++)
+			{
+				
+			String ProtocolName= NoofProtocol.get(i).getText();
+			//reader.setCellData("CycleList", "ProtocolName", rows, ProtocolName);
+			try
+			{
+			 NameofProtocol = reader.getCellData("CycleList", "ProtocolName", rows);
+			}
+			catch(XmlValueDisconnectedException e)
+			{
+				System.out.println("value is not taken");
+				
+			}
+			if(ProtocolName.equals(NameofProtocol))
+			{
+				
+				count++;
+				rows++;
+			}
+			if(count==4)
+			{
+				Protocolopt.selectByVisibleText(ProtocolName);
+				Name= NoofProtocol.get(i).getText();
+				break;
+			
 		}
 		
-		String NameofProtocol = null;
-		Select Protocolopt= new Select(Protocol);
-		List<WebElement>NoofProtocol =  Protocolopt.getOptions();
-		int SizeofProtocol= NoofProtocol.size();
-		int row= 1;
-		int rows=row;
-		int count=0;
-		rows=row+1;
-		for(int i=0;i<SizeofProtocol;i++)
+		}
+		}
+		else
 		{
+			try
+			{
+				Thread.sleep(2000);
+			}
+			catch(InterruptedException e)
+			{
+				System.out.println("Interrupted exception seen");
+			}
 			
-		String ProtocolName= NoofProtocol.get(i).getText();
-		//reader.setCellData("CycleList", "ProtocolName", rows, ProtocolName);
-		try
-		{
-		 NameofProtocol = reader.getCellData("CycleList", "ProtocolName", rows);
-		}
-		catch(XmlValueDisconnectedException e)
-		{
-			System.out.println("value is not taken");
+			String NameofProtocol = null;
+			Select Protocolopt= new Select(Protocol);
+			List<WebElement>NoofProtocol =  Protocolopt.getOptions();
+			int SizeofProtocol= NoofProtocol.size();
+			int row= 1;
+			int rows=row;
+			int count=0;
+			rows=row+1;
+			for(int i=0;i<SizeofProtocol;i++)
+			{
+				
+			String ProtocolName= NoofProtocol.get(i).getText();
+			//reader.setCellData("CycleList", "ProtocolName", rows, ProtocolName);
+			try
+			{
+			 NameofProtocol = reader.getCellData("CycleList", "ProtocolName", rows);
+			}
+			catch(XmlValueDisconnectedException e)
+			{
+				System.out.println("value is not taken");
+				
+			}
+			if(ProtocolName.equals(NameofProtocol))
+			{
+				
+				count++;
+				rows++;
+			}
+			if(count==4)
+			{
+				Protocolopt.selectByVisibleText(ProtocolName);
+				Name= NoofProtocol.get(i).getText();
+				break;
 			
 		}
-		if(ProtocolName.equals(NameofProtocol))
-		{
 			
-			count++;
-			rows++;
 		}
-		if(count==4)
-		{
-			Protocolopt.selectByVisibleText(ProtocolName);
-			Name= NoofProtocol.get(i).getText();
-			break;
+			
+		
 		}
-	}
 		return Name;
 		 
 		
@@ -285,13 +376,12 @@ public class CycleListPage extends TestBase
 		try
 		{
 			TestUtil.VisibleOn(driver, Sourceofsperm, 30);
+			TestUtil.ActionForMovetoElement(Sourceofsperm);
 		}
 		catch(TimeoutException e)
 		{
 			System.out.println("element- Sourceofsperm is not seen within 30 sec");
 		}
-		Actions act = new Actions(driver);
-		act.moveToElement(Sourceofsperm).click().perform();
 		List<WebElement>Sourceofsperms=driver.findElements(By.xpath("//label[text()='Source of Sperm']//following-sibling::div/select/option"));
 		
 		int count=0;
@@ -331,40 +421,85 @@ public class CycleListPage extends TestBase
 		
 	public String SourceofSpermselectionDonor() 
 	{
-		//ClickonNewCycle();
-		try
-		{
-			TestUtil.VisibleOn(driver, Sourceofsperm, 30);
-		}
-		catch(TimeoutException e)
-		{
-			System.out.println("element- Sourceofsperm is not seen within 30 sec");
-		}
-		Actions act = new Actions(driver);
-		act.moveToElement(Sourceofsperm).click().perform();
+		boolean flag1 = NewCycleButtonEnableCondition();
+		boolean flag2 = CycleCodeAvaibility();
 		
-		List<WebElement>Sourceofsperms=driver.findElements(By.xpath("//label[text()='Source of Sperm']//following-sibling::div/select/option"));
-		
-		int count=0;
-		for(int i=0;i<=Sourceofsperms.size();i++)
+		if(flag1==false&&flag2==true)
 		{
-			count++;
-			if(count==3)
+			try
 			{
-				Sourceofsperms.get(i).click();
-				Name= Sourceofsperms.get(i).getText();
-				WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[1]"));
-				 Name1=SOSName.getText();
-				if(Name.equals(Name1))
-				{
-						break;
-				}
-				msg = Donor.getText();
-		
-		
+				TestUtil.VisibleOn(driver, Sourceofsperm, 30);
 			}
+			catch(TimeoutException e)
+			{
+				System.out.println("element- Sourceofsperm is not seen within 30 sec");
+			}
+			Actions act = new Actions(driver);
+			act.moveToElement(Sourceofsperm).click().perform();
+			
+			List<WebElement>Sourceofsperms=driver.findElements(By.xpath("//label[text()='Source of Sperm']//following-sibling::div/select/option"));
+			
+			int count=0;
+			for(int i=0;i<=Sourceofsperms.size();i++)
+			{
+				count++;
+				if(count==3)
+				{
+					Sourceofsperms.get(i).click();
+					Name= Sourceofsperms.get(i).getText();
+					WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[1]"));
+					 Name1=SOSName.getText();
+					if(Name.equals(Name1))
+					{
+							break;
+					}
+					msg = Donor.getText();
+			
+			
+				}
+			}
+			return Name;
+			
 		}
-		return Name;
+		else
+		{
+			try
+			{
+				TestUtil.VisibleOn(driver, Sourceofsperm, 30);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("element- Sourceofsperm is not seen within 30 sec");
+			}
+			Actions act = new Actions(driver);
+			act.moveToElement(Sourceofsperm).click().perform();
+			
+			List<WebElement>Sourceofsperms=driver.findElements(By.xpath("//label[text()='Source of Sperm']//following-sibling::div/select/option"));
+			
+			int count=0;
+			for(int i=0;i<=Sourceofsperms.size();i++)
+			{
+				count++;
+				if(count==3)
+				{
+					Sourceofsperms.get(i).click();
+					Name= Sourceofsperms.get(i).getText();
+					WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[1]"));
+					 Name1=SOSName.getText();
+					if(Name.equals(Name1))
+					{
+							break;
+					}
+					msg = Donor.getText();
+			
+			
+				}
+			}
+			return Name;
+			
+			
+		}
+		
 		
 	}
 	public boolean IndicationtypeSelection()

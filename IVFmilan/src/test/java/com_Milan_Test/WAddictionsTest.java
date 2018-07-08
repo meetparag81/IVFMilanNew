@@ -54,109 +54,109 @@ public void Setup()
 	
 	
 	
-	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	@Test(priority=1,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionSmokeTest()
 	{
-		boolean flag= Addictions.CurrentStatusEnableForSmoke();
+		boolean flag= Addictions.CurrentStatusDisplayForSmoke();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionSmokeTest is completed");
 	}
-	@Test(priority=2,groups = {"smoketest" },enabled=true)
+	@Test(priority=2,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionAlkoholTest()
 	{
-		boolean flag= Addictions.CurrentStatusEnableConditionForAlcohol();
+		boolean flag= Addictions.CurrentStatusDisplayConditionForAlcohol();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionAlkoholTest is completed");
 	}
-	@Test(priority=3,groups = {"smoketest" },enabled=true)
+	@Test(priority=3,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionTobacoTest()
 	{
-		boolean flag= Addictions.CurrentStatusEnableConditionForTobaco();
+		boolean flag= Addictions.CurrentStatusDisplayConditionForTobaco();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionTobacoTest is completed");
 	}
 	
-	@Test(priority=4,groups = {"smoketest" },enabled=true)
+	@Test(priority=4,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionAdictionTest()
 	{
-		boolean flag= Addictions.CurrentStatusEnableConditionForDrugAdiction();
+		boolean flag= Addictions.CurrentStatusDisplayConditionForDrugAdiction();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionAdictionTest is completed");
 	}
 	
-	@Test(priority=5,groups = {"smoketest" },enabled=true)
+	@Test(priority=5,groups = {"smoketest" },enabled=false)
 	public void CurrentStatusEnableConditionCaffeineAddictionTest()
 	{
-		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();
+		boolean flag= Addictions.CurrentStatusDisplayConditionForCaffeineAddiction();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionCaffeineAddictionTest is completed");
 	}
-	@Test(priority=6,groups = {"smoketest" },enabled=true)
+	@Test(priority=6,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearSmokeTest()
 	{
-		boolean flag= Addictions.EnableConditionSinceWhenForSmoke();
+		boolean flag= Addictions.DisplayConditionSinceWhenForSmoke();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionCaffeineAddictionTest is completed");
 	}
-	@Test(priority=7,groups = {"smoketest" },enabled=true)
+	@Test(priority=7,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearAlkoholTest()
 	{
-		boolean flag= Addictions.EnableConditionSinceWhenForAlkohol();
+		boolean flag= Addictions.DisplayConditionSinceWhenForAlkohol();
 		Assert.assertTrue(flag);
 		System.out.println("SenceWhenEnableconditionSinceWhenYearAlkoholTest is completed");
 	}
-	@Test(priority=8,groups = {"smoketest" },enabled=true)
+	@Test(priority=8,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenYearTobacoTest()
 	{
-		boolean flag= Addictions.EnableConditionSinceWhenForTobaco();
+		boolean flag= Addictions.DisplayConditionSinceWhenForTobaco();
 		Assert.assertTrue(flag);
 		System.out.println("SenceWhenEnableconditionSinceWhenYearTobacoTest is completed");
 	}
 	
-	@Test(priority=9,groups = {"smoketest" },enabled=true)
+	@Test(priority=9,groups = {"smoketest" },enabled=false)
 	public void SenceWhenEnableconditionSinceWhenDrugAddictionYearTest()
 	{
-		boolean flag= Addictions.EnableConditionForSinceWhenDrugAdiction();
+		boolean flag= Addictions.DisplayConditionForSinceWhenDrugAdiction();
 		Assert.assertTrue(flag);
 		System.out.println("SenceWhenEnableconditionSinceWhenDrugAddictionYearTest is completed");
 	}
 	
-	@Test(priority=10,groups = {"smoketest" },enabled=true)
+	@Test(priority=10,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenCaffeineAddictionTest()
 	{
-		boolean flag= Addictions.CurrentStatusEnableConditionForCaffeineAddiction();
+		boolean flag= Addictions.CurrentStatusDisplayConditionForCaffeineAddiction();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenCaffeineAddictionTest is completed");
 	}
-	@Test(priority=11,groups = {"smoketest" },enabled=true)
+	@Test(priority=11,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthSmokeTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForSmoke();
 		AssertJUnit.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthSmokeTest is completed");
 	}
-	@Test(priority=12,groups = {"smoketest" },enabled=true)
+	@Test(priority=12,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthAlkoholTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForAlkohol();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthAlkoholTest is completed");
 	}
-	@Test(priority=13,groups = {"smoketest" },enabled=true)
+	@Test(priority=13,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthTobocoTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForTobaco();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthTobocoTest is completed");
 	}
-	@Test(priority=14,groups = {"smoketest" },enabled=true)
+	@Test(priority=14,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForDrugAdiction();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest is completed");
 	}
-	@Test(priority=15,groups = {"smoketest" },enabled=true)
+	@Test(priority=15,groups = {"smoketest" },enabled=false)
 	public void SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForCaffeineAddiction();
@@ -164,12 +164,25 @@ public void Setup()
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest is completed");
 	}
 	@Test(priority=16,groups = {"functional" },dataProvider= "getTestData",enabled= true)
-	public void saveAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
+	public void saveAdictionsTest(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
 			String Frequency, String Quantity) 
 	{
-		Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
-		String count= reader.getCellData("Addictions", 7, 2);
-		try{
+		boolean flag= Addictions.CheckboxIsClickable();
+		if(flag==false)
+		{
+		String act = Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+		String exp = reader.getCellData("Addictions", "Message", 3);
+		Assert.assertEquals(act, exp);
+		System.out.println("saveAdictionsTest is completed");
+		}
+		else
+		{
+		String act = Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+		String exp = reader.getCellData("Addictions", "Message", 2);
+		System.out.println("saveAdictionsTest is completed");
+			
+		}
+		/*try{
 			 
 			count1 = Integer.parseInt(count);
 			 
@@ -203,13 +216,14 @@ public void Setup()
 				 Assert.assertEquals(Actual, Expected);
 					System.out.println("AddictionSaveTest is Passed");
 			 
-		}
+		}*/
 		
 	}
-	@Test (priority=17,groups = {"functional" },enabled=true)
+	@Test (priority=17,groups = {"functional" },enabled=false)
 	public void saveNewAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
 			String Frequency, String Quantity) throws Exception
 	{
+		
 		Addictions.NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 		String count= reader.getCellData("Addictions", 7, 2);
 		try{

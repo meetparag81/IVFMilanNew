@@ -3,15 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WMenstrualHistoryTest">
+      <class name="com_Milan_Test.CycleListPageTest">
         <methods>
-          <include name="MenstruationTest1"/>
-          <include name="SavevaluesTest"/>
-          <include name="AgeOfMenarcheRangeSartTest"/>
+          <include name="SourceofSpermselectionDonorTest"/>
           <include name="Teardown"/>
+          <include name="ARTTypeOptionTest"/>
+          <include name="SimulationDrugTest"/>
           <include name="Setup"/>
+          <include name="SaveTheCycleTest"/>
+          <include name="SourceofspermPartnerTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WMenstrualHistoryTest -->
+      </class> <!-- com_Milan_Test.CycleListPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
