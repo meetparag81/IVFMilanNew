@@ -51,7 +51,7 @@ public class SimulationChartPageTest extends TestBase
 		 boolean flag1= WOC.Existingcycle();
 			 if(flag1==true)
 			 {
-				 System.out.println("cycle already exist");
+				 System.out.println("Package already exist");
 
 			 }
 			 else

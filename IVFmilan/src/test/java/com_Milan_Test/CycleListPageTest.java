@@ -70,9 +70,9 @@ public class CycleListPageTest extends TestBase
 			 }
 		}		
 		CLP= WOC.ClickonCycleOption();
-	
+		
 	}
-	@Test(priority=1,enabled=true)
+	@Test(priority=3,enabled=true)
 	
 	public void ClickonNewCycleTest() 
 	{
@@ -116,7 +116,7 @@ public class CycleListPageTest extends TestBase
 	
 	}
 	
-	@Test(priority=3,enabled=true)
+	@Test(priority=1,enabled=true)
 	public void NewCycleButtonEnableConditionTest()
 	{
 		
@@ -160,20 +160,18 @@ public class CycleListPageTest extends TestBase
 		}
 		
 	}
-	@Test(priority=5,enabled=false)
+	@Test(priority=5,enabled=true)
 	public void ARTTypeOptionTest() throws Exception
 	{
-		boolean flag1 = CLP.NewCycleButtonEnableCondition();
-		boolean flag2 = CLP.CycleCodeAvaibility();
-	
-		if(flag1==false&&flag2==false)
+		System.out.println();
+		boolean flag= CLP.CycleCodeAvaibility();
+		if(flag= false)
 		{
 			COP = CLP.ClickOnCycleCode();
 			String act=	CLP.ARTTypeOption();
 			String exp = "OPU";
 			Assert.assertEquals(act, exp);	
 			System.out.println("ARTTypeOptionTest is completed" );
-			
 		}
 		else
 		{
@@ -187,7 +185,7 @@ public class CycleListPageTest extends TestBase
 	
 	}
 	@Test(priority=6,enabled=true)
-	public void ProtocolandselectionTest ()
+	public void ProtocolandselectionTest()
 	{
 		boolean flag1 = CLP.NewCycleButtonEnableCondition();
 		boolean flag2 = CLP.CycleCodeAvaibility();
@@ -223,7 +221,6 @@ public class CycleListPageTest extends TestBase
 			String exp= reader.getCellData("CycleList", "SiemenName",4);
 			Assert.assertEquals(Act, exp);
 			System.out.println("MethodofSemenCollectionTest is completed");
-			
 		}
 		else
 		{
@@ -372,8 +369,6 @@ public class CycleListPageTest extends TestBase
 		
 		
 	}
-	
-	
 	
 	@AfterMethod
 	public void Teardown()

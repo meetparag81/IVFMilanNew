@@ -82,7 +82,7 @@ public class CycleOverviewPageTest extends TestBase
 		}
 		else
 		{
-			System.out.println("User has already saved cycle");
+			System.out.println("User has already saved package");
 		}
 		boolean flag2= CLP.CycleCodeAvaibility();
 		if(flag2==true)
@@ -92,6 +92,13 @@ public class CycleOverviewPageTest extends TestBase
 		else
 		{
 			CLP.ClickonNewCycle();
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			CLP.ClickonCyclecode();
 		}
 		
@@ -121,7 +128,7 @@ public class CycleOverviewPageTest extends TestBase
 		public void ValueInProtocolTest() throws Exception
 		{
 			String act= COP.ValueInProtocol();
-			String exp = CLP.NoofProtocol();
+			String exp = "Antagonist";
 			Assert.assertEquals(act, exp);
 			System.out.println("ValueInProtocoltest is completed");
 		}
