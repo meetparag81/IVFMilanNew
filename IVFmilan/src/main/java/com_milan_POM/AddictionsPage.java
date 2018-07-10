@@ -26,60 +26,37 @@ public class AddictionsPage extends TestBase {
 	TestUtil Testutl;
 	static Exls_Reader reader = new Exls_Reader(
 			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
-	@FindBy(xpath = "(//input[@type='checkbox'])[6]")
-	private WebElement smoke;
-	@FindBy(xpath = "(//input[@type='checkbox'])[7]")
-	private WebElement Alkohol;
-	@FindBy(xpath = "(//input[@type='checkbox'])[8]")
-	private WebElement Tobaco;
-	@FindBy(xpath = "(//input[@type='checkbox'])[9]")
-	private WebElement DrugAdiction;
-	@FindBy(xpath = "(//input[@type='checkbox'])[10]")
-	private WebElement CaffeineAddiction;
-
-	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[1]")
-	private WebElement currentstatusSmoke;
-	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[2]")
-	private WebElement currentstatusAlcohol;
-	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[3]")
-	private WebElement currentstatusTobaco;
-	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[4]")
-	private WebElement currentstatusDrugAdiction;
-	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[4]")
-	private WebElement currentstatusCaffeineAddiction;
-	@FindBy(xpath = "(//label[text()='Since When'])[7]//following::select")
-	private WebElement SinceWhenYearSmoke;
-	@FindBy(xpath = "(//label[text()='Since When'])[8]//following::select")
-	private WebElement SinceWhenYearAlcohol;
-	@FindBy(xpath = "(//label[text()='Since When'])[9]//following::select")
-	private WebElement SinceWhenYearTobaco;
-	@FindBy(xpath = "(//label[text()='Since When'])[10]//following::select")
-	private WebElement SinceWhenDrugYearAdiction;
-	@FindBy(xpath = "(//label[text()='Since When'])[11]//following::select")
-	private WebElement SinceWhenYearCaffeineAddiction;
-	@FindBy(xpath = "(//label[text()='Since When'])[7]//following::select[2]")
-	private WebElement SenceWhenMonthSmioke;
-	@FindBy(xpath = "(//label[text()='Since When'])[8]//following::select[2]")
-	private WebElement SinceWhenMonthAlkohol;
-	@FindBy(xpath = "(//label[text()='Since When'])[9]//following::select[2]")
-	private WebElement SinceWhenMonthTobaco;
-	@FindBy(xpath = "(//label[text()='Since When'])[10]//following::select[2]")
-	private WebElement SinceWhenMonthDrugAdiction;
-	@FindBy(xpath = "(//label[text()='Since When'])[11]//following::select[2]")
-	private WebElement SinceWhenMonthCaffeineAddiction;
-	private @FindBy(xpath = "//button[@class='btn btn-primary ng-binding']")
-	static WebElement Save;
-	private @FindBy(xpath = "//div[@id='toasty']/div/div[2]/span[2]")
-	static WebElement UpdateFlashMessage;
-	private @FindBy(xpath = "//div[@id='toasty']/div/div[2]/span[2]")
-	static WebElement NewSaveflashmsg;
+	@FindBy(xpath = "(//input[@type='checkbox'])[6]")WebElement smoke;
+	@FindBy(xpath = "(//input[@type='checkbox'])[7]") WebElement Alkohol;
+	@FindBy(xpath = "(//input[@type='checkbox'])[8]") WebElement Tobaco;
+	@FindBy(xpath = "(//input[@type='checkbox'])[9]")WebElement DrugAdiction;
+	@FindBy(xpath = "(//input[@type='checkbox'])[10]") WebElement CaffeineAddiction;
+	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[1]") WebElement currentstatusSmoke;
+	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[2]") WebElement currentstatusAlcohol;
+	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[3]") WebElement currentstatusTobaco;
+	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[4]") WebElement currentstatusDrugAdiction;
+	@FindBy(xpath = "(//select[@id='ddlCurrentStatus'])[4]") WebElement currentstatusCaffeineAddiction;
+	@FindBy(xpath = "(//label[text()='Since When'])[7]//following::select") WebElement SinceWhenYearSmoke;
+	@FindBy(xpath = "(//label[text()='Since When'])[8]//following::select") WebElement SinceWhenYearAlcohol;
+	@FindBy(xpath = "(//label[text()='Since When'])[9]//following::select")WebElement SinceWhenYearTobaco;
+	@FindBy(xpath = "(//label[text()='Since When'])[10]//following::select") WebElement SinceWhenDrugYearAdiction;
+	@FindBy(xpath = "(//label[text()='Since When'])[11]//following::select")WebElement SinceWhenYearCaffeineAddiction;
+	@FindBy(xpath = "(//label[text()='Since When'])[7]//following::select[2]") WebElement SenceWhenMonthSmioke;
+	private@FindBy(xpath = "(//label[text()='Since When'])[8]//following::select[2]")WebElement SinceWhenMonthAlkohol;
+	private @FindBy(xpath = "(//label[text()='Since When'])[9]//following::select[2]")WebElement SinceWhenMonthTobaco;
+	private @FindBy(xpath = "(//label[text()='Since When'])[10]//following::select[2]") WebElement SinceWhenMonthDrugAdiction;
+	private @FindBy(xpath = "(//label[text()='Since When'])[11]//following::select[2]") WebElement SinceWhenMonthCaffeineAddiction;
+	private @FindBy(xpath = "//button[@class='btn btn-primary ng-binding']") WebElement Save;
+	private @FindBy(xpath ="//button[@class='btn btn-primary ng-binding']")WebElement Updatebutton;
+	private @FindBy(xpath = "//div[@id='toasty']/div/div[2]/span[2]") WebElement UpdateFlashMessage;
+	private @FindBy(xpath = "//div[@id='toasty']/div/div[2]/span[2]") WebElement NewSaveflashmsg;
 	@FindBy (xpath="//button[text()=' Update']")WebElement buttonname;
 	// Exls_Reader reader = null;
 	static int count1 = 0;
 	String names;
 	String Message;
 	String msg;
-
+	String buttontext;
 	AddictionsPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -193,7 +170,8 @@ public class AddictionsPage extends TestBase {
 			
 		}
 		
-		if (DrugAdiction.isDisplayed()) {
+		if (DrugAdiction.isDisplayed()) 
+		{
 			DrugAdiction.click();
 		}
 		SinceWhenDrugYearAdiction.isDisplayed();
@@ -204,7 +182,8 @@ public class AddictionsPage extends TestBase {
 	{
 		
 		
-		if (Alkohol.isDisplayed()) {
+		if (Alkohol.isDisplayed()) 
+		{
 			Alkohol.click();
 		}
 		SinceWhenYearAlcohol.isDisplayed();
@@ -336,17 +315,24 @@ public class AddictionsPage extends TestBase {
 		return mydata;
 	}
 	
-	public boolean CheckboxIsClickable()
+	public boolean CheckboxIsSelected()
 	{
 	boolean flag= false;
 	int count = 0;
 	List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
-
+	int count1=0;
+	boolean flag2;
+while(count1<5)
+{
 	Iterator<WebElement>we = checkbox.iterator();
 	WebElement checkbox1= we.next();
-	checkbox1.isSelected();
-	count++;
-	if(count==5)
+	flag2= checkbox1.isSelected();
+	if(flag2==true)
+	{
+	count1++;
+	}
+}
+	if(count1==5)
 	{
 		flag= false;
 	}
@@ -357,53 +343,111 @@ public class AddictionsPage extends TestBase {
 	return flag;
 		
 	}
+	public boolean SaveButtonText()
+	{
+	try
+	{
+		TestUtil.ActionForMovetoElement(Updatebutton);
+		TestUtil.VisibleOn(driver, Updatebutton, 30);
+	
+	}
+	catch(Exception e)
+	{
+		System.out.println("Element- Updatebutton is not seen with in 30 sec");
+	}
+	try
+	{
+		 buttontext = Updatebutton.getText();
+	}
+	catch(Exception e)
+	{
+		System.out.println("buttontext is not seen ");
+	}
+	boolean flag = false;
+	if(buttontext.equals("Update"))
+	{
+		
+		flag=true;
+	
+	}
+	else
+	{
+		flag=false;	
+		
+	}
+		
+	return flag;
+				
+	}
+	
 	
 
-	public String SaveAllAddictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
-			String Frequency, String Quantity)  
+
+	public String SaveAllAddictions (String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,String Frequency, String Quantity) 
 	{
 
-		List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
+		/*List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
 
 		count1 = checkbox.size();
 		checkbox.clear();
 
 			for (int i = 1; i <=count1; i++) 
 			{
-				WebElement checkbox1 = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
-				
-				if (checkbox1.isSelected() == false) 
+				WebElement checkbox1 = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));*/
+		boolean flag;
+		 flag = CheckboxIsSelected();
+		 boolean flag1;
+		 flag1=SaveButtonText();
+				if (flag==false&& flag1==true)//Newpatient but Update button is true
 				{
-					msg= NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
-					//Save.click();
-					break;
+					 NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+					 Updatebutton.click();
+					msg= UpdateFlashMessage.getText();
+					
 
 				}
-				else
+				else if (flag==false&& flag1==false)//Newpatient but Save button is true
 				{
-					msg= ExistingAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
-					break;
+					NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+					Save.click();
+					msg = NewSaveflashmsg.getText();
 					
 				}
+				else if(flag==true&& flag1==true)//ExistingPatient  and Update Button is true
+				{
+				ExistingAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+				Updatebutton.click();
+				msg= UpdateFlashMessage.getText();
 				
+				
+				}
+				else if(flag==true&& flag1==true)//ExistingPatient  and Save Button is true
+				{
+					ExistingAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+					Save.click();
+					NewSaveflashmsg.getText();
+					
+					
+				//}
+			
 			}
 			return msg;
 			
 	}
 	
-	public  String NewAddictions(String Addiction1, String CurrentStatus1, String SinceMonth1, String SinceYear1,
+	public  void NewAddictions(String Addiction1, String CurrentStatus1, String SinceMonth1, String SinceYear1,
 			String Frequency1, String Quantity1) 
 	{
 		List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
 		count1 = checkbox.size();
-		int rows1 = 1;
+		int rows1 = 0;
 		int count1 = 0;
 		while (rows1 <= 1) 
 		{
 			for (int i = 1; i <= 5; i++) 
 			{
 				count1=0;
-				rows1--;
+				rows1++;
 				WebElement addictionnames = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[1]//label"));
 				String names = addictionnames.getText();				
 				switch (names) 
@@ -411,7 +455,18 @@ public class AddictionsPage extends TestBase {
 				case "Smoking":
 					
 					WebElement checkboxS = driver.findElement(By.xpath(	"//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
-					checkboxS.click();
+					boolean s = checkboxS.isSelected();
+					if(s==false)
+					{
+
+						checkboxS.click();
+					} else 
+					{
+						
+						System.out.println("checkbox infront of Smoking is already selected");
+						
+
+					}
 					WebElement smoke = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[2]//select[1]"));
 					Select Addictionamoke = new Select(smoke);
 					Addictionamoke.selectByVisibleText(CurrentStatus1);
@@ -424,20 +479,23 @@ public class AddictionsPage extends TestBase {
 					WebElement frequency = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
 					Select frequencyS = new Select(frequency);
 					frequencyS.selectByVisibleText(Frequency1);
-					WebElement Noofcigaret = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
+					WebElement Noofcigaret = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input)[1]"));
 					Noofcigaret.sendKeys(Quantity1);
-					rows1--;
+					rows1++;
 					break;
 
 				case "Alcohol":
 
 					WebElement checkboxA = driver.findElement(By.xpath(	"//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
+					
+					
 					boolean a = checkboxA.isSelected();
 					if (a == false) 
 					{
 
 						checkboxA.click();
-					} else {
+					} else 
+					{
 						
 						System.out.println("checkbox infront of Alkohol is already selected");
 						break;
@@ -457,12 +515,13 @@ public class AddictionsPage extends TestBase {
 					FrequencyA.selectByVisibleText(Frequency1);
 					WebElement Alkoholqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
 					Alkoholqty.sendKeys(Quantity1);
-					rows1--;
+					rows1++;
 					break;
 				case "Tobacco":
 					WebElement checkboxT = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
 					boolean t = checkboxT.isSelected();
-					if (t == false) {
+					if (t == false) 
+					{
 
 						checkboxT.click();
 					} else {
@@ -485,18 +544,20 @@ public class AddictionsPage extends TestBase {
 					WebElement frequencyT = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
 					Select FrequencyTobaco = new Select(frequencyT);
 					FrequencyTobaco.selectByVisibleText(Frequency1);
-					WebElement Tobacoqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
+					WebElement Tobacoqty = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input)[3]"));
 					Tobacoqty.sendKeys(Quantity1);
-					rows1--;
+					rows1++;
 					break;
 
 				case "Drug Addiction":
 					WebElement checkboxDA = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]//div//label/input[@type='checkbox']"));
 					boolean da = checkboxDA.isSelected();
-					if (da == false) {
+					if (da == false)
+					{
 
 						checkboxDA.click();
-					} else {
+					} else 
+					{
 						
 						System.out.println("checkbox infront of Tobaco is already selected");
 						break;
@@ -514,9 +575,9 @@ public class AddictionsPage extends TestBase {
 					WebElement frequencyDA = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
 					Select FrequencyDA = new Select(frequencyDA);
 					FrequencyDA.selectByVisibleText(Frequency1);
-					WebElement DrugAddictionqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
+					WebElement DrugAddictionqty = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input)[4]"));
 					DrugAddictionqty.sendKeys(Quantity1);
-					rows1--;
+					rows1++;
 					break;
 
 				case "Caffeine Addiction":
@@ -527,7 +588,9 @@ public class AddictionsPage extends TestBase {
 					{
 
 						checkboxca.click();
-					} else {
+					}
+					else 
+					{
 						
 						System.out.println("checkbox infront of Tobaco is already selected");
 						break;
@@ -546,9 +609,9 @@ public class AddictionsPage extends TestBase {
 					WebElement frequencyCA = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
 					Select FrequencyDA1 = new Select(frequencyCA);
 					FrequencyDA1.selectByVisibleText(Frequency1);
-					WebElement CaffeineAddictionqty = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input"));
+					WebElement CaffeineAddictionqty = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input)[5]"));
 					CaffeineAddictionqty.sendKeys(Quantity1);
-					rows1--;
+					rows1++;
 					break;
 				}//switch
 			}//for
@@ -568,15 +631,15 @@ public class AddictionsPage extends TestBase {
 		}//while
 		
 		
-		Save.click();
-		 return Message = NewSaveflashmsg.getText();
+		//Save.click();
+		// return Message = NewSaveflashmsg.getText();
 		 
 		
 		
 	}
 	
 		
-		public  String ExistingAddictions(String Addiction2, String CurrentStatus2, String SinceMonth2, String SinceYear2,String Frequency2, String Quantity2)
+		public  void ExistingAddictions(String Addiction2, String CurrentStatus2, String SinceMonth2, String SinceYear2,String Frequency2, String Quantity2)
 		{
 			count1++;
 		int count = 0;
@@ -794,8 +857,8 @@ public class AddictionsPage extends TestBase {
 					
 					}//while
 
-				Save.click();
-				 return Message = UpdateFlashMessage.getText();
+				//Save.click();
+				 //return Message = UpdateFlashMessage.getText();
 
 				
 				

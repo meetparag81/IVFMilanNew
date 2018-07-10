@@ -49,15 +49,16 @@ public class EMRDashBoardPage extends TestBase {
 			try
 			{
 				TestUtil.VisibleOn(driver, womenfield, 10);
+				TestUtil.ActionForMovetoElement(womenfield);
 			}
 			catch(TimeoutException e)
 			{
 				System.out.println("Element- womenfield is not seen within10 sec");
 			}
-			 TestUtil.ActionForMovetoElement(womenfield);
 			 womenfield.click();
 					
-			try {
+			try 
+			{
 				TestUtil.VisibleOn(driver, Historylinkwomen, 10);
 				TestUtil.ActionForMovetoElement(Historylinkwomen);
 			} 
@@ -101,14 +102,29 @@ public class EMRDashBoardPage extends TestBase {
 	
 	public void ClickWomenField()
 		{
-		TestUtil.VisibleOn(driver, womenfield, 10);
-		Actions act = new Actions(driver);
-		act.moveToElement(womenfield).click().perform();
+		try
+		{
+		TestUtil.VisibleOn(driver, womenfield, 20);
+		TestUtil.ActionForMovetoElement(womenfield);
+		
+		}
+		catch(Exception e)
+		{
+		System.out.println("TimeoutExceptionseen");
+		}
+		womenfield.click();
 		}
 
 	public String TitleHistoryPage() 
 	{
+		try
+		{
 		TestUtil.VisibleOn(driver, TitleHistory, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		String Title = TitleHistory.getText();
 		return Title;
 
@@ -118,13 +134,22 @@ public class EMRDashBoardPage extends TestBase {
 	{
 		try {
 			TestUtil.VisibleOn(driver, menfield, 20);
-		} catch (TimeoutException e) {
+		}
+		catch (TimeoutException e) 
+		{
 			System.out.println("menfield is not displayed within 20 sec");
 		}
 		if (menfield.isDisplayed()) {
 			TestUtil.VisibleOn(driver, menfield, 20);
 			menfield.click();
+			try
+			{
 			TestUtil.VisibleOn(driver, Historylinkmen, 20);
+			}
+			catch(Exception e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
 			JavascriptExecutor jse = (JavascriptExecutor) driver;
 
 			jse.executeScript("arguments[0].scrollIntoView()", Historylinkmen);
@@ -133,7 +158,14 @@ public class EMRDashBoardPage extends TestBase {
 			if (visitm.size() != 0) 
 			{
 				// System.out.println("Visitcount" + visitm.size());
+				try
+				{
 				TestUtil.VisibleElementsOn(driver, visitm, 30);
+				}
+				catch(TimeoutException e)
+				{
+					System.out.println("TimeoutExceptionseen");
+				}
 				visitm.get(0).click();
 				System.out.println("Men visit cliked");
 			} 
@@ -153,9 +185,16 @@ public class EMRDashBoardPage extends TestBase {
 
 	public FemaleDiagnosisPage ClickOnDiagnosis() 
 	{
+		try
+		{
 		TestUtil.VisibleOn(driver, womenfield, 20);
-		Actions act = new Actions(driver);
-		act.moveToElement(womenfield).click().perform();
+		TestUtil.ActionForMovetoElement(womenfield);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
+		womenfield.click();
 		// TestUtil.VisibleOn(driver, FemaleDiagnosis, 30);
 		try {
 			Thread.sleep(3000);
@@ -168,7 +207,14 @@ public class EMRDashBoardPage extends TestBase {
 		if (visitm.size() != 0) 
 		{
 			// System.out.println("Visitcount" + visitm.size());
+			try
+			{
 			TestUtil.VisibleElementsOn(driver, visitm, 30);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
 			visitm.get(0).click();
 			System.out.println("Dignosis visit cliked");
 
@@ -186,8 +232,10 @@ public class EMRDashBoardPage extends TestBase {
 	public WComplaintsPage ClickOnComplaints()
 	{
 		try {
-			TestUtil.VisibleOn(driver, womenfield, 10);
-		} catch (TimeoutException e) {
+			TestUtil.VisibleOn(driver, womenfield, 20);
+		} 
+		catch (TimeoutException e) 
+		{
 			System.out.println("elementisnotseen within 20 sec");
 		}
 		Actions act = new Actions(driver);
@@ -263,7 +311,14 @@ public class EMRDashBoardPage extends TestBase {
 		if (visitm.size() != 0)
 		{
 			System.out.println("Visitcount" + visitm.size());
+			try
+			{
 			TestUtil.VisibleElementsOn(driver, visitm, 30);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
 			visitm.get(0).click();
 			System.out.println("Vitals visit cliked");
 

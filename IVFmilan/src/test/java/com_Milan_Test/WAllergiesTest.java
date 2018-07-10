@@ -64,7 +64,7 @@ public class WAllergiesTest extends TestBase
 		
 	}
 	
-	@Test(priority=3,enabled= true)
+	@Test(priority=4,enabled= true)
 	public void AllergiesOnDashboardforNewPatientTest()
 	{
 	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();
@@ -73,7 +73,7 @@ public class WAllergiesTest extends TestBase
 	}
 		
 
-@Test(priority=4,enabled= true)
+@Test(priority=5,enabled= true)
 public void OptionSelectedOnAllergyCurrentStstusTest() 
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();
@@ -81,7 +81,7 @@ public void OptionSelectedOnAllergyCurrentStstusTest()
 	Assert.assertEquals(Actual, Expected);
 	System.out.println("OptionSelectedOnAllergyCurrentStstusTest is completed");
 }
-@Test(priority=5,enabled= true)
+@Test(priority=6,enabled= true)
 public void ExistingPatientDrugAllergyTypeTest() 
 {
 		
@@ -99,7 +99,6 @@ public void AllergySelectionTest()
 	 boolean flag2;
 	 flag2=Allergies.SavebuttonText();	 
 	if(flag1==true&& flag2==true)// existing patienttrue and update button is true
-	
 	{
 		String act= Allergies.AllergySelection();
 		String exp = "Record updated successfully!";

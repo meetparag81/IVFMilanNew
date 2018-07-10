@@ -60,7 +60,14 @@ public class SearchPage extends TestBase {
 	{
 		WebElement Patient1 = wait
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//a[@id='patientBtn']")));
+		try
+		{
 		TestUtil.VisibleOn(driver, Patient1, 50);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		// Paitent = wait.until(ExpectedConditions.visibilityOf(Patient));
 
 		Patient1.click();
@@ -74,7 +81,14 @@ public class SearchPage extends TestBase {
 			System.out.println("The InterruptedException is occured");
 		}
 		Searchbox1.sendKeys(PatientName);
-		TestUtil.VisibleOn(driver, Searchbox1, 10);
+		try
+		{
+		TestUtil.VisibleOn(driver, Searchbox1, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
 		try {
 			Thread.sleep(1000);
@@ -105,7 +119,14 @@ public class SearchPage extends TestBase {
 		if(visitsize!=0)
 		{
 		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		try
+		{
 		TestUtil.VisibleOn(driver, checkbox, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		executor.executeScript("arguments[0].click();", checkbox);
 		}
 		else
@@ -126,7 +147,14 @@ public class SearchPage extends TestBase {
 	public EMRDashBoardPage SearchusingCalender()
 	{
 		WebElement Calender = wait.until(ExpectedConditions	.visibilityOfElementLocated(By.xpath("//span[text()='Queue Management']//following::i[3]")));
+		try
+		{
 		TestUtil.VisibleOn(driver, Calender, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Calender.click();
 		List<WebElement> dates = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td")));
 

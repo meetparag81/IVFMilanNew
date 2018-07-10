@@ -206,21 +206,28 @@ public class WComplaintsPage extends TestBase
 					}
 				}
 			}
+			try	
+			{
 				TestUtil.VisibleOn(driver, FollowUpReason, 20);
+			}
+			catch(TimeoutException e)
+			{
+			System.out.println("FollowUpReason is not seen within 20 seconds");
+			}
+			FollowUpReason.clear();
+			FollowUpReason.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
 					try
 					{
-						FollowUpReason.clear();
-					FollowUpReason.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
-					}
-					catch(TimeoutException e)
-					{
-						System.out.println("FollowUpReason is not seen within 20 seconds");
-					}
-					FollowUpReason.clear();
 					TestUtil.VisibleOn(driver, FollowupNotes, 20);
+					}
+					catch(Exception e)
+					{
+						System.out.println("TimeoutExceptionseen");
+					}					
 					FollowupNotes.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
 					Save.click();
 					return msg= Updateflash.getText();
+					
 			}
 			
 			
@@ -339,27 +346,33 @@ public class WComplaintsPage extends TestBase
 				}
 					
 						
-					
+				try
+				{
 					TestUtil.VisibleOn(driver, FollowUpReason, 20);
+				}
+			
+			catch(TimeoutException e)
+			{
+				System.out.println("FollowUpReason is not seen within 20 seconds");
+			}
+			FollowUpReason.clear();
+			FollowUpReason.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
+					
+					FollowupNotes.clear();
 					try
 					{
-						FollowUpReason.clear();
-					FollowUpReason.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
+					TestUtil.VisibleOn(driver, FollowupNotes, 20);
 					}
 					catch(TimeoutException e)
 					{
-						System.out.println("FollowUpReason is not seen within 20 seconds");
+						System.out.println("TimeoutException seen");
 					}
-					FollowupNotes.clear();
-					TestUtil.VisibleOn(driver, FollowupNotes, 20);
 					FollowupNotes.sendKeys("b18AxXqMeOtJgPwWCJALHauhJlcnX9Zi1hmHl3QQS1eWEriLqjBW58N2s5r7qS5ZdsdbJEXXboiPMNmh7DxCblhSCaUasVr1yzgYjOt0pgRWKP4kAPrO7Dsv4JJGqJjXOPWg9fOj4pWmbgcRdHxAam9H8nBHbuDsS4FyryDhoYubkCVRAs90YxmCnXkKXtjDfWcRErPVyW5Al5Zy5jEbmkCqPkYXjXSrLZyjSmV9DbUiXRNcuGw9oGRx2P");
 					Save.click();
 					//System.out.println(FlashMessage.getText());
-					 msg= SaveFash.getText();		
-					 
-					
-				}	
-			else
+					 msg= SaveFash.getText();	
+		}
+		else
 			{
 				ExistingPatientPresentingComplaints();
 			}

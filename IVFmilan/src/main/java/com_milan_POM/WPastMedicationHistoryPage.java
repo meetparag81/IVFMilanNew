@@ -36,24 +36,7 @@ public class WPastMedicationHistoryPage extends TestBase
 
 	public boolean DrugNameFieldEnablecondition()
 	{	
-		
-		/*TestUtil.VisibleOn(driver, GenericName,30);
-		GenericName.click();
-		TestUtil.VisibleOn(driver, InputsearchboxGeneric, 60);
-		System.out.println("searchbox is displayed"+ InputsearchboxGeneric.isDisplayed());
-		InputsearchboxGeneric.sendKeys("ADAP");
-		InputsearchboxGeneric.sendKeys(Keys.BACK_SPACE);		
-		List<WebElement>searchbox1= driver.findElements(By.xpath("//ul[@role='listbox'][@class='dropdown-menu ng-isolate-scope']//a"));
-		TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("//ul[@role='listbox'][@class='dropdown-menu ng-isolate-scope']//a")),40);
-		for(int i=0;i<=searchbox1.size();i++)
-		{
-			if(searchbox1.get(i).getText().contains("TADALAFIL"))
-			
-			TestUtil.VisibleElementsOn(driver, searchbox1, 40);
-			searchbox1.get(i).click();
-			break;		
-		}*/
-		DrugName.isDisplayed();	
+	DrugName.isDisplayed();	
 		
 		return false;
 		
@@ -97,13 +80,27 @@ public class WPastMedicationHistoryPage extends TestBase
 		//TestUtil.VisibleOn(driver, Searchbox, 50);
 				
 				List<WebElement>searchbox1= driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a"));
+				try
+				{
 				TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a")),20);
+				}
+				catch(Exception e)
+				{
+					System.out.println("Timeoutexception seen");
+				}
 		for(int i=0;i<=searchbox1.size();i++)
 		{
 			
 			if(searchbox1.get(i).getText().contains("ADAPALENE"))
 			{
+			try
+			{
 			TestUtil.VisibleElementsOn(driver, searchbox1, 20);
+			}
+			catch(Exception e)
+			{
+				System.out.println("timeout exception seen");
+			}
 			searchbox1.get(i).click();
 			break;
 			}		
@@ -165,9 +162,23 @@ public class WPastMedicationHistoryPage extends TestBase
 	{
 		String Search1 = null,Search = null;
 		int rows=2;
+		try
+		{
 		TestUtil.VisibleOn(driver, GenericName,30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Timeout exception seen");
+		}
 		GenericName.click();
+		try
+		{
 		TestUtil.VisibleOn(driver, InputsearchboxGeneric, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		
 		String search= reader.getCellData("SearchBYA", 0, 2);
 		InputsearchboxGeneric.sendKeys("ADA");
@@ -188,7 +199,14 @@ public class WPastMedicationHistoryPage extends TestBase
 			//TestUtil.VisibleOn(driver, Searchbox, 50);
 					
 					List<WebElement>searchbox1= driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a"));
+					try
+					{
 					TestUtil.VisibleElementsOn(driver, driver.findElements(By.xpath("(//ul[@role='listbox'])[3]//a")),20);
+					}
+					catch(Exception e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					int count=0;
 			for(int i=0;i<searchbox1.size();i++)
 			{

@@ -2,13 +2,17 @@ package com_milan_POM;
 
 import java.util.List;
 
+import org.apache.xalan.xsltc.compiler.sym;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.TestException;
+
 import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
 
@@ -18,6 +22,7 @@ public class ObstetricHistoryPage extends TestBase {
 	EMRDashBoardPage EMRPage;
 	WomenHistoryPage WHP;
 	TestUtil Testutl;
+	WebElement Outcome;
 	@FindBy(xpath = "//span[text()='G']//following::input[1]")
 	WebElement NewRowcount;
 	@FindBy(xpath = "//span[text()='G']//following::input[2]")
@@ -60,7 +65,7 @@ public class ObstetricHistoryPage extends TestBase {
 	WebElement Save;
 	@FindBy(xpath = "//*[@id='ObstetricHistory']/tbody/tr[1]/td[14]/span")
 	WebElement Delete;
-	WebDriverWait wait = new WebDriverWait(driver, 30);
+	//WebDriverWait wait = new WebDriverWait(driver, 30);
 	int rows1 = 0;
 	int rowcount;
 	int rowcount1;
@@ -79,10 +84,25 @@ public class ObstetricHistoryPage extends TestBase {
 		for (int row1 = rows; row1 <= 5; row1++)
 		// while(rows1<=5)
 		{
-			TestUtil.VisibleOn(driver, Addrows, 30);
+			try
+			{
+				TestUtil.VisibleOn(driver, Addrows, 30);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Timeoutexception seen");
+			}
 			Addrows.click();
-			WebElement Outcome = wait.until(ExpectedConditions
-					.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+			
+			WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+			try
+			{
+				TestUtil.VisibleOn(driver, Outcome, 30);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("Timeoutexception seen");
+			}
 			Select Outcomelist = new Select(Outcome);
 			List<WebElement> Typeofoutcome = Outcomelist.getOptions();
 			for (int i = 0; i < Typeofoutcome.size(); i++) {
@@ -90,25 +110,60 @@ public class ObstetricHistoryPage extends TestBase {
 				switch (Names) {
 				case "Livebirth":
 
-					WebElement outcomeLB = driver.findElement(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
-					TestUtil.VisibleOn(driver, outcomeLB, 40);
+					WebElement outcomeLB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, outcomeLB, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select OutcomeL = new Select(outcomeLB);
 					OutcomeL.selectByVisibleText("Livebirth");
-					WebElement year = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[1]//select)[1]")));
+					WebElement year = driver.findElement(By.xpath("//table[@id='ObstetricHistory']/tbody/tr[1]//select)[1]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, year, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select year1 = new Select(year);
 					year1.selectByVisibleText("2010");
-					WebElement gestation = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[2]")));
+					WebElement gestation = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[2]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, gestation, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
+					
 					Select Gestation1 = new Select(gestation);
 					Gestation1.selectByVisibleText("10");
-					WebElement Gender = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//td//select)[4]")));
+					WebElement Gender = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//td//select)[4]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, Gender, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select Gender1 = new Select(Gender);
 					Gender1.selectByVisibleText("Male");
-					WebElement Deliverytype = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//td//select)[5]")));
+					WebElement Deliverytype = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//td//select)[5]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, Deliverytype, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select Deliverytype1 = new Select(Deliverytype);
 					Deliverytype1.selectByVisibleText("Normal");
 					row1++;
@@ -116,14 +171,29 @@ public class ObstetricHistoryPage extends TestBase {
 					break;
 				case "Ectopic":
 					Addrows.click();
-					WebElement outcomeEB = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]")));
+					WebElement outcomeEB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, outcomeEB, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select OutcomeE = new Select(outcomeEB);
 					OutcomeE.selectByVisibleText("Ectopic");
-					WebElement yearE = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]")));
+					WebElement yearE = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, yearE, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select yearE1 = new Select(yearE);
-					try {
+					try 
+					{
 						Thread.sleep(3000);
 					} 
 					catch (InterruptedException e) 
@@ -131,8 +201,15 @@ public class ObstetricHistoryPage extends TestBase {
 						System.out.println("The InterruptedException is occured");
 					}
 					// yearE1.selectByIndex(10);
-					WebElement gestationEB = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));
+					WebElement gestationEB = driver.findElement(By.xpath("//th[text()='Gestation Weeks']//following::select[2]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, gestationEB, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select GestationE = new Select(gestationEB);
 					GestationE.selectByVisibleText("10");
 					row1++;
@@ -140,12 +217,26 @@ public class ObstetricHistoryPage extends TestBase {
 					break;
 				case "Abortion":
 					Addrows.click();
-					WebElement OutcomeAB = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]")));
+					WebElement OutcomeAB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, OutcomeAB, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select OutcomeA = new Select(OutcomeAB);
 					OutcomeA.selectByVisibleText("Abortion");
-					WebElement yearA = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]")));
+					WebElement yearA = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, yearA, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select yearA1 = new Select(yearA);
 					try {
 						Thread.sleep(2000);
@@ -155,8 +246,15 @@ public class ObstetricHistoryPage extends TestBase {
 					
 					}
 					yearA1.selectByVisibleText("2018");
-					WebElement gestationA = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));
+					WebElement gestationA =driver.findElement(By.xpath("//th[text()='Gestation Weeks']//following::select[2]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, gestationA, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexception seen");
+					}
 					Select GestationA = new Select(gestationA);
 					GestationA.selectByVisibleText("10");
 					row1++;
@@ -164,12 +262,26 @@ public class ObstetricHistoryPage extends TestBase {
 					break;
 				case "Still Born":
 					Addrows.click();
-					WebElement OutcomeSB = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]")));
+					WebElement OutcomeSB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					try
+					{
+					TestUtil.VisibleOn(driver, OutcomeSB, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeoutexceptionseen");
+					}
 					Select OutcomeSB1 = new Select(OutcomeSB);
 					OutcomeSB1.selectByVisibleText("Still Born");
-					WebElement yearSB = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]")));
+					WebElement yearSB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[1]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, yearSB, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("TimeoutException seen");
+					}
 					Select yearSB1 = new Select(yearSB);
 					try 
 					{
@@ -180,8 +292,15 @@ public class ObstetricHistoryPage extends TestBase {
 						System.out.println("The InterruptedException is occured");
 					}
 					yearSB1.selectByVisibleText("2018");
-					WebElement gestationSB = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));
+					WebElement gestationSB = driver.findElement(By.xpath("//th[text()='Gestation Weeks']//following::select[2]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, gestationSB, 30);
+					}
+					catch(TimeoutException e)
+					{
+					System.out.println("Timeout exxecption seen");	
+					}
 					Select GestationSB = new Select(gestationSB);
 					GestationSB.selectByVisibleText("10");
 					row1++;
@@ -190,12 +309,26 @@ public class ObstetricHistoryPage extends TestBase {
 
 				case "Miscarriage":
 					Addrows.click();
-					WebElement OutcomeMC = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]")));
+					WebElement OutcomeMC = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, OutcomeMC, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeout exception seen");
+					}
 					Select OutcomeMC1 = new Select(OutcomeMC);
 					OutcomeMC1.selectByVisibleText("Miscarriage");
-					WebElement yearMC = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[3]//select)[1]")));
+					WebElement yearMC = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[3]//select)[1]"));
+					try
+					{
+						TestUtil.VisibleOn(driver, yearMC, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("TimeoutException seen");
+					}
 					Select yearMC1 = new Select(yearMC);
 					try 
 					{
@@ -205,8 +338,15 @@ public class ObstetricHistoryPage extends TestBase {
 						System.out.println("The InterruptedException is occured");
 					}
 					yearMC1.selectByVisibleText("2000");
-					WebElement gestationMC = wait.until(ExpectedConditions.visibilityOfElementLocated(
-							By.xpath("//th[text()='Gestation Weeks']//following::select[2]")));
+					WebElement gestationMC = driver.findElement(By.xpath(("//th[text()='Gestation Weeks']//following::select[2]")));
+					try
+					{
+						TestUtil.VisibleOn(driver, gestationMC, 30);
+					}
+					catch(TestException e)
+					{
+						System.out.println("Timeout exception seen");
+					}
 					Select GestationMC = new Select(gestationMC);
 					GestationMC.selectByVisibleText("30");
 					Delete.click();
@@ -245,14 +385,30 @@ public class ObstetricHistoryPage extends TestBase {
 
 	}// main
 
-	public boolean CalenderEnableCondition() {
-		WebElement Calender = wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//th[text()='Date']//following::i)[1]")));
+	public boolean CalenderEnableCondition() 
+	{
+		WebElement Calender = driver.findElement(By.xpath("(//th[text()='Date']//following::i)[1]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Calender, 30);
+		}
+		catch(TestException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Calender.click();
-		List<WebElement> Dates = wait.until(
-				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']/tbody/tr//td")));
+		List<WebElement> Dates = driver.findElements(By.xpath("//table[@role='grid']/tbody/tr//td"));
+		try
+		{
+		TestUtil.VisibleElementsOn(driver, Dates, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeout exception seen");
+		}
 		int Totaldates = Dates.size();
-		for (int j = 0; j < Totaldates; j++) {
+		for (int j = 0; j < Totaldates; j++) 
+		{
 			String Date = Dates.get(j).getText();
 			if (Date.equals("14")) {
 				Dates.get(j).click();
@@ -262,18 +418,35 @@ public class ObstetricHistoryPage extends TestBase {
 		return false;
 	}
 
-	public boolean BirthWeightEnabled() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public boolean BirthWeightEnabled() 
+	{
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		 try
+		 {
+			 TestUtil.VisibleOn(driver, Outcome, 30);
+		 }
+		 catch( TimeoutException e)
+		 {
+			 System.out.println("Element- Outcome is not seen wihin 30 sec");
+		 }
+		 
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		Birthweight.isDisplayed();
 		return true;
 	}
 
-	public double BirthWeightText() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public double BirthWeightText() 
+	{		
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+		TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoit exception is seen ");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		Birthweight.sendKeys("1.234");
@@ -284,16 +457,32 @@ public class ObstetricHistoryPage extends TestBase {
 
 	}
 
-	public boolean OutcomeEnable() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public boolean OutcomeEnable() 
+	{
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Outcome.isDisplayed();
 		return true;
 	}
 
-	public String OutcomeIsLiveBirth() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public String OutcomeIsLiveBirth() 
+	{
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		String count = LiveBirth.getAttribute("value");
@@ -302,9 +491,17 @@ public class ObstetricHistoryPage extends TestBase {
 
 	}
 
-	public String AbortionOptionValue() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public String AbortionOptionValue() 
+	{
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeout exception is seen");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Abortion");
 		String count = Abortion.getAttribute("value");
@@ -313,18 +510,34 @@ public class ObstetricHistoryPage extends TestBase {
 
 	}
 
-	public String EctopicOptionValue() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public String EctopicOptionValue() 
+	{
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Ectopic");
 		String count = Ectopic.getAttribute("value");
 		return count;
 	}
 
-	public boolean DileveryTypeEnabledcondition() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public boolean DileveryTypeEnabledcondition() 
+	{
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		DeliveryType.isDisplayed();
@@ -332,23 +545,27 @@ public class ObstetricHistoryPage extends TestBase {
 
 	}
 
-	public boolean RowGridEnableConditition() {
+	public boolean RowGridEnableConditition() 
+	{
 		NewRowcount.isDisplayed();
 		return false;
 
 	}
 
-	public boolean StillbornGridEnableConditition() {
+	public boolean StillbornGridEnableConditition() 
+	{
 		StillBorn.isDisplayed();
 		return false;
 	}
 
-	public boolean LivebirthEnableConditition() {
+	public boolean LivebirthEnableConditition() 
+	{
 		LiveBirth.isDisplayed();
 		return false;
 	}
 
-	public boolean EctopiccEnableConditition() {
+	public boolean EctopiccEnableConditition() 
+	{
 		Ectopic.isDisplayed();
 		return false;
 	}
@@ -358,38 +575,70 @@ public class ObstetricHistoryPage extends TestBase {
 		return false;
 	}
 
-	public boolean DeliveroptionEnableConditition() {
+	public boolean DeliveroptionEnableConditition() 
+	{
 
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		Delivery.isDisplayed();
 		return true;
 	}
 
-	public boolean ComplicationsEnableConditition() {
+	public boolean ComplicationsEnableConditition() 
+	{
 		Delivery.isDisplayed();
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		Complications.isDisplayed();
 		return true;
 	}
 
-	public boolean CongenitalAnamolyEnableCondition() {
-		WebElement Outcome = wait.until(ExpectedConditions
-				.visibilityOfElementLocated(By.xpath("//th[text()='Outcome']//following::select[3]")));
+	public boolean CongenitalAnamolyEnableCondition() 
+	{
+		WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(Outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		CongenitalAnamoly.isDisplayed();
 		return true;
 	}
 
-	public String LiveBirthPretermcondition() {
+	public String LiveBirthPretermcondition() 
+	{
 		Select Deliveryvalue1 = new Select(Delivery);
-		TestUtil.VisibleOn(driver, outcome, 30);
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		Select GestationPre = new Select(Gestation);
@@ -401,9 +650,17 @@ public class ObstetricHistoryPage extends TestBase {
 
 	}
 
-	public String LiveBirthFullTermcondition() {
+	public String LiveBirthFullTermcondition() 
+	{
 		Select Deliveryvalue1 = new Select(Delivery);
-		TestUtil.VisibleOn(driver, outcome, 30);
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		Select Gestationfull = new Select(Gestation);
@@ -415,9 +672,17 @@ public class ObstetricHistoryPage extends TestBase {
 
 	}
 
-	public String LiveBirthAbovePostTermcondition() {
+	public String LiveBirthAbovePostTermcondition() 
+	{
 		Select Deliveryvalue1 = new Select(Delivery);
-		TestUtil.VisibleOn(driver, outcome, 30);
+		try
+		{
+			TestUtil.VisibleOn(driver, Outcome, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Timeoutexception seen");
+		}
 		Select Outcomelist = new Select(outcome);
 		Outcomelist.selectByVisibleText("Livebirth");
 		Select Gestationpost = new Select(Gestation);

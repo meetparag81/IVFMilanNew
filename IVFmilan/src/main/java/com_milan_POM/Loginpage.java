@@ -41,7 +41,14 @@ public class Loginpage extends TestBase {
 
 		password.sendKeys(psw);
 
+		try
+		{
 		TestUtil.VisibleOn(driver, clinic, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 				Select drop = new Select(clinic);
 		try {
 			Thread.sleep(2000);
@@ -56,8 +63,9 @@ public class Loginpage extends TestBase {
 
 	}
 
-	public String Homepagetitle() {
-		System.out.println("========Homepagetitle testcase started======");
+	public String Homepagetitle() 
+	{
+		
 		String msg = driver.getTitle();
 		return msg;
 

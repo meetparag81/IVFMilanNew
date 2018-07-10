@@ -244,8 +244,14 @@ public class WomenHistoryPage extends TestBase
 			{
 				System.out.println("Element- MenstrualHistory is not seen with in 20 seconds");
 			}
-			
+			try
+			{
 			TestUtil.ActionForMovetoElement(MenstrualHistory);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("TimeoutException seen");
+			}
 			
 			MenstrualHistory.click();
 			System.out.println("clicked on MenstrualHistoryPage");

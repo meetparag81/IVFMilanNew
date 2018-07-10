@@ -33,7 +33,7 @@ public class AllergiesPage extends TestBase
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
 	private @FindBy(xpath="//button[@class='btn btn-default']") WebElement Cancel;
 	private @FindBy(xpath="//button[@class='toast-msg ng-binding ng-scope") WebElement UpdateMessage;
-	private @FindBy(xpath="//button[text()=' Update'][@class='btn btn-primary ng-binding']")WebElement Updatebutton;
+	private @FindBy(xpath="//button[@class='btn btn-primary ng-binding']")WebElement Button;
 	 private @FindBy(xpath="//button[@class='btn btn-primary ng-binding']")WebElement Savebutton;
 	 int rows;
 	 String msg;
@@ -69,7 +69,14 @@ public class AllergiesPage extends TestBase
 
 	public String AllergiesNameOnDashboard() 
 	{
+		try
+		{
 		TestUtil.VisibleOn(driver, NoofAllergies, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutException seen");
+		}
 		
 		String Allergies= NoofAllergies.getAttribute("value");
 		return Allergies;
@@ -113,7 +120,7 @@ public class AllergiesPage extends TestBase
 	
 	public String AllergySelection() 
 	{
-		System.out.println();
+		
 		boolean flag1;
 		 flag1 = size();
 		 boolean flag2;
@@ -125,7 +132,7 @@ public class AllergiesPage extends TestBase
 			ExistingAllergies();
 			msg= SaveMessage();
 		}
-		else if(flag1==false&& flag2==false)// new patienttrue and Update  button is not true
+		else if(flag1==false&& flag2==false)// new patienttrue and Save button is not true
 		{
 			AddnewAllergies();
 		msg=SaveMessage();
@@ -136,7 +143,7 @@ public class AllergiesPage extends TestBase
 			AddnewAllergies();
 			msg=SaveMessage();
 		}
-		else if(flag1== true && flag2==false)// existing patient true but update button is not true
+		else if(flag1== true && flag2==false)// existing patient true but Save button is not true
 		{
 			ExistingAllergies();
 			msg=SaveMessage();			
@@ -212,7 +219,14 @@ public class AllergiesPage extends TestBase
 					break;
 					
 					case"Food Allergy":
-					TestUtil.VisibleOn(driver, Addrows, 10);
+						try
+						{
+						TestUtil.VisibleOn(driver, Addrows, 10);
+						}
+						catch(TimeoutException e)
+						{
+							System.out.println("TimeoutException seen");
+						}
 					Addrows.click();
 					WebElement Allergyfood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[1]"));
 					 
@@ -400,7 +414,7 @@ public class AllergiesPage extends TestBase
 				try
 				{
 				TestUtil.VisibleOn(driver, SaveMessage, 10);
-					msg= UpdateMessage.getText();
+					msg= SaveMessage.getText();
 				}
 				catch(Exception e)
 				{
@@ -425,7 +439,7 @@ public class AllergiesPage extends TestBase
 				try
 				{
 				TestUtil.VisibleOn(driver, SaveMessage, 10);
-					msg= UpdateMessage.getText();
+					msg= SaveMessage.getText();
 				}
 				catch(Exception e)
 				{
@@ -450,7 +464,7 @@ public class AllergiesPage extends TestBase
 				try
 				{
 				TestUtil.VisibleOn(driver, SaveMessage, 10);
-					msg= UpdateMessage.getText();
+					msg= SaveMessage.getText();
 				}
 				catch(Exception e)
 				{
@@ -529,8 +543,8 @@ public class AllergiesPage extends TestBase
 		
 		try
 		{
-			TestUtil.ActionForMovetoElement(Updatebutton);
-			TestUtil.VisibleOn(driver, Updatebutton, 30);
+			TestUtil.ActionForMovetoElement(Button);
+			TestUtil.VisibleOn(driver, Button, 30);
 		
 		}
 		catch(TimeoutException e)
@@ -539,23 +553,22 @@ public class AllergiesPage extends TestBase
 		}
 		try
 		{
-			 buttontext = Updatebutton.getText();
+			 buttontext = Button.getText();
 		}
 		catch(Exception e)
 		{
 			System.out.println("buttontext is not seen ");
 		}
 		boolean flag = false;
+		
 		if(buttontext.equals("Update"))
 		{
 			
 			flag=true;
-		
 		}
 		else
 		{
 			flag=false;	
-			
 		}
 			
 		return flag;
@@ -568,7 +581,7 @@ public class AllergiesPage extends TestBase
 	
 		
 	
-	
+
 		
 	
 		
@@ -581,7 +594,14 @@ public class AllergiesPage extends TestBase
 		rows=rows+1;
 		for( int row1=rows ;row1<= 6;row1++)
 		{
+				try
+				{
 				TestUtil.VisibleOn(driver, Addrows, 30);
+				}
+				catch(TimeoutException e)
+				{
+					System.out.println("TimeoutException seen");
+				}
 				Addrows.click();
 				 WebElement allergy= driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr//select)[1]"));
 				 try
@@ -637,7 +657,14 @@ public class AllergiesPage extends TestBase
 						Select foodAllergy=new Select(Allergyfood);
 						foodAllergy.selectByVisibleText("Food Allergy");
 					WebElement Allergyfoodinput = driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]/td[3]//input"));
-					TestUtil.VisibleOn(driver, Allergyfoodinput, 10);
+					try
+					{
+					TestUtil.VisibleOn(driver, Allergyfoodinput, 20);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("TimeoutException seen");
+					}
 					Allergyfoodinput.sendKeys("foodAllergy");
 					WebElement currentstatusfood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
 					
@@ -858,7 +885,14 @@ public class AllergiesPage extends TestBase
 						Select foodAllergy=new Select(Allergyfood);
 						foodAllergy.selectByVisibleText("Food Allergy");
 					WebElement Allergyfoodinput = driver.findElement(By.xpath("//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]/td[3]//input"));
-					TestUtil.VisibleOn(driver, Allergyfoodinput, 10);
+					try
+					{
+					TestUtil.VisibleOn(driver, Allergyfoodinput, 30);
+					}
+					catch(TimeoutException e)
+					{
+						System.out.println("Timeout exception seen");
+					}
 					Allergyfoodinput.sendKeys("foodAllergy");
 					WebElement currentstatusfood = driver.findElement(By.xpath("(//div[@id='allergies']/div/div[2]/div/table/tbody/tr["+row1+"]//select)[3]"));
 					
@@ -993,7 +1027,7 @@ public class AllergiesPage extends TestBase
 			
 		
 }//rows
-		Updatebutton.click();
+		Button.click();
 		
 	}
 	

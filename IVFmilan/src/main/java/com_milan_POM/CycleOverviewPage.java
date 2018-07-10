@@ -110,27 +110,36 @@ public class CycleOverviewPage extends TestBase
 	}
 	public String ValueInProtocol() throws Exception
 	{
+		System.out.println();
 		Select VOP = new Select(Protocol);
-		Thread.sleep(2000);
 		WebElement we = VOP.getFirstSelectedOption();
-		Actions act = new Actions(driver);
-		act.moveToElement(we);
-		Thread.sleep(4000);
-		msg= we.getText();
 		try
 		{
 			TestUtil.VisibleOn(driver, we, 30);
+			TestUtil.ActionForMovetoElement(we);
 		}
-		catch(TimeoutException e)
+		catch(Exception e)
 		{
-			System.out.println("Element" + we + "is not seen within 30 sec" );
+			System.out.println("Element- we is not seen within 30 sec");
 		}
-		String msg1=we.getText();
-		if(msg.equals(msg1))
+		
+		
+		msg= we.getText();
+		if(msg.equals("Antagonist"))
 		{
-			return msg1;
+			msg = "Antagonist";
 		}
-		return msg;
+		else
+		{
+			TestUtil.ActionForMovetoElement(we);
+			msg= we.getText();
+			
+		}
+		
+		
+			return msg;
+		
+		
 	
 	}
 	public  String ValueInARTType() throws InterruptedException
@@ -139,22 +148,14 @@ public class CycleOverviewPage extends TestBase
 	WebElement we=	ARTtype.getFirstSelectedOption();
 	try
 	{
-	Thread.sleep(2000);
-	}
-	catch(InterruptedException e)
-	{
-	System.out.println("Interrupted exception seen");
-	}		
-	try
-	{
-	msg= we.getText();
+	TestUtil.VisibleOn(driver, we, 30);
+	TestUtil.ActionForMovetoElement(we);
 	}
 	catch(Exception e)
 	{
-		System.out.println("Element- Message for ValueInARTType is not seen within the 20 secs");
-	}
-	
-	
+	System.out.println("Element we is not seen within 30 sec");
+	}		
+	msg= we.getText();
 	
 		return msg;
 		

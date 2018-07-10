@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
@@ -27,7 +28,7 @@ public class TestUtil extends TestBase
 {
 	
 public static long IMPLICIT_WAIT = 30;
-public static long PAGE_LOAD_TIMEOUT = 20;
+public static long PAGE_LOAD_TIMEOUT = 30;
 
 	
 	
@@ -46,6 +47,9 @@ public static long PAGE_LOAD_TIMEOUT = 20;
 	{
 		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOfAllElements(element));
 	}
+	
+	
+	
 	
 	public static void takeScreenshotAtEndOfTest1()
 	{

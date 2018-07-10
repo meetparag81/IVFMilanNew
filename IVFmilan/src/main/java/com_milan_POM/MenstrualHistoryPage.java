@@ -1,6 +1,7 @@
 package com_milan_POM;
 
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -62,6 +63,14 @@ public class MenstrualHistoryPage extends TestBase
 		lmpPcalender.click();
 		String currentdate= TestUtil.Date();
 		List<WebElement> datenodes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td/button")));
+		try
+		{
+		TestUtil.VisibleElementsOn(driver, datenodes, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		int Totalnodes= datenodes.size();
 		for(int i=0;i<Totalnodes;i++)
 		{

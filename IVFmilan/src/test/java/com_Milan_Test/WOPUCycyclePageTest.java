@@ -105,9 +105,6 @@ public class WOPUCycyclePageTest extends TestBase
 			System.out.println("SelectSubTypeCycleTest is completed");
 			}
 		}
-		
-		
-		
 	
 	}
 	

@@ -64,22 +64,28 @@ public class WOPUCycyclePage extends TestBase
 	
 	public int SearchThecycles() 
 	{
-		System.out.println("Cycles button is displayed" +Cycles.isDisplayed()+"Cycles button is enabled"+Cycles.isEnabled());
-		Actions action = new Actions(driver);
-		action.moveToElement(Cycles).click().perform();
-				//Cycles.click();
+		//System.out.println("Cycles button is displayed" +Cycles.isDisplayed()+"Cycles button is enabled"+Cycles.isEnabled());
+		
+		TestUtil.ActionForMovetoElement(Cycles);
+				Cycles.click();
 		String Name = reader.getCellData("Investigation", "Search", 2);
+		try
+		{
 		TestUtil.VisibleOn(driver, Searchbox, 20);
-		Actions act = new Actions(driver);
-		act.moveToElement(Searchbox);
-		act.click();
-		act.sendKeys(Name);
-		act.build().perform();
-		try {
+		TestUtil.ActionForMovetoElement(Searchbox);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Timeoutexceptionseen");
+		}
+		Searchbox.click();
+		Searchbox.sendKeys(Name);
+		try 
+		{
 			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (InterruptedException e)
+		{
+			System.out.println("InterruptedException seen");
 		}
 		Searchbox.sendKeys(Keys.BACK_SPACE);
 		try {
@@ -498,8 +504,9 @@ return count2;
 		{
 			System.out.println("Element-Cycles is not seen within 30 sec");
 		}
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		jse.executeScript("arguments[0].click();", Cycles);
+		Cycles.click();
+		/*JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].click();", Cycles);*/
 		List<WebElement>rows = driver.findElements(By.xpath("//h5[text()='Previous Procedures']//following::table[1]//tbody//tr"));
 		int rowsize= rows.size();
 		boolean flag= false;

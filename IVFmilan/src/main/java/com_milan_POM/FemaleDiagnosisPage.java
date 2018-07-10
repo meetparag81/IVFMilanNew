@@ -65,14 +65,42 @@ public class FemaleDiagnosisPage extends TestBase
 		if(val.contains("003"));
 		{
 		String input= String.valueOf(codeval+001);
+		try
+		{
 		TestUtil.VisibleOn(driver, Plus, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Plus.click();
+		try
+		{
 		TestUtil.VisibleOn(driver, Codeinput, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Codeinput.sendKeys("delete189");
+		try
+		{
 		TestUtil.VisibleOn(driver, description, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		description.sendKeys("delete1189");
 		}
+		try
+		{
 		TestUtil.VisibleOn(driver, Save, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Save.click();
 		
 		
@@ -93,19 +121,46 @@ public class FemaleDiagnosisPage extends TestBase
 			
 		
 		Otherdiagnosis.click();
-
+		try
+		{
 		TestUtil.VisibleOn(driver, Plus, 30);
+		}
+		catch(TimeoutException e1)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Plus.click();
+		try
+		{
 		TestUtil.VisibleOn(driver, Codeinput, 30);
+		}
+		catch(Exception e1)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		String codevalue= reader.getCellData("Diagnosis", "Codevalue", 2);
 		Codeinput.sendKeys(codevalue);
+		try
+		{
 		TestUtil.VisibleOn(driver, description, 30);
+		}
+		catch(Exception e1)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		description.sendKeys(codevalue);
 		 value = Integer.parseInt(codevalue);
 		 int val = value+1;
 		String valueforcode = Integer.toString(val);
 		reader.setCellData("Diagnosis", "Codevalue", 2, valueforcode);
+		try
+		{
 		TestUtil.VisibleOn(driver, Save, 30);
+		}
+		catch(TimeoutException e1)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Save.click();
 		
 		}
@@ -135,7 +190,14 @@ public class FemaleDiagnosisPage extends TestBase
 	public String AddCodevalue()
 	{
 		Otherdiagnosis.click();
+		try
+		{
 		TestUtil.VisibleOn(driver, CodeValue, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		String codevalue = CodeValue.getText(); 
 		return codevalue;
 		
@@ -269,7 +331,14 @@ public class FemaleDiagnosisPage extends TestBase
 	}	
 	public boolean TypeSelectionboxEnablecondition()
 	{
+		try
+		{
 		TestUtil.VisibleOn(driver, checkbox, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		checkbox.click();
 		Select Type1 = new Select(Typebox);
 		Type1.selectByVisibleText("Final");
@@ -284,7 +353,14 @@ public class FemaleDiagnosisPage extends TestBase
 
 		Otherdiagnosis.click();	
 		List<WebElement>code=driver.findElements(By.xpath("(//div[@class='table-responsive table-bordered fixed_header'])[1]//tr/td[4]"));
+		try
+		{
 		TestUtil.VisibleElementsOn(driver, code, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		
 		for(int i=1;i<=code.size();i++)
 		{
@@ -341,7 +417,14 @@ public class FemaleDiagnosisPage extends TestBase
 		if(Name.contains(valueforcode))
 		{
 			Delete.click();
+			try
+			{
 			TestUtil.VisibleOn(driver, Reasonfordelete, 20);
+			}
+			catch(TimeoutException e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
 			Reasonfordelete.sendKeys("NA");
 			SaveonReason.click();
 			
@@ -350,7 +433,14 @@ public class FemaleDiagnosisPage extends TestBase
 		{
 			System.out.println("Favorite is not onlast page");	
 		}
+		try
+		{
 		TestUtil.VisibleOn(driver, DeleteMessage, 30);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		return DeleteMessage.getText();		
 	}
 	

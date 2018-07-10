@@ -13,7 +13,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
@@ -41,13 +43,14 @@ public class StimulationChartPage extends TestBase {
 	private @FindBy(xpath = "(//h4[@id='myModalLabel'])[4]/following::input[@name='SCDose'][1]") WebElement DoseT;
 	private @FindBy(xpath = "(//h4[@id='myModalLabel'])[4]/following::button[text()='Save'][1]") WebElement SaveT;
 	private @FindBy(xpath="//span[@class='icon-screen ng-binding']")WebElement Cycleoverview;
-	Exls_Reader reader = new Exls_Reader(
-			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	WebDriverWait wait = new WebDriverWait(driver, 30);
 	String msg;
 	String names;
 	int i=1;
 
-	StimulationChartPage() {
+	StimulationChartPage() 
+	{
 		PageFactory.initElements(driver, this);
 	}
 
@@ -77,14 +80,25 @@ public class StimulationChartPage extends TestBase {
 	{
 		int rows = 3;// startedfrom 1 because at 2nd row 'select' option is
 						// avail.
-		Actions act = new Actions(driver);
+		
 
 		for ( i=1; i <= 5; i++)// startedfrom 1 because at oth location
 									// select option is avail.
 		{
-			act.moveToElement(AddSimulation).click().perform();
+			TestUtil.ActionForMovetoElement(AddSimulation);
+			AddSimulation.click();
 			int sizedrug = reader.getRowCount("Stimulationchart");
-			act.moveToElement(DrugName);
+			
+			try
+			{
+			TestUtil.VisibleOn(driver, DrugName, 30);
+			TestUtil.ActionForMovetoElement(DrugName);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Element - DrugName is not seen with in 30 sec"  );
+			}
+			//DrugName.click();
 			Select DN = new Select(DrugName);
 			names = reader.getCellData("Stimulationchart", "DrugName", rows);
 			try
@@ -98,7 +112,8 @@ public class StimulationChartPage extends TestBase {
 			rows++;
 			List<WebElement> we = DN.getOptions();
 			String name = we.get(i).getText();
-			act.moveToElement(calender).click().perform();
+			TestUtil.ActionForMovetoElement(calender);
+			calender.click();
 			TestUtil.Date();
 			List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
 			int rows1=2;
@@ -125,27 +140,30 @@ public class StimulationChartPage extends TestBase {
 					break;
 				}
 			}
-			act.moveToElement(HH).click();
+			TestUtil.ActionForMovetoElement(HH);
+			HH.click();
 			HH.sendKeys("10");
 			HH.sendKeys(Keys.TAB);
 			// act.moveToElement(MM).click();
 			MM.sendKeys("05");
-			act.moveToElement(Days);
+			TestUtil.ActionForMovetoElement(Days);
 			Select day1 = new Select(Days);
 			day1.selectByVisibleText("2");
-			act.moveToElement(Dose).click();
+			TestUtil.ActionForMovetoElement(Dose);
 			Dose.sendKeys("1");
 			if (name.equals(names)) 
 			{
-				act.moveToElement(Save).click().perform();
-				try{
-					TestUtil.VisibleOn(driver, Cycleoverview, 30);
-				}
-				catch(TimeoutException e)
+				TestUtil.ActionForMovetoElement(Save);
+				Save.click();
+				try 
 				{
-					System.out.println("Element-Cycleoverview is not seen within30 sec");
+					Thread.sleep(3000);
+					TestUtil.ActionForMovetoElement(Cycleoverview);
+				} 
+				catch (InterruptedException e) 
+				{
+					System.out.println("Element- InterruptedException is  seen");	
 				}
-				act.moveToElement(Cycleoverview);
 				msg = Cycleoverview.getText();
 				break;
 			}
@@ -161,13 +179,20 @@ public class StimulationChartPage extends TestBase {
 	public String SimulationDrugValidation() 
 	{
 		SaveSimulation();
-		Actions act = new Actions(driver);
-		act.moveToElement(Endometrium).click().perform();
+		try 
+		{
+			Thread.sleep(3000);
+		} catch (InterruptedException e1) 
+		{
+		System.out.println("InterruptedException is seen");
+		}
+		TestUtil.ActionForMovetoElement(Endometrium);
+		Endometrium.click();
 		WebElement element = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[37]/td[1]"));		
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		int k=37+i;
 		WebElement drugName = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[38]/td[1]"));
-		act.moveToElement(drugName);
+		TestUtil.ActionForMovetoElement(drugName);
 		try
 		{
 		Thread.sleep(2000);
@@ -183,13 +208,14 @@ public class StimulationChartPage extends TestBase {
 
 	public boolean ValidationForSimulationDrugAdded() 
 	{
-		Actions act = new Actions(driver);
-		act.moveToElement(Endometrium).click().perform();
+		
+		TestUtil.ActionForMovetoElement(Endometrium);
+		Endometrium.click();
 		List<WebElement> button = driver.findElements(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[40]//button//preceding::button[@class='btn btn_edit inline-block']"));
 		int size = button.size();
 
 		boolean flag2;
-		if (size <= 0) 
+		if (size > 0) 
 		{
 			flag2 = false;
 		} else 
@@ -204,43 +230,59 @@ public class StimulationChartPage extends TestBase {
 	{
 		boolean flag3 = ValidationForSimulationDrugAdded();
 
-		if (flag3 == true) 
+		if (flag3 == false) 
 		{
 			msg = Triggerdrug();
 		} 
 		else 
 		{
 			SaveSimulation();
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) 
+			{
+				System.out.println("InterruptedException is seen");
+			}
 			msg = Triggerdrug();
 			
+		
 		}
 		return msg;
+		
 
 	}
 
 	public String Triggerdrug() 
 	{
-		Actions act = new Actions(driver);
+		
 		 //act.moveToElement(Endometrium).click().perform();
 		WebElement Triggerbutton = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr/td[contains (text(), 'Remarks')]//preceding::button[@class='btn btn_edit inline-block m-l-10']"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", Triggerbutton);
 		try
 		{
-			TestUtil.VisibleOn(driver, Triggerbutton, 2000);
+			TestUtil.VisibleOn(driver, Triggerbutton, 20);
 		}
 		catch(TimeoutException e)
 		{
 			System.out.println("Element- remarks is not seen within 20 sec");
 		}
 		
-		act.moveToElement(Triggerbutton).click().perform();
+		try
+		{
+		TestUtil.ActionForMovetoElement(Triggerbutton);
+		Triggerbutton.click();
+		}
+		catch(Exception e)
+		{
+			System.out.println("Webdriverexception occured");
+		}
 		
 		Select drugNameT = new Select(drugNametrigger);
 		List<WebElement> DrugeleT = drugNameT.getOptions();
 		int size = DrugeleT.size();
 		int rows = 2;
 		int count = 0;
-		for (int i = 0; i <= size; i++) 
+		for (int i = 0; i < size; i++) 
 		{
 			String drugNameTName = DrugeleT.get(i).getText();
 			// reader.setCellData("Stimulationchart", "DrugNameTrigger", rows,
@@ -257,21 +299,26 @@ public class StimulationChartPage extends TestBase {
 		}
 		calendertrigger.click();
 		List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
-		for (int i = 1; i <= Dates.size(); i++) 
+		int rows1=2;
+		for(int i =1;i<Dates.size();i++)
 		{
-			String date1 = reader.getCellData("CycleList", "Date", 2);
-			String arr[] = date1.split("/");
-			String Datetext = Dates.get(i).getText();
-			boolean flag =  Dates.get(i).isEnabled();
-			String arr1[] = date1.split("/");
-			String day = arr1[0];
-			String Month = arr1[1];
-			String year = arr1[2];
-			ArrayList<WebElement> date = new ArrayList<>();
+			String Datetext= Dates.get(i).getText();
+			WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+			String text= Monthtextele.getText();
+			String Arr[]=text.split(" ");
+			String Monthtext = Arr[0]; 
 			
-			if (Datetext.equals(day)&& flag==true) 
+			String CyrrentDate=TestUtil.Date();
+			String[] Arr1= CyrrentDate.split(",");
+			String day= Arr1[0];
+			String Month = Arr1[1];
+			
+		
+			boolean flag1= Dates.get(i).isEnabled();
+			rows1++;
+			
+			if(day.equals(Datetext)&&flag1==true&&Monthtext.equals(Month))
 			{
-				
 				Dates.get(i).click();
 				break;
 			}
@@ -282,7 +329,18 @@ public class StimulationChartPage extends TestBase {
 		HHT.sendKeys(Keys.TAB);
 		MMT.sendKeys("05");
 		DoseT.sendKeys("1");
-		act.moveToElement(SaveT).click().perform();
+		TestUtil.ActionForMovetoElement(SaveT);
+		SaveT.click();
+		
+		try
+		{
+		TestUtil.VisibleOn(driver, InvalidDate, 30);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='toast-msg ng-binding ng-scope']")));
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element- InvalidDate is not seen with in 30 sec");
+		}
 		msg = InvalidDate.getText();
 
 		return msg;

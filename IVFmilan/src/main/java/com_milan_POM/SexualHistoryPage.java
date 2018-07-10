@@ -1,6 +1,7 @@
 package com_milan_POM;
 
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
+import com_Milan_util.TestUtil;
 
 public class SexualHistoryPage extends TestBase
 {
@@ -23,7 +25,6 @@ public class SexualHistoryPage extends TestBase
 	@FindBy (xpath="//label[text()= 'Duration']//following::select[2]")WebElement Durationmnths;
 	@FindBy (xpath="//label[text()= 'Method of Contraception']//following::select[1]")WebElement MethodofContraception;
 	@FindBy	(xpath= "//label[text()= 'Infertility Type']//following::select[1]")WebElement InfertilityType;
-	 
 	@FindBy (xpath="//label[text()= 'Male Infertility']//following::select[1]")WebElement MaleInfertility; 
 	@FindBy (xpath="//label[text()= 'Female Infertility']//following::select[1]")WebElement FemaleInfertility;
 	@FindBy (xpath= "//label[text()= 'Frequency of intercourse']//following::select[1]")WebElement Frequencyofintercourse;
@@ -38,7 +39,7 @@ public class SexualHistoryPage extends TestBase
 	@FindBy(xpath="//label[text()='Lubrication used']//following::select[1]")WebElement Lubricationused;
 	@FindBy(xpath="//label[text()='Lubrication used']//following::textarea[1]")WebElement Lubricationusedtext;
 	@FindBy(xpath="(//label[text()='Remarks'])[2]//following::textarea[1]")WebElement remarktext;
-	WebDriverWait wait = new WebDriverWait(driver, 30);
+	
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
 	SexualHistoryPage()
@@ -51,7 +52,15 @@ public class SexualHistoryPage extends TestBase
 	public void formfilling() 
 	{
 		System.out.println("WSexsualHistory form fill testcase started");
-		WebElement relasionshipyears= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()= 'In relationship since']//following::select[1]")));
+		WebElement relasionshipyears= driver.findElement(By.xpath("//label[text()= 'In relationship since']//following::select[1]"));
+		try
+		{
+		TestUtil.VisibleOn(driver, relasionshipyears, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutException");
+		}
 		Select year = new Select(relasionshipyears);
 		year.selectByVisibleText("8");
 		List<WebElement>year1 = year.getOptions();
@@ -63,7 +72,14 @@ public class SexualHistoryPage extends TestBase
 		tryingyrs.selectByVisibleText("4");
 		Select yryingmths = new Select(concievemonths);
 		tryingyrs.selectByVisibleText("4");
-		Contraception= wait.until(ExpectedConditions.visibilityOf(Contraception));
+		try
+		{
+		TestUtil.VisibleOn(driver, Contraception, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutException seen");
+		}
 		Select contra= new Select(Contraception);
 		contra.selectByVisibleText("Yes");
 		try {
@@ -77,7 +93,8 @@ public class SexualHistoryPage extends TestBase
 		Select ME= new Select(MaleInfertility);
 		ME.selectByVisibleText("No");
 		
-		WebElement Durationyrs= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()= 'Duration']//following::select[1]")));
+		WebElement Durationyrs= driver.findElement(By.xpath("//label[text()= 'Duration']//following::select[1]"));
+		TestUtil.VisibleOn(driver, Durationyrs, 30);
 		System.out.println(Durationyrs.isDisplayed());
 		/*Select Durationyears = new Select(Durationyrs);
 		Thread.sleep(2000);
@@ -148,7 +165,15 @@ public class SexualHistoryPage extends TestBase
 		int monthsize = month1.size();
 		System.out.println(monthsize);
 		System.out.println("Relationshipmonths"+ relationmonths);
-		WebElement Durationyrs= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()= 'Duration']//following::select[1]")));
+		WebElement Durationyrs= driver.findElement(By.xpath("//label[text()= 'Duration']//following::select[1]"));
+		try
+		{
+		TestUtil.VisibleOn(driver, Durationyrs, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutException");
+		}
 		Select Durationyears = new Select(Durationyrs);
 		 List<WebElement>durationyear =Durationyears.getOptions();
 		 String durationyrs = durationyear.get(7).getText();
@@ -254,7 +279,15 @@ public class SexualHistoryPage extends TestBase
 		final int longStringLength = myLongString.length();
 		Select SexualDyfunction = new Select(SexualDysfunction);
 			SexualDyfunction.selectByVisibleText("Yes");
-		WebElement textbox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()= 'Sexual Dysfunction']//following::textarea[1]")));
+		WebElement textbox = driver.findElement(By.xpath("//label[text()= 'Sexual Dysfunction']//following::textarea[1]"));
+		try
+		{
+		TestUtil.VisibleOn(driver, textbox, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutException");
+		}
 		textbox.sendKeys(myLongString);
 		
 		WebDriverWait wait1= new WebDriverWait(driver, 50);

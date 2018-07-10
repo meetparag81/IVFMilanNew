@@ -79,7 +79,7 @@ public class CycleListPage extends TestBase
 		int codesize= cNoofcycles.size();
 		try
 		{
-			if (codesize>0&&flag==true)
+			if (codesize>0)
 			{
 				 flag1= true;
 			}
@@ -183,151 +183,86 @@ public class CycleListPage extends TestBase
 	}
 	public String  ARTTypeOption() 
 	{
-		boolean flag1 = NewCycleButtonEnableCondition();
-		boolean flag2 = CycleCodeAvaibility();
-		if(flag1==false&&flag2==false)
-		{
-		// ClickonNewCycle();
+		
 	Select OptionART = new Select(Artselecttype);
 	WebElement option =	OptionART.getFirstSelectedOption();
+	
 	try
 	{
-		Thread.sleep(2000);
+		TestUtil.VisibleOn(driver, option, 30);
+		TestUtil.ActionForMovetoElement(option);
 	}
-	catch(InterruptedException e)
+	catch(Exception e)
 	{
-	System.out.println("InterruptedException is seen");
+	System.out.println("Element- option is not seen with in 30 sec");
 	}
-	JavascriptExecutor jse = (JavascriptExecutor) driver;
-	String OptionName =  (String) jse.executeScript("angular.element($('#Artselecttype')).text()");
+	OptionName= option.getText();
+	String OptionN =  option.getAttribute("value");
+	
 	reader.setCellData("CycleList", "ARTtype", 2, OptionName);
 		return OptionName;
-		}
-		else
-		{
-			try
-			{
-				Thread.sleep(2000);
-			}
-			catch(InterruptedException e)
-			{
-			System.out.println("InterruptedException is seen");
-			}
-			JavascriptExecutor jse = (JavascriptExecutor) driver;
-			String OptionName =  (String) jse.executeScript("angular.element($('#Artselecttype')).text()");
-			
-			
-		}
-		return OptionName;
-		
+	
 	}
 	
 	public String NoofProtocol()
 	{
-		boolean flag1 = NewCycleButtonEnableCondition();
-		boolean flag2 = CycleCodeAvaibility();
+		
+			try
+			{
+				TestUtil.VisibleOn(driver, Protocol, 30);
+				TestUtil.ActionForMovetoElement(Protocol);
+				
+			}
+			catch(Exception e)
+			{
+				System.out.println("Interrupted exception seen");
+			}
+			
+			String NameofProtocol = null;
+			Select Protocolopt= new Select(Protocol);
+			List<WebElement>NoofProtocol =  Protocolopt.getOptions();
+			int SizeofProtocol= NoofProtocol.size();
+			int row= 1;
+			int rows=row;
+			int count=0;
+			rows=row+1;
+			for(int i=0;i<SizeofProtocol;i++)
+			{
+				
+			String ProtocolName= NoofProtocol.get(i).getText();
+			//reader.setCellData("CycleList", "ProtocolName", rows, ProtocolName);
+			try
+			{
+			 NameofProtocol = reader.getCellData("CycleList", "ProtocolName", rows);
+			}
+			catch(XmlValueDisconnectedException e)
+			{
+				System.out.println("value is not taken");
+				
+			}
+			if(ProtocolName.equals(NameofProtocol))
+			{
+				
+				count++;
+				rows++;
+			}
+			if(count==4)
+			{
+				Protocolopt.selectByVisibleText(ProtocolName);
+				Name= NoofProtocol.get(i).getText();
+				break;
+			
+			}
+		
+		}
+			return Name;
 	
-		if(flag1==false&&flag2==true)
-		{
-			try
-			{
-				Thread.sleep(2000);
-			}
-			catch(InterruptedException e)
-			{
-				System.out.println("Interrupted exception seen");
-			}
-			
-			String NameofProtocol = null;
-			Select Protocolopt= new Select(Protocol);
-			List<WebElement>NoofProtocol =  Protocolopt.getOptions();
-			int SizeofProtocol= NoofProtocol.size();
-			int row= 1;
-			int rows=row;
-			int count=0;
-			rows=row+1;
-			for(int i=0;i<SizeofProtocol;i++)
-			{
-				
-			String ProtocolName= NoofProtocol.get(i).getText();
-			//reader.setCellData("CycleList", "ProtocolName", rows, ProtocolName);
-			try
-			{
-			 NameofProtocol = reader.getCellData("CycleList", "ProtocolName", rows);
-			}
-			catch(XmlValueDisconnectedException e)
-			{
-				System.out.println("value is not taken");
-				
-			}
-			if(ProtocolName.equals(NameofProtocol))
-			{
-				
-				count++;
-				rows++;
-			}
-			if(count==4)
-			{
-				Protocolopt.selectByVisibleText(ProtocolName);
-				Name= NoofProtocol.get(i).getText();
-				break;
-			
-		}
 		
-		}
-		}
-		else
-		{
-			try
-			{
-				Thread.sleep(2000);
-			}
-			catch(InterruptedException e)
-			{
-				System.out.println("Interrupted exception seen");
-			}
-			
-			String NameofProtocol = null;
-			Select Protocolopt= new Select(Protocol);
-			List<WebElement>NoofProtocol =  Protocolopt.getOptions();
-			int SizeofProtocol= NoofProtocol.size();
-			int row= 1;
-			int rows=row;
-			int count=0;
-			rows=row+1;
-			for(int i=0;i<SizeofProtocol;i++)
-			{
-				
-			String ProtocolName= NoofProtocol.get(i).getText();
-			//reader.setCellData("CycleList", "ProtocolName", rows, ProtocolName);
-			try
-			{
-			 NameofProtocol = reader.getCellData("CycleList", "ProtocolName", rows);
-			}
-			catch(XmlValueDisconnectedException e)
-			{
-				System.out.println("value is not taken");
-				
-			}
-			if(ProtocolName.equals(NameofProtocol))
-			{
-				
-				count++;
-				rows++;
-			}
-			if(count==4)
-			{
-				Protocolopt.selectByVisibleText(ProtocolName);
-				Name= NoofProtocol.get(i).getText();
-				break;
-			
-		}
-			
-		}
-			
+
 		
-		}
-		return Name;
+		
+		
+		
 		 
 		
 	
@@ -421,11 +356,9 @@ public class CycleListPage extends TestBase
 		
 	public String SourceofSpermselectionDonor() 
 	{
-		boolean flag1 = NewCycleButtonEnableCondition();
-		boolean flag2 = CycleCodeAvaibility();
 		
-		if(flag1==false&&flag2==true)
-		{
+		
+		
 			try
 			{
 				TestUtil.VisibleOn(driver, Sourceofsperm, 30);
@@ -461,47 +394,10 @@ public class CycleListPage extends TestBase
 			return Name;
 			
 		}
-		else
-		{
-			try
-			{
-				TestUtil.VisibleOn(driver, Sourceofsperm, 30);
-			}
-			catch(TimeoutException e)
-			{
-				System.out.println("element- Sourceofsperm is not seen within 30 sec");
-			}
-			Actions act = new Actions(driver);
-			act.moveToElement(Sourceofsperm).click().perform();
-			
-			List<WebElement>Sourceofsperms=driver.findElements(By.xpath("//label[text()='Source of Sperm']//following-sibling::div/select/option"));
-			
-			int count=0;
-			for(int i=0;i<=Sourceofsperms.size();i++)
-			{
-				count++;
-				if(count==3)
-				{
-					Sourceofsperms.get(i).click();
-					Name= Sourceofsperms.get(i).getText();
-					WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[1]"));
-					 Name1=SOSName.getText();
-					if(Name.equals(Name1))
-					{
-							break;
-					}
-					msg = Donor.getText();
-			
-			
-				}
-			}
-			return Name;
-			
-			
-		}
 		
 		
-	}
+		
+	
 	public boolean IndicationtypeSelection()
 	{
 		try
@@ -771,8 +667,16 @@ public class CycleListPage extends TestBase
 	
 	public String SaveMessage()
 	{
-		Actions act = new Actions(driver);
-		act.moveToElement(Save);
+		try
+		{
+		TestUtil.VisibleOn(driver, Save, 30);
+		TestUtil.ActionForMovetoElement(Save);
+		}
+		catch(Exception e)
+		{
+			System.out.println(" Element-Save is not seen with in 30 sec");
+		}
+		
 		boolean save= Save.isEnabled();
 		
 		if(save==true)
@@ -821,12 +725,12 @@ public class CycleListPage extends TestBase
 		try
 		{
 		TestUtil.VisibleOn(driver, Cyclecode, 20);
+		TestUtil.ActionForMovetoElement(Cyclecode);
 		}
 		catch(Exception e)
 		{
 			System.out.println("Elemet-Cyclecode is not seen within 20 sec");
 		}
-		TestUtil.ActionForMovetoElement(Cyclecode);
 		Cyclecode.click();
 		
 		return new CycleOverviewPage();

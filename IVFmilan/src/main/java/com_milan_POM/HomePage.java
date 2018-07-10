@@ -65,7 +65,14 @@ public class HomePage extends TestBase {
 					.findElements(By.xpath("//table[@class='table table-hover table-striped']/tbody/tr/td[4]/text()"));
 			WebElement rows1 = driver.findElement(
 					By.xpath("//table[@class='table table-hover table-striped']/tbody/tr[" + k + "]/td[4]/text()"));
+			try
+			{
 			TestUtil.VisibleOn(driver, rows1, 30);
+			}
+			catch(Exception e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
 			String name2 = rows1.getText();
 			reader.setCellData("HomePage", "PatientName", rows, name2);
 			k++;
@@ -332,7 +339,14 @@ for(int i=1;i<radiobuttons;i++)
 	public EMRDashBoardPage SearchusingCalender()  
 	{
 		WebElement Calender = driver.findElement(By.xpath("//span[text()='Queue Management']//following::i[3]"));
+		try
+		{
 		TestUtil.VisibleOn(driver, Calender, 40);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Calender.click();
 		List<WebElement> dates = driver.findElements(By.xpath("//table[@role='grid']//tbody//td"));
 		try
@@ -363,7 +377,14 @@ for(int i=1;i<radiobuttons;i++)
 			System.out.println("The InterruptedException is occured");
 		}
 		searchpaient.sendKeys(SendPaitentname);
+		try
+		{
 		TestUtil.VisibleOn(driver, Searchbutton, 20);
+		}
+		catch(Exception e)
+		{
+			System.out.println("TimeoutExceptionseen");
+		}
 		Searchbutton.click();
 		int k = 1;
 		while (k <= 10) 
@@ -375,7 +396,14 @@ for(int i=1;i<radiobuttons;i++)
 				System.out.println("The InterruptedException is occured");
 			}
 			WebElement Nameofpatient = driver.findElement(By.xpath("//table[@class='table table-hover table-striped']//tr[" + k + "]/td[4]"));
+			try
+			{
 			TestUtil.VisibleOn(driver, Nameofpatient, 30);
+			}
+			catch(Exception e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
 			String name1 = Nameofpatient.getText();
 			try {
 				Thread.sleep(4000);

@@ -52,17 +52,7 @@ double rowdata2,rowdata1;
 		return Heightstd;		
 	}
 	
-	/*public boolean BMI()
-	{
-		int count= reader.getColumnCount("Vitals");
-		for(int rows=2;rows<=count;rows++)
-		{
-			System.out.println("test");
-		String celldata= reader.getCellData("Vitals", 1, rows);
-		}
-		Boolean BMIcondition= BMI.isEnabled();
-		return BMIcondition;		
-	}*/
+	
 	
 	public String HRValue()
 	{
