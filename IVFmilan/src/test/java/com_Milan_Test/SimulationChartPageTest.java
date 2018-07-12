@@ -41,6 +41,7 @@ public class SimulationChartPageTest extends TestBase
 		EMRPage = HomePage.searchPaient();
 		Investigation = EMRPage.ClickOnInvestigation();
 		WOC = new WOPUCycyclePage();
+		WOC.ClickonCycles();
 				boolean flag = WOC.AlreadySavedCycle();
 		if(flag==true)
 		{

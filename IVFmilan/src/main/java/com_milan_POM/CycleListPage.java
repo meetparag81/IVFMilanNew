@@ -631,7 +631,7 @@ public class CycleListPage extends TestBase
 	}
 	public void NewPatientSaveTheCycle()
 		{
-			ClickonNewCycle();
+			//ClickonNewCycle();
 			NoofProtocol();
 			LMPDate();
 			InputvalueInTextBoxes();

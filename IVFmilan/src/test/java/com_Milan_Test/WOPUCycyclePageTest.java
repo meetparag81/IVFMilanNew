@@ -47,6 +47,8 @@ public class WOPUCycyclePageTest extends TestBase
 		EMRPage = HomePage.searchPaient();
 		Investigation = EMRPage.ClickOnInvestigation();
 		 WOC = new WOPUCycyclePage();
+		 WOC.ClickonCycles();
+		 
 	}
 	
 	
@@ -76,7 +78,7 @@ public class WOPUCycyclePageTest extends TestBase
 		
 	}	
 	@Test(priority=3,groups = {"functional" }, enabled=true)
-	public void SaveOPUsubtypeICSITest() throws Exception
+	public void SaveOPUsubtypeICSITest() 
 	{
 		boolean flag1 =WOC.AlreadySavedCycle();// if there is already available cycle saved this option become true.
 		if(flag1==true)
@@ -166,15 +168,8 @@ public class WOPUCycyclePageTest extends TestBase
 				Assert.assertEquals(act, exp);
 		}
 		
-		
-		
-			
 		}
 		
-		
-	
-	
-	
 	@Test(priority=6,groups = {"smoketest" },enabled=true)
 	public void SearchcycleTest() throws Exception
 	{
@@ -227,7 +222,7 @@ public class WOPUCycyclePageTest extends TestBase
 		
 		
 	}
-	@Test(priority=8,groups = {"smoketest" }, enabled=true)
+	@Test(priority=9,groups = {"smoketest" }, enabled=true)
 	public void ClickonCycletabTest() throws Exception
 	{
 		boolean flag1 =WOC.AlreadySavedCycle();// if ther is already available cycle saved this option become true.

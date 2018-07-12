@@ -10,6 +10,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
@@ -167,7 +168,7 @@ public void Setup()
 	{
 		boolean flag= Addictions.CheckboxIsSelected();
 		boolean flag1= Addictions.SaveButtonText();
-		if (flag==false&& flag1==true)//Newpatient but Update button is true
+		if (flag==false&& flag1==true)//Newpatient with Save button is  not seen.
 		{
 			String act= Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 			String exp = reader.getCellData("Addictions", "Message", 3);
@@ -177,17 +178,20 @@ public void Setup()
 			
 
 		}
-		else if (flag==false&& flag1==false)//Newpatient but Save button is true
+		else if (flag==false&& flag1==false)//Newpatient but Save button is seen
 		{
 			String act = Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 			String exp = reader.getCellData("Addictions", "Message", 2);
-			
+			Assert.assertEquals(act, exp);
+			System.out.println("saveAdictionsTest is completed");
 			
 		}
 		else if(flag==true&& flag1==true)//ExistingPatient  and Update Button is true
 		{
 			String act= Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 			String exp = reader.getCellData("Addictions", "Message", 3);
+			Assert.assertEquals(act, exp);
+			System.out.println("saveAdictionsTest is completed");
 		
 		
 		
@@ -202,8 +206,9 @@ public void Setup()
 		
 	}
 	@Test (priority=17,groups = {"functional" },enabled=true)
+	@Parameters("ITestContext")
 	public void saveNewAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
-			String Frequency, String Quantity) throws Exception
+			String Frequency, String Quantity) 
 	{
 		
 		Addictions.NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);

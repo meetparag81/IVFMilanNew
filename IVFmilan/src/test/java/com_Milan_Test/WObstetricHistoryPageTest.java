@@ -10,6 +10,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com_Milan_Base.TestBase;
+import com_Milan_Excelutility.Exls_Reader;
 import com_Milan_util.TestUtil;
 import com_milan_POM.Loginpage;
 import com_milan_POM.ObstetricHistoryPage;
@@ -24,7 +25,7 @@ public class WObstetricHistoryPageTest extends TestBase
 	EMRDashBoardPage EMRPage;
 	WomenHistoryPage WHP;
 	ObstetricHistoryPage OHP;
-	
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	WObstetricHistoryPageTest()
 	{
 		super();
@@ -38,8 +39,6 @@ public class WObstetricHistoryPageTest extends TestBase
 		TestBase.initalization();
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
-		//EMRPage=HomePage.SearchusingCalender();
-		//EMRPage= HomePage.ClickonEMR();
 		EMRPage= HomePage.searchPaient();
 		WHP= EMRPage.clickOnWomenField();
 		OHP= WHP.ClickonObstetricHistory(); 
@@ -47,42 +46,42 @@ public class WObstetricHistoryPageTest extends TestBase
 		
 	}
 		
-	@Test(priority=1,enabled=true)
+	@Test(priority=1,enabled=false)
 	public void BirthWeightValueTextTest()
 	{
 		double Actual=OHP.BirthWeightText();
-		double Expected = 1.234;
+		double Expected = 1.0;
 		Assert.assertEquals(Actual, Expected, Actual);
 	}
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled=false)
 	public void BirthWeightEnableConditionTest()
 	{
 		boolean flag1=OHP.BirthWeightEnabled();
 		Assert.assertTrue(flag1);
 	}
 	
-	@Test(priority=3,enabled=true)
+	@Test(priority=3,enabled=false)
 	public void ValueInAbortiontionTest() 
 	{
 	
 		String Actual= OHP.AbortionOptionValue();
-		String Expected = "1";
+		String Expected = reader.getCellData("ObstetricHistory", "count", 2);
 		Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=4,enabled=true)
+	@Test(priority=4,enabled=false)
 	public void ValueInLivebirthoptionTest() 
 	{
 	
 		String Actual= OHP.OutcomeIsLiveBirth();
-		String Expected = "1";
+		String Expected = reader.getCellData("ObstetricHistory", "count", 4);
 		Assert.assertEquals(Actual, Expected);
 	}
-	@Test(priority=5,enabled=true)
+	@Test(priority=5,enabled=false)
 	public void ValueInEctopicTest() 
 	{
 	
 		String Actual= OHP.EctopicOptionValue();
-		String Expected = "1";
+		String Expected = reader.getCellData("ObstetricHistory", "count", 3);
 		Assert.assertEquals(Actual, Expected);
 	}
 	
@@ -171,8 +170,23 @@ public class WObstetricHistoryPageTest extends TestBase
 	@Test(priority=18)
 	public void SaveOutcometypesTest() 
 	{
-	int numberofRows=OHP.SaveOutcometypes();
-	int ExpectedRows= 5;
+		boolean flag= OHP.ButtonText();
+		if(flag==true)
+		{
+		String act =OHP.SaveObstetricHistory();
+		String exp = "Record saved successfully!";
+		Assert.assertEquals(act, exp);
+		System.out.println("SaveOutcometypesTest is completed");
+		}
+		else
+		{
+			String act =OHP.SaveObstetricHistory();
+			String exp = "Record updated successfully!";
+			Assert.assertEquals(act, exp);
+			System.out.println("SaveOutcometypesTest is completed");
+			
+		}
+	
 	}
 	
 	

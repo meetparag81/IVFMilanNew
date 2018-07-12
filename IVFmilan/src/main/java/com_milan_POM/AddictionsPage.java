@@ -3,6 +3,7 @@ package com_milan_POM;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeoutException;
 
 import javax.xml.xpath.XPath;
@@ -56,8 +57,10 @@ public class AddictionsPage extends TestBase {
 	String names;
 	String Message;
 	String msg;
+	WebElement Tobacoqty;
 	String buttontext;
-	AddictionsPage() {
+	AddictionsPage()
+	{
 		PageFactory.initElements(driver, this);
 	}
 
@@ -330,16 +333,19 @@ while(count1<5)
 	if(flag2==true)
 	{
 	count1++;
-	}
-}
-	if(count1==5)
-	{
-		flag= false;
+	flag= true;
 	}
 	else
 	{
-		flag= true;
+		count++;
+		flag = false;
 	}
+	if(count==5||count>0)
+	{
+		break;
+	}
+	}
+	
 	return flag;
 		
 	}
@@ -398,7 +404,7 @@ while(count1<5)
 		 flag = CheckboxIsSelected();
 		 boolean flag1;
 		 flag1=SaveButtonText();
-				if (flag==false&& flag1==true)//Newpatient but Update button is true
+				if (flag==false&& flag1==true)//flag is false==Newpatient flag1 is true==Update button
 				{
 					 NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 					 Updatebutton.click();
@@ -438,6 +444,7 @@ while(count1<5)
 	public  void NewAddictions(String Addiction1, String CurrentStatus1, String SinceMonth1, String SinceYear1,
 			String Frequency1, String Quantity1) 
 	{
+		
 		List<WebElement> checkbox = driver.findElements(By.xpath("//div[@class='tab-pane active']/div//div//input[@type='checkbox']"));
 		count1 = checkbox.size();
 		int rows1 = 0;
@@ -524,7 +531,9 @@ while(count1<5)
 					{
 
 						checkboxT.click();
-					} else {
+					} 
+					else 
+					{
 					
 						System.out.println("checkbox infront of Tobaco is already selected");
 
@@ -541,11 +550,34 @@ while(count1<5)
 					WebElement YearTobaco = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[3]//select[1])[2]"));
 					Select SinceYearT = new Select(YearTobaco);
 					SinceYearT.selectByVisibleText(SinceYear1);
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) 
+					{
+						System.out.println("InterruptedException seen");
+					}
 					WebElement frequencyT = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
 					Select FrequencyTobaco = new Select(frequencyT);
 					FrequencyTobaco.selectByVisibleText(Frequency1);
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) 
+					{
+						System.out.println("InterruptedException seen");
+					}
+					try
+					{
 					WebElement Tobacoqty = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input)[3]"));
+					TestUtil.ActionForMovetoElement(Tobacoqty);
+					Tobacoqty.clear();
+					Tobacoqty.click();
 					Tobacoqty.sendKeys(Quantity1);
+					}
+					catch(Exception e)
+					{
+						System.out.println("element- Tobacoqty is not seen");
+					}
+					
 					rows1++;
 					break;
 
@@ -575,8 +607,15 @@ while(count1<5)
 					WebElement frequencyDA = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
 					Select FrequencyDA = new Select(frequencyDA);
 					FrequencyDA.selectByVisibleText(Frequency1);
+					try
+					{
 					WebElement DrugAddictionqty = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input)[4]"));
 					DrugAddictionqty.sendKeys(Quantity1);
+					}
+					catch(Exception e)
+					{
+						System.out.println("element- DrugAddictionqty is not seen");
+					}
 					rows1++;
 					break;
 
@@ -609,8 +648,15 @@ while(count1<5)
 					WebElement frequencyCA = driver.findElement(By.xpath("//div[@class='tab-pane active']/div[" + i + "]/div[4]//select[1]"));
 					Select FrequencyDA1 = new Select(frequencyCA);
 					FrequencyDA1.selectByVisibleText(Frequency1);
+					try
+					{
 					WebElement CaffeineAddictionqty = driver.findElement(By.xpath("(//div[@class='tab-pane active']/div[" + i + "]/div[5]//div//input)[5]"));
 					CaffeineAddictionqty.sendKeys(Quantity1);
+					}
+					catch(Exception e)
+					{
+						System.out.println("element- CaffeineAddictionqty is not seen");
+					}
 					rows1++;
 					break;
 				}//switch

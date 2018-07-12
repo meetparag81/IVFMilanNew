@@ -65,9 +65,18 @@ public class WOPUCycyclePage extends TestBase
 	public int SearchThecycles() 
 	{
 		//System.out.println("Cycles button is displayed" +Cycles.isDisplayed()+"Cycles button is enabled"+Cycles.isEnabled());
+		try
+		{
+			TestUtil.VisibleOn(driver, Cycles, 30);
+			TestUtil.ActionForMovetoElement(Cycles);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-Cycles is not seen within 30 sec");
+		}
+		System.out.println();
 		
-		TestUtil.ActionForMovetoElement(Cycles);
-				Cycles.click();
+				//Cycles.click();
 		String Name = reader.getCellData("Investigation", "Search", 2);
 		try
 		{
@@ -78,6 +87,7 @@ public class WOPUCycyclePage extends TestBase
 		{
 			System.out.println("Timeoutexceptionseen");
 		}
+		TestUtil.ActionForMovetoElement(Searchbox);
 		Searchbox.click();
 		Searchbox.sendKeys(Name);
 		try 
@@ -90,7 +100,8 @@ public class WOPUCycyclePage extends TestBase
 		Searchbox.sendKeys(Keys.BACK_SPACE);
 		try {
 			Thread.sleep(1000);
-		} catch (InterruptedException e) 
+		} 
+		catch (InterruptedException e) 
 		{
 			System.out.println("thread.sleep value should be reduced ");
 		}
@@ -107,6 +118,7 @@ public class WOPUCycyclePage extends TestBase
 			searchlist.get(i).click();
 			
 		}
+
 		return searchlist.size();
 		
 		
@@ -203,19 +215,11 @@ return count2;
 		String subnames = reader.getCellData("Investigation", "OPU", 4);
 		ARTSubtype1.selectByVisibleText(subnames);
 		String date1 = reader.getCellData("Stimulationchart", "OPUDate", 2);
-		
-		/*Actions act = new  Actions(driver);
-		act.moveToElement(Calenderinput).click().perform();
-		Calenderinput.click();
-		Calenderinput.sendKeys("29-jun-2018");
-		Calenderinput.sendKeys(Keys.TAB);*/
 		Calender.click();
 		List<WebElement> dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//td/button"));
 		for (int i = 1; i < dates.size(); i++) 
 		{
 			String date2 = reader.getCellData("CycleList", "Date", 2);
-			
-			
 			String Datetext = dates.get(i).getText();
 			boolean flag =  dates.get(i).isEnabled();
 			String arr[] = date1.split("-");
@@ -371,8 +375,8 @@ return count2;
 		
 		EMRDashBoardPage EMRPage = new EMRDashBoardPage();
 		 EMRPage.ClickOnInvestigation();
-		 Actions act = new Actions(driver);
-		 act.moveToElement(Cycles).click().perform();
+		TestUtil.ActionForMovetoElement(Cycles);
+		Cycles.click();
 		
 	}
 	else
@@ -381,8 +385,8 @@ return count2;
 		// flag= cyclecode.isDisplayed();
 		EMRDashBoardPage EMRPage = new EMRDashBoardPage();
 		 EMRPage.ClickOnInvestigation();
-		 Actions act = new Actions(driver);
-		 act.moveToElement(Cycles).click().perform();
+		 TestUtil.ActionForMovetoElement(Cycles);
+			Cycles.click();
 	}
 		
 		
@@ -402,7 +406,7 @@ return count2;
 			System.out.println("element is not seen with in 20 seconds");
 		}
 		Actions act = new Actions(driver);
-		act.moveToElement(Cycles).click().perform();
+		//act.moveToElement(Cycles).click().perform();
 		List<WebElement> Availrow = driver.findElements(By.xpath("//table/tbody[3]/tr/td[4]"));
 		boolean flag= false;
 		int Rowssize =Availrow.size();
@@ -460,12 +464,21 @@ return count2;
 			
 		}
 		return msg;
-		
-		
-		
-		
-		
-		
+	
+	}
+	
+	public void ClickonCycles()
+	{
+		try
+		{
+		TestUtil.VisibleOn(driver, Cycles, 30);
+		TestUtil.ActionForMovetoElement(Cycles);
+		}
+		catch (Exception e)
+		{
+			System.out.println("Timeout exception seen");
+		}
+		Cycles.click();
 	}
 	
 	
@@ -504,7 +517,7 @@ return count2;
 		{
 			System.out.println("Element-Cycles is not seen within 30 sec");
 		}
-		Cycles.click();
+		//Cycles.click();
 		/*JavascriptExecutor jse = (JavascriptExecutor) driver;
 		jse.executeScript("arguments[0].click();", Cycles);*/
 		List<WebElement>rows = driver.findElements(By.xpath("//h5[text()='Previous Procedures']//following::table[1]//tbody//tr"));

@@ -58,22 +58,17 @@ public class WomenHistoryPage extends TestBase
 			 try
 			 {
 			 TestUtil.VisibleOn(driver, ObstetricHistory, 20);
+			 TestUtil.ActionForMovetoElement(ObstetricHistory);
 			 }
 			 catch(Exception e)
 			 {
 				 System.out.println("element is not visible withinthe time period");
 				 
 			 }
-			 finally
-			 {
-				 System.out.println("Finally block executed");
-			 }
-			 JavascriptExecutor jse = (JavascriptExecutor) driver;
-				jse.executeScript("arguments[0].click();", ObstetricHistory);
+			 ObstetricHistory.click();
+			 
 			 return  new ObstetricHistoryPage();
 		 
-		
-	
 			}
 		 public  MedicalHistoryPage ClickonMedicalHistory() 
 			{

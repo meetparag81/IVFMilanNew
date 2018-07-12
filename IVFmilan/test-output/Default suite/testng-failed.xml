@@ -3,20 +3,17 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WOPUCycyclePageTest">
+      <class name="com_Milan_Test.SimulationChartPageTest">
         <methods>
-          <include name="MessageforAlreadtyavailableCycleTest"/>
-          <include name="TearDown"/>
-          <include name="AddOneServiceAtleastMessageTest"/>
-          <include name="ClickonCycletabTest"/>
-          <include name="ARTCycleAvailabilityMessageBeforeSaveTheCycleTest"/>
-          <include name="DeleteTheSeviceBeforeSaveThecycleTest"/>
-          <include name="AleadySavedCycleTest"/>
+          <include name="EnableconditionAddSimulationDrugTest"/>
           <include name="Setup"/>
-          <include name="NoofCyclesTest"/>
-          <include name="SearchcycleTest"/>
+          <include name="InvalidDateTest"/>
+          <include name="SimulationDrugValidationTest"/>
+          <include name="AddDrugNames"/>
+          <include name="Teardown"/>
+          <include name="SaveSimulationTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
+      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
