@@ -488,6 +488,7 @@ public class ObstetricHistoryPage extends TestBase {
 				switch (Names) 
 				{
 				case "Livebirth":
+					System.out.println();
 
 					WebElement outcomeLB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
 					try
@@ -504,8 +505,9 @@ public class ObstetricHistoryPage extends TestBase {
 					try
 					{
 						TestUtil.VisibleOn(driver, year, 30);
+						TestUtil.ActionForMovetoElement(year);
 					}
-					catch(TimeoutException e)
+					catch(Exception e)
 					{
 						System.out.println("Timeoutexception seen");
 					}

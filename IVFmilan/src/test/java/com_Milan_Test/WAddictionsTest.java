@@ -53,21 +53,21 @@ public void Setup()
 	
 	
 	
-	@Test(priority=1,groups = {"smoketest" },enabled=true)
+	@Test(priority=1,groups = {"smoketest" },enabled= true)
 	public void CurrentStatusEnableConditionSmokeTest()
 	{
 		boolean flag= Addictions.CurrentStatusDisplayForSmoke();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionSmokeTest is completed");
 	}
-	@Test(priority=2,groups = {"smoketest" },enabled=true)
+	@Test(priority=2,groups = {"smoketest" },enabled= true)
 	public void CurrentStatusEnableConditionAlkoholTest()
 	{
 		boolean flag= Addictions.CurrentStatusDisplayConditionForAlcohol();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionAlkoholTest is completed");
 	}
-	@Test(priority=3,groups = {"smoketest" },enabled=true)
+	@Test(priority=3,groups = {"smoketest" },enabled= true)
 	public void CurrentStatusEnableConditionTobacoTest()
 	{
 		boolean flag= Addictions.CurrentStatusDisplayConditionForTobaco();
@@ -75,7 +75,7 @@ public void Setup()
 		System.out.println("CurrentStatusEnableConditionTobacoTest is completed");
 	}
 	
-	@Test(priority=4,groups = {"smoketest" },enabled=true)
+	@Test(priority=4,groups = {"smoketest" },enabled= true)
 	public void CurrentStatusEnableConditionAdictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusDisplayConditionForDrugAdiction();
@@ -83,28 +83,28 @@ public void Setup()
 		System.out.println("CurrentStatusEnableConditionAdictionTest is completed");
 	}
 	
-	@Test(priority=5,groups = {"smoketest" },enabled=true)
+	@Test(priority=5,groups = {"smoketest" },enabled= true)
 	public void CurrentStatusEnableConditionCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusDisplayConditionForCaffeineAddiction();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionCaffeineAddictionTest is completed");
 	}
-	@Test(priority=6,groups = {"smoketest" },enabled=true)
+	@Test(priority=6,groups = {"smoketest" },enabled= true)
 	public void SenceWhenEnableconditionSinceWhenYearSmokeTest()
 	{
 		boolean flag= Addictions.DisplayConditionSinceWhenForSmoke();
 		Assert.assertTrue(flag);
 		System.out.println("CurrentStatusEnableConditionCaffeineAddictionTest is completed");
 	}
-	@Test(priority=7,groups = {"smoketest" },enabled=true)
+	@Test(priority=7,groups = {"smoketest" },enabled= true)
 	public void SenceWhenEnableconditionSinceWhenYearAlkoholTest()
 	{
 		boolean flag= Addictions.DisplayConditionSinceWhenForAlkohol();
 		Assert.assertTrue(flag);
 		System.out.println("SenceWhenEnableconditionSinceWhenYearAlkoholTest is completed");
 	}
-	@Test(priority=8,groups = {"smoketest" },enabled=true)
+	@Test(priority=8,groups = {"smoketest" },enabled= true)
 	public void SenceWhenEnableconditionSinceWhenYearTobacoTest()
 	{
 		boolean flag= Addictions.DisplayConditionSinceWhenForTobaco();
@@ -112,7 +112,7 @@ public void Setup()
 		System.out.println("SenceWhenEnableconditionSinceWhenYearTobacoTest is completed");
 	}
 	
-	@Test(priority=9,groups = {"smoketest" },enabled=true)
+	@Test(priority=9,groups = {"smoketest" },enabled= true)
 	public void SenceWhenEnableconditionSinceWhenDrugAddictionYearTest()
 	{
 		boolean flag= Addictions.DisplayConditionForSinceWhenDrugAdiction();
@@ -120,42 +120,42 @@ public void Setup()
 		System.out.println("SenceWhenEnableconditionSinceWhenDrugAddictionYearTest is completed");
 	}
 	
-	@Test(priority=10,groups = {"smoketest" },enabled=true)
+	@Test(priority=10,groups = {"smoketest" },enabled= true)
 	public void SinceWhenEnableconditionSinceWhenCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.CurrentStatusDisplayConditionForCaffeineAddiction();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenCaffeineAddictionTest is completed");
 	}
-	@Test(priority=11,groups = {"smoketest" },enabled=true)
+	@Test(priority=11,groups = {"smoketest" },enabled= true)
 	public void SinceWhenEnableconditionSinceWhenMonthSmokeTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForSmoke();
 		AssertJUnit.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthSmokeTest is completed");
 	}
-	@Test(priority=12,groups = {"smoketest" },enabled=true)
+	@Test(priority=12,groups = {"smoketest" },enabled= true)
 	public void SinceWhenEnableconditionSinceWhenMonthAlkoholTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForAlkohol();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthAlkoholTest is completed");
 	}
-	@Test(priority=13,groups = {"smoketest" },enabled=true)
+	@Test(priority=13,groups = {"smoketest" },enabled= true)
 	public void SinceWhenEnableconditionSinceWhenMonthTobocoTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForTobaco();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthTobocoTest is completed");
 	}
-	@Test(priority=14,groups = {"smoketest" },enabled=true)
+	@Test(priority=14,groups = {"smoketest" },enabled= true)
 	public void SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForDrugAdiction();
 		Assert.assertTrue(flag);
 		System.out.println("SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest is completed");
 	}
-	@Test(priority=15,groups = {"smoketest" },enabled=true)
+	@Test(priority=15,groups = {"smoketest" },enabled= true)
 	public void SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest()
 	{
 		boolean flag= Addictions.EnableconditionSinceWhenMonthForCaffeineAddiction();
@@ -168,7 +168,7 @@ public void Setup()
 	{
 		boolean flag= Addictions.CheckboxIsSelected();
 		boolean flag1= Addictions.SaveButtonText();
-		if (flag==false&& flag1==true)//Newpatient with Save button is  not seen.
+		if (flag==false&& flag1==true)//Newpatient with Update button is seen.
 		{
 			String act= Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
 			String exp = reader.getCellData("Addictions", "Message", 3);
@@ -206,7 +206,7 @@ public void Setup()
 		
 	}
 	@Test (priority=17,groups = {"functional" },enabled=true)
-	@Parameters("ITestContext")
+	//@Parameters("ITestContext")
 	public void saveNewAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
 			String Frequency, String Quantity) 
 	{

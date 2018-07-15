@@ -187,7 +187,7 @@ public class EMRDashBoardPage extends TestBase {
 	{
 		try
 		{
-		TestUtil.VisibleOn(driver, womenfield, 20);
+		TestUtil.VisibleOn(driver, womenfield, 30);
 		TestUtil.ActionForMovetoElement(womenfield);
 		}
 		catch(Exception e)
@@ -202,6 +202,7 @@ public class EMRDashBoardPage extends TestBase {
 		{
 			System.out.println("Thread.sleep value should be decreased");
 		}
+		TestUtil.ActionForMovetoElement(FemaleDiagnosis);
 		FemaleDiagnosis.click();
 		List<WebElement> visitm = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 		if (visitm.size() != 0) 

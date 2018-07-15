@@ -15,17 +15,17 @@ import com_Milan_util.TestUtil;
 public class WomenHistoryPage extends TestBase
 {
 	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[1]")WebElement MenstrualHistory;
-	@FindBy(xpath= "//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]")WebElement SexualHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[3]")WebElement ObstetricHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[4]")WebElement medicalHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[5]")WebElement familyHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[6]")WebElement SurgicalHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[7]")WebElement previousTreatmentHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[8]")WebElement pastMedicationHistory;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[9]")WebElement allergies;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[10]")WebElement addictions;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[11]")WebElement Vaccination;
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[12]")WebElement socialHistory;
+	@FindBy(xpath= "//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]/a")WebElement SexualHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[3]/a")WebElement ObstetricHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[4]/a")WebElement medicalHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[5]/a")WebElement familyHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[6]/a")WebElement SurgicalHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[7]/a")WebElement previousTreatmentHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[8]/a")WebElement pastMedicationHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[9]/a")WebElement allergies;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[10]/a")WebElement addictions;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[11]/a")WebElement Vaccination;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[12]/a")WebElement socialHistory;
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
 	 
@@ -57,7 +57,7 @@ public class WomenHistoryPage extends TestBase
 			{
 			 try
 			 {
-			 TestUtil.VisibleOn(driver, ObstetricHistory, 20);
+			 TestUtil.VisibleOn(driver, ObstetricHistory, 30);
 			 TestUtil.ActionForMovetoElement(ObstetricHistory);
 			 }
 			 catch(Exception e)
@@ -164,7 +164,7 @@ public class WomenHistoryPage extends TestBase
 			
 			try
 			{
-				TestUtil.VisibleOn(driver, allergies, 20);
+				TestUtil.VisibleOn(driver, allergies, 30);
 				TestUtil.ActionForMovetoElement(allergies);
 				
 			}
@@ -173,8 +173,7 @@ public class WomenHistoryPage extends TestBase
 				System.out.println("Element- allergies is not seen with in 20 sec");
 			}
 			allergies.click();
-			/*JavascriptExecutor jse = (JavascriptExecutor) driver;
-			jse.executeScript("arguments[0].click();", allergies);*/
+			
 			return new AllergiesPage();
 		}
 		
@@ -234,30 +233,15 @@ public class WomenHistoryPage extends TestBase
 			try
 			{
 				TestUtil.VisibleOn(driver, MenstrualHistory, 20);
-			}
-			catch(Exception e)
-			{
-				System.out.println("Element- MenstrualHistory is not seen with in 20 seconds");
-			}
-			try
-			{
-			TestUtil.ActionForMovetoElement(MenstrualHistory);
+				TestUtil.ActionForMovetoElement(MenstrualHistory);
 			}
 			catch(TimeoutException e)
 			{
 				System.out.println("TimeoutException seen");
 			}
-			
 			MenstrualHistory.click();
 			System.out.println("clicked on MenstrualHistoryPage");
 			return new MenstrualHistoryPage();
-
-
-		
-		
-		
-		
-		
-		
+	
 }
 }

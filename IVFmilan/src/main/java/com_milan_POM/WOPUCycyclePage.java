@@ -80,8 +80,8 @@ public class WOPUCycyclePage extends TestBase
 		String Name = reader.getCellData("Investigation", "Search", 2);
 		try
 		{
-		TestUtil.VisibleOn(driver, Searchbox, 20);
-		TestUtil.ActionForMovetoElement(Searchbox);
+		TestUtil.VisibleOn(driver, Searchbox, 40);
+		
 		}
 		catch(Exception e)
 		{

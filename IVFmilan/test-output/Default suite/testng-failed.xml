@@ -3,17 +3,29 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.SimulationChartPageTest">
+      <class name="com_Milan_Test.WAddictionsTest">
         <methods>
-          <include name="EnableconditionAddSimulationDrugTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenCaffeineAddictionTest"/>
+          <include name="CurrentStatusEnableConditionAlkoholTest"/>
           <include name="Setup"/>
-          <include name="InvalidDateTest"/>
-          <include name="SimulationDrugValidationTest"/>
-          <include name="AddDrugNames"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest"/>
           <include name="Teardown"/>
-          <include name="SaveSimulationTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthAlkoholTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenYearAlkoholTest"/>
+          <include name="CurrentStatusEnableConditionCaffeineAddictionTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest"/>
+          <include name="CurrentStatusEnableConditionAdictionTest"/>
+          <include name="CurrentStatusEnableConditionSmokeTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenDrugAddictionYearTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenYearSmokeTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthTobocoTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenYearTobacoTest"/>
+          <include name="saveNewAdictions"/>
+          <include name="CurrentStatusEnableConditionTobacoTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthSmokeTest"/>
+          <include name="saveAdictionsTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      </class> <!-- com_Milan_Test.WAddictionsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

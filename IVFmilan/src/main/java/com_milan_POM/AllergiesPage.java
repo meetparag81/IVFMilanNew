@@ -1027,7 +1027,8 @@ public class AllergiesPage extends TestBase
 			
 		
 }//rows
-		Button.click();
+	
+		
 		
 	}
 	

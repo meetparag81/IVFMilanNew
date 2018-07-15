@@ -120,7 +120,7 @@ public void AllergySelectionTest()
 	{
 		String act= Allergies.AllergySelection();
 		String exp = "Record updated successfully!";
-				reader.getCellData("Allergies", "Message", 3);
+		//		reader.getCellData("Allergies", "Message", 3);
 		Assert.assertEquals(act, exp);
 		System.out.println("AllergySelectionTest is completed");
 		
@@ -147,11 +147,7 @@ public void AllergySelectionTest()
 	
 	
 	
-		String act =Allergies.AllergySelection();
-		String exp = "Record saved successfully!";
-				reader.getCellData("Allergies", "Message", 2);
-		Assert.assertEquals(act, exp);
-		System.out.println("AllergySelectionTest is completed");
+		
 		
 
 }

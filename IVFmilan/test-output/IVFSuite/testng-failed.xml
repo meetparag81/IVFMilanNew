@@ -12,24 +12,12 @@
           <include name="LiveBirthFullTermconditionTest"/>
           <include name="LiveBirthAbovePostTermconditionTest"/>
           <include name="Setup"/>
-          <include name="ComplicationsEnableCondititionTest"/>
-          <include name="DeliveryEnableCondititionTest"/>
           <include name="Teardown"/>
           <include name="LiveBirthPretermconditionTest"/>
           <include name="SaveOutcometypesTest"/>
           <include name="CongenitalAnamolyEnableCondititionTest"/>
-          <include name="AbortionEnableCondititionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
-      <class name="com_Milan_Test.WOPUCycyclePageTest">
-        <methods>
-          <include name="TearDown"/>
-          <include name="ClickonCycletabTest"/>
-          <include name="ARTCycleAvailabilityMessageBeforeSaveTheCycleTest"/>
-          <include name="SaveOPUsubtypeICSITest"/>
-          <include name="Setup"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
       <class name="com_Milan_Test.WcomplaintsTest">
         <methods>
           <include name="Setup"/>
@@ -39,19 +27,19 @@
       </class> <!-- com_Milan_Test.WcomplaintsTest -->
       <class name="com_Milan_Test.WAllergiesTest">
         <methods>
+          <include name="OptionSelectedOnAllergyCurrentStstusTest"/>
           <include name="Seup"/>
           <include name="AllergySelectionTest"/>
+          <include name="ExistingPatientDrugAllergyTypeTest"/>
           <include name="Teardown"/>
         </methods>
       </class> <!-- com_Milan_Test.WAllergiesTest -->
       <class name="com_Milan_Test.CycleOverviewPageTest">
         <methods>
           <include name="ValueInProtocolTest"/>
-          <include name="ValueInSourceofSpermOptionTest"/>
           <include name="Setup"/>
           <include name="ValueInARTTypeTest"/>
           <include name="TearDown"/>
-          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
       <class name="com_Milan_Test.CycleListPageTest">
@@ -74,30 +62,39 @@
       </class> <!-- com_Milan_Test.CycleListPageTest -->
       <class name="com_Milan_Test.WAddictionsTest">
         <methods>
+          <include name="SinceWhenEnableconditionSinceWhenCaffeineAddictionTest"/>
           <include name="Setup"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest"/>
           <include name="Teardown"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthAlkoholTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenYearAlkoholTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenDrugAddictionYearTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenYearSmokeTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthTobocoTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenYearTobacoTest"/>
           <include name="saveNewAdictions"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthSmokeTest"/>
           <include name="saveAdictionsTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
-      <class name="com_Milan_Test.WSexsualHistoryTest">
-        <methods>
-          <include name="Seup"/>
-          <include name="TryingToConcieveSinceMonthTest"/>
-          <include name="Teardown"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
       <class name="com_Milan_Test.SimulationChartPageTest">
         <methods>
           <include name="EnableconditionAddSimulationDrugTest"/>
           <include name="Setup"/>
           <include name="InvalidDateTest"/>
           <include name="SimulationDrugValidationTest"/>
-          <include name="AddDrugNames"/>
           <include name="Teardown"/>
           <include name="SaveSimulationTest"/>
         </methods>
       </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      <class name="com_Milan_Test.WVitalsTest">
+        <methods>
+          <include name="setup"/>
+          <include name="TearDown"/>
+          <include name="SaveAllVitalsValuesTest" invocation-numbers="2"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WVitalsTest -->
     </classes>
   </test> <!-- IVFTEST(failed) -->
 </suite> <!-- Failed suite [IVFSuite] -->

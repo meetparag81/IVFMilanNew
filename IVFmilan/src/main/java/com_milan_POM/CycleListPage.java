@@ -705,15 +705,26 @@ public class CycleListPage extends TestBase
 	
 	public NewCycleListPage ClickonCyclecode() 
 	{
+		List<WebElement>cyclecodes = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
 		try
 		{
-		TestUtil.VisibleOn(driver, Cyclecode, 20);
+		TestUtil.VisibleOn(driver, Cyclecode, 30);
 		}
 		catch(TimeoutException e)
 		{
 			System.out.println("Element-cyclecode is not seen within 20 sec");
 		}
+		List<WebElement>cyclecodes1 = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
+		int size1 = cyclecodes1.size();
+		if(size1>0)
+		{
 		Cyclecode.click();
+		}
+		else
+		{
+			System.out.println("No cycle code available.");
+		}
+		
 		
 		
 		
@@ -722,16 +733,26 @@ public class CycleListPage extends TestBase
 	}
 	public CycleOverviewPage ClickOnCycleCode()
 	{
+		List<WebElement>cyclecodes = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
 		try
 		{
-		TestUtil.VisibleOn(driver, Cyclecode, 20);
+		TestUtil.VisibleOn(driver, Cyclecode, 30);
 		TestUtil.ActionForMovetoElement(Cyclecode);
 		}
 		catch(Exception e)
 		{
 			System.out.println("Elemet-Cyclecode is not seen within 20 sec");
 		}
-		Cyclecode.click();
+		int size= cyclecodes.size();
+		if(size>0)
+		{
+			Cyclecode.click();
+		}
+		else
+		{
+			System.out.println("cycle list page is seen");
+		}
+		
 		
 		return new CycleOverviewPage();
 		

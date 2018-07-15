@@ -256,13 +256,13 @@ for(int i=1;i<radiobuttons;i++)
 		Searchbox1.sendKeys(Keys.BACK_SPACE);
 		try {
 			Thread.sleep(1000);
-		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (InterruptedException e1)
+		{
+			System.out.println("InterruptedException is seen");
 		}
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
-		if(search.size()>0)
+		if(search.size()<0)
 		{
 			Searchbox1.sendKeys(Keys.BACK_SPACE);
 		}
@@ -291,7 +291,7 @@ for(int i=1;i<radiobuttons;i++)
 			}
 			 else 
 			 {
-				 search.get(i).click();
+				 search.get(i).sendKeys(Keys.ENTER);
 				 break;
 			 }
 		
@@ -302,7 +302,7 @@ for(int i=1;i<radiobuttons;i++)
 		}
 		catch(Exception e)
 		{
-			System.out.println("Elemeny- checkbox is not displayed");
+			System.out.println("Element- checkbox is not displayed");
 		}
 		if(flag==true)
 		{
@@ -313,7 +313,7 @@ for(int i=1;i<radiobuttons;i++)
 		}
 		catch(Exception e)
 		{
-			System.out.println("element not seen within20 seconds");
+			System.out.println("element-checkbox not seen within 20 seconds");
 		}
 		TestUtil.ActionForMovetoElement(checkbox);
 		checkbox.click();
