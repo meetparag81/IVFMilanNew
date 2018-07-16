@@ -262,14 +262,16 @@ for(int i=1;i<radiobuttons;i++)
 		}
 		Searchbox1.sendKeys("");
 		List<WebElement> search = driver.findElements(By.xpath("//ul[@role='listbox']//li/a"));
-		if(search.size()<0)
+		if(search.size()<=0)
 		{
+			
+			Searchbox1.clear();
+			Searchbox1.sendKeys(PatientName);
 			Searchbox1.sendKeys(Keys.BACK_SPACE);
+			
 		}
 		else
 		{
-			Searchbox1.clear();
-			Searchbox1.sendKeys(PatientName);
 			Searchbox1.sendKeys(Keys.BACK_SPACE);
 		}
 
@@ -291,7 +293,7 @@ for(int i=1;i<radiobuttons;i++)
 			}
 			 else 
 			 {
-				 search.get(i).sendKeys(Keys.ENTER);
+				 search.get(i).click();
 				 break;
 			 }
 		
