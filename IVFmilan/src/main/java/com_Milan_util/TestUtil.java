@@ -19,6 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com_Milan_Base.TestBase;
@@ -147,6 +148,14 @@ public static long PAGE_LOAD_TIMEOUT = 30;
 	    formatter = new SimpleDateFormat("dd-MMM-yyyy"); 
 	    String strDate = formatter.format(date);  
 		return strDate;  
+	}
+	public static void ActionForMovetoElementSelect(Select select, WebElement element) 
+	{
+		Select select1 = new Select(element);
+		Actions act1 = new Actions(driver);
+		act1.moveToElement((WebElement) select1);
+		
+		
 	}
 	
 	

@@ -453,7 +453,12 @@ public class ObstetricHistoryPage extends TestBase {
 	
 	public void ExistingSaveOutcometypes() 
 	{
+		
 		List<WebElement> tablerows = driver.findElements(By.xpath("//table[@id='ObstetricHistory']/tbody/tr"));
+		WebElement outcomeLB = null; 
+		WebElement outcomeEB = null;
+		WebElement gestationEB = null;
+		WebElement OutcomeSB = null;
 		int birthoptions = 0;
 		birthoptions = birthoptions + 0;
 		int rows = tablerows.size();
@@ -472,6 +477,7 @@ public class ObstetricHistoryPage extends TestBase {
 //			Addrows.click();
 			
 			WebElement Outcome = driver.findElement(By.xpath("//th[text()='Outcome']//following::select[3]"));
+			
 			try
 			{
 				TestUtil.VisibleOn(driver, Outcome, 30);
@@ -488,11 +494,12 @@ public class ObstetricHistoryPage extends TestBase {
 				switch (Names) 
 				{
 				case "Livebirth":
-					System.out.println();
+					
 
-					WebElement outcomeLB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					
 					try
 					{
+						 outcomeLB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
 						TestUtil.VisibleOn(driver, outcomeLB, 30);
 					}
 					catch(TimeoutException e)
@@ -552,9 +559,10 @@ public class ObstetricHistoryPage extends TestBase {
 					break;
 				case "Ectopic":
 					//Addrows.click();
-					WebElement outcomeEB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					
 					try
 					{
+						 outcomeEB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
 						TestUtil.VisibleOn(driver, outcomeEB, 30);
 					}
 					catch(TimeoutException e)
@@ -582,9 +590,10 @@ public class ObstetricHistoryPage extends TestBase {
 						System.out.println("The InterruptedException is occured");
 					}
 					// yearE1.selectByIndex(10);
-					WebElement gestationEB = driver.findElement(By.xpath("//th[text()='Gestation Weeks']//following::select[2]"));
+					
 					try
 					{
+						 gestationEB = driver.findElement(By.xpath("//th[text()='Gestation Weeks']//following::select[2]"));
 						TestUtil.VisibleOn(driver, gestationEB, 30);
 					}
 					catch(TimeoutException e)
@@ -683,9 +692,10 @@ public class ObstetricHistoryPage extends TestBase {
 					break;
 				case "Still Born":
 					//Addrows.click();
-					WebElement OutcomeSB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
+					
 					try
 					{
+					 OutcomeSB = driver.findElement(By.xpath("(//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//select)[3]"));
 					TestUtil.VisibleOn(driver, OutcomeSB, 30);
 					}
 					catch(TimeoutException e)

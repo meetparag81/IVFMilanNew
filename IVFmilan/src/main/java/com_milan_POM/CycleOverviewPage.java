@@ -110,7 +110,7 @@ public class CycleOverviewPage extends TestBase
 	}
 	public String ValueInProtocol() throws Exception
 	{
-		System.out.println();
+		
 		Select VOP = new Select(Protocol);
 		WebElement we = VOP.getFirstSelectedOption();
 		try
@@ -131,6 +131,7 @@ public class CycleOverviewPage extends TestBase
 		}
 		else
 		{
+			TestUtil.VisibleOn(driver, we, 30);
 			TestUtil.ActionForMovetoElement(we);
 			msg= we.getText();
 			

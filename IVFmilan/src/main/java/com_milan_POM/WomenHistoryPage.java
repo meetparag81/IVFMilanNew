@@ -14,7 +14,7 @@ import com_Milan_util.TestUtil;
 
 public class WomenHistoryPage extends TestBase
 {
-	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[1]")WebElement MenstrualHistory;
+	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[1]/a")WebElement MenstrualHistory;
 	@FindBy(xpath= "//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[2]/a")WebElement SexualHistory;
 	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[3]/a")WebElement ObstetricHistory;
 	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[4]/a")WebElement medicalHistory;
@@ -197,7 +197,7 @@ public class WomenHistoryPage extends TestBase
 		
 		public  VaccinationPage ClickOnVaccination() 
 		{
-			System.out.println("========Vaccination click testcase started======");
+		//	System.out.println("========Vaccination click testcase started======");
 			try
 			{
 				TestUtil.VisibleOn(driver, Vaccination, 20);
@@ -207,7 +207,7 @@ public class WomenHistoryPage extends TestBase
 				System.out.println("Element-Vaccination is not seen within 20 sec");
 			}
 			Vaccination.click();
-			System.out.println("clicked on Vaccination");
+		//	System.out.println("clicked on Vaccination");
 			return new VaccinationPage();
 			
 		}
@@ -229,10 +229,10 @@ public class WomenHistoryPage extends TestBase
 		
 		public  MenstrualHistoryPage ClickOnMenstrualHistory() 
 		{
-			System.out.println("========MenstrualHistory click testcase started======");
+			//System.out.println("========MenstrualHistory click testcase started======");
 			try
 			{
-				TestUtil.VisibleOn(driver, MenstrualHistory, 20);
+				TestUtil.VisibleOn(driver, MenstrualHistory, 30);
 				TestUtil.ActionForMovetoElement(MenstrualHistory);
 			}
 			catch(TimeoutException e)
@@ -240,7 +240,7 @@ public class WomenHistoryPage extends TestBase
 				System.out.println("TimeoutException seen");
 			}
 			MenstrualHistory.click();
-			System.out.println("clicked on MenstrualHistoryPage");
+			//System.out.println("clicked on MenstrualHistoryPage");
 			return new MenstrualHistoryPage();
 	
 }

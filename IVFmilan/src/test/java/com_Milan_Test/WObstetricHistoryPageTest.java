@@ -53,7 +53,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		double Expected = 1.0;
 		Assert.assertEquals(Actual, Expected, Actual);
 	}
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void BirthWeightEnableConditionTest()
 	{
 		boolean flag1=OHP.BirthWeightEnabled();

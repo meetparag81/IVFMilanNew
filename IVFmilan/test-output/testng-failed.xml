@@ -1,20 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [IVFSuite]" parallel="tests">
+  <listeners>
+    <listener class-name="com_Milan_ExtendReport.ExtentReport"/>
+    <listener class-name="com_Milan_Analyzer.MyTransformer"/>
+  </listeners>
+  <test name="IVFTEST(failed)" parallel="tests">
     <classes>
+      <class name="com_Milan_Test.WomenHistoryPageTest">
+        <methods>
+          <include name="pastMedicationHistoryTest"/>
+          <include name="setup"/>
+          <include name="Teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WomenHistoryPageTest -->
+      <class name="com_Milan_Test.WAllergiesTest">
+        <methods>
+          <include name="OptionSelectedOnAllergyCurrentStstusTest"/>
+          <include name="Seup"/>
+          <include name="Teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WAllergiesTest -->
+      <class name="com_Milan_Test.CycleListPageTest">
+        <methods>
+          <include name="SourceofSpermselectionDonorTest"/>
+          <include name="CycleListTitleTest"/>
+          <include name="ProtocolandselectionTest"/>
+          <include name="SaveTheCycleTest"/>
+          <include name="NewCycleButtonEnableConditionTest"/>
+          <include name="SourceofspermPartnerTest"/>
+          <include name="MethodOfSemenCollectionTest"/>
+          <include name="Teardown"/>
+          <include name="EnabledconditionARTTypeTest"/>
+          <include name="ARTTypeOptionTest"/>
+          <include name="SimulationDrugTest"/>
+          <include name="Setup"/>
+          <include name="ClickonNewCycleTest"/>
+          <include name="LMPDateTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.CycleListPageTest -->
+      <class name="com_Milan_Test.SimulationChartPageTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="InvalidDateTest"/>
+          <include name="SimulationDrugValidationTest"/>
+          <include name="Teardown"/>
+          <include name="SaveSimulationTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      <class name="com_Milan_Test.WSexsualHistoryTest">
+        <methods>
+          <include name="FillSexsuslHistorytest"/>
+          <include name="DyspareuniatextTest"/>
+          <include name="Seup"/>
+          <include name="Remarktexttest"/>
+          <include name="SexInrelationshipsinceMonthsTest"/>
+          <include name="numberofcharacterexualDysfunctionTest"/>
+          <include name="TryingToConcieveSinceYearTest"/>
+          <include name="textboxSexualDysfunctionTest"/>
+          <include name="Lubricationusedtext"/>
+          <include name="TryingToConcieveSinceMonthTest"/>
+          <include name="Teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
+      <class name="com_Milan_Test.WcomplaintsTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="NextFollowUpTest"/>
+          <include name="Teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
+      <class name="com_Milan_Test.CycleOverviewPageTest">
+        <methods>
+          <include name="ValueInProtocolTest"/>
+          <include name="Setup"/>
+          <include name="ValueInARTTypeTest"/>
+          <include name="TearDown"/>
+          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
+      <class name="com_Milan_Test.HomePageTest">
+        <methods>
+          <include name="ClickOnCmrTest"/>
+          <include name="Setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.HomePageTest -->
       <class name="com_Milan_Test.WAddictionsTest">
         <methods>
-          <include name="SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest"/>
           <include name="Setup"/>
-          <include name="SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest"/>
-          <include name="SinceWhenEnableconditionSinceWhenMonthTobocoTest"/>
           <include name="Teardown"/>
           <include name="saveNewAdictions"/>
-          <include name="SinceWhenEnableconditionSinceWhenMonthAlkoholTest"/>
-          <include name="saveAdictionsTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
+      <class name="com_Milan_Test.WObstetricHistoryPageTest">
+        <methods>
+          <include name="LiveBirthFullTermconditionTest"/>
+          <include name="LiveBirthAbovePostTermconditionTest"/>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="LiveBirthPretermconditionTest"/>
+          <include name="SaveOutcometypesTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- IVFTEST(failed) -->
+</suite> <!-- Failed suite [IVFSuite] -->

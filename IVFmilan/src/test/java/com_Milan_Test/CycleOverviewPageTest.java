@@ -140,9 +140,7 @@ public class CycleOverviewPageTest extends TestBase
 			Assert.assertEquals(act, exp);
 			System.out.println("ValueInARTTypeTest is completed");
 		}
-		
-		
-		
+	
 		
 	@AfterMethod
 	public void TearDown()
