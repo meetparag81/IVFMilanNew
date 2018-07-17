@@ -17,7 +17,7 @@ import com_Milan_Base.TestBase;
 public class ConnectToSQL extends TestBase
 {
 	
-	@Test
+	@Test (priority=2)
 	public void TestDB() throws SQLException 
 	{
 	try {
@@ -31,8 +31,9 @@ public class ConnectToSQL extends TestBase
 	System.out.println("Driver is loaded");
 	 
 	 System.out.println("Connect to DB");
+	 
 	 Connection con = DriverManager.getConnection("jdbc:odbc:Login_DB");
-			 //DriverManager.getConnection("Data Source=192.168.1.5;Initial Catalog=Genome_Dev_21DEC17;User Id=sa;Password=Rational@1;Pooling=True;Min Pool Size=25;Max Pool Size=300" );
+			 
 	System.out.println("Connected to my sqldb");
 	 
 	Statement stm = con.createStatement();
@@ -54,7 +55,30 @@ public class ConnectToSQL extends TestBase
 	
 	System.out.println(userid);
 	}
+	@Test (priority=1)
+	public void CheckConnection()
+	{
+		try 
+	    {
+			System.out.println();
+	            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+	            System.out.println("Driver is loaded");
+	           Connection con = DriverManager.getConnection("http://192.168.1.202", "sa", "Rational@1");
+	            if (con != null) 
+	            {
+	                System.out.println("Connection Successful!");
+	            }
 	}
+	 catch (Exception e) 
+	{
+	    e.printStackTrace();
+	    System.out.println("Error Trace in getConnection() : " + e.getMessage());
+	}
+	
+	
+	
+	}
+}
 	
 	
 

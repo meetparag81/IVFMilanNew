@@ -39,8 +39,6 @@ public class WMenstrualHistoryTest extends TestBase
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage=HomePage.searchPaient();
-		//EMRPage= HomePage.ClickonEMR();
-		//EMRPage=HomePage.SearchusingCalender();
 		WHP= EMRPage.clickOnWomenField();
 		MHP=WHP.ClickOnMenstrualHistory();
 	}
@@ -54,7 +52,7 @@ public class WMenstrualHistoryTest extends TestBase
 				
 	}
 	
-	@Test(priority=2,enabled= true)
+	@Test(priority=2,enabled=true)
 	public  void MenarcheRangeEndTest() 
 	{
 		
@@ -63,7 +61,7 @@ public class WMenstrualHistoryTest extends TestBase
 		Assert.assertEquals(Actual, Expected, "Last range value is incorrect");
 		System.out.println("MenarcheRangeEndTest completed");
 	}
-	@Test(priority=3,enabled= true)
+	@Test(priority=3,enabled=true)
 	public  void LMPcalenderdateSelectionTest() 
 	{
 		boolean flag1=MHP.DatePicker();
@@ -73,7 +71,7 @@ public class WMenstrualHistoryTest extends TestBase
 	}
 	
 	
-	@Test(priority=4,enabled= true)
+	@Test(priority=4,enabled=true)
 	public  void AmenorrheaTypeTest() 
 	{
 		boolean flag2=MHP.AmenorrheaType();
@@ -84,10 +82,10 @@ public class WMenstrualHistoryTest extends TestBase
 	@Test(priority=5,enabled=true)
 	public void SavevaluesTest()
 	{
-		MHP.Savevaluesindurations();
+		MHP.SaveValuesInDurations();
 	}
 	
-	@Test(priority=6,enabled= true)
+	@Test(priority=6,enabled=true)
 	public  void CycleDurationTest() 
 	{
 		String Actual = MHP.GetCycleDurationvalue();
@@ -104,12 +102,45 @@ public class WMenstrualHistoryTest extends TestBase
 		System.out.println("CycleDurationTest completed");
 	}
 	
-	@Test (priority=8,enabled= true)
+	@Test (priority=8,enabled=true)
 	public void MenstrualFlowtextTest()
 	{
 		Boolean flag=MHP.MenstrualFlowText();
 		Assert.assertTrue(flag);
 		System.out.println("MenstrualFlowTesttest is passed");
+	}
+	
+	@Test (priority=9,enabled=true)
+	public void MenstrualFlowTextTest()
+	{
+		Boolean flag=MHP.MenstrualFlowText();
+		Assert.assertTrue(flag);
+		System.out.println("MenstrualFlowTesttest is passed");
+	}
+	
+	@Test (priority=10,enabled= true)
+	public void SaveWMenstrualHistoryTest()
+	{
+		boolean flag= MHP.SaveButton();
+		if(flag==false)
+		{
+		String act= MHP.SaveTheForm();
+		String exp = "Record updated successfully!";
+		Assert.assertEquals(act, exp);
+		System.out.println("SaveThe SaveWMenstrualHistoryTest is completed");
+			
+			
+			
+		}
+		else
+		{
+			String act= MHP.SaveTheForm();
+			String exp = "Record saved successfully!";
+			Assert.assertEquals(act, exp);
+			System.out.println("SaveThe SaveWMenstrualHistoryTest is completed"); 
+		}
+	 
+		
 	}
 	
 	

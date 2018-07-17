@@ -26,7 +26,7 @@ public class WomenHistoryPage extends TestBase
 	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[10]/a")WebElement addictions;
 	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[11]/a")WebElement Vaccination;
 	@FindBy(xpath="//main[@id='wrapper']/section/div/section/div[1]/form/div/div[1]/div/div[2]/div[1]//li[12]/a")WebElement socialHistory;
-	WebDriverWait wait = new WebDriverWait(driver, 20);
+	
 	
 	 
 	public WomenHistoryPage()  

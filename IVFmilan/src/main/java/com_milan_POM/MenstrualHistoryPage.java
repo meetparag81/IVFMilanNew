@@ -25,9 +25,13 @@ public class MenstrualHistoryPage extends TestBase
 	@FindBy(xpath="//button[text()=' Update'][@class='btn btn-primary ng-binding']")WebElement Update;
 	@FindBy(xpath="//label[text()='Menstrual Flow']//following::select[1]")WebElement MenstrualFlow;
 	@FindBy(xpath="//label[text()='Menstrual Flow']//following::textarea[1]")WebElement MenstrualFlowtext;
-	@FindBy(xpath="toast-msg ng-binding ng-scope")WebElement UpdateMessage;
-	WebDriverWait wait= new WebDriverWait(driver, 50);
+	@FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement UpdateMessage;
+	@FindBy(xpath = "//label[text()='Dysmennorhea']//following-sibling::div/select")WebElement Dysmennorhea;
+	@FindBy(xpath="//label[text()='Intermenstrual Bleeding']//following-sibling::div/select")WebElement IntermenstrualBleeding;
+	@FindBy(xpath="//label[text()='LMP']//following-sibling::div//input[@id='Date']")WebElement Datetext;
+	
 	String msg;
+	String thismonth;
 	
 	
 	MenstrualHistoryPage()
@@ -62,28 +66,90 @@ public class MenstrualHistoryPage extends TestBase
 		boolean flag= false;
 		lmpPcalender.click();
 		String currentdate= TestUtil.Date();
-		List<WebElement> datenodes = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//table[@role='grid']//tbody//td/button")));
-		try
+		String arr[] = currentdate.split(",");
+		String day= arr[0];
+		String month= arr[1];
+		String year= arr[2];
+		
+		TestUtil.ActionForMovetoElement(Datetext);
+		Datetext.clear();
+		WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+		String monthtext= Monthtextele.getText();
+		String montharr[] = monthtext.split(" ");
+		String Currentmonth= montharr[0];
+		String Currentyear= montharr[1];
+		if(Currentmonth.equals(month))
 		{
-		TestUtil.VisibleElementsOn(driver, datenodes, 30);
-		}
-		catch(Exception e)
-		{
-			System.out.println("TimeoutExceptionseen");
-		}
-		int Totalnodes= datenodes.size();
-		for(int i=0;i<Totalnodes;i++)
-		{
-			String date = datenodes.get(i).getText();
-			
-			
-			if(date.equals(currentdate));
+			List<WebElement> datenodes = driver.findElements(By.xpath("//table[@role='grid']//tbody//td/button"));
+			try
 			{
-				flag= datenodes.get(i)	.isEnabled();
-				datenodes.get(i).click();
-				
-				break;
+			TestUtil.VisibleElementsOn(driver, datenodes, 30);
 			}
+			catch(Exception e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
+			int Totalnodes= datenodes.size();
+			for(int i=0;i<Totalnodes;i++)
+			{
+				String date = datenodes.get(i).getText();
+				
+				boolean flag1= datenodes.get(i).isEnabled();
+				if(date.equals(day)&&month.equals(Currentmonth) );
+				{
+					
+					datenodes.get(i).click();
+					
+					break;
+				}
+			}
+		
+		}
+		else
+		{
+			Monthtextele.click();
+			List<WebElement>Monthnodes = driver.findElements(By.xpath("//ul[@class='uib-datepicker-popup dropdown-menu ng-scope']//div//table//tbody//td"));
+			for(WebElement month1:Monthnodes)
+			{
+				 thismonth= month1.getText();
+				boolean flag2= month1.isEnabled();
+				if(thismonth.equals(month)&&flag2==true)
+				{
+					month1.click();
+					break;
+				}
+				
+			}
+			List<WebElement> datenodes = driver.findElements(By.xpath("//table[@role='grid']//tbody//td/button"));
+			try
+			{
+			TestUtil.VisibleElementsOn(driver, datenodes, 30);
+			}
+			catch(Exception e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
+			int Totalnodes= datenodes.size();
+			for(int i=0;i<Totalnodes;i++)
+			{
+				String date = datenodes.get(i).getText();
+				
+				boolean flag1= datenodes.get(i).isEnabled();
+				
+				if(date.equals(day)&&flag1==true&&thismonth.equals(month))
+				{
+				flag=datenodes.get(i).isEnabled();
+				datenodes.get(i).click();
+				break;
+				}
+					
+			}
+			
+			
+			
+			
+			
+			
 		}
 		
 		
@@ -96,7 +162,15 @@ public class MenstrualHistoryPage extends TestBase
 	
 	public boolean AmenorrheaType()
 	{
-		WebElement Ammenorhea = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='Ammenorhea']//following::select[1]")));
+		WebElement Ammenorhea = driver.findElement(By.xpath("//label[text()='Ammenorhea']//following::select[1]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, Ammenorhea, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-Ammenorhea is not seen within 30 sec ");
+		}
 		Select Ammenorheatest= new Select(Ammenorhea);
 		Ammenorheatest.selectByVisibleText("Absent");
 		AmenorrheaType.isDisplayed();		
@@ -108,20 +182,28 @@ public class MenstrualHistoryPage extends TestBase
 	public String GetCycleDurationvalue() 
 	{
 		
-	WebElement CycleDurationvalue= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='Cycle Duration']//following::input[1]")));
+	WebElement CycleDurationvalue= driver.findElement(By.xpath("//label[text()='Cycle Duration']//following::input[1]"));
+	try
+	{
+		TestUtil.VisibleOn(driver, CycleDurationvalue, 30);
+	}
+	catch(Exception e)
+	{
+		System.out.println("Element-CycleDurationvalue is not seen within 30 sec ");
+	}
 	CycleDurationvalue.sendKeys("20");
 	String CycleDurationvalue1 = CycleDuration.getAttribute("value");
-	System.out.println("value in CycleDuration is" + CycleDurationvalue1  );
+	//System.out.println("value in CycleDuration is" + CycleDurationvalue1  );
 	
 	return CycleDurationvalue1;		
 	}
-	public void Savevaluesindurations()
+	public void SaveValuesInDurations()
 	{
 		double a = 0.1;
 		double b =0.2;
 		String s = String.valueOf(a);
 		String s1 = String.valueOf(b);
-		System.out.println("CycleDuration"+s);
+		//System.out.println("CycleDuration"+s);
 		
 		if(CycleDuration.isDisplayed())
 		{
@@ -137,7 +219,15 @@ public class MenstrualHistoryPage extends TestBase
 	
 	public String GetMenstruationvalue()
 	{
-		WebElement Menstruation= wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='Cycle Duration']//following::input[2]")));
+		WebElement Menstruation= driver.findElement(By.xpath("//label[text()='Cycle Duration']//following::input[2]"));
+		try
+		{
+		TestUtil.VisibleOn(driver, Menstruation, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-Menstruation is not seen within 30 sec ");
+		}
 		Menstruation.sendKeys("10");
 		String Menstruationvalue = Menstruation.getAttribute("value");
 		
@@ -150,10 +240,32 @@ public class MenstrualHistoryPage extends TestBase
 	{
 		Select IntermenstrualBleeding1 = new Select(MenstrualFlow);
 		IntermenstrualBleeding1.selectByVisibleText("Scanty");
-		WebElement MenstrualFlowtext =wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//label[text()='Menstrual Flow']//following::textarea[1]")));	
+		WebElement MenstrualFlowtext =driver.findElement(By.xpath("//label[text()='Menstrual Flow']//following::textarea[1]"));
+		try
+		{
+			TestUtil.VisibleOn(driver, MenstrualFlowtext, 30);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-MenstrualFlowtext is not seen within 30 sec ");
+		}
+		
 		System.out.println(MenstrualFlowtext.isDisplayed());
 		return true;
 	}
+	public void DysmennorheaOption()
+	{
+		Select Dysmennorhea1 = new Select(Dysmennorhea);
+		Dysmennorhea1.selectByVisibleText("Absent");
+	}
+	
+	public void IntermenstrualBleedingOption()
+	{
+		Select IntermenstrualBleeding1 = new Select(IntermenstrualBleeding);
+		IntermenstrualBleeding1.selectByVisibleText("Present");
+	}
+	
+	
 	public boolean SaveButton()
 	{
 		boolean flag;
@@ -175,9 +287,19 @@ public class MenstrualHistoryPage extends TestBase
 	
 	public String SaveTheForm()
 	{
+		AgeOfMenarcheFirst();
+		DatePicker();
+		SaveValuesInDurations();
+		MenstrualFlowText();
+		DysmennorheaOption();
+		IntermenstrualBleedingOption();
+		
 		boolean flag= SaveButton();
-		if(flag==true)
+		if(flag==false)
 		{
+			Update.click();
+			TestUtil.VisibleOn(driver, UpdateMessage, 20);
+			TestUtil.ActionForMovetoElement(UpdateMessage);
 			msg= UpdateMessage.getText();
 			msg="Record updated successfully!";
 			
@@ -185,7 +307,7 @@ public class MenstrualHistoryPage extends TestBase
 		else
 		{
 			Save.click();
-			msg = "Record updated successfully!";
+			msg = "Record saved successfully!";
 		}
 		
 		
