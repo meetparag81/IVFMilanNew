@@ -108,7 +108,7 @@ public class CycleOverviewPage extends TestBase
 		return msg;
 		
 	}
-	public String ValueInProtocol() throws Exception
+	public String ValueInProtocol() 
 	{
 		
 		Select VOP = new Select(Protocol);
@@ -131,8 +131,16 @@ public class CycleOverviewPage extends TestBase
 		}
 		else
 		{
-			TestUtil.VisibleOn(driver, we, 30);
+			try
+			{
+			TestUtil.VisibleOn(driver, we, 40);
 			TestUtil.ActionForMovetoElement(we);
+			}
+			catch(Exception e)
+			{
+				System.out.println("Element- we is not seen with in 40 sec");
+			}
+			
 			msg= we.getText();
 			
 		}

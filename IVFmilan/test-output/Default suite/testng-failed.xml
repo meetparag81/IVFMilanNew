@@ -3,18 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WAddictionsTest">
+      <class name="com_Milan_Test.WObstetricHistoryPageTest">
         <methods>
-          <include name="SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest"/>
           <include name="Setup"/>
-          <include name="SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest"/>
-          <include name="SinceWhenEnableconditionSinceWhenMonthTobocoTest"/>
           <include name="Teardown"/>
-          <include name="saveNewAdictions"/>
-          <include name="SinceWhenEnableconditionSinceWhenMonthAlkoholTest"/>
-          <include name="saveAdictionsTest"/>
+          <include name="SaveOutcometypesTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WAddictionsTest -->
+      </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

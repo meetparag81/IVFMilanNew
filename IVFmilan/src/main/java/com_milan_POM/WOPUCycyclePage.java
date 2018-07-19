@@ -209,7 +209,7 @@ return count2;
 		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
 		String namesoptions = reader.getCellData("Investigation", "IVF PACKAGE", 2);
 		Select ArtTypename = new Select(ArtType);
-		ArtTypename.selectByVisibleText(namesoptions);
+		ArtTypename.selectByVisibleText(namesoptions);// needto test
 		WebElement ARTSubtype = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[2]"));
 		Select ARTSubtype1 = new Select(ARTSubtype);
 		String subnames = reader.getCellData("Investigation", "OPU", 4);

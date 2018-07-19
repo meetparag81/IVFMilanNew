@@ -125,7 +125,7 @@ public class CycleOverviewPageTest extends TestBase
 			System.out.println("ValueInMethodOfSemenCollectionOptionTest is completed");
 		}
 		@Test(priority=3,enabled=true)
-		public void ValueInProtocolTest() throws Exception
+		public void ValueInProtocolTest() 
 		{
 			String act= COP.ValueInProtocol();
 			String exp = "Antagonist";

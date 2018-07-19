@@ -138,6 +138,12 @@ public class MenstrualHistoryPage extends TestBase
 				
 				if(date.equals(day)&&flag1==true&&thismonth.equals(month))
 				{
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) 
+				{
+				System.out.println("InterruptedException is seen");
+				}
 				flag=datenodes.get(i).isEnabled();
 				datenodes.get(i).click();
 				break;
@@ -145,16 +151,8 @@ public class MenstrualHistoryPage extends TestBase
 					
 			}
 			
-			
-			
-			
-			
-			
+		
 		}
-		
-		
-		
-		
 		
 		return flag;
 		
@@ -191,6 +189,7 @@ public class MenstrualHistoryPage extends TestBase
 	{
 		System.out.println("Element-CycleDurationvalue is not seen within 30 sec ");
 	}
+	CycleDurationvalue.clear();
 	CycleDurationvalue.sendKeys("20");
 	String CycleDurationvalue1 = CycleDuration.getAttribute("value");
 	//System.out.println("value in CycleDuration is" + CycleDurationvalue1  );
@@ -228,6 +227,7 @@ public class MenstrualHistoryPage extends TestBase
 		{
 			System.out.println("Element-Menstruation is not seen within 30 sec ");
 		}
+		Menstruation.clear();
 		Menstruation.sendKeys("10");
 		String Menstruationvalue = Menstruation.getAttribute("value");
 		

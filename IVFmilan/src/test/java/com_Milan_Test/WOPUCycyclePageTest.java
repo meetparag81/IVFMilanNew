@@ -204,7 +204,7 @@ public class WOPUCycyclePageTest extends TestBase
 	
 	
 	@Test(priority=8,groups = {"functional" }, enabled=true)
-	public void NoofCyclesTest() throws Exception 
+	public void NoofCyclesTest() 
 	{
 		boolean flag1 =WOC.AlreadySavedCycle();// if ther is already available cycle saved this option become true.
 		if(flag1==true)
@@ -243,10 +243,6 @@ public class WOPUCycyclePageTest extends TestBase
 		}
 	
 	}
-	
-	
-	
-	
 	
 	
 	@AfterMethod

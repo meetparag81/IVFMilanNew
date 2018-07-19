@@ -161,7 +161,7 @@ public class CycleListPageTest extends TestBase
 		
 	}
 	@Test(priority=5,enabled=true)
-	public void ARTTypeOptionTest() throws Exception
+	public void ARTTypeOptionTest() 
 	{
 		System.out.println();
 		boolean flag= CLP.CycleCodeAvaibility();

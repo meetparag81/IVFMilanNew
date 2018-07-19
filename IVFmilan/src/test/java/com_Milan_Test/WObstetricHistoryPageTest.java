@@ -46,7 +46,7 @@ public class WObstetricHistoryPageTest extends TestBase
 		
 	}
 		
-	@Test(priority=1,enabled=false)
+	@Test(priority=1,enabled=true)
 	public void BirthWeightValueTextTest()
 	{
 		double Actual=OHP.BirthWeightText();
