@@ -32,6 +32,7 @@ public class MenstrualHistoryPage extends TestBase
 	
 	String msg;
 	String thismonth;
+	boolean flag3;
 	
 	
 	MenstrualHistoryPage()
@@ -95,6 +96,7 @@ public class MenstrualHistoryPage extends TestBase
 				String date = datenodes.get(i).getText();
 				
 				boolean flag1= datenodes.get(i).isEnabled();
+				flag3 = flag1;
 				if(date.equals(day)&&month.equals(Currentmonth) );
 				{
 					
@@ -135,7 +137,7 @@ public class MenstrualHistoryPage extends TestBase
 				String date = datenodes.get(i).getText();
 				
 				boolean flag1= datenodes.get(i).isEnabled();
-				
+				flag3 = flag1;
 				if(date.equals(day)&&flag1==true&&thismonth.equals(month))
 				{
 				try {
@@ -154,7 +156,7 @@ public class MenstrualHistoryPage extends TestBase
 		
 		}
 		
-		return flag;
+		return flag3;
 		
 	}
 	

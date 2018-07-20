@@ -94,10 +94,11 @@ public class CycleOverviewPageTest extends TestBase
 			CLP.ClickonNewCycle();
 			try {
 				Thread.sleep(2000);
-			} catch (InterruptedException e) 
+			} 
+			catch (InterruptedException e) 
 			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				
+			System.out.println("InterruptedException is seen");
 			}
 			CLP.ClickonCyclecode();
 		}
@@ -107,8 +108,8 @@ public class CycleOverviewPageTest extends TestBase
 	
 
 	
-	@Test(priority=1,enabled=true)
-	public void ValueInSourceofSpermOptionTest() throws Exception
+	@Test(priority=1,enabled=true)// need to test
+	public void ValueInSourceofSpermOptionTest() 
 	{
 		String act= COP.SourceofSperm();
 		String exp = CLP.SourceofspermPartner();
@@ -117,7 +118,7 @@ public class CycleOverviewPageTest extends TestBase
 	}
 		
 		@Test(priority=2,enabled=true)
-		public void ValueInMethodOfSemenCollectionOptionTest() throws Exception
+		public void ValueInMethodOfSemenCollectionOptionTest() 
 		{
 			String act= COP.ValueInMethodOfSemenCollectionOption();
 			String exp = CLP.MethodofSemenCollection();
@@ -133,7 +134,7 @@ public class CycleOverviewPageTest extends TestBase
 			System.out.println("ValueInProtocoltest is completed");
 		}
 		@Test(priority=4,enabled=true)
-		public void ValueInARTTypeTest() throws Exception 
+		public void ValueInARTTypeTest() 
 		{
 			String act= COP.ValueInARTType();
 			String exp = CLP.ARTTypeOption();

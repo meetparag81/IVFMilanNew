@@ -82,13 +82,13 @@ public class SimulationChartPageTest extends TestBase
 		
 	}
 	
-	@Test(priority=1,enabled=true)
+	@Test(priority=1,enabled=false)
 	public void AddDrugNames()
 	{
 		SCP.AddStimulationdrug();
 	}
 	
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled=false)
 	public void EnableconditionAddSimulationDrugTest()
 	{
 		boolean flag= SCP.EnableconditionAddSimulationDrug();
@@ -108,6 +108,7 @@ public class SimulationChartPageTest extends TestBase
 	@Test(priority=3,enabled=true)
 	public void SaveSimulationTest()
 	{
+		System.out.println();
 		String act= SCP.SaveSimulation();
 		String exp = reader.getCellData("Stimulationchart", "Message", 4);
 		Assert.assertEquals(act, exp);

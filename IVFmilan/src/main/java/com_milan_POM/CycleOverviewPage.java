@@ -73,28 +73,49 @@ public class CycleOverviewPage extends TestBase
 		flag= Newcycle.isEnabled();
 		return flag;
 	}
-	public String SourceofSperm() throws Exception
+	public String SourceofSperm() 
 	{
 		Select SOS = new Select(SourceofSperm);
-		Thread.sleep(2000);
+		try 
+		{
+			Thread.sleep(2000);
+		} 
+		catch (InterruptedException e) 
+		{
+			System.out.println("InterruptedException is seen");
+		}
 		WebElement we = SOS.getFirstSelectedOption();
-		Actions act = new Actions(driver);
-		act.moveToElement(we);
-		Thread.sleep(4000);
+		TestUtil.ActionForMovetoElement(we);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e) 
+		{
+			System.out.println("InterruptedException is seen");
+		}
 		msg= we.getText();
 		
 		
 		return msg;
 	}
-	public String ValueInMethodOfSemenCollectionOption() throws Exception
+	public String ValueInMethodOfSemenCollectionOption() 
 	{
 		Select MOS = new Select(MethodofSemenCollection);
-		Thread.sleep(2000);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e1) 
+		{
+			System.out.println("InterruptedException is seen");
+		}
 		
 		WebElement we = MOS.getFirstSelectedOption();
 		Actions act = new Actions(driver);
 		act.moveToElement(we);
-		Thread.sleep(4000);
+		try {
+			Thread.sleep(4000);
+		} catch (InterruptedException e1) 
+		{
+			System.out.println("InterruptedException is seen");
+		}
 		msg= we.getText();
 		try
 		{
@@ -151,7 +172,7 @@ public class CycleOverviewPage extends TestBase
 		
 	
 	}
-	public  String ValueInARTType() throws InterruptedException
+	public  String ValueInARTType() 
 	{
 	Select ARTtype = new Select(ARTType);
 	WebElement we=	ARTtype.getFirstSelectedOption();
