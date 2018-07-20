@@ -7,30 +7,6 @@
   </listeners>
   <test name="IVFTEST(failed)" parallel="tests">
     <classes>
-      <class name="com_Milan_Test.WomenHistoryPageTest">
-        <methods>
-          <include name="setup"/>
-          <include name="Teardown"/>
-          <include name="socialHistoryTest"/>
-          <include name="PreviousTreatmentHistoryTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WomenHistoryPageTest -->
-      <class name="com_Milan_Test.WAllergiesTest">
-        <methods>
-          <include name="Seup"/>
-          <include name="AllergySelectionTest"/>
-          <include name="Teardown"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WAllergiesTest -->
-      <class name="com_Milan_Test.LoginPageTest">
-        <methods>
-          <include name="LoginTest"/>
-          <include name="ButtonEnableConditionTest"/>
-          <include name="Seup"/>
-          <include name="Teardown"/>
-          <include name="InvalidPasswordTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.LoginPageTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="SourceofSpermselectionDonorTest"/>
@@ -49,17 +25,30 @@
           <include name="LMPDateTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
+      <class name="com_Milan_Test.SimulationChartPageTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="SaveSimulationTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      <class name="com_Milan_Test.WcomplaintsTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="SaveTheComplaintsTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
       <class name="com_Milan_Test.CycleOverviewPageTest">
         <methods>
           <include name="ValueInProtocolTest"/>
+          <include name="ValueInSourceofSpermOptionTest"/>
           <include name="Setup"/>
-          <include name="ValueInARTTypeTest"/>
           <include name="TearDown"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
       <class name="com_Milan_Test.WMenstrualHistoryTest">
         <methods>
-          <include name="SaveWMenstrualHistoryTest"/>
           <include name="Teardown"/>
           <include name="LMPcalenderdateSelectionTest"/>
           <include name="Setup"/>
@@ -72,6 +61,13 @@
           <include name="saveNewAdictions"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
+      <class name="com_Milan_Test.WObstetricHistoryPageTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="SaveOutcometypesTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WObstetricHistoryPageTest -->
     </classes>
   </test> <!-- IVFTEST(failed) -->
 </suite> <!-- Failed suite [IVFSuite] -->

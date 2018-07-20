@@ -170,21 +170,38 @@ public class WObstetricHistoryPageTest extends TestBase
 	@Test(priority=18)
 	public void SaveOutcometypesTest() 
 	{
-		boolean flag= OHP.ButtonText();
-		if(flag==true)
+		boolean flag1= OHP.ButtonText();
+		boolean flag2=OHP.NoOfRows();
+		if(flag1==true&&flag2==false)//Save button and New patient
 		{
-		String act =OHP.SaveObstetricHistory();
-		String exp = "Record saved successfully!";
-		Assert.assertEquals(act, exp);
-		System.out.println("SaveOutcometypesTest is completed");
+			String Act = OHP.SaveObstetricHistory();
+			String Exp= "Record saved successfully!";
+			Assert.assertEquals(Act, Exp);
+			System.out.println("SaveOutcometypesTest is completed");
 		}
-		else
+		else if(flag1==false&&flag2==true)//update button and existingpatient
 		{
-			String act =OHP.SaveObstetricHistory();
-			String exp = "Record updated successfully!";
-			Assert.assertEquals(act, exp);
+			String Act = OHP.SaveObstetricHistory();
+			String Exp= "Record updated successfully!";
+			Assert.assertEquals(Act, Exp);
+			System.out.println("SaveOutcometypesTest is completed");
+		}
+		else if(flag1==true&&flag2==true)//Save button and Existing Patient
+		{
+			
+			String Act = OHP.SaveObstetricHistory();
+			String Exp= "Record updated successfully!";
+			Assert.assertEquals(Act, Exp);
 			System.out.println("SaveOutcometypesTest is completed");
 			
+		}
+		else if (flag1==false&&flag2==false)//UpdateButton and NewPatient
+		{
+			
+			String Act = OHP.SaveObstetricHistory();
+			String Exp= "Record saved successfully!";
+			Assert.assertEquals(Act, Exp);
+			System.out.println("SaveOutcometypesTest is completed");
 		}
 	
 	}

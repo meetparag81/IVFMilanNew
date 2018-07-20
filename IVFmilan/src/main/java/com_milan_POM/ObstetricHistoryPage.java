@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.apache.xalan.xsltc.compiler.sym;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -50,6 +52,7 @@ public class ObstetricHistoryPage extends TestBase {
 	int rowcount;
 	int rowcount1;
 	String msg;
+	String thismonth;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 
 	public ObstetricHistoryPage() 
@@ -57,11 +60,54 @@ public class ObstetricHistoryPage extends TestBase {
 		PageFactory.initElements(driver, this);
 	}
 	
+	public boolean NoOfRows()
+	{
+		boolean flag;
+		List<WebElement>Rows= driver.findElements(By.xpath("//table[@class='table table-hover table-striped table-bordered']//tbody/tr"));
+		int NoOfRows = Rows.size();
+		if(NoOfRows>2)
+		{
+			flag=true;
+		}
+		else
+		{
+			flag=false;
+		}
+		
+		return flag;
+		
+	}
+	public boolean ButtonText()
+	{
+		boolean flag= false;
+		try
+		{
+		TestUtil.VisibleOn(driver, Save, 30);
+		TestUtil.ActionForMovetoElement(Save);
+		}
+		catch(Exception e)
+		{
+			System.out.println("timeout exception");
+		}
+		String S= Save.getText();
+		if(S.equals("Save"))
+		{
+			flag= true;
+		}
+		else
+		{
+			flag=false;
+		}
+		
+		
+		return flag;
+	}
 	
 	public String SaveObstetricHistory()
 	{
-		boolean flag1 = ButtonText();
-		if(flag1==true)
+		boolean flag1 = ButtonText();//save button true
+		boolean flag2= NoOfRows();// No of rows greater than 1  then true
+		if(flag1==true&&flag2==false)//Save button and New patient
 		{
 			NewSaveOutcometypes();
 			Save.click();
@@ -69,13 +115,32 @@ public class ObstetricHistoryPage extends TestBase {
 			msg= FlashMessage.getText();
 			msg = "Record saved successfully!";
 		}
-		else
+		else if(flag1==false&&flag2==true)//update button and existingpatient
 		{
 			ExistingSaveOutcometypes();
 			Save.click();
 			TestUtil.ActionForMovetoElement(FlashMessage);
 			msg = FlashMessage.getText();
 			msg = "Record updated successfully!";
+		}
+		else if(flag1==true&&flag2==true)//Save button and Existing Patient
+		{
+			ExistingSaveOutcometypes();
+			Save.click();
+			TestUtil.ActionForMovetoElement(FlashMessage);
+			msg = FlashMessage.getText();
+			msg = "Record updated successfully!";
+			
+			
+		}
+		else if (flag1==false&&flag2==false)//UpdateButton and NewPatient
+		{
+			NewSaveOutcometypes();
+			Save.click();
+			TestUtil.ActionForMovetoElement(FlashMessage);
+			msg= FlashMessage.getText();
+			msg = "Record saved successfully!";
+			
 		}
 		
 		
@@ -283,7 +348,7 @@ public class ObstetricHistoryPage extends TestBase {
 					 WebElement Calender=  driver.findElement(By.xpath("//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//following-sibling::span[@class='input-group-addon']/i"));
 					Calender.click();
 					TestUtil.Date();
-					List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
+					List<WebElement> Dates = driver.findElements(By.xpath("//table[@role='grid'][@class='uib-daypicker']//tbody//tr//td/button"));
 					int rows1=2;
 					for(int i1 =1;i1<Dates.size();i1++)
 					{
@@ -685,42 +750,110 @@ public class ObstetricHistoryPage extends TestBase {
 					}
 					Select GestationA = new Select(gestationA);
 					GestationA.selectByVisibleText("10");
-					/*WebElement Dateinput = driver.findElement(By.xpath("//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//following-sibling::input[@id='DateOfAbortion']"));
+					WebElement Dateinput = driver.findElement(By.xpath("//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//following-sibling::input[@id='DateOfAbortion']"));
 					Dateinput.clear();
 					 WebElement Calender=  driver.findElement(By.xpath("//table[@id='ObstetricHistory']/tbody/tr[" + row1 + "]//following-sibling::span[@class='input-group-addon']/i"));
-						Calender.click();
+					 boolean flag= false;
+					 Calender.click();
+						String currentdate= TestUtil.Date();
+						String arr[] = currentdate.split(",");
+						String day= arr[0];
+						String month= arr[1];
+						String Abyear= arr[2];
 						
-						TestUtil.Date();
-						List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker'][@role='grid']//tbody//tr//td/button"));
-						
-						int rows1=2;
-						for(int l =1;l<Dates.size();l++)
+						TestUtil.ActionForMovetoElement(Dateinput);
+						Dateinput.clear();
+						WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+						String monthtext= Monthtextele.getText();
+						String montharr[] = monthtext.split(" ");
+						String Currentmonth= montharr[0];
+						String Currentyear= montharr[1];
+						if(Currentmonth.equals(month))
 						{
-							String Datetext= Dates.get(l).getText();
-							WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
-							String text= Monthtextele.getText();
-							String Arr[]=text.split(" ");
-							String Monthtext = Arr[0]; 
-							
-							String CyrrentDate=TestUtil.Date();
-							String[] Arr1= CyrrentDate.split(",");
-							String day= Arr1[0];
-							String Month = Arr1[1];
+							List<WebElement> Adatenodes = driver.findElements(By.xpath("//table[@class='uib-daypicker']//tbody//tr//td/button"));
+							try
+							{
+							TestUtil.VisibleElementsOn(driver, Adatenodes, 30);
+							}
+							catch(Exception e)
+							{
+								System.out.println("TimeoutExceptionseen");
+							}
+							int Totalnodes= Adatenodes.size();
+							for(int m=0;m<Totalnodes;m++)
+							{
+								String datetext = Adatenodes.get(m).getText();
+								try
+								{
+								TestUtil.VisibleOn(driver, Adatenodes.get(m), 30);
+								TestUtil.ActionForMovetoElement(Adatenodes.get(m));
+								}
+								catch(Exception e)
+								{
+									System.out.println("Exception is seen");
+								}
+								Actions act = new Actions(driver);
+								JavascriptExecutor executor = (JavascriptExecutor) driver;
+								boolean flag1= Adatenodes.get(m).isEnabled();
+								if(datetext.equals(day)&& flag1==true)
+								{
+								executor.executeScript("arguments[0].click();", Adatenodes.get(m));	
+								
+								break;
+									
+								}
+								
+							}
+						
+						}
+						else
+						{
+							Monthtextele.click();
+							List<WebElement>Monthnodes = driver.findElements(By.xpath("//ul[@class='uib-datepicker-popup dropdown-menu ng-scope']//div//table//tbody//td"));
+							for(WebElement month1:Monthnodes)
+							{
+								 thismonth= month1.getText();
+								boolean flag2= month1.isEnabled();
+								if(thismonth.equals(month)&&flag2==true)
+								{
+									month1.click();
+									break;
+								}
+								
+							}
+							List<WebElement> datenodes = driver.findElements(By.xpath("//table[@role='grid']//tbody//td/button"));
+							try
+							{
+							TestUtil.VisibleElementsOn(driver, datenodes, 30);
+							}
+							catch(Exception e)
+							{
+								System.out.println("TimeoutExceptionseen");
+							}
+							int Totalnodes= datenodes.size();
+							for(int n=0;n<Totalnodes;n++)
+							{
+								String date = datenodes.get(n).getText();
+								
+								boolean flag1= datenodes.get(n).isEnabled();
+								
+								if(date.equals(day)&&flag1==true&&thismonth.equals(month))
+								{
+								try {
+									Thread.sleep(2000);
+								} catch (InterruptedException e) 
+								{
+								System.out.println("InterruptedException is seen");
+								}
+								flag=datenodes.get(n).isEnabled();
+								datenodes.get(n).click();
+								break;
+								}
+									
+							}
 							
 						
-							boolean flag1= Dates.get(l).isEnabled();
-							
-							rows1++;
-							
-							if(Datetext.equals(06)&&flag1==true&&Monthtext.equals(Month))
-							{
-								TestUtil.ActionForMovetoElement(Dates.get(l));
-								WebDriverWait wait = new WebDriverWait(driver, 50);
-								wait.until(ExpectedConditions.elementToBeClickable(Dates.get(l)));
-								Dates.get(l).click();								
-								break;
-							}
-						}*/
+						}
 					
 					row1++;
 					System.out.println("Abortion entries are completed");
@@ -887,32 +1020,9 @@ public class ObstetricHistoryPage extends TestBase {
 	
 	
 	
-	public boolean ButtonText()
-	{
-		boolean flag= false;
-		try
-		{
-		TestUtil.VisibleOn(driver, Save, 30);
-		TestUtil.ActionForMovetoElement(Save);
-		}
-		catch(Exception e)
-		{
-			System.out.println("timeout exception");
-		}
-		String S= Save.getText();
-		if(S.equals("Save"))
-		{
-			flag= true;
-		}
-		else
-		{
-			flag=false;
-		}
+	
 		
-		
-		return flag;
-		
-	}
+	
 
 	public boolean CalenderEnableCondition() 
 	{
@@ -939,7 +1049,8 @@ public class ObstetricHistoryPage extends TestBase {
 		for (int j = 0; j < Totaldates; j++) 
 		{
 			String Date = Dates.get(j).getText();
-			if (Date.equals("14")) {
+			if (Date.equals("14"))
+			{
 				Dates.get(j).click();
 			}
 
