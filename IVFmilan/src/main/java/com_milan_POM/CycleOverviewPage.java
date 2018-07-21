@@ -154,12 +154,12 @@ public class CycleOverviewPage extends TestBase
 		{
 			try
 			{
-			TestUtil.VisibleOn(driver, we, 40);
+			TestUtil.VisibleOn(driver, we, 50);
 			TestUtil.ActionForMovetoElement(we);
 			}
 			catch(Exception e)
 			{
-				System.out.println("Element- we is not seen with in 40 sec");
+				System.out.println("Element- we is not seen with in 50 sec");
 			}
 			
 			msg= we.getText();
