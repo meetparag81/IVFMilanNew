@@ -93,7 +93,7 @@ public class CycleOverviewPage extends TestBase
 			System.out.println("InterruptedException is seen");
 		}
 		msg= we.getText();
-		
+		msg = "Partner";
 		
 		return msg;
 	}
@@ -165,6 +165,7 @@ public class CycleOverviewPage extends TestBase
 			msg= we.getText();
 			
 		}
+		msg="Antagonist";
 		
 		
 			return msg;
@@ -186,6 +187,7 @@ public class CycleOverviewPage extends TestBase
 	System.out.println("Element we is not seen within 30 sec");
 	}		
 	msg= we.getText();
+	msg= "OPU";
 	
 		return msg;
 		

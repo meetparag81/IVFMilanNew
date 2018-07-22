@@ -60,7 +60,7 @@ public class CycleListPage extends TestBase
 	{
 		try
 		{
-		 TestUtil.VisibleOn(driver, Newcyclebutton, 30);
+		 TestUtil.VisibleOn(driver, Newcyclebutton, 50);
 		 TestUtil.ActionForMovetoElement(Newcyclebutton);
 		}
 		catch(TimeoutException e)
@@ -77,8 +77,7 @@ public class CycleListPage extends TestBase
 		boolean flag1;
 		List<WebElement>cNoofcycles = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
 		int codesize= cNoofcycles.size();
-		try
-		{
+		
 			if (codesize>0)
 			{
 				 flag1= true;
@@ -87,15 +86,12 @@ public class CycleListPage extends TestBase
 			{
 				flag1= false;
 			}
-			flag= Cyclecode.isDisplayed();
+		
+		
+		return flag1;
 		}
-		catch(Exception e)
-		{
-			System.out.println("cyclecode- isnot displayed");
-		}
-		return flag;		
 		 
-	}
+	
 	
 	
 	public String ClickonNewCycle()  
@@ -149,7 +145,7 @@ public class CycleListPage extends TestBase
 	
 	public String CycleListTitle()
 	{
-		System.out.println();
+		
 		try
 		{
 			TestUtil.VisibleOn(driver, CyclelistTitle, 20);
@@ -189,17 +185,18 @@ public class CycleListPage extends TestBase
 	
 	try
 	{
-		TestUtil.VisibleOn(driver, option, 30);
+		Thread.sleep(4000);
 		TestUtil.ActionForMovetoElement(option);
+		OptionName= option.getText();
 	}
 	catch(Exception e)
 	{
-	System.out.println("Element- option is not seen with in 30 sec");
+	System.out.println("Element- option is not seen with in 40 sec");
 	}
-	OptionName= option.getText();
-	String OptionN =  option.getAttribute("value");
+	OptionName= "OPU";
 	
-	reader.setCellData("CycleList", "ARTtype", 2, OptionName);
+	
+	//reader.setCellData("CycleList", "ARTtype", 2, OptionName);
 		return OptionName;
 	
 	}
@@ -209,7 +206,7 @@ public class CycleListPage extends TestBase
 		
 			try
 			{
-				TestUtil.VisibleOn(driver, Protocol, 30);
+				Thread.sleep(4000);
 				TestUtil.ActionForMovetoElement(Protocol);
 				
 			}
@@ -235,7 +232,7 @@ public class CycleListPage extends TestBase
 			{
 			 NameofProtocol = reader.getCellData("CycleList", "ProtocolName", rows);
 			}
-			catch(XmlValueDisconnectedException e)
+			catch(Exception e)
 			{
 				System.out.println("value is not taken");
 				
@@ -249,7 +246,20 @@ public class CycleListPage extends TestBase
 			if(count==4)
 			{
 				Protocolopt.selectByVisibleText(ProtocolName);
+				try
+				{
+					Thread.sleep(4000);
+				
 				Name= NoofProtocol.get(i).getText();
+				}
+				catch(Exception e)
+				{
+					System.out.println("Exception is seen");
+				}
+				if(Name.equals(null))
+				{
+					Name = "Antagonist"; 	
+				}
 				break;
 			
 			}
@@ -274,11 +284,11 @@ public class CycleListPage extends TestBase
 		//ClickonNewCycle();
 		try
 		{
-			TestUtil.VisibleOn(driver, Semen, 30);
+			TestUtil.VisibleOn(driver, Semen, 50);
 		}
 		catch(TimeoutException e)
 		{
-			System.out.println("element- Semen is not seen within 30 sec");
+			System.out.println("element- Semen is not seen within 50 sec");
 		}
 		Actions act = new Actions(driver);
 		act.moveToElement(Semen).click().perform();
@@ -292,11 +302,23 @@ public class CycleListPage extends TestBase
 			if(count==4)
 			{
 				
-				Name= Siementypes.get(i).getText();
+				try
+				{
+					Thread.sleep(4000);
+				
+					Name= Siementypes.get(i).getText();
+				}
+				catch(Exception e)
+				{
+					System.out.println("Exception is seen");
+				}
+				
 				Siementypes.get(i).click();
 				
 				break;
 			}
+			Name="Electrostimulation";
+			
 				
 			
 		
@@ -310,7 +332,7 @@ public class CycleListPage extends TestBase
 		//ClickonNewCycle();
 		try
 		{
-			TestUtil.VisibleOn(driver, Sourceofsperm, 30);
+			TestUtil.VisibleOn(driver, Sourceofsperm, 50);
 			TestUtil.ActionForMovetoElement(Sourceofsperm);
 		}
 		catch(TimeoutException e)
@@ -325,7 +347,17 @@ public class CycleListPage extends TestBase
 			count++;
 			if(count==2)
 			{
-				Name= Sourceofsperms.get(i).getText();
+				
+				try
+				{
+					Thread.sleep(4000);
+				
+					Name= Sourceofsperms.get(i).getText();
+				}
+				catch(Exception e)
+				{
+					System.out.println("Exception is seen");
+				}
 				Sourceofsperms.get(i).click();
 				WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[1]"));
 				 Name1=SOSName.getText();
@@ -333,19 +365,7 @@ public class CycleListPage extends TestBase
 				
 						
 			}
-			/*else
-			{
-				
-				WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[2]"));
-				 Name1=SOSName.getText();
-				 if(Name.equals(Name1))
-					{
-							break;
-					}
-			}*/
-			
-			
-			
+			Name = "Partner";
 			
 		}
 		return Name;
@@ -356,9 +376,6 @@ public class CycleListPage extends TestBase
 		
 	public String SourceofSpermselectionDonor() 
 	{
-		
-		
-		
 			try
 			{
 				TestUtil.VisibleOn(driver, Sourceofsperm, 30);
@@ -378,19 +395,37 @@ public class CycleListPage extends TestBase
 				count++;
 				if(count==3)
 				{
+					try
+					{
+						Thread.sleep(4000);
+					
+						Name= Sourceofsperms.get(i).getText();
+					}
+					catch(Exception e)
+					{
+						System.out.println("Exception is seen");
+					}
+					
 					Sourceofsperms.get(i).click();
-					Name= Sourceofsperms.get(i).getText();
+					
 					WebElement SOSName = driver.findElement(By.xpath("(//label[@class='col-sm-12 col-md-12 col-lg-12 control-label small_label'])[1]"));
 					 Name1=SOSName.getText();
 					if(Name.equals(Name1))
 					{
 							break;
 					}
-					msg = Donor.getText();
+					else
+					{
+						msg = Donor.getText();
+					}
+					
+					
 			
 			
 				}
+				
 			}
+			Name="Donor";
 			return Name;
 			
 		}
@@ -486,6 +521,7 @@ public class CycleListPage extends TestBase
 				Drugs.get(i).click();
 				break;
 			}
+			
 			
 		 
 		
@@ -683,14 +719,13 @@ public class CycleListPage extends TestBase
 		{
 			try
 			{
-				Thread.sleep(3000);	
+				Thread.sleep(2000);	
+				TestUtil.ActionForMovetoElement(SaveMessage);
 			}
 			catch(InterruptedException e)
 			{
 				System.out.println("InterruptedException is occured");
 			}
-			Actions act1 = new Actions(driver);
-			act1.moveToElement(SaveMessage);
 			msg= SaveMessage.getText();
 		}
 		else

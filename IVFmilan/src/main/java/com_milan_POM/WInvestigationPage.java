@@ -47,7 +47,23 @@ public class WInvestigationPage extends TestBase
 	{
 		PageFactory.initElements(driver, this);
 	}
-
+	
+	public WInvestigationPage ClickOnCycles()
+	{
+		try
+		{
+		TestUtil.VisibleOn(driver, Cycles, 30);
+		TestUtil.ActionForMovetoElement(Cycles);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exception is seen");
+		}
+		
+		Cycles.click();
+		return new WInvestigationPage();
+		
+	}
 	
 	public int SearchResults()
 	{

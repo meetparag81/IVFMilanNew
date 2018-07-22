@@ -108,7 +108,7 @@ public class CycleOverviewPageTest extends TestBase
 	
 
 	
-	@Test(priority=1,enabled=true)// need to test
+	@Test(priority=1,enabled=true)
 	public void ValueInSourceofSpermOptionTest() 
 	{
 		String act= COP.SourceofSperm();
@@ -117,7 +117,7 @@ public class CycleOverviewPageTest extends TestBase
 		System.out.println("ValueInSourceofSpermOptionTest is compleed");
 	}
 		
-		@Test(priority=2,enabled=true)
+		@Test(priority=2,enabled=true)//need to test
 		public void ValueInMethodOfSemenCollectionOptionTest() 
 		{
 			String act= COP.ValueInMethodOfSemenCollectionOption();
@@ -133,7 +133,7 @@ public class CycleOverviewPageTest extends TestBase
 			Assert.assertEquals(act, exp);
 			System.out.println("ValueInProtocoltest is completed");
 		}
-		@Test(priority=4,enabled=true)
+		@Test(priority=4,enabled=true)// need to test
 		public void ValueInARTTypeTest() 
 		{
 			String act= COP.ValueInARTType();

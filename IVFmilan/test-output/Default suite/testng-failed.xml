@@ -3,15 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.SimulationChartPageTest">
+      <class name="com_Milan_Test.CycleOverviewPageTest">
         <methods>
           <include name="Setup"/>
-          <include name="InvalidDateTest"/>
-          <include name="SimulationDrugValidationTest"/>
-          <include name="Teardown"/>
-          <include name="SaveSimulationTest"/>
+          <include name="TearDown"/>
+          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

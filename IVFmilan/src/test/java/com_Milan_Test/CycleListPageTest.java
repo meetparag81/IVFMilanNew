@@ -48,6 +48,7 @@ public class CycleListPageTest extends TestBase
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage = HomePage.searchPaient();
 		Investigation = EMRPage.ClickOnInvestigation();
+		Investigation= Investigation.ClickOnCycles();
 		WOC = new WOPUCycyclePage();
 		
 		boolean flag = WOC.AlreadySavedCycle();
@@ -94,7 +95,7 @@ public class CycleListPageTest extends TestBase
 	
 	
 	
-	@Test(priority=2,enabled=true)
+	@Test(priority=2,enabled=false)//done
 	public void CycleListTitleTest()
 	{
 		boolean flag = CLP.NewCycleButtonEnableCondition();
@@ -163,9 +164,9 @@ public class CycleListPageTest extends TestBase
 	@Test(priority=5,enabled=true)
 	public void ARTTypeOptionTest() 
 	{
-		System.out.println();
+		
 		boolean flag= CLP.CycleCodeAvaibility();
-		if(flag= false)
+		if(flag= true)
 		{
 			COP = CLP.ClickOnCycleCode();
 			String act=	CLP.ARTTypeOption();
@@ -184,7 +185,7 @@ public class CycleListPageTest extends TestBase
 		}
 	
 	}
-	@Test(priority=6,enabled=true)
+	@Test(priority=6,enabled=true)// need to test
 	public void ProtocolandselectionTest()
 	{
 		boolean flag1 = CLP.NewCycleButtonEnableCondition();
@@ -310,7 +311,7 @@ public class CycleListPageTest extends TestBase
 		
 		
 	}
-	@Test(priority=11,enabled=true)
+	@Test(priority=11,enabled=true)// need to test
 	public void LMPDateTest()
 	{
 		boolean flag1 = CLP.NewCycleButtonEnableCondition();
