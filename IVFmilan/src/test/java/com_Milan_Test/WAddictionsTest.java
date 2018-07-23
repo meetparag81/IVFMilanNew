@@ -2,17 +2,18 @@ package com_Milan_Test;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
-
+import org.testng.ITestResult;
 import java.util.ArrayList;
 import java.util.Iterator;
-
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Guice;
+import org.testng.annotations.NoInjection;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import com_Milan_Base.TestBase;
 import com_Milan_Excelutility.Exls_Reader;
 import com_milan_POM.EMRDashBoardPage;
@@ -25,6 +26,8 @@ import com_milan_POM.WVitalsPage;
 
 public class WAddictionsTest extends TestBase
 {
+	
+	
 	HomePage HomePage;
 	Loginpage Loginpage;
 	EMRDashBoardPage EMRPage;
@@ -39,8 +42,11 @@ public class WAddictionsTest extends TestBase
 	{
 		super();
 	}
-
-	@BeforeMethod
+	
+	
+	@BeforeMethod( )
+	@Parameters("ITestContext")
+	
 public void Setup() 
 {
 		TestBase.initalization();
@@ -263,11 +269,14 @@ public void Setup()
 		ArrayList<Object[]>	Addictions= AddictionsPage.getdatafromExcel();	
 	return Addictions.iterator();
 	}
-	@AfterMethod
+	@AfterMethod 
 	public void Teardown()
 	{
 		driver.quit();
 	}
+	
+	
+	
 	
 	
 }
