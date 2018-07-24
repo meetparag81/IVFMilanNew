@@ -7,34 +7,27 @@
   </listeners>
   <test name="IVFTEST(failed)" parallel="tests">
     <classes>
-      <class name="com_Milan_Test.WAllergiesTest">
+      <class name="com_Milan_Test.WcomplaintsTest">
         <methods>
-          <include name="OptionSelectedOnAllergyCurrentStstusTest"/>
-          <include name="Seup"/>
+          <include name="Setup"/>
           <include name="Teardown"/>
+          <include name="SaveTheComplaintsTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WAllergiesTest -->
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="Teardown"/>
+          <include name="SimulationDrugTest"/>
           <include name="Setup"/>
-          <include name="SaveTheCycleTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
-      <class name="com_Milan_Test.WMenstrualHistoryTest">
+      <class name="com_Milan_Test.CycleOverviewPageTest">
         <methods>
-          <include name="MenstrualFlowtextTest"/>
-          <include name="SaveWMenstrualHistoryTest"/>
-          <include name="MenstruationTest1"/>
-          <include name="SavevaluesTest"/>
-          <include name="Teardown"/>
-          <include name="AmenorrheaTypeTest"/>
-          <include name="CycleDurationTest"/>
-          <include name="LMPcalenderdateSelectionTest"/>
           <include name="Setup"/>
-          <include name="MenstrualFlowTextTest"/>
+          <include name="TearDown"/>
+          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.WMenstrualHistoryTest -->
+      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
       <class name="com_Milan_Test.WAddictionsTest">
         <methods>
           <include name="Setup"/>
@@ -42,6 +35,15 @@
           <include name="saveNewAdictions"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
+      <class name="com_Milan_Test.SimulationChartPageTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="InvalidDateTest"/>
+          <include name="SimulationDrugValidationTest"/>
+          <include name="Teardown"/>
+          <include name="SaveSimulationTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
     </classes>
   </test> <!-- IVFTEST(failed) -->
 </suite> <!-- Failed suite [IVFSuite] -->

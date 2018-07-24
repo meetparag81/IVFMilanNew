@@ -38,7 +38,8 @@ public class TestBase
 			 ip = new FileInputStream("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_config\\config.proerties");
 			try {
 				prop.load(ip);
-			} catch (IOException e) {
+			} catch (IOException e) 
+			{
 				
 				e.printStackTrace();
 			}

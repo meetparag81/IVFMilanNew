@@ -34,6 +34,7 @@ public class HomePage extends TestBase {
 	private @FindBy(xpath = "//span[text()='Queue Management']//following::input[2]") WebElement searchpaient;
 	private @FindBy(xpath = "//button[text()='Search'][@ class='btn btn-primary']") WebElement Searchbutton;
 	private @FindBy(xpath="//li[@class='navCycles ng-scope active']")WebElement Queue;
+	private @FindBy(xpath = "//a[@class='dropdown-toggle'][text()='Registration']" )WebElement Registration;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	boolean flag;	
 
