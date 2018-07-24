@@ -36,7 +36,7 @@ public class LoginPageTest extends TestBase
 		TestBase.initalization();
 		Loginpage = new Loginpage();
 		 
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+	
 	}
 	@Test(priority=1)
 	public void InvalidusernameTest() 
