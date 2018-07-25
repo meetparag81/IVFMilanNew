@@ -10,9 +10,12 @@
   <name>IVFgmino</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    <properties>
+    
+<suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
+ 
+</properties>
+  
 
   <dependencies>
     <dependency>
