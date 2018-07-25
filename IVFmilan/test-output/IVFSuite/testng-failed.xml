@@ -7,25 +7,18 @@
   </listeners>
   <test name="IVFTEST(failed)" parallel="tests">
     <classes>
-      <class name="com_Milan_Test.WcomplaintsTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="Teardown"/>
-          <include name="SaveTheComplaintsTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WcomplaintsTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="Teardown"/>
-          <include name="SimulationDrugTest"/>
           <include name="Setup"/>
+          <include name="SaveTheCycleTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
       <class name="com_Milan_Test.CycleOverviewPageTest">
         <methods>
+          <include name="ValueInSourceofSpermOptionTest"/>
           <include name="Setup"/>
           <include name="TearDown"/>
-          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
       <class name="com_Milan_Test.WAddictionsTest">
@@ -35,15 +28,13 @@
           <include name="saveNewAdictions"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
-      <class name="com_Milan_Test.SimulationChartPageTest">
+      <class name="com_Milan_Test.HomePageTest">
         <methods>
+          <include name="ClickOnCmrTest"/>
           <include name="Setup"/>
-          <include name="InvalidDateTest"/>
-          <include name="SimulationDrugValidationTest"/>
-          <include name="Teardown"/>
-          <include name="SaveSimulationTest"/>
+          <include name="teardown"/>
         </methods>
-      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      </class> <!-- com_Milan_Test.HomePageTest -->
     </classes>
   </test> <!-- IVFTEST(failed) -->
 </suite> <!-- Failed suite [IVFSuite] -->

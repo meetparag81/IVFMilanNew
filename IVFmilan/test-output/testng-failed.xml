@@ -1,49 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [IVFSuite]" parallel="tests">
-  <listeners>
-    <listener class-name="com_Milan_ExtendReport.ExtentReport"/>
-    <listener class-name="com_Milan_Analyzer.MyTransformer"/>
-  </listeners>
-  <test name="IVFTEST(failed)" parallel="tests">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WcomplaintsTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="Teardown"/>
-          <include name="SaveTheComplaintsTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WcomplaintsTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="Teardown"/>
           <include name="SimulationDrugTest"/>
           <include name="Setup"/>
+          <include name="SaveTheCycleTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
-      <class name="com_Milan_Test.CycleOverviewPageTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="TearDown"/>
-          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
-      <class name="com_Milan_Test.WAddictionsTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="Teardown"/>
-          <include name="saveNewAdictions"/>
-        </methods>
-      </class> <!-- com_Milan_Test.WAddictionsTest -->
-      <class name="com_Milan_Test.SimulationChartPageTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="InvalidDateTest"/>
-          <include name="SimulationDrugValidationTest"/>
-          <include name="Teardown"/>
-          <include name="SaveSimulationTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
     </classes>
-  </test> <!-- IVFTEST(failed) -->
-</suite> <!-- Failed suite [IVFSuite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
