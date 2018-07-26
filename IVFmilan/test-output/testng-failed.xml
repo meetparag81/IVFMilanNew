@@ -9,6 +9,7 @@
           <include name="SimulationDrugTest"/>
           <include name="Setup"/>
           <include name="SaveTheCycleTest"/>
+          <include name="LMPDateTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
     </classes>

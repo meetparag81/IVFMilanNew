@@ -1,61 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="11" total="12" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="369161" started-at="2018-07-25T05:38:13Z" finished-at="2018-07-25T05:44:22Z">
+  <suite name="Default suite" duration-ms="108168" started-at="2018-07-26T05:24:06Z" finished-at="2018-07-26T05:25:54Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="369161" started-at="2018-07-25T05:38:13Z" finished-at="2018-07-25T05:44:22Z">
-      <class name="com_Milan_Test.CycleOverviewPageTest">
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="Setup" is-config="true" duration-ms="84070" started-at="2018-07-25T11:08:13Z" finished-at="2018-07-25T11:09:37Z">
+    <test name="Default test" duration-ms="108168" started-at="2018-07-26T05:24:06Z" finished-at="2018-07-26T05:25:54Z">
+      <class name="com_Milan_Test.CycleListPageTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleListPageTest@c03cf28]" name="Setup" is-config="true" duration-ms="102773" started-at="2018-07-26T10:54:06Z" finished-at="2018-07-26T10:55:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ValueInSourceofSpermOptionTest()[pri:1, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="ValueInSourceofSpermOptionTest" duration-ms="11275" started-at="2018-07-25T11:09:37Z" finished-at="2018-07-25T11:09:49Z">
+        <test-method status="PASS" signature="SimulationDrugTest()[pri:10, instance:com_Milan_Test.CycleListPageTest@c03cf28]" name="SimulationDrugTest" duration-ms="4614" started-at="2018-07-26T10:55:48Z" finished-at="2018-07-26T10:55:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ValueInSourceofSpermOptionTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="TearDown" is-config="true" duration-ms="687" started-at="2018-07-25T11:09:49Z" finished-at="2018-07-25T11:09:49Z">
+        </test-method> <!-- SimulationDrugTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.CycleListPageTest@c03cf28]" name="Teardown" is-config="true" duration-ms="732" started-at="2018-07-26T10:55:53Z" finished-at="2018-07-26T10:55:54Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="Setup" is-config="true" duration-ms="84357" started-at="2018-07-25T11:09:49Z" finished-at="2018-07-25T11:11:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ValueInMethodOfSemenCollectionOptionTest()[pri:2, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="ValueInMethodOfSemenCollectionOptionTest" duration-ms="11374" started-at="2018-07-25T11:11:14Z" finished-at="2018-07-25T11:11:25Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ValueInMethodOfSemenCollectionOptionTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="TearDown" is-config="true" duration-ms="687" started-at="2018-07-25T11:11:25Z" finished-at="2018-07-25T11:11:26Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="Setup" is-config="true" duration-ms="85577" started-at="2018-07-25T11:11:26Z" finished-at="2018-07-25T11:12:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ValueInProtocolTest()[pri:3, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="ValueInProtocolTest" duration-ms="1143" started-at="2018-07-25T11:12:51Z" finished-at="2018-07-25T11:12:52Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ValueInProtocolTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="TearDown" is-config="true" duration-ms="669" started-at="2018-07-25T11:12:52Z" finished-at="2018-07-25T11:12:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="Setup" is-config="true" duration-ms="83637" started-at="2018-07-25T11:12:53Z" finished-at="2018-07-25T11:14:17Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Setup -->
-        <test-method status="PASS" signature="ValueInARTTypeTest()[pri:4, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="ValueInARTTypeTest" duration-ms="4933" started-at="2018-07-25T11:14:17Z" finished-at="2018-07-25T11:14:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ValueInARTTypeTest -->
-        <test-method status="PASS" signature="TearDown()[pri:0, instance:com_Milan_Test.CycleOverviewPageTest@87a85e1]" name="TearDown" is-config="true" duration-ms="703" started-at="2018-07-25T11:14:22Z" finished-at="2018-07-25T11:14:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- TearDown -->
-      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
+        </test-method> <!-- Teardown -->
+      </class> <!-- com_Milan_Test.CycleListPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

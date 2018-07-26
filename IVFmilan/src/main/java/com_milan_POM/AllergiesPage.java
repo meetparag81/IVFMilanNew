@@ -811,7 +811,7 @@ public class AllergiesPage extends TestBase
 		return message;
 	}
 	
-	public String AllergiesOnDashboardforNewPatient()
+	public String AllergiesOnDashboardforPatient()
 	{
 		 msg= NoofAllergies.getText();
 		 reader.setCellData("Allergies", "Message", 4, msg);

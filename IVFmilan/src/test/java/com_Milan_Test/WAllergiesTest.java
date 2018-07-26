@@ -67,7 +67,7 @@ public class WAllergiesTest extends TestBase
 	@Test(priority=4,enabled= true)
 	public void AllergiesOnDashboardforNewPatientTest()
 	{
-	String Actual=	Allergies.AllergiesOnDashboardforNewPatient();
+	String Actual=	Allergies.AllergiesOnDashboardforPatient();
 	
 	String Expected= reader.getCellData("Allergies", "Message", 3);
 	}
