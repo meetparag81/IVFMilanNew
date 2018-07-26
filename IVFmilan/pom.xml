@@ -11,14 +11,12 @@
   <url>http://maven.apache.org</url>
 
     <properties>
-    
-<suiteXmlFile>src/main/resources/testng.xml</suiteXmlFile>
+<suiteXmlFile>src\main\resources\testng.xml</suiteXmlFile>
  
 </properties>
-  
 
   <dependencies>
-    <dependency>
+     <dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>3.5.3</version>
@@ -107,18 +105,25 @@
     <artifactId>freemarker</artifactId>
     <version>2.3.23</version>
 </dependency>
+
+<!-- Adding Selenium dependency -->
+<dependency>
+ <groupId>org.seleniumhq.selenium</groupId>
+ <artifactId>selenium-java</artifactId>
+ <version>2.47.1</version>
+</dependency> 
+
 <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 <dependency>
     <groupId>com.microsoft.sqlserver</groupId>
     <artifactId>mssql-jdbc</artifactId>
     <version>6.4.0.jre8</version>
 </dependency>
+ 
 
 
-
-	
   </dependencies>
-   <build>
+  <build>
  
 <plugins>
  
@@ -129,8 +134,8 @@
 <version>3.0</version>
 <configuration>
 <compilerVersion>1.8</compilerVersion>
-<source>1.6</source>
-<target>1.6</target>
+<source>1.7</source>
+<target>1.7</target>
 </configuration>
 </plugin>
  
@@ -150,4 +155,6 @@
 </plugins>
  
 </build>
+ 
+
 </project>
