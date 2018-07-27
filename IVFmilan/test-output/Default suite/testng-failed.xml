@@ -6,10 +6,8 @@
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="Teardown"/>
-          <include name="SimulationDrugTest"/>
+          <include name="LMPDateTest1"/>
           <include name="Setup"/>
-          <include name="SaveTheCycleTest"/>
-          <include name="LMPDateTest"/>
         </methods>
       </class> <!-- com_Milan_Test.CycleListPageTest -->
     </classes>

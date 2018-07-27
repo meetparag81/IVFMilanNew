@@ -370,6 +370,15 @@ public class CycleListPageTest extends TestBase
 		
 		
 	}
+	@Test(priority=13,enabled=false)
+	public void LMPDateTest1()
+	{
+		
+		CLP.ClickonNewCycle();
+		CLP.LMPDate();	
+		
+	}
+	
 	
 	@AfterMethod
 	public void Teardown()

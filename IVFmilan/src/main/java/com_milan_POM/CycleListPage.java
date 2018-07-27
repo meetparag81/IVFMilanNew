@@ -7,6 +7,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.xmlbeans.impl.values.XmlValueDisconnectedException;
 import org.openqa.selenium.By;
@@ -591,56 +592,64 @@ public class CycleListPage extends TestBase
 	
 	public String LMPDate()
 	{
+		int count=0;
+		int count1 = count -1;
 		
 			LMPcalender.click();
 			List<WebElement>Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
-			int rows=2;
-			for(int i =1;i<=Dates.size();i++)
+			boolean flag= true ;
+			for(int l =0;l<=Dates.size();l++)
 			{
-				String Datetext= Dates.get(i).getText();
-				WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
-				String text= Monthtextele.getText();
-				String Arr[]=text.split(" ");
-				String Monthtext = Arr[0]; 
 				
-				String CyrrentDate=TestUtil.Date();
-				String[] Arr1= CyrrentDate.split(",");
-				String day= Arr1[0];
-				String Month = Arr1[1];
-				
-			
-				boolean flag1= Dates.get(i).isEnabled();
-				rows++;
-				
-				if(day.equals(Datetext)&&flag1==true&&Monthtext.equals(Month))
+				count1++;
+				if(flag==false)
 				{
-					Dates.get(i).click();
 					break;
 				}
 				
-				/*WebElement Rightclick = driver.findElement(By.xpath("(//table[@class='uib-daypicker']//th/button/i[@class='glyphicon glyphicon-chevron-right']"));
-					Actions act = new Actions(driver);
-					act.moveToElement(Rightclick).click().perform();
-					if(Monthtext.equals(Month))
+				String firstdate = Dates.get(l).getText();
+				
+				if(firstdate.equals("01"))
+				{
+					
+					for(int i =count1;i<=Dates.size();i++)
 					{
-						Dates.get(i).click();
-						break;
-					}
-					else
-					{
-						WebElement Leftclick = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button/i[@class='glyphicon glyphicon-chevron-left']"));
-						act.moveToElement(Leftclick).click().perform();
 						
-						if(Monthtext.equals(Month))
+						String Datetext= Dates.get(i).getText();
+						WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+						String text= Monthtextele.getText();
+						String Arr[]=text.split(" ");
+						String Monthtext = Arr[0]; 
+						
+						String CyrrentDate=TestUtil.Date();
+						String[] Arr1= CyrrentDate.split(",");
+						String day= Arr1[0];
+						String Month = Arr1[1];
+						
+					
+						boolean flag1= Dates.get(i).isEnabled();
+						
+						
+						if(Datetext.equals(day)&&flag1==true&&Monthtext.equals(Month))
 						{
 							Dates.get(i).click();
+							flag= false;
 							break;
 						}
 						
-					}
-					*/
+						
+					
+				
+			}
+			
 				}
-				return msg=LMPdate.getAttribute("value");
+				
+				
+				
+				
+			}
+			return msg=LMPdate.getAttribute("value");
+			
 			
 		}
 		

@@ -80,6 +80,7 @@ public class WOPUCycyclePageTest extends TestBase
 	@Test(priority=3,groups = {"functional" }, enabled=true)
 	public void SaveOPUsubtypeICSITest() 
 	{
+		System.out.println();
 		boolean flag1 =WOC.AlreadySavedCycle();// if there is already available cycle saved this option become true.
 		if(flag1==true)
 		{

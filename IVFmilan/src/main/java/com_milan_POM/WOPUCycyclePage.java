@@ -48,10 +48,16 @@ public class WOPUCycyclePage extends TestBase
 	@FindBy(xpath="//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a") WebElement cyclecode;
 	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']")WebElement msgagainstcycle;
 	@FindBy (xpath="//input[@name='dtplannedDate']")WebElement Calenderinput;
+	@FindBy(xpath = "//label[text()='LMP']//following-sibling::div//input[@id='Date']")WebElement Datetext;
+	@FindBy(xpath = "//input[@name='txtInstruction']")WebElement Instruction;
 	 Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	 
 	 String msg;
 	 int count2;
 	 boolean flag;
+	 
+	 boolean flag3;
+		String thismonth;
 	//WOPUCycyclePage WOC = new WOPUCycyclePage();
 	 
 
@@ -202,20 +208,145 @@ public class WOPUCycyclePage extends TestBase
 		count2= count1;
 }
 return count2;
+}
+	
+	public boolean DatePicker() 
+	{
+	System.out.println();
+		boolean flag = false;
+		Calender.click();
+		String currentdate = TestUtil.Date();
+		String arr[] = currentdate.split(",");
+		String day = arr[0];
+		String month = arr[1];
+		String year = arr[2];
+
+		/*TestUtil.ActionForMovetoElement(Datetext);
+		Datetext.clear();*/
+		WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+		String monthtext = Monthtextele.getText();
+		String montharr[] = monthtext.split(" ");
+		String Currentmonth = montharr[0];
+		String Currentyear = montharr[1];
+		if (Currentmonth.equals(month)) 
+		{
+			List<WebElement> datenodes = driver.findElements(By.xpath("//table[@role='grid']//tbody//td/button"));
+			try 
+			{
+				TestUtil.VisibleElementsOn(driver, datenodes, 30);
+			} 
+			catch (Exception e)
+			{
+				System.out.println("TimeoutExceptionseen");
+			}
+			int Totalnodes = datenodes.size();
+			for (int i = 0; i < Totalnodes; i++) 
+			{
+				String date = datenodes.get(i).getText();
+				boolean flag1 = datenodes.get(i).isEnabled();
+				flag3 = flag1;
+				if (date.equals("15") && month.equals(Currentmonth))
+				{
+
+					datenodes.get(i).click();
+
+					break;
+				}
+			}
+
+		} else {
+			Monthtextele.click();
+			List<WebElement> Monthnodes = driver.findElements(By.xpath("//ul[@class='uib-datepicker-popup dropdown-menu ng-scope']//div//table//tbody//td"));
+			for (WebElement month1 : Monthnodes) 
+			{
+				thismonth = month1.getText();
+				boolean flag2 = month1.isEnabled();
+				if (thismonth.equals(month) && flag2 == true) 
+				{
+					month1.click();
+					break;
+				}
+
+			}
+			List<WebElement> datenodes = driver.findElements(By.xpath("//table[@role='grid']//tbody//td/button"));
+			try {
+				TestUtil.VisibleElementsOn(driver, datenodes, 30);
+			} catch (Exception e) {
+				System.out.println("TimeoutExceptionseen");
+			}
+			int Totalnodes = datenodes.size();
+			for (int i = 0; i < Totalnodes; i++) 
+			{
+				String date = datenodes.get(i).getText();
+
+				boolean flag1 = datenodes.get(i).isEnabled();
+				flag3 = flag1;
+				if (date.equals("15") && flag1 == true && thismonth.equals(month)) 
+				{
+					try 
+					{
+						Thread.sleep(2000);
+					}
+					catch (InterruptedException e) 
+					{
+						System.out.println("InterruptedException is seen");
+					}
+					flag = datenodes.get(i).isEnabled();
+					datenodes.get(i).click();
+					break;
+				}
+				
+				
+					
+					
+				}
+					
+					
+					
+						
+					}
+		return flag3;
+					
+		}
+		
+		
+		
+	
+
+
+
+		
+	
+		
+	
+
+	public void Instruction() 
+	{
+		TestUtil.ActionForMovetoElement(Instruction);
+		Instruction.sendKeys("NA");
+
 	}
+
+	
+	
+	
+	
 	
 	public void subtypedataentry()
 	{
 		WebElement ArtType = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[1]"));
 		String namesoptions = reader.getCellData("Investigation", "IVF PACKAGE", 2);
 		Select ArtTypename = new Select(ArtType);
-		ArtTypename.selectByVisibleText(namesoptions);// needto test
+		ArtTypename.selectByVisibleText(namesoptions);
 		WebElement ARTSubtype = driver.findElement(By.xpath("(//th[text()='ART Type']//following::select)[2]"));
 		Select ARTSubtype1 = new Select(ARTSubtype);
 		String subnames = reader.getCellData("Investigation", "OPU", 4);
 		ARTSubtype1.selectByVisibleText(subnames);
-		String date1 = reader.getCellData("Stimulationchart", "OPUDate", 2);
-		Calender.click();
+		
+		DatePicker();
+		//Instruction();
+		/*String date1 = reader.getCellData("Stimulationchart", "OPUDate", 2);
+		 * Calender.click();
 		List<WebElement> dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//td/button"));
 		for (int i = 1; i < dates.size(); i++) 
 		{
@@ -224,15 +355,31 @@ return count2;
 			boolean flag =  dates.get(i).isEnabled();
 			String arr[] = date1.split("-");
 			String day = arr[0];
-			if (Datetext.equals("09"))
-					{
-					dates.get(i).click();
-					break;
-					}
-				
-				
-				
+			
+			WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+			String text= Monthtextele.getText();
+			String Arr[]=text.split(" ");
+			String Monthtext = Arr[0]; 
+			
+			String CyrrentDate=TestUtil.Date();
+			String[] Arr1= CyrrentDate.split(",");
+			String day1= Arr1[0];
+			String Month = Arr1[1];
+			
+		
+			boolean flag1= dates.get(i).isEnabled();
+			int rows1 = 0;
+			rows1++;
+			
+			if(day1.equals(Datetext)&&flag1==true&&Monthtext.equals(Month))
+			{
+				dates.get(i).click();
+				break;
 			}
+				
+				
+				
+			}*/
 		
 		
 	
