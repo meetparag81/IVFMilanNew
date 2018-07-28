@@ -71,6 +71,7 @@ public class WcomplaintsTest extends TestBase
 	@Test(priority=3,groups = {"smoketest" })
 	public void NextFollowUpTest() 
 	{
+		System.out.println();
 	boolean flag=WCP.NextFollowUp();
 	
 	Assert.assertTrue(flag);

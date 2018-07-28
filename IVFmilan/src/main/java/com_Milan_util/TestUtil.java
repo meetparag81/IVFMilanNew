@@ -130,6 +130,18 @@ public static long PAGE_LOAD_TIMEOUT = 30;
 		return strDate;
 		
 	}
+	public static String DateForCompare()
+	{
+		Date date1 = new Date();  
+	    SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+	    formatter = new SimpleDateFormat("dd-MMM-yyyy"); 
+	    String strDate = formatter.format(date1);  
+		strDate = formatter.format(date1); 
+		
+		
+		return strDate;
+		
+	}
 	
 	public static void IntDate()
 	{

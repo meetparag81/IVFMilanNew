@@ -73,7 +73,7 @@ public class WAllergiesTest extends TestBase
 	}
 		
 
-@Test(priority=5,enabled= true)
+@Test(priority=5,enabled= true,dependsOnMethods= {"AllergySelectionTest"})
 public void OptionSelectedOnAllergyCurrentStstusTest() 
 {
 	String Actual= Allergies.OptionSelectedinDrugAllergyCurrentstatus();

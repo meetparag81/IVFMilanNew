@@ -132,7 +132,7 @@ public class AllergiesPage extends TestBase
 			ExistingAllergies();
 			msg= SaveMessage();
 		}
-		else if(flag1==false&& flag2==false)// new patienttrue and Save button is not true
+		else if(flag1==false&& flag2==false)// new patienttrue and Save button is  true
 		{
 			AddnewAllergies();
 		msg=SaveMessage();
