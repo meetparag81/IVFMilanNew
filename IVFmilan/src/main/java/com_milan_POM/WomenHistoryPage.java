@@ -40,11 +40,11 @@ public class WomenHistoryPage extends TestBase
 	{
 		try
 		{
-		TestUtil.VisibleOn(driver, SexualHistory, 20);
+		TestUtil.VisibleOn(driver, SexualHistory, 30);
 		}
 		catch(Exception e)
 		{
-			System.out.println("Element is not displayed within20 sec");
+			System.out.println("Element is not displayed within30 sec");
 		}
 		SexualHistory.click();
 		System.out.println("clicked on Sexual history");
