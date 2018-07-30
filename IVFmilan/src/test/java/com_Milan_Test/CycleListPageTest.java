@@ -95,7 +95,7 @@ public class CycleListPageTest extends TestBase
 	
 	
 	
-	@Test(priority=2,enabled=false)//done
+	@Test(priority=2,enabled=true)//done
 	public void CycleListTitleTest()
 	{
 		boolean flag = CLP.NewCycleButtonEnableCondition();
