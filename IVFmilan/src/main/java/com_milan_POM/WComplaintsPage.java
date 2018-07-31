@@ -33,21 +33,20 @@ public class WComplaintsPage extends TestBase {
 	WebElement Updateflash;
 	@FindBy(xpath = "//span[@class='toast-msg ng-binding ng-scope']")
 	WebElement SaveFash;
-	@FindBy(xpath = "//label[contains(text(),'Next Follow Up')]//following-sibling::div//input")
-	WebElement Inputcalender;
-	List<WebElement> Rows = driver
-			.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
-
+	@FindBy(xpath = "//label[contains(text(),'Next Follow Up')]//following-sibling::div//input")WebElement Inputcalender;
+	List<WebElement> Rows = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));
 	int i;
 	int j;
 	int count = 0;
 	String msg;
 
-	WComplaintsPage() {
+	WComplaintsPage() 
+	{
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean complaints() {
+	public boolean complaints() 
+	{
 		boolean flag = false;
 		List<WebElement> complaintRows = driver
 				.findElements(By.xpath("//table[@class='table table-hover table-striped']//tr/td[3]"));

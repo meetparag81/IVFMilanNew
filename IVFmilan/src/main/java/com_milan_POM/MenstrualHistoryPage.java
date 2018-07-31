@@ -29,6 +29,7 @@ public class MenstrualHistoryPage extends TestBase
 	@FindBy(xpath = "//label[text()='Dysmennorhea']//following-sibling::div/select")WebElement Dysmennorhea;
 	@FindBy(xpath="//label[text()='Intermenstrual Bleeding']//following-sibling::div/select")WebElement IntermenstrualBleeding;
 	@FindBy(xpath="//label[text()='LMP']//following-sibling::div//input[@id='Date']")WebElement Datetext;
+	@FindBy(xpath = "//label[contains(text(),'Next Follow Up')]//following-sibling::div//input")WebElement Inputcalender;
 	
 	String msg;
 	String thismonth;
@@ -64,101 +65,80 @@ public class MenstrualHistoryPage extends TestBase
 	}
 	public boolean DatePicker()
 	{
-		boolean flag= false;
+		
+		int count = 0;
+		int count1 = count - 1;
+
+		try {
+			TestUtil.VisibleOn(driver, lmpPcalender, 20);
+		} catch (Exception e) {
+			System.out.println("Element is not seen within time");
+			throw (e);
+		}
 		lmpPcalender.click();
-		String currentdate= TestUtil.Date();
-		String arr[] = currentdate.split(",");
-		String day= arr[0];
-		String month= arr[1];
-		String year= arr[2];
-		
-		TestUtil.ActionForMovetoElement(Datetext);
-		Datetext.clear();
-		WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
-		String monthtext= Monthtextele.getText();
-		String montharr[] = monthtext.split(" ");
-		String Currentmonth= montharr[0];
-		String Currentyear= montharr[1];
-		if(Currentmonth.equals(month))
+		List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
+		boolean flag = true;
+		for (int l = 0; l < Dates.size(); l++) 
 		{
-			List<WebElement> datenodes = driver.findElements(By.xpath("//table[@role='grid']//tbody//td/button"));
-			try
+
+			count1++;
+			if (flag == false) 
 			{
-			TestUtil.VisibleElementsOn(driver, datenodes, 30);
-			}
-			catch(Exception e)
-			{
-				System.out.println("TimeoutExceptionseen");
-			}
-			int Totalnodes= datenodes.size();
-			for(int i=0;i<Totalnodes;i++)
-			{
-				String date = datenodes.get(i).getText();
-				
-				boolean flag1= datenodes.get(i).isEnabled();
-				flag3 = flag1;
-				if(date.equals(day)&&month.equals(Currentmonth) );
-				{
-					
-					datenodes.get(i).click();
-					
-					break;
-				}
-			}
-		
-		}
-		else
-		{
-			Monthtextele.click();
-			List<WebElement>Monthnodes = driver.findElements(By.xpath("//ul[@class='uib-datepicker-popup dropdown-menu ng-scope']//div//table//tbody//td"));
-			for(WebElement month1:Monthnodes)
-			{
-				 thismonth= month1.getText();
-				boolean flag2= month1.isEnabled();
-				if(thismonth.equals(month)&&flag2==true)
-				{
-					month1.click();
-					break;
-				}
-				
-			}
-			List<WebElement> datenodes = driver.findElements(By.xpath("//table[@role='grid']//tbody//td/button"));
-			try
-			{
-			TestUtil.VisibleElementsOn(driver, datenodes, 30);
-			}
-			catch(Exception e)
-			{
-				System.out.println("TimeoutExceptionseen");
-			}
-			int Totalnodes= datenodes.size();
-			for(int i=0;i<Totalnodes;i++)
-			{
-				String date = datenodes.get(i).getText();
-				
-				boolean flag1= datenodes.get(i).isEnabled();
-				flag3 = flag1;
-				if(date.equals(day)&&flag1==true&&thismonth.equals(month))
-				{
-				try {
-					Thread.sleep(2000);
-				} catch (InterruptedException e) 
-				{
-				System.out.println("InterruptedException is seen");
-				}
-				flag=datenodes.get(i).isEnabled();
-				datenodes.get(i).click();
 				break;
-				}
-					
 			}
-			
+
+			String firstdate = Dates.get(l).getText();
+
+			if (firstdate.equals("01")) 
+			{
+
+				for (int i = count1; i < Dates.size(); i++) 
+				{
+
+					String Datetext = Dates.get(i).getText();
+					WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+					String text = Monthtextele.getText();
+					String Arr[] = text.split(" ");
+					String Monthtext = Arr[0];
+
+					String CyrrentDate = TestUtil.Date();
+					String[] Arr1 = CyrrentDate.split(",");
+					String day = Arr1[0];
+					String Month = Arr1[1];
+
+					boolean flag1 = Dates.get(i).isEnabled();
+
+					if (Datetext.equals(day) && flag1 == true && Monthtext.equals(Month)) 
+					{
+						Dates.get(i).click();
+						try {
+							TestUtil.VisibleOn(driver, Inputcalender, 30);
+							TestUtil.ActionForMovetoElement(Inputcalender);
+
+						} 
+						catch (Exception e) 
+						{
+							System.out.println("Element- Inputcalender is snot seen with in 30 sec");
+
+						}
+						flag = false;
+						msg = Inputcalender.getAttribute("value");
+						break;
+					}
+					
+					
+
+				}
+			}
+		}
+		return flag;
+		
 		
 		}
 		
-		return flag3;
 		
-	}
+		
+	
 	
 	public boolean AmenorrheaType()
 	{
