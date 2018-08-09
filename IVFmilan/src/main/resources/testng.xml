@@ -8,7 +8,7 @@
   <test name="ApolloIVFTest">
     <classes>
     <class name="com_Milan_Test.LoginPageTest"/>
-      <class name="com_Milan_Test.HomePageTest"/>
+    <class name="com_Milan_Test.HomePageTest"/>
 	 <class name="com_Milan_Test.SearchPageTest"/>
 	 <class name="com_Milan_Test.EMRDashBoardPageTest"/>
 	 <class name="com_Milan_Test.WomenHistoryPageTest"/>
@@ -26,6 +26,7 @@
       <class name="com_Milan_Test.CycleListPageTest"/>
       <class name="com_Milan_Test.CycleOverviewPageTest"/>
       <class name="com_Milan_Test.SimulationChartPageTest"/>
+    
 	      
     </classes>
   </test> <!-- Test -->

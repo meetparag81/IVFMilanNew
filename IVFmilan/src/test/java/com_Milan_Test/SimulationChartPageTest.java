@@ -30,8 +30,6 @@ public class SimulationChartPageTest extends TestBase
 	StimulationChartPage SCP;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
-	
-	
 	@BeforeMethod
 	public  void Setup()
 	{
@@ -132,6 +130,16 @@ public class SimulationChartPageTest extends TestBase
 		Assert.assertEquals(act, exp);
 		System.out.println("InvalidDateTest is completed");
 	}
+	
+	@Test(priority=6,enabled=true)
+	public void MessageonOPUPageTest()
+	{
+		String act= SCP.MessageonOPUPage();
+		String exp= reader.getCellData("Stimulationchart", "Message", 5);
+		Assert.assertEquals(act, exp);
+		System.out.println("MessageonOPUPageTest is completed");
+	}
+	
 	@AfterMethod
 	public void Teardown()
 	{

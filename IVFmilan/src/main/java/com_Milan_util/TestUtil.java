@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
-
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
@@ -47,6 +47,13 @@ public static long PAGE_LOAD_TIMEOUT = 30;
 	public static void  VisibleElementsOn(WebDriver driver,List<WebElement> element,int timeout)
 	{
 		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.visibilityOfAllElements(element));
+	}
+	
+	public static void ScrollthePage(JavascriptExecutor js,WebDriver driver)
+	{
+		JavascriptExecutor js1 = (JavascriptExecutor) driver;
+		js1.executeScript("scroll(0, 250);");
+		
 	}
 	
 	

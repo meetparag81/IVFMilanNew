@@ -2,6 +2,7 @@ package com_Milan_Test;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -264,7 +265,7 @@ public void Setup()
 	
 	
 	@DataProvider
-	public  Iterator<Object[]> getTestData()
+	public  Iterator<Object[]> getTestData(ITestContext c)
 	{
 		ArrayList<Object[]>	Addictions= AddictionsPage.getdatafromExcel();	
 	return Addictions.iterator();

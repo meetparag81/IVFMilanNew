@@ -1,9 +1,5 @@
 package IVFMilanDatabase;
 
-
-
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -61,6 +57,7 @@ public class ConnectToSQL extends TestBase
 		try 
 	    {
 			System.out.println();
+			
 	            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 	            System.out.println("Driver is loaded");
 	           Connection con = DriverManager.getConnection("http://192.168.1.202", "sa", "Rational@1");

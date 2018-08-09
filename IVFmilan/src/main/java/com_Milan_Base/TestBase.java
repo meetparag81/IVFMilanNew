@@ -41,13 +41,13 @@ public class TestBase
 			} catch (IOException e) 
 			{
 				
-				e.printStackTrace();
+				System.out.println("IOException is seen");
 			}
 		}
 		catch (FileNotFoundException e) 
 		{
 			
-			e.printStackTrace();
+			System.out.println("FileNotFoundException is seen");
 		}
 			
 		
@@ -63,7 +63,7 @@ public class TestBase
 		}	
 		else if(browsername.equals("chrome"))
 		 {
-			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Paragdata30032018\\Parag\\Selenium\\Selenium Setup\\chrome exe for 65\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Selenium\\Selenium Setup\\chromeexe for 67to69\\chromedriver.exe");
 			driver = new ChromeDriver();
 		 }
 		EventFiringWebDriver e_driver = new EventFiringWebDriver(driver);

@@ -162,7 +162,7 @@ public class SearchPage extends TestBase {
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("01")) 
+			if (date.equals("05")) 
 			{
 				dates.get(i).click();
 				break;

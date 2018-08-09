@@ -35,9 +35,13 @@ public class EMRDashBoardPage extends TestBase {
 	private @FindBy(xpath = "//a[@class='icoLink femaleInvestigations'][@title='Investigations']") WebElement Investigation;
 	private @FindBy(xpath = "//a[@class='active_white_color']") WebElement Cycleoption;
 	private @FindBy(xpath="//span[@class='icon-screen ng-binding']")WebElement Complainttext;
+	private @FindBy(xpath="//span[@class='icon-screen ng-binding']")WebElement SiemencollectionText;
+	private @FindBy(xpath="//a[@class='icoLink semenProcessing']")WebElement SiemenProvessing;
 	WebDriverWait wait = new WebDriverWait(driver, 50);
+	String msg;
 
-	public EMRDashBoardPage() {
+	public EMRDashBoardPage() 
+	{
 		PageFactory.initElements(driver, this);
 	}
 
@@ -129,8 +133,7 @@ public class EMRDashBoardPage extends TestBase {
 		return Title;
 
 	}
-
-	public MenHistoryPage clickOnMenField() 
+	public void ClickMenField()
 	{
 		try {
 			TestUtil.VisibleOn(driver, menfield, 20);
@@ -139,9 +142,46 @@ public class EMRDashBoardPage extends TestBase {
 		{
 			System.out.println("menfield is not displayed within 20 sec");
 		}
-		if (menfield.isDisplayed()) {
+		if (menfield.isDisplayed()) 
+		{
 			TestUtil.VisibleOn(driver, menfield, 20);
 			menfield.click();
+		}
+		else 
+		{
+		String Title = TitleEMR.getText();
+		}
+		
+		
+	}
+	
+	public SiemenProcessingPage ClickOnSiemenProcessing()
+	{
+		ClickMenField();
+		try
+		{
+			TestUtil.VisibleOn(driver, SiemenProvessing, 20);
+			TestUtil.ActionForMovetoElement(SiemenProvessing);
+		}
+		catch(Exception e)
+		{
+			System.out.println("Element-SiemenProvessing is not seen with in 20 sec");
+		}
+		SiemenProvessing.click();
+		return  new SiemenProcessingPage();
+		
+	
+	}
+	public String SiemenProcessingText()
+	{
+		msg= SiemencollectionText.getText();
+		return msg; 
+	}
+
+	public MenHistoryPage clickOnMenField() 
+	{
+		ClickMenField();
+		
 			try
 			{
 			TestUtil.VisibleOn(driver, Historylinkmen, 20);
@@ -176,9 +216,7 @@ public class EMRDashBoardPage extends TestBase {
 
 			}
 
-		} else {
-			String Title = TitleEMR.getText();
-		}
+		
 		return new MenHistoryPage();
 
 	}

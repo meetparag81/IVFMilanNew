@@ -40,8 +40,9 @@ public class TestNGListners extends TestBase  implements ITestListener, WebDrive
 		{
 			try {
 				TestUtil.getScreenshot(driver, result.getName());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
+			} 
+			catch (Exception e) 
+			{
 				e.printStackTrace();
 			}
 		}

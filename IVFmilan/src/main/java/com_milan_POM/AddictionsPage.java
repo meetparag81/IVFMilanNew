@@ -302,7 +302,8 @@ public class AddictionsPage extends TestBase {
 		}
 
 		int count1 = reader.getRowCount("Addictions");
-		for (int rows = 2; rows <= count1; rows++) {
+		for (int rows = 2; rows <= count1; rows++) 
+		{
 
 			String Addiction = reader.getCellData("Addictions", 0, rows);
 			String CurrentStatus = reader.getCellData("Addictions", 1, rows);

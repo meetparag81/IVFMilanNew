@@ -3,18 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com_Milan_Test.WAllergiesTest">
+      <class name="com_Milan_Test.SiemenProcessingPageTest">
         <methods>
-          <include name="OptionSelectedOnAllergyCurrentStstusTest"/>
-          <include name="Seup"/>
-          <include name="AllergiesOnDashboardforNewPatientTest"/>
-          <include name="AllergySelectionTest"/>
-          <include name="ExistingPatientDrugAllergyTypeTest"/>
-          <include name="Teardown"/>
-          <include name="AddNewAllergiesTest"/>
-          <include name="FoodAllergyvalidationTest"/>
+          <include name="teardown"/>
+          <include name="Setup"/>
+          <include name="SiemensProcessingTesting"/>
         </methods>
-      </class> <!-- com_Milan_Test.WAllergiesTest -->
+      </class> <!-- com_Milan_Test.SiemenProcessingPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -20,6 +20,7 @@ import com_milan_POM.HomePage;
 import com_milan_POM.Loginpage;
 import com_milan_POM.MenHistoryPage;
 import com_milan_POM.SearchPage;
+import com_milan_POM.SiemenProcessingPage;
 import com_milan_POM.WInvestigationPage;
 import com_milan_POM.WVitalsPage;
 import com_milan_POM.WomenHistoryPage;
@@ -36,6 +37,7 @@ public class EMRDashBoardPageTest extends TestBase
 	AllergiesPage Allergies;
 	FemaleDiagnosisPage FemaleDiagnosis;
 	WInvestigationPage Investigation;
+	SiemenProcessingPage SiemensProcessing;
 	WVitalsPage Vitals;
 	String Actual1, Expected1;
 	int count=0;
@@ -54,17 +56,10 @@ public class EMRDashBoardPageTest extends TestBase
 		Loginpage= new Loginpage();
 		HomePage = Loginpage.Verifylogin(prop.getProperty("username"), prop.getProperty("password"));
 		EMRPage = HomePage.searchPaient();
-		
-		
-		
-		
-		
-		
-		
-		
+			
 	}
 	@Test(priority=1,groups = {"smoketest" },enabled=true)
-	public void ClickonWoomenPaientFieldTest() throws InterruptedException
+	public void ClickonWoomenPaientFieldTest() 
 	{
 		WHP= EMRPage.clickOnWomenField();
 		boolean flag = EMRPage.GetGetEnableconditionWoMenfield();
@@ -87,7 +82,7 @@ public class EMRDashBoardPageTest extends TestBase
 		
 	}
 	@Test(priority=2,groups = {"smoketest" },enabled=true)
-	public void ClickOnMenPaientHistory() throws Exception
+	public void ClickOnMenPaientHistory() 
 	{
 		MHP= EMRPage.clickOnMenField();
 		 
@@ -108,20 +103,20 @@ public class EMRDashBoardPageTest extends TestBase
 	
 	
 	@Test(priority=4,groups = {"smoketest" },enabled=true)
-	public void ClickOnInvestigationTest() throws Exception
+	public void ClickOnInvestigationTest() 
 	{
 		Investigation= EMRPage.ClickOnInvestigation();
 		
 		
 	}
 	@Test(priority=5,groups = {"smoketest" })
-	public void ClickOnVitalTest() throws Exception
+	public void ClickOnVitalTest() 
 	{
 		EMRPage.ClickOnVitals();
 	}
 	
 	@Test(priority=6,groups = {"smoketest" })
-	public void ClickOnComplaintTest() throws Exception
+	public void ClickOnComplaintTest() 
 	{
 		System.out.println();
 		EMRPage.ClickOnComplaints();
@@ -129,6 +124,17 @@ public class EMRDashBoardPageTest extends TestBase
 		String exp= reader.getCellData("EMRPage", "Message", 4);
 		Assert.assertEquals(act, exp, "text not matched");
 		System.out.println("ClickOnComplaints test completed");
+	}
+	@Test(priority=6,groups = {"smoketest" })
+	public void ClickOnSiemenProcessingTest()
+	{
+		SiemensProcessing=EMRPage.ClickOnSiemenProcessing();
+		String act = EMRPage.SiemenProcessingText();
+		String exp = reader.getCellData("EMRPage", "Message",5);
+		Assert.assertEquals(act, exp);
+		System.out.println("ClickOnSiemenProcessingTest is completed");
+		
+		
 	}
 	
 	
