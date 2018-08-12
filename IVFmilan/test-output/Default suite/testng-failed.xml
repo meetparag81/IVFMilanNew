@@ -7,7 +7,7 @@
         <methods>
           <include name="teardown"/>
           <include name="Setup"/>
-          <include name="SiemensProcessingTesting"/>
+          <include name="PreparationAssessmentTest"/>
         </methods>
       </class> <!-- com_Milan_Test.SiemenProcessingPageTest -->
     </classes>

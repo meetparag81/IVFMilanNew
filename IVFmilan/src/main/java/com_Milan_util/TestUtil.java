@@ -33,6 +33,7 @@ public static long PAGE_LOAD_TIMEOUT = 30;
 
 	
 	
+
 	public static void ClickOn(WebDriver driver,WebElement locator,int timeout)
 	{
 		new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeSelected(locator));

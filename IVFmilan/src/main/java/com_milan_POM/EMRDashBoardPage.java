@@ -160,13 +160,14 @@ public class EMRDashBoardPage extends TestBase {
 		ClickMenField();
 		try
 		{
-			TestUtil.VisibleOn(driver, SiemenProvessing, 20);
+			TestUtil.VisibleOn(driver, SiemenProvessing, 30);
 			TestUtil.ActionForMovetoElement(SiemenProvessing);
 		}
 		catch(Exception e)
 		{
 			System.out.println("Element-SiemenProvessing is not seen with in 20 sec");
 		}
+		
 		SiemenProvessing.click();
 		return  new SiemenProcessingPage();
 		
