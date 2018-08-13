@@ -40,15 +40,16 @@ public class SiemenProcessingPageTest extends TestBase
 				
 	}
 	@Test(priority=1)
-	public void SiemensProcessingTesting() 
-	{
-		SiemensProcessing.ClickOnSemenPreparationDetails();
-	}
-	@Test(priority=2)
 	public void PreparationAssessmentTest() 
 	{
 		SiemensProcessing.ClickOnPreliminaryDetails();
 	}
+	@Test(priority=2)
+	public void SiemensProcessingTesting() 
+	{
+		SiemensProcessing.ClickOnSemenPreparationDetails();
+	}
+	
 	
 	
 	

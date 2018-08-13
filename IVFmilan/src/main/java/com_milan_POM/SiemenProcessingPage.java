@@ -34,10 +34,9 @@ public class SiemenProcessingPage extends TestBase {
 	WebElement WitnessBy;
 	@FindBy(xpath = "//label[contains (text(), 'Semen Preparation Method')]//following::select[1]")
 	WebElement SiemenPreperationMethod;
-	@FindBy(xpath = "//a[contains (text(), 'Semen Preparation Details')]")
-	WebElement SemenPreparationDetails;
-	Exls_Reader reader = new Exls_Reader(
-			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
+	@FindBy(xpath = "//a[contains (text(), 'Semen Preparation Details')]")WebElement SemenPreparationDetails;
+	@FindBy(xpath="//label[contains (text(),  'Semen Preparation Method')]//following-sibling::div/select")WebElement SemenPreparationMethod; 
+	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	String msg;
 	private String value;
 	private int val;
@@ -139,6 +138,9 @@ public class SiemenProcessingPage extends TestBase {
 		{
 			System.out.println("Element-SiemenPreperationMethod is not seen with in 30 sec");
 		}
+		Select SemenMetod = new Select(SemenPreparationMethod);
+		SemenMetod.selectByVisibleText("Swim Up Technique");
+		
 	}
 
 	public int Progressiveperc(String prog)
