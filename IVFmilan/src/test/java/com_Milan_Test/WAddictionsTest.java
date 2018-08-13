@@ -29,6 +29,12 @@ public class WAddictionsTest extends TestBase
 {
 	
 	
+	private static final String Addiction = null;
+	private static final String CurrentStatus = null;
+	private static final String SinceWhenM = null;
+	private static final String SinceWhenY = null;
+	private static final String Frequency = null;
+	private static final String Quantity = null;
 	HomePage HomePage;
 	Loginpage Loginpage;
 	EMRDashBoardPage EMRPage;
@@ -212,13 +218,13 @@ public void Setup()
 			
 		
 	}
-	@Test (priority=17,groups = {"functional" },enabled=true)
+	@Test (priority=17,groups = {"functional" },enabled=false)
 	//@Parameters("ITestContext")
-	public void saveNewAdictions(String Addiction, String CurrentStatus, String SinceWhenM, String SinceWhenY,
-			String Frequency, String Quantity) 
+	public void SaveNewAdictionsTest()
 	{
 		
-		Addictions.NewAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+		Addictions.SaveAllAddictions(Addiction, CurrentStatus, SinceWhenM, SinceWhenY, Frequency, Quantity);
+		
 		String count= reader.getCellData("Addictions", 7, 2);
 		try{
 			 

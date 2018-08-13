@@ -29,7 +29,7 @@ public class MenstrualHistoryPage extends TestBase
 	@FindBy(xpath = "//label[text()='Dysmennorhea']//following-sibling::div/select")WebElement Dysmennorhea;
 	@FindBy(xpath="//label[text()='Intermenstrual Bleeding']//following-sibling::div/select")WebElement IntermenstrualBleeding;
 	@FindBy(xpath="//label[text()='LMP']//following-sibling::div//input[@id='Date']")WebElement Datetext;
-	@FindBy(xpath = "//label[contains(text(),'Next Follow Up')]//following-sibling::div//input")WebElement Inputcalender;
+	@FindBy(xpath = "//label[contains (text() , 'LMP')]//following-sibling::div//input")WebElement Inputcalender;
 	
 	String msg;
 	String thismonth;
@@ -65,7 +65,6 @@ public class MenstrualHistoryPage extends TestBase
 	}
 	public boolean DatePicker()
 	{
-		
 		int count = 0;
 		int count1 = count - 1;
 
@@ -73,7 +72,7 @@ public class MenstrualHistoryPage extends TestBase
 			TestUtil.VisibleOn(driver, lmpPcalender, 20);
 		} catch (Exception e) {
 			System.out.println("Element is not seen within time");
-			throw (e);
+			
 		}
 		lmpPcalender.click();
 		List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
@@ -89,7 +88,7 @@ public class MenstrualHistoryPage extends TestBase
 
 			String firstdate = Dates.get(l).getText();
 
-			if (firstdate.equals("01")) 
+			if (firstdate.equals("01")) // this loop starts from 01 date of calender
 			{
 
 				for (int i = count1; i < Dates.size(); i++) 
@@ -111,7 +110,8 @@ public class MenstrualHistoryPage extends TestBase
 					if (Datetext.equals(day) && flag1 == true && Monthtext.equals(Month)) 
 					{
 						Dates.get(i).click();
-						try {
+						try 
+						{
 							TestUtil.VisibleOn(driver, Inputcalender, 30);
 							TestUtil.ActionForMovetoElement(Inputcalender);
 
@@ -122,16 +122,29 @@ public class MenstrualHistoryPage extends TestBase
 
 						}
 						flag = false;
+						
 						msg = Inputcalender.getAttribute("value");
-						break;
+						
+						
+						String Date= TestUtil.DateForCompare();
+						if(Date.equals(msg))
+						{
+							flag3=true;
+							break;
+						}
+						else
+						{
+							flag3= false;
+							break;
+						}
+						
 					}
 					
 					
-
 				}
 			}
 		}
-		return flag;
+		return flag3;
 		
 		
 		}

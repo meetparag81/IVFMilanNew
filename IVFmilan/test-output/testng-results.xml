@@ -1,11 +1,236 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="3" total="3" passed="0">
+<testng-results skipped="0" failed="0" ignored="16" total="21" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15" started-at="2018-08-12T13:11:13Z" finished-at="2018-08-12T13:11:13Z">
+  <suite name="Default suite" duration-ms="290849" started-at="2018-08-13T10:09:27Z" finished-at="2018-08-13T10:14:18Z">
     <groups>
+      <group name="functional">
+        <method signature="WAddictionsTest.saveAdictionsTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:16, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="saveAdictionsTest" class="com_Milan_Test.WAddictionsTest"/>
+      </group> <!-- functional -->
     </groups>
-    <test name="Default test" duration-ms="15" started-at="2018-08-12T13:11:13Z" finished-at="2018-08-12T13:11:13Z">
+    <test name="Default test" duration-ms="290849" started-at="2018-08-13T10:09:27Z" finished-at="2018-08-13T10:14:18Z">
+      <class name="com_Milan_Test.WAddictionsTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Setup" is-config="true" duration-ms="52737" started-at="2018-08-13T15:39:28Z" finished-at="2018-08-13T15:40:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="saveAdictionsTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:16, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="saveAdictionsTest" duration-ms="8306" started-at="2018-08-13T15:40:20Z" data-provider="getTestData" finished-at="2018-08-13T15:40:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Smoking]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Yes]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Regular]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveAdictionsTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Teardown" is-config="true" duration-ms="681" started-at="2018-08-13T15:40:29Z" finished-at="2018-08-13T15:40:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Setup" is-config="true" duration-ms="48894" started-at="2018-08-13T15:40:29Z" finished-at="2018-08-13T15:41:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="saveAdictionsTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:16, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="saveAdictionsTest" duration-ms="7187" started-at="2018-08-13T15:41:18Z" data-provider="getTestData" finished-at="2018-08-13T15:41:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Alcohol]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[No]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[3]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[5]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Irregular]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[100]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveAdictionsTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Teardown" is-config="true" duration-ms="690" started-at="2018-08-13T15:41:25Z" finished-at="2018-08-13T15:41:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Setup" is-config="true" duration-ms="49650" started-at="2018-08-13T15:41:26Z" finished-at="2018-08-13T15:42:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="saveAdictionsTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:16, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="saveAdictionsTest" duration-ms="6716" started-at="2018-08-13T15:42:16Z" data-provider="getTestData" finished-at="2018-08-13T15:42:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Tobacco]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[No]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[6]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[10]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[occasional]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveAdictionsTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Teardown" is-config="true" duration-ms="682" started-at="2018-08-13T15:42:23Z" finished-at="2018-08-13T15:42:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Setup" is-config="true" duration-ms="49927" started-at="2018-08-13T15:42:23Z" finished-at="2018-08-13T15:43:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="saveAdictionsTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:16, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="saveAdictionsTest" duration-ms="6811" started-at="2018-08-13T15:43:13Z" data-provider="getTestData" finished-at="2018-08-13T15:43:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Drug Addiction]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Yes]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[9]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[15]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Regular]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveAdictionsTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Teardown" is-config="true" duration-ms="705" started-at="2018-08-13T15:43:20Z" finished-at="2018-08-13T15:43:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Setup" is-config="true" duration-ms="49771" started-at="2018-08-13T15:43:21Z" finished-at="2018-08-13T15:44:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="saveAdictionsTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:16, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="saveAdictionsTest" duration-ms="6903" started-at="2018-08-13T15:44:10Z" data-provider="getTestData" finished-at="2018-08-13T15:44:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Caffeine Addiction]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[No]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[11]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Irregular]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[4]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- saveAdictionsTest -->
+        <test-method status="PASS" signature="Teardown()[pri:0, instance:com_Milan_Test.WAddictionsTest@503d687a]" name="Teardown" is-config="true" duration-ms="681" started-at="2018-08-13T15:44:17Z" finished-at="2018-08-13T15:44:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Teardown -->
+      </class> <!-- com_Milan_Test.WAddictionsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
