@@ -63,7 +63,7 @@ public class TestBase
 		}	
 		else if(browsername.equals("chrome"))
 		 {
-			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Selenium\\Selenium Setup\\chromeexe for 67to69\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Selenium\\Selenium Setup\\chrome exe for 65\\chromedriver.exe");
 			driver = new ChromeDriver();
 		 }
 		EventFiringWebDriver e_driver = new EventFiringWebDriver(driver);

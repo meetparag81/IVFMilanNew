@@ -1,16 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [ApolloIVFTestSuite]">
+  <listeners>
+    <listener class-name="com_Milan_ExtendReport.ExtentReport"/>
+    <listener class-name="com_Milan_Analyzer.MyTransformer"/>
+  </listeners>
+  <test name="ApolloIVFTest(failed)">
     <classes>
       <class name="com_Milan_Test.WAddictionsTest">
         <methods>
+          <include name="SinceWhenEnableconditionSinceWhenCaffeineAddictionTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthForDrugAdictionTest"/>
           <include name="Setup"/>
+          <include name="SenceWhenEnableconditionSinceWhenDrugAddictionYearTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthForCaffeineAddictionTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthTobocoTest"/>
+          <include name="SenceWhenEnableconditionSinceWhenYearTobacoTest"/>
           <include name="Teardown"/>
-          <include name="SaveNewAdictionsTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthAlkoholTest"/>
+          <include name="SinceWhenEnableconditionSinceWhenMonthSmokeTest"/>
           <include name="saveAdictionsTest"/>
         </methods>
       </class> <!-- com_Milan_Test.WAddictionsTest -->
+      <class name="com_Milan_Test.WOPUCycyclePageTest">
+        <methods>
+          <include name="TearDown"/>
+          <include name="ClickonCycletabTest"/>
+          <include name="Setup"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WOPUCycyclePageTest -->
+      <class name="com_Milan_Test.WVitalsTest">
+        <methods>
+          <include name="setup"/>
+          <include name="BPSystolicBundryValueTest"/>
+          <include name="TearDown"/>
+          <include name="SaveAllVitalsValuesTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WVitalsTest -->
+      <class name="com_Milan_Test.HomePageTest">
+        <methods>
+          <include name="ClickOnCmrTest"/>
+          <include name="Setup"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.HomePageTest -->
+      <class name="com_Milan_Test.WSexsualHistoryTest">
+        <methods>
+          <include name="DyspareuniatextTest"/>
+          <include name="Seup"/>
+          <include name="Remarktexttest"/>
+          <include name="TryingToConcieveSinceYearTest"/>
+          <include name="Lubricationusedtext"/>
+          <include name="TryingToConcieveSinceMonthTest"/>
+          <include name="Teardown"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WSexsualHistoryTest -->
+      <class name="com_Milan_Test.FemaleDiagnosisTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="UnFavoriteTheFavioriteTest"/>
+          <include name="TearDown"/>
+          <include name="checkboxclickTest"/>
+          <include name="TypeSelectionboxEnableconditionForOtherfavorireTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.FemaleDiagnosisTest -->
+      <class name="com_Milan_Test.WAllergiesTest">
+        <methods>
+          <include name="OptionSelectedOnAllergyCurrentStstusTest"/>
+          <include name="Seup"/>
+          <include name="AllergiesOnDashboardforNewPatientTest"/>
+          <include name="AllergySelectionTest"/>
+          <include name="ExistingPatientDrugAllergyTypeTest"/>
+          <include name="Teardown"/>
+          <include name="AddNewAllergiesTest"/>
+          <include name="FoodAllergyvalidationTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WAllergiesTest -->
+      <class name="com_Milan_Test.CycleOverviewPageTest">
+        <methods>
+          <include name="ValueInSourceofSpermOptionTest"/>
+          <include name="Setup"/>
+          <include name="ValueInARTTypeTest"/>
+          <include name="TearDown"/>
+          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
+      <class name="com_Milan_Test.WcomplaintsTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="NextFollowUpTest"/>
+          <include name="Teardown"/>
+          <include name="SaveTheComplaintsTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
+      <class name="com_Milan_Test.SimulationChartPageTest">
+        <methods>
+          <include name="Setup"/>
+          <include name="Teardown"/>
+          <include name="SaveSimulationTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      <class name="com_Milan_Test.CycleListPageTest">
+        <methods>
+          <include name="SourceofSpermselectionDonorTest"/>
+          <include name="Teardown"/>
+          <include name="ARTTypeOptionTest"/>
+          <include name="SimulationDrugTest"/>
+          <include name="ProtocolandselectionTest"/>
+          <include name="Setup"/>
+          <include name="SaveTheCycleTest"/>
+          <include name="SourceofspermPartnerTest"/>
+          <include name="LMPDateTest"/>
+          <include name="MethodOfSemenCollectionTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.CycleListPageTest -->
+      <class name="com_Milan_Test.EMRDashBoardPageTest">
+        <methods>
+          <include name="ClickOnSiemenProcessingTest"/>
+          <include name="Seup"/>
+          <include name="teardown"/>
+          <include name="ClickOnComplaintTest"/>
+        </methods>
+      </class> <!-- com_Milan_Test.EMRDashBoardPageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- ApolloIVFTest(failed) -->
+</suite> <!-- Failed suite [ApolloIVFTestSuite] -->

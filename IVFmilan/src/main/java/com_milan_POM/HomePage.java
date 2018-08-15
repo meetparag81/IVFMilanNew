@@ -203,6 +203,7 @@ public class HomePage extends TestBase {
 		try
 		{			
 		TestUtil.VisibleOn(driver, Paitent, 20);
+		TestUtil.ActionForMovetoElement(Paitent);
 		}
 		catch(Exception e)
 		{
@@ -365,7 +366,7 @@ for(int i=1;i<radiobuttons;i++)
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("01")) 
+			if (date.equals("08")) 
 			{
 				dates.get(i).click();
 				break;
@@ -408,14 +409,16 @@ for(int i=1;i<radiobuttons;i++)
 				System.out.println("TimeoutExceptionseen");
 			}
 			String name1 = Nameofpatient.getText();
+			String name2= name1.substring(0,10);
+			
 			try {
 				Thread.sleep(4000);
 			} catch (InterruptedException e) 
 			{
 				System.out.println("The InterruptedException is occured");
 			}
-			String Paitentname = reader.getCellData("HomePage", 0, 15);
-			if (name1.contains(Paitentname)) 
+			String Paitentname = reader.getCellData("HomePage", 0, 16);
+			if (name2.contains(Paitentname)) 
 			{
 				 try {
 					Thread.sleep(2000);
