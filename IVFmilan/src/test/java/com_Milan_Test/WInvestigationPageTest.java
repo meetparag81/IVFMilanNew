@@ -2,6 +2,7 @@ package com_Milan_Test;
 
 import java.util.ArrayList;
 
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -86,7 +87,14 @@ public class WInvestigationPageTest extends TestBase
 	@AfterMethod
 	public void Teardown() 
 	{
+		try
+		{
 		driver.quit();
+		}
+		catch(UnreachableBrowserException e)
+		{
+			System.out.println("UnreachableBrowserException is seen at-InvestigationPageTest ");
+		}
 	}
 	
 	

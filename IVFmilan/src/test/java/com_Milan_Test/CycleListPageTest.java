@@ -6,6 +6,7 @@ import static org.testng.Assert.assertTrue;
 import java.io.FileNotFoundException;
 
 import org.apache.bcel.generic.BALOAD;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -383,7 +384,14 @@ public class CycleListPageTest extends TestBase
 	@AfterMethod
 	public void Teardown()
 	{
+		try
+		{
 		driver.quit();
+		}
+		catch(UnreachableBrowserException e)
+		{
+			System.out.println("UnreachableBrowserException is seen at-CycleListPageTest ");
+		}
 	}
 	
 	

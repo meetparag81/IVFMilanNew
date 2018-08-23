@@ -6,6 +6,8 @@ import org.testng.ITestContext;
 import org.testng.ITestResult;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -279,7 +281,14 @@ public void Setup()
 	@AfterMethod 
 	public void Teardown()
 	{
+		try
+		{
 		driver.quit();
+		}
+		catch(UnreachableBrowserException e)
+		{
+			System.out.println("UnreachableBrowserException is seen at-AddictionTest ");
+		}
 	}
 	
 	

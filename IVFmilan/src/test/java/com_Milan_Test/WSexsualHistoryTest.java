@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -143,6 +144,13 @@ public class WSexsualHistoryTest extends TestBase
 		@ AfterMethod
 		public void Teardown()
 		{
+			try
+			{
 			driver.quit();
+			}
+			catch(UnreachableBrowserException e)
+			{
+				System.out.println("UnreachableBrowserException is seen at-WSexsualHistoryPageTest");
+			}
 		}
 }

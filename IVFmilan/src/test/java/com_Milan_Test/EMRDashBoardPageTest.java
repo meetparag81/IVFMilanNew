@@ -3,6 +3,7 @@ package com_Milan_Test;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -141,6 +142,13 @@ public class EMRDashBoardPageTest extends TestBase
 	@ AfterMethod
 	public void teardown()
 	{
+		try
+		{
 		driver.quit();
+		}
+		catch(UnreachableBrowserException e)
+		{
+			System.out.println("UnreachableBrowserException is seen at-EMRPageTest ");
+		}
 	}
 }

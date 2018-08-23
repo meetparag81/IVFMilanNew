@@ -63,8 +63,11 @@ public class TestBase
 		}	
 		else if(browsername.equals("chrome"))
 		 {
-			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Paragdata30032018\\Parag\\Selenium\\Selenium Setup\\chromeexefor64\\chromedriver_win32\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver" ,"C:\\Parag\\Selenium\\Selenium Setup\\chromeexe for 67to69\\chromedriver.exe");
 			driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.logfile", "C:\\chromelogsB68\\chromedriver.log");
+			System.setProperty("webdriver.chrome.verboseLogging", "true");
+			System.out.println("Webdriver Logs are created");
 		 }
 		EventFiringWebDriver e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver

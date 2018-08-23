@@ -44,7 +44,7 @@ public class WomenHistoryPage extends TestBase
 		}
 		catch(Exception e)
 		{
-			System.out.println("Element is not displayed within30 sec");
+			System.out.println("Element-SexualHistory is not displayed within 30 sec");
 		}
 		SexualHistory.click();
 		System.out.println("clicked on Sexual history");

@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.io.TemporaryFilesystem;
+import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -157,7 +158,14 @@ public void AllergySelectionTest()
 	{
 		TemporaryFilesystem tempFS = TemporaryFilesystem.getDefaultTmpFS();
 		tempFS.deleteTemporaryFiles();
+		try
+		{
 		driver.quit();
+		}
+		catch(UnreachableBrowserException e)
+		{
+			System.out.println("UnreachableBrowserException is seen at-AllergiesTest ");
+		}
 	}
 	
 	

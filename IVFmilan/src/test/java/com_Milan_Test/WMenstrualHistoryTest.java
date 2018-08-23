@@ -156,7 +156,7 @@ public class WMenstrualHistoryTest extends TestBase
 		}
 		catch(UnreachableBrowserException e)
 		{
-			System.out.println("UnreachableBrowserException is seen");
+			System.out.println("UnreachableBrowserException is seen at-MenstructrualHistoryPageTest ");
 		}
 	}
 	
