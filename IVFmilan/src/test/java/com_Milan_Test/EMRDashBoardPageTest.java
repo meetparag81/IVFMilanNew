@@ -142,6 +142,7 @@ public class EMRDashBoardPageTest extends TestBase
 	@ AfterMethod
 	public void teardown()
 	{
+		
 		try
 		{
 		driver.quit();

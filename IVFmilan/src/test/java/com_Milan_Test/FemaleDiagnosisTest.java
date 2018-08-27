@@ -120,6 +120,7 @@ public class FemaleDiagnosisTest extends TestBase
 	@AfterMethod
 	public void TearDown()
 	{
+		
 		try
 		{
 		driver.quit();

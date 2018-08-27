@@ -146,11 +146,6 @@ public void AllergySelectionTest()
 		
 	}
 	
-	
-	
-		
-		
-
 }
 
 	@ AfterMethod
@@ -158,6 +153,7 @@ public void AllergySelectionTest()
 	{
 		TemporaryFilesystem tempFS = TemporaryFilesystem.getDefaultTmpFS();
 		tempFS.deleteTemporaryFiles();
+		
 		try
 		{
 		driver.quit();

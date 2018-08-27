@@ -147,14 +147,15 @@ public class CycleOverviewPageTest extends TestBase
 	@AfterMethod
 	public void TearDown()
 	{
-		try
+		driver.quit();
+		/*try
 		{
 		driver.quit();
 		}
 		catch(UnreachableBrowserException e)
 		{
 			System.out.println("UnreachableBrowserException is seen at-CycleOverviewPageTest ");
-		}
+		}*/
 	}
 	
 }

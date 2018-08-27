@@ -384,9 +384,10 @@ public class CycleListPageTest extends TestBase
 	@AfterMethod
 	public void Teardown()
 	{
+		
 		try
 		{
-		driver.quit();
+			driver.quit();
 		}
 		catch(UnreachableBrowserException e)
 		{

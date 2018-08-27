@@ -81,6 +81,7 @@ private void SearchPatientUsingPatientTabTest()
 @AfterMethod
 public void teardown()
 {
+	
 	try
 	{
 	driver.quit();
