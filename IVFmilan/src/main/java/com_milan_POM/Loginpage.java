@@ -57,7 +57,7 @@ public class Loginpage extends TestBase {
 		{
 			System.out.println("Element seen within 20 secs");
 		}
-		drop.selectByVisibleText("Lavida Fertility Bangkok");
+		drop.selectByVisibleText(prop.getProperty("clinic"));
 		Loginbutton.click();
 		return new HomePage();
 
@@ -112,7 +112,7 @@ public class Loginpage extends TestBase {
 		{
 			System.out.println("The InterruptedException is occured");
 		}
-		drop.selectByVisibleText("Lavida Fertility Bangkok");
+		drop.selectByVisibleText(prop.getProperty("clinic"));
 		Loginbutton.click();
 		try {
 			Thread.sleep(3000);

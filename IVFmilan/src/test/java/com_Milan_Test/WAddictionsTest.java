@@ -189,9 +189,7 @@ public void Setup()
 			String exp = reader.getCellData("Addictions", "Message", 3);
 			Assert.assertEquals(act, exp);
 			System.out.println("saveAdictionsTest is completed");
-			 
-			
-
+		
 		}
 		else if (flag==false&& flag1==false)//Newpatient but Save button is seen
 		{

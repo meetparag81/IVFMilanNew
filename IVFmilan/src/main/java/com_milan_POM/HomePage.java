@@ -175,7 +175,9 @@ public class HomePage extends TestBase {
 				}
 
 				j++;
-			} else {
+			}
+			else 
+			{
 				j = 1;
 
 				JavascriptExecutor jse = (JavascriptExecutor) driver;
@@ -366,7 +368,7 @@ for(int i=1;i<radiobuttons;i++)
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("08")) 
+			if (date.equals("04")) 
 			{
 				dates.get(i).click();
 				break;

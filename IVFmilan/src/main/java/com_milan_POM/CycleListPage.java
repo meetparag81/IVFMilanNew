@@ -41,7 +41,8 @@ public class CycleListPage extends TestBase
 	private@FindBy(xpath="//button[text()='Save']")WebElement Save;
 	private @FindBy(xpath="//span[@class='toast-msg ng-binding ng-scope']")WebElement SaveMessage;
 	private @FindBy(xpath="//i[@class='fa fa-calendar']")WebElement LMPcalender;
-	private @FindBy(xpath="//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']")WebElement Cyclecode;
+	//private @FindBy(xpath="//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']")WebElement Cyclecode;
+	@FindBy(xpath="//th[contains(text(), 'Cycle Code')]//following::a[@class='txt_bold ng-binding']")WebElement Cyclecode;
 	private @FindBy(xpath="//input[@name='LMPDate']")WebElement LMPdate;
 	CycleListPage CLP;
 	
@@ -76,7 +77,8 @@ public class CycleListPage extends TestBase
 	public boolean CycleCodeAvaibility()
 	{
 		boolean flag1;
-		List<WebElement>cNoofcycles = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
+//for milan		//List<WebElement>cNoofcycles = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
+List<WebElement>cNoofcycles = driver.findElements(By.xpath("//th[contains(text(), 'Cycle Code')]//following::a[@class='txt_bold ng-binding']"));
 		int codesize= cNoofcycles.size();
 		
 			if (codesize>0)
@@ -777,7 +779,8 @@ public class CycleListPage extends TestBase
 	}
 	public CycleOverviewPage ClickOnCycleCode()
 	{
-		List<WebElement>cyclecodes = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
+	// for Milan 	List<WebElement>cyclecodes = driver.findElements(By.xpath("//table[@class='table table-hover table-striped']//tbody//tr//td[3]/a[@class='txt_bold ng-binding']"));
+		List<WebElement>Noofcycles = driver.findElements(By.xpath("//th[contains(text(), 'Cycle Code')]//following::a[@class='txt_bold ng-binding']"));
 		try
 		{
 		TestUtil.VisibleOn(driver, Cyclecode, 30);
@@ -787,7 +790,7 @@ public class CycleListPage extends TestBase
 		{
 			System.out.println("Elemet-Cyclecode is not seen within 20 sec");
 		}
-		int size= cyclecodes.size();
+		int size= Noofcycles.size();
 		if(size>0)
 		{
 			Cyclecode.click();

@@ -165,7 +165,7 @@ public class CycleListPageTest extends TestBase
 	@Test(priority=5,enabled=true)
 	public void ARTTypeOptionTest() 
 	{
-		
+		System.out.println();
 		boolean flag= CLP.CycleCodeAvaibility();
 		if(flag= true)
 		{

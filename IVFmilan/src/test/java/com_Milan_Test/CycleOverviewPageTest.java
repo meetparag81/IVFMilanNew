@@ -33,12 +33,6 @@ public class CycleOverviewPageTest extends TestBase
 	CycleOverviewPage COP;
 	Exls_Reader reader = new Exls_Reader("C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
 	
-	
-	
-	
-	
-	
-	
 	CycleOverviewPageTest()
 	{
 		super();
@@ -142,20 +136,40 @@ public class CycleOverviewPageTest extends TestBase
 			Assert.assertEquals(act, exp);
 			System.out.println("ValueInARTTypeTest is completed");
 		}
-	
+	@Test(priority=5,enabled=true)
+	public void ConcentTest()
+	{
+		boolean flag;
+		flag=COP.Concent();
+		if(!COP.PACNote().equals("PAC is not done."))
+		{
+			Assert.assertFalse(flag);
+			
+			System.out.println("for existing consent, ConcentTest  is completed");
+			
+		}
+		else
+		{
+			flag= true;
+			Assert.assertTrue(flag);
+			System.out.println("for new consent, ConcentTest  is completed");
+		}
+		
+		
+	}
 		
 	@AfterMethod
 	public void TearDown()
 	{
-		driver.quit();
-		/*try
+		
+		try
 		{
 		driver.quit();
 		}
 		catch(UnreachableBrowserException e)
 		{
 			System.out.println("UnreachableBrowserException is seen at-CycleOverviewPageTest ");
-		}*/
+		}
 	}
 	
 }

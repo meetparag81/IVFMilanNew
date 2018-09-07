@@ -25,7 +25,8 @@ public class StimulationChartPage extends TestBase {
 	private @FindBy(xpath = "//label[@class='checkbox-inline p-t-0']/input") WebElement Finalize;
 	private @FindBy(xpath = "//li[text()='Stimulation Chart']") WebElement StimulationChart;
 	private @FindBy(xpath = " //button[contains(text(), 'Add Stimulation Drug')]") WebElement AddSimulation;
-	private @FindBy(xpath = "//table[@class='table table-bordered timeTableGrid']//tr[32]/td[contains(text(), ' Endometrium')]") WebElement Endometrium;
+	//Milan//private @FindBy(xpath = "//table[@class='table table-bordered timeTableGrid']//tr[32]/td[contains(text(), ' Endometrium')]") WebElement Endometrium;
+	private @FindBy(xpath="//table[@class='table table-bordered timeTableGrid']//td[contains(text(), ' Endometrium')]") WebElement Endometrium;
 	private @FindBy(xpath = "//table[@class='table table-striped']//tbody//td/select[1]") WebElement DrugName;
 	private @FindBy(xpath = "//table[@class='table table-striped']//thead//th[text()='#Days']//following::select[2]") WebElement Days;
 	private @FindBy(xpath = "//table[@class='table table-striped']//tbody/tr//following-sibling::span/i") WebElement calender;
@@ -103,8 +104,7 @@ public class StimulationChartPage extends TestBase {
 		int rows = 3;// startedfrom 1 because at 2nd row 'select' option is
 						// avail.
 
-		for (i = 1; i <= 5; i++)// startedfrom 1 because at oth location
-								// select option is avail.
+		for (i = 1; i <= 5; i++)// startedfrom 1 because  select option is avail at oth location.
 		{
 			TestUtil.ActionForMovetoElement(AddSimulation);
 			AddSimulation.click();
@@ -113,7 +113,9 @@ public class StimulationChartPage extends TestBase {
 			try {
 				TestUtil.VisibleOn(driver, DrugName, 30);
 				TestUtil.ActionForMovetoElement(DrugName);
-			} catch (Exception e) {
+			} 
+			catch (Exception e) 
+			{
 				System.out.println("Element - DrugName is not seen with in 30 sec");
 			}
 			// DrugName.click();
@@ -121,7 +123,8 @@ public class StimulationChartPage extends TestBase {
 			names = reader.getCellData("Stimulationchart", "DrugName", rows);
 			try {
 				DN.selectByVisibleText(names);
-			} catch (Exception e) {
+			} catch (Exception e) 
+			{
 				System.out.println("ElementNotVisibleException seen");
 			}
 			rows++;
@@ -130,14 +133,12 @@ public class StimulationChartPage extends TestBase {
 			TestUtil.ActionForMovetoElement(calender);
 			calender.click();
 			TestUtil.Date();
-			List<WebElement> Dates = driver
-					.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
+			List<WebElement> Dates = driver.findElements(By.xpath("//table[@class='uib-daypicker']//following-sibling::tbody//tr/td/button"));
 			int rows1 = 2;
 			for (int i = 1; i < Dates.size(); i++) 
 			{
 			String Datetext = Dates.get(i).getText();
-			WebElement Monthtextele = driver
-					.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
+			WebElement Monthtextele = driver.findElement(By.xpath("//table[@class='uib-daypicker']//th/button[@role='heading']"));
 			String text = Monthtextele.getText();
 			String Arr[] = text.split(" ");
 			String Monthtext = Arr[0];
@@ -177,7 +178,8 @@ public class StimulationChartPage extends TestBase {
 				} catch (InterruptedException e) {
 					System.out.println("Element- InterruptedException is  seen");
 				}
-				msg = Cycleoverview.getText();
+				//Milan msg = Cycleoverview.getText();
+				msg= driver.getTitle();
 				break;
 			} else 
 			{
@@ -199,12 +201,11 @@ public class StimulationChartPage extends TestBase {
 		}
 		TestUtil.ActionForMovetoElement(Endometrium);
 		Endometrium.click();
-		WebElement element = driver
-				.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[37]/td[1]"));
+		WebElement element = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[37]/td[1]"));
 		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
 		int k = 37 + i;
-		WebElement drugName = driver
-				.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[38]/td[1]"));
+		//Milan WebElement drugName = driver.findElement(By.xpath("//table[@class='table table-bordered timeTableGrid']/tbody/tr[38]/td[1]"));
+		WebElement drugName= driver.findElement(By.xpath("//td[text()='FSH']//following::tr[1]/td[1]"));
 		TestUtil.ActionForMovetoElement(drugName);
 		try 
 		{
@@ -228,9 +229,12 @@ public class StimulationChartPage extends TestBase {
 		int size = button.size();
 
 		boolean flag2;
-		if (size > 0) {
+		if (size > 0) 
+		{
 			flag2 = false;
-		} else {
+		}
+		else 
+		{
 			flag2 = true;
 		}
 		return flag2;

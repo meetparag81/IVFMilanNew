@@ -53,8 +53,8 @@ public class LoginPageTest extends TestBase
 	@Test(priority=2)
 	public void InvalidPasswordTest() 
 	{
-		String username = reader.getCellData("LoginPage", 0, 3);
-		String password = reader.getCellData("LoginPage", 1, 3);
+		String username = reader.getCellData("LoginPage", 0, 4);
+		String password = reader.getCellData("LoginPage", 1, 4);
 		String Actual= Loginpage.Invaliduserpassword(username, password);
 		String Msg= reader.getCellData("LoginPage", 2, 3);
 		String Expected= Msg;

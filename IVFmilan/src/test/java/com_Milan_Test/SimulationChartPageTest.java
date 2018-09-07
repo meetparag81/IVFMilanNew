@@ -87,7 +87,7 @@ public class SimulationChartPageTest extends TestBase
 		SCP.AddStimulationdrug();
 	}
 	
-	@Test(priority=2,enabled=false)
+	@Test(priority=2,enabled=true)
 	public void EnableconditionAddSimulationDrugTest()
 	{
 		boolean flag= SCP.EnableconditionAddSimulationDrug();
@@ -109,7 +109,7 @@ public class SimulationChartPageTest extends TestBase
 	{
 		System.out.println();
 		String act= SCP.SaveSimulation();
-		String exp = reader.getCellData("Stimulationchart", "Message", 4);
+		String exp = "Palash IVF";
 		Assert.assertEquals(act, exp);
 		System.out.println("SaveSimulationTest is completed");
 	}
@@ -127,7 +127,7 @@ public class SimulationChartPageTest extends TestBase
 	public void InvalidDateTest()
 	{
 		String act= SCP.InvalidDate();
-		String exp= reader.getCellData("Stimulationchart", "Message", 3);
+		String exp= reader.getCellData("Stimulationchart", "Message", 6);
 		Assert.assertEquals(act, exp);
 		System.out.println("InvalidDateTest is completed");
 	}

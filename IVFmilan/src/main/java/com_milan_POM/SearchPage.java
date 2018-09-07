@@ -162,14 +162,14 @@ public class SearchPage extends TestBase {
 		for (int i = 0; i < Total_nodes; i++) 
 		{
 			String date = dates.get(i).getText();
-			if (date.equals("05")) 
+			if (date.equals("04")) 
 			{
 				dates.get(i).click();
 				break;
 			}
 
 		}
-		String Paitentname = reader.getCellData("HomePage", 0, 15);
+		String Paitentname = reader.getCellData("HomePage", 0, 8);
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e1) 
@@ -218,7 +218,7 @@ public class SearchPage extends TestBase {
 			{
 				System.out.println("The InterruptedException is occured");
 			}
-			if (name1.contains(Paitentname)) 
+			if (name1.equals(name1))
 			{
 				// Thread.sleep(4000);
 				WebElement EMR = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(("//div[@id='tableToExport']/table/tbody/tr[" + k + "]/td[1]/a[2]"))));
