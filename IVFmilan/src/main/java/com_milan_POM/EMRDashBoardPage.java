@@ -37,6 +37,8 @@ public class EMRDashBoardPage extends TestBase {
 	private @FindBy(xpath="//span[@class='icon-screen ng-binding']")WebElement Complainttext;
 	private @FindBy(xpath="//span[@class='icon-screen ng-binding']")WebElement SiemencollectionText;
 	private @FindBy(xpath="//a[@class='icoLink semenProcessing']")WebElement SiemenProvessing;
+	private @FindBy(xpath="//a[@class='icoLink femaleReportUpload']")WebElement ReportUpload;
+	private @FindBy(xpath="//span[text()='Female Report Upload']")WebElement ReportUploadText;
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	String msg;
 
@@ -198,7 +200,7 @@ public class EMRDashBoardPage extends TestBase {
 			List<WebElement> visitm = driver.findElements(By.xpath("//table[@class='table table-hover table-striped selectPatient_item']/tbody//tr/td//input"));
 			if (visitm.size() != 0) 
 			{
-				// System.out.println("Visitcount" + visitm.size());
+				
 				try
 				{
 				TestUtil.VisibleElementsOn(driver, visitm, 30);
@@ -436,6 +438,23 @@ public class EMRDashBoardPage extends TestBase {
 	{
 		String msg = Complainttext.getText();
 		return msg;
+		
+	}
+	public FemaleReportUploadPage ClickonReportUpload()
+	{
+		try
+		{
+		TestUtil.VisibleOn(driver, ReportUpload, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element-ReportUpload is not seen within30 sec");
+		}
+		TestUtil.ActionForMovetoElement(ReportUpload);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", ReportUpload);
+			
+		return new FemaleReportUploadPage();
 		
 	}
 

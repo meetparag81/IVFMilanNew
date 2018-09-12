@@ -17,7 +17,8 @@ import com_Milan_Base.TestBase;
 import com_Milan_util.TestUtil;
 import net.sourceforge.htmlunit.corejs.javascript.ast.ContinueStatement;
 
-public class CycleOverviewPage extends TestBase {
+public class CycleOverviewPage extends TestBase 
+{
 	private @FindBy(xpath = "//label[@class='checkbox-inline p-t-0']/input") WebElement Finalize;
 	private @FindBy(xpath = "//li[text()='Stimulation Chart']") WebElement StimulationChart;
 	private @FindBy(xpath = "//li[text()='Semen Details']") WebElement SemenDetails;
@@ -45,6 +46,7 @@ public class CycleOverviewPage extends TestBase {
 	private @FindBy(xpath = "//h4[text()='PAC Details']//following:: button[contains (text(), 'Cancel')]//preceding-sibling::button[text()='Save']") WebElement SavePAC;
 	private @FindBy(xpath="//li[text()='OPU']")WebElement OPUtab;
 	private @FindBy(xpath="(//label[@class='checkbox-inline p-t-0']//preceding::span[@class='ng-binding'])[2]")WebElement PACMessage;
+	
 
 	String msg;
 
@@ -70,7 +72,8 @@ public class CycleOverviewPage extends TestBase {
 
 	}
 
-	public boolean EnabledconditionNewCycle() {
+	public boolean EnabledconditionNewCycle() 
+	{
 		boolean flag = false;
 		Actions act = new Actions(driver);
 		act.moveToElement(Newcycle);
@@ -78,18 +81,22 @@ public class CycleOverviewPage extends TestBase {
 		return flag;
 	}
 
-	public String SourceofSperm() {
+	public String SourceofSperm()
+	{
 		Select SOS = new Select(SourceofSperm);
 		try {
 			Thread.sleep(2000);
-		} catch (InterruptedException e) {
+		} catch (InterruptedException e) 
+		{
 			System.out.println("InterruptedException is seen");
 		}
 		WebElement we = SOS.getFirstSelectedOption();
 		TestUtil.ActionForMovetoElement(we);
-		try {
+		try 
+		{
 			Thread.sleep(4000);
-		} catch (InterruptedException e) 
+		} 
+		catch (InterruptedException e) 
 		{
 			System.out.println("InterruptedException is seen");
 		}

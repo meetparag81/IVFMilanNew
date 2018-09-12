@@ -44,7 +44,7 @@ public class StimulationChartPage extends TestBase {
 	private @FindBy(xpath = "(//h4[@id='myModalLabel'])[4]/following::input[@name='SCDose'][1]") WebElement DoseT;
 	private @FindBy(xpath = "(//h4[@id='myModalLabel'])[4]/following::button[text()='Save'][1]") WebElement SaveT;
 	private @FindBy(xpath="//li[contains(text() , 'OPU')]")WebElement OPUOption;
-	private @FindBy(xpath="//span[contains (text(),'Finalize stimulation to save OPU.')]")WebElement MessageOPU;
+	private @FindBy(xpath="(//label[@class='checkbox-inline p-t-0']//preceding::span[@class='ng-binding'])[2]")WebElement MessageOPU;
 	private @FindBy(xpath = "//span[@class='icon-screen ng-binding']") WebElement Cycleoverview;
 	Exls_Reader reader = new Exls_Reader(
 			"C:\\Parag\\Git\\IVFmilan\\src\\main\\java\\com_Milan_TestData\\Milandata.xlsx");
@@ -271,12 +271,28 @@ public class StimulationChartPage extends TestBase {
 		MoveToOPUOPtion();
 		JavascriptExecutor js = null;
 		TestUtil.ScrollthePage(js, driver);
-		TestUtil.ActionForMovetoElement(MessageOPU);
-		msg= MessageOPU.getText();
+		
+		
+		
+			try 
+			{
+				Thread.sleep(3000);
+			} 
+			catch (InterruptedException e) 
+			{
+			System.out.println("InterruptedException is seen");
+		    }
+			
+				TestUtil.ActionForMovetoElement(MessageOPU);
+				return msg= MessageOPU.getText();
+			}
+	 
+			
+		
 
-		return msg;
+		
 
-	}
+	
 
 	public String Triggerdrug() 
 	{

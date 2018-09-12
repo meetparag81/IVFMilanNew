@@ -7,28 +7,18 @@
   </listeners>
   <test name="ApolloIVFTest(failed)">
     <classes>
-      <class name="com_Milan_Test.CycleOverviewPageTest">
+      <class name="com_Milan_Test.WcomplaintsTest">
         <methods>
           <include name="Setup"/>
-          <include name="ValueInARTTypeTest"/>
-          <include name="TearDown"/>
-          <include name="ValueInMethodOfSemenCollectionOptionTest"/>
-        </methods>
-      </class> <!-- com_Milan_Test.CycleOverviewPageTest -->
-      <class name="com_Milan_Test.SimulationChartPageTest">
-        <methods>
-          <include name="Setup"/>
-          <include name="InvalidDateTest"/>
-          <include name="SimulationDrugValidationTest"/>
-          <include name="MessageonOPUPageTest"/>
           <include name="Teardown"/>
-          <include name="SaveSimulationTest"/>
+          <include name="SaveTheComplaintsTest"/>
         </methods>
-      </class> <!-- com_Milan_Test.SimulationChartPageTest -->
+      </class> <!-- com_Milan_Test.WcomplaintsTest -->
       <class name="com_Milan_Test.CycleListPageTest">
         <methods>
           <include name="Teardown"/>
           <include name="Setup"/>
+          <include name="SaveTheCycleTest"/>
           <include name="SourceofspermPartnerTest"/>
           <include name="LMPDateTest"/>
           <include name="MethodOfSemenCollectionTest"/>
