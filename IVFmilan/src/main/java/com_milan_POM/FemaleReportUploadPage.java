@@ -81,7 +81,7 @@ public class FemaleReportUploadPage extends TestBase {
 			{
 				 String ReportCategorytext = reader.getCellData("FReportUpload", "ReportCategory", i);
 				Select ReportCategory1 = new Select(ReportCategory);
-				ReportCategory1.selectByVisibleText("Radiology");
+				ReportCategory1.selectByVisibleText(ReportCategorytext);
 				String ReportName = reader.getCellData("FReportUpload", "ReportName", i);
 				TestUtil.ActionForMovetoElement(ReportNameele);
 				ReportNameele.sendKeys(ReportName);

@@ -20,12 +20,14 @@ import com_milan_POM.EMRDashBoardPage;
 import com_milan_POM.HomePage;
 import com_milan_POM.Loginpage;
 import com_milan_POM.MenHistoryPage;
+import com_milan_POM.PrescriptionPage;
 import com_milan_POM.SearchPage;
 import com_milan_POM.SiemenProcessingPage;
 import com_milan_POM.WInvestigationPage;
 import com_milan_POM.WVitalsPage;
 import com_milan_POM.WomenHistoryPage;
 import com_milan_POM.FemaleDiagnosisPage;
+import com_milan_POM.FemaleReportUploadPage;
 
 public class EMRDashBoardPageTest extends TestBase
 {
@@ -40,6 +42,8 @@ public class EMRDashBoardPageTest extends TestBase
 	WInvestigationPage Investigation;
 	SiemenProcessingPage SiemensProcessing;
 	WVitalsPage Vitals;
+	FemaleReportUploadPage FRP;
+	PrescriptionPage PP;
 	String Actual1, Expected1;
 	int count=0;
 	int row=2;
@@ -126,7 +130,7 @@ public class EMRDashBoardPageTest extends TestBase
 		Assert.assertEquals(act, exp, "text not matched");
 		System.out.println("ClickOnComplaints test completed");
 	}
-	@Test(priority=6,groups = {"smoketest" })
+	@Test(priority=7,groups = {"smoketest" })
 	public void ClickOnSiemenProcessingTest()
 	{
 		SiemensProcessing=EMRPage.ClickOnSiemenProcessing();
@@ -134,9 +138,20 @@ public class EMRDashBoardPageTest extends TestBase
 		String exp = reader.getCellData("EMRPage", "Message",5);
 		Assert.assertEquals(act, exp);
 		System.out.println("ClickOnSiemenProcessingTest is completed");
-		
+	}
+	@Test(priority=8, groups ={ "smoketest"})
+	public void ClickonReportUploadTest()
+	{
+		FRP= EMRPage.ClickonReportUpload();
 		
 	}
+	@Test(priority=9, groups ={ "smoketest"})
+	public void ClickonPrescriptionTest()
+	{
+		PP= EMRPage.ClickonPrescription();
+		
+	}
+	
 	
 	
 	@ AfterMethod

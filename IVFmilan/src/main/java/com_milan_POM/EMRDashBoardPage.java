@@ -39,6 +39,7 @@ public class EMRDashBoardPage extends TestBase {
 	private @FindBy(xpath="//a[@class='icoLink semenProcessing']")WebElement SiemenProvessing;
 	private @FindBy(xpath="//a[@class='icoLink femaleReportUpload']")WebElement ReportUpload;
 	private @FindBy(xpath="//span[text()='Female Report Upload']")WebElement ReportUploadText;
+	private @FindBy(xpath="//a[@class='icoLink femalePrescription']")WebElement Prescription;
 	WebDriverWait wait = new WebDriverWait(driver, 50);
 	String msg;
 
@@ -455,6 +456,24 @@ public class EMRDashBoardPage extends TestBase {
 		executor.executeScript("arguments[0].click();", ReportUpload);
 			
 		return new FemaleReportUploadPage();
+		
+	}
+	
+	public PrescriptionPage ClickonPrescription()
+	{
+		try
+		{
+		TestUtil.VisibleOn(driver, Prescription, 20);
+		}
+		catch(TimeoutException e)
+		{
+			System.out.println("Element-Prescription is not seen within30 sec");
+		}
+		TestUtil.ActionForMovetoElement(Prescription);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", Prescription);
+			
+		return new PrescriptionPage();
 		
 	}
 
